@@ -1,0 +1,21 @@
+extends includes/layout.pug
+
+block content
+  div#tag-block
+    h1= 'Tag:' + " " + page.tag
+    - page.posts.each(function(article){
+      .category-item
+        a.category-article-title(href=url_for(article.path))= article.title
+        .category-time
+          i.fa.fa-calendar
+          time.category-time-content(datetime=date_xml(article.date))= date(article.date)
+        br
+        span.category-tag-icon
+          i.fa.fa-book
+        each category, index in article.categories.data
+          span.tags
+            a.tagOfa(href=url_for(category.path))= category.name
+        br
+        br.clear
+    - })
+  include includes/pagination.pug

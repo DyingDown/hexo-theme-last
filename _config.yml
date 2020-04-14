@@ -1,0 +1,250 @@
+
+# html lang 语言
+language: en
+
+# main menu navigation 导航栏的主要菜单
+menu:
+  Home:
+    path: /
+    ico: home
+  Category:
+    path: /categories
+    ico: list
+    submenu:
+      Memories:
+        path: /categories/memories
+        ico: camera
+      OJ Prob:
+        path: /categories/oj-problem
+        ico: code
+      Novel:
+        path: /categories/novel
+        ico: book
+      Essay: 
+        path: /categories/essay
+        ico: pencil-alt
+      Film:
+        path: /categories/essay
+        ico: film
+  About:
+    path: /about
+    ico: lightbulb
+    submenu:
+      Me:
+        path: /about/me
+        ico: heart
+      Theme:
+        path: /about/theme-last
+        ico: puzzle-piece
+      Contat:
+        path: /contact
+        ico: lightbulb
+  Star:
+    path: /star/
+    ico: star
+  Archives:
+    path: /archives
+    ico: archive
+  Tags:
+    path: /tags
+    ico: tag
+  Friends:
+    path: includes/friends
+    ico: link
+  Messege:
+    path: /messege/
+    ico: comment-dots
+
+# stylesheets loaded in the <head>
+stylesheets:
+- /css/Last.css
+# - /css/layout/lay.css
+# - /css/layout/footer.css
+# - /css/layout/menu-side.css
+- /css/archive-timetree-comment-shape.css
+- /css/tags.css
+- /css/layout/header.css
+# - /css/post.css
+- /css/layout/toc.css
+# - /css/layout/pagination.css
+- /css/layout/side-user.css
+- /css/categories.css
+- /css/variable/variable.css
+- /css/layout/highlight.css
+
+# scripts loaded in the end of the body
+scripts:
+- /js/Last.js
+- /js/post.js
+- /js/toc.js
+- /js/third-party/reveal/math.min.js
+
+# Year of site creation 网站成立年份
+since: 2019
+
+# Signature in Home Page Home界面的个性签名
+signature:
+  date: 2020.3.31
+  content: "The Jigsaw puzzle is incomplete with even one missing piece."
+  from:
+    on: true
+    content: "—— Yao"
+# Link of friends 友链接
+friends:
+  o_oyao: https://dyingdown.github.io
+# friends: true # turn on friends page 开启朋友页面
+
+# count the visitors of the site 统计网站的访问数量
+# http://ibruce.info/2015/04/04/busuanzi/
+visits:
+  on: true
+
+# we use font awesome to display the fonts 我们用的是font awesome来展示图标
+# XXX: "url_for(XXX)||icon name of XXX"
+# befor || is your site's url ||前面的是你的url
+# after || is your icons name in font awesome ||后面的是font awesome上面对应的图标的名字
+# add any other icons using the format 用这种格式可以添加别的图标
+contacts:
+  # Tencent-Weibo: " || fab fa-fw fa-tencent-weibo"
+  # 知乎: " || fab fa-fw fa-zhihu"
+  # 微博: " ||fa fa-fw fa-weibo"
+  Wechat: " ||fa fa-fw fa-wechat"
+  Twitter: " ||fa fa-fw fa-twitter"
+  Telegram: " ||fab fa-fw fa-telegram-plane"
+  # Stack-overflow: " ||fa fa-fw fa-stack-overflow"
+  # Skype: " ||fa fa-fw fa-skype"
+  QQ: " ||fa fa-fw fa-qq"
+  # Pinterest: " ||fa fa-fw fa-pinterest-p"
+  Linkedin: " ||fa fa-fw fa-linkedin"
+  GitHub: " ||fa fa-fw fa-github"
+  Facebook: " ||fa fa-fw fa-facebook-f"
+  # Codepen: " ||fa fa-fw fa-codepen"
+  # Google: "  ||fa fa-fw fa-google"
+  # Alipay: " ||fab fa-fw fa-alipay"  
+  Instagram: " ||fa fa-fw fa-instagram"
+  Quora: " ||fab fa-fw fa-quora"
+  # Spotify: " ||fab fa-fw fa-spotify"
+  # YouTube: " ||fab fa-fw fa-youtube"
+  # Discord: " ||fab fa-fw fa-discord"
+  # 人人: " ||fab fa-fw fa-renren"
+  # Reddit: " ||fab fa-fw fa-reddit"
+  # Snapchat: " ||fa fa-fw fa-snapchat-ghost"
+
+
+# turn on memory page or not 是否开启照片墙页面
+memory: true
+
+# turn on about page or not 是否开启关于我页面
+about: true
+
+# turn on contact page or not
+contact: true
+
+# Comment function 评论功能
+valine:
+  on: true
+  appId:  # App ID
+  appKey: # App Key
+  verify: true # 验证码
+  notify: true # 评论回复邮箱提醒
+  avatar: mp # 匿名者头像选项
+  placeholder: Fantastic theme Last!
+  lang: zh-cn
+  guest_info: nick,mail,link
+  pageSize: 10
+
+
+disques:
+  on: false
+
+livere:
+  on: false
+
+gitalk:
+  on: false
+
+# Search function 搜索功能
+# true: on 开启;  false: off 不开启
+search:
+  on: true
+
+# MathJax
+# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/third-party-support.html#mathjax
+# ---------------
+mathjax:
+  enable: true
+  cdn: https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+# KaTeX
+# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/third-party-support.html#katex
+# ---------------
+katex:
+  enable: false
+  cdn:
+    css: https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css
+  hide_scrollbar: true
+
+# donate function 打赏功能
+donate:
+  on: true # false
+  wechat: true # false
+  alipay: true # false
+  description: Like my post?
+
+# location function 地址定位
+location:
+  on: true # false
+
+#是否开启“关于我”。
+aboutme: I'm a theme for hexo called "Last".
+
+# format of your toc directory 文章目录的格式
+toc:
+  on: true
+  list_number: true # 有数字序号; false 无数字序号
+  max_depth: 3 # 0-6 最大深度
+  min_depth: 3 # 0-6 最小深度
+
+# copyright at the end of page 文末版权信息
+copyright: on
+
+# Encapsulated theme 封装好的主题
+theme_style: 1 # 0: self design 自定义模式;  1:the dark style 暗黑模式;  2:the white style 白色模式
+
+# heading style 标题风格
+heading_style: 0
+
+# hilight style 高亮风格
+hightlight_style: 0
+
+# Code style 代码风格
+code_style: 0
+
+# Tags style 标签的风格
+tags_style: 0
+
+# Category style 分类的风格
+category_style: 0
+
+
+# style of your memory page 关于回忆模块的样式
+memory-page_style:
+  # background color 背景颜色
+  background-color: 0 # 0:black 黑色; 1:white 白色;
+  # color of texts 字体的颜色
+  text-color: 0 # 0:white 白色; 2:black  黑色
+  # background color of texts 字体的背景
+  text-background-color: 0 # 0:white 白色; 2:black  黑色; 3:colorful-light 彩色轻色 4:colorful-dark 彩色重色
+
+# style of your category page 关于分类模块的样式
+category-page_style:
+  tag: on # off
+  category: on # off
+  date_category: on # off
+
+# style of your home page 主页面的样式
+home-page_style:
+
+
+# Article display box style 文章展示板的样式
+display-box_style: 0

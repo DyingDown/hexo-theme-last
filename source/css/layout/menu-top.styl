@@ -1,0 +1,146 @@
+$text-color = #fff
+$line-height = 78px
+$theme-color = rgb(25,25,25)
+#menu-top
+    width 100%
+    top 0
+    left 0
+    z-index 9989
+    position fixed
+    height $line-height
+    background-color: rgba(0, 0, 0, 0.9)
+    // filter: invert()
+    // -webkit-filter: invert()
+    // -moz-box-shadow:0px 10px 5px #fff; 
+    // -webkit-box-shadow:0px 10px 5px #fff; 
+    // box-shadow:0px 10px 5px #fff;
+
+#user
+    float left
+    color $text-color
+    text-decoration: none
+    font-size: 50px
+    margin-left: 30px
+    font-family $fonts
+    font-weight: bold
+    // padding-top: 0px
+    margin-top: 0px
+    &:hover
+        border-radius 10px
+        background-color $text-color
+        color black
+        border-top: 0px
+        // padding-top: 0px
+        // margin-top: 10px
+#search
+    line-height: 70px
+    margin-left: 20px
+    // float left
+    
+.menu
+    color white
+    float left
+    font-size: 25px
+    // line-height: 40px
+    // font-family: $fonts
+    // opacity 1
+    margin-left 20px
+    text-decoration: none
+    line-height: "calc(%s/2)"%$line-height
+    padding-bottom: 22px
+    // margin-top: 0px
+    // display absolute
+    &:hover
+        color red
+        border-bottom: solid 
+        border-bottom-color: red
+        border-bottom-width: 6px
+
+#button
+    color $text-color
+    font-size: 35px
+    float right
+    padding-right: 30px
+    padding-top: 0px
+    // padding-bottom: 5px
+    line-height: 70px
+
+
+// #manu_button
+//     // margin-right: 80px
+//     // float right
+//     // line-height: 70px
+//     // padding-right: 80px
+#topmenu
+    // float right
+    display none
+#menu-item
+    // float right
+    // display inline-block
+
+#menus
+    margin-left: 100px
+    margin-top: 20px
+    float left
+    // display absolute
+    // font-size: 30px
+// p
+    // white-space: nowrap
+.icon-top
+    float: left
+.subicon
+    color white
+    font-size: 25px
+    text-decoration: none
+    &:hover
+        color red
+.sublabel
+    text-decoration: none
+    &:hover
+        color red
+
+
+.submenu
+    display: none
+    padding 10px
+    width: auto;
+    height: auto
+    margin-top: 30px
+    // margin-bottom: 50px
+    // margin: 30px 20px 20px 20px
+    // margin-right: 40px;
+    // float: left;
+    top: 40px
+    left: 550px
+    background: $theme-color;
+    position: absolute;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    // -moz-transform: rotate(90deg);
+    box-shadow:0 1px 60px -8px rgb(0,0,0);
+    text-align: left
+    z-index 999
+    // clear both
+.submenu:before
+    content: "";
+    width: 0;
+    height: 0;
+    left: 33%;
+    top: -20px;
+    position: absolute;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid  $theme-color;
+    // width: 0;
+    // height: 0;
+    // border-left: 50px solid transparent;
+    // border-right: 50px solid transparent;
+    // border-bottom: 100px solid red;
+
+.label
+    display inline-block
+    // margin-right 20px
+
+.sub
+    display none

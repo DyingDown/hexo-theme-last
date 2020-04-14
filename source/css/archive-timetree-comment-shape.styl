@@ -1,0 +1,96 @@
+@import "variable/variable.styl"
+    
+.archive-list
+    width 60%
+    color white
+    font-weight: bold
+    margin-left 20%
+    @media(max-width 900px)
+        margin-left 2%
+        width 99%
+.First-title-of-archives
+    color white
+    margin-top:100px
+    text-align: center
+.archive-list tr td:first-child
+    padding-top: 20px
+    text-align: right
+    vertical-align: top
+    padding-right 50px
+    width 50%
+.archive-list td:last-child
+    padding-top: 20px
+    text-align: left
+    vertical-align: top 
+    // border-left solid #d31a29 3px
+    padding-left 50px
+    width 50%
+    .article-t-c::before
+        content:"";
+        position: absolute;
+        margin-left: -46px
+        margin-top: 10px;
+        width: 0;
+        height: 30;
+        border-top: 20px solid transparent;
+        border-right: 30px solid rgb(170, 38, 17);
+        border-bottom: 20px solid transparent;
+    .timeline-time::before
+        content:"";
+        position: absolute;
+        margin-left: -110px
+        margin-top: -10px
+        width: 0;
+        height: 30;
+        border-top: 20px solid transparent;
+        border-left: 30px solid rgb(170, 38, 17);
+        border-bottom: 20px solid transparent;
+.archive-list td:last-child::before
+    position absolute
+    background-color :rgb(170, 38, 17)
+    border solid 4px rgb(170, 38, 17)
+    border-radius 20px
+    margin-top 40px
+    margin-left: -62px
+    content ""
+    width 13px
+    height 13px
+.archive-list th
+    text-align: center
+.archive-list
+    border-collapse: collapse;
+.article-time
+    color white
+    font-size: 17px
+.timeline-time
+    padding-top: 40px
+.article-time:nth-child(2n)
+    border-left solid rgb(170, 38, 17) 3px
+    
+.article-time:nth-child(2n-1)
+    border-right solid rgb(170, 38, 17) 3px
+.article-title
+    text-decoration: none
+    color white
+    font-size: 25px
+    font-weight: bold
+.article-content
+    text-decoration: none
+    color white
+    img
+        display none
+    a
+        color black
+.article-t-c
+    padding 20px
+    border solid rgb(170, 38, 17) 2px
+    border-radius: 20px
+    background-color: rgb(170, 38, 17)
+.article-year
+    color rgb(170, 38, 17)
+    clear both
+    text-align: center
+    font-size: 30px
+    padding-top: 30px
+    margin-bottom: 30px
+    font-weight: bold

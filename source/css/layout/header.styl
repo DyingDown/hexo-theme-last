@@ -1,0 +1,178 @@
+@import "../variable/variable.styl"
+
+#top
+    width 100%
+    top 0
+    left 0
+    z-index 9989
+    position fixed
+    height $header-height
+    background-color $header-background
+    vertical-align: middle
+    display flex
+    justify-content: space-between
+    opacity 0.98
+    filter: alpha($header-background, 98)
+#user
+    display flex
+    float left
+    color $header-user-text-color
+    text-decoration: none
+    font-size: 40px
+    margin-left: 30px
+    // margin-right 30px
+    font-family $header-user-font
+    font-weight: bold
+    // margin-top: 15px
+    line-height: $header-height
+    &:hover
+        border-radius 10px
+        background-color $header-user-hover-background-color
+        color $header-user-hover-text-color
+
+#menus
+    white-space nowrap
+    width auto
+    text-align: center
+    // margin-left 18%
+    font-family: $header-menu-text-font
+    display flex
+    justify-content: space-between
+    align-items: center
+    padding-inline-start: 0px
+    margin-block-start: 0px
+    margin-block-end: 0px
+    margin-top: 15px
+
+.menu-item
+    list-style-type none
+    // float left
+    // margin-right 1%
+    position relative
+    margin-left: 1vw
+    margin-right: 1vw
+    // margin-bottom: 6px
+    line-height: 2
+    // margin-top: 2.5%
+    &:hover .submenu
+        display: block
+// .menu-item::before
+//     display none
+// .submenu-item::before
+//     display none
+.menu
+    text-align: center
+    color $header-menu-item-text-color
+    font-size 19px
+    text-decoration none
+    display block
+    // line-height "calc(%s/2)"%$header-height
+    // padding-top: 20px
+    // padding-bottom: 18px
+    // border-top: 0px
+    // line-height 1
+    &:hover
+        color $header-menu-item-hover-text-color
+        // border-bottom: solid
+        // border-bottom-color: $header-menu-item-hover-text-color
+        // border-bottom-width: 6px
+        // padding-bottom: 20px
+        ::after
+            content ""
+            display block
+            position absolute
+            bottom -22.5px
+            background-color: $header-menu-item-hover-text-color
+            width 100%
+            height 6px
+            // max-width 0
+            transition  .25s ease-in-out
+
+.sublabel
+    text-decoration: none
+    font-size: 18px
+    color $header-menu-subitem-text-color
+    line-height: 35px
+    &:hover
+        color $header-menu-subitem-hover-text-color
+@-webkit-keyframes fadeInUp 
+    0%
+        opacity:0;
+        -webkit-transform:translateY(10px)
+    100%
+        opacity:1;
+        -webkit-transform:translateY(0)
+@-moz-keyframes fadeInUp 
+    0%
+        opacity:0;
+        -moz-transform:translateY(10px)
+    100% 
+        opacity:1;
+        -moz-transform:translateY(0)
+
+.submenu
+    list-style-type none
+    display none
+    opacity: 1
+    position:absolute;
+    background:$header-submenu-background-color;
+    padding:10px;
+    top:35px;
+    right:-8px;
+    width:auto;
+    height: auto
+    text-align:left;
+    z-index:9999;
+    border-radius:8px;
+    box-shadow:0 1px 40px -8px rgba(0,0,0,.5);
+    -webkit-animation fadeInUp .3s .1s ease both;
+    -moz-animation fadeInUp .3s .1s ease both
+    &:hover
+        display block
+.submenu:before
+    content:"";
+    position:absolute;
+    top:-20px;
+    left:50%;
+    margin-left:-10px;
+    border-width:10px;
+    border-style:solid;
+    border-color:transparent transparent $header-submenu-background-color transparent
+    opacity 1
+
+#buttons
+    display: flex
+    justify-content: space-between
+    margin-right: 2%
+#menu_button
+    color $header-menu-button-text-color
+    // float right 
+    // margin-right: 10%
+    font-size: 30px
+    line-height $header-height
+    
+#search
+    // float right
+    color $header-search-button-text-color
+    padding-right 25px
+    font-size: 30px
+    line-height $header-height
+
+// @media(max-width: 500px)
+//     #menus
+//         position: absolute
+//         top: 0
+//         bottom: 0
+//         right: -300px
+//         width: 300px
+//         background-color: black
+//         transition: 0.2s ease-out
+//         z-index 50
+    
+//         display: none
+//         // background-color: black
+//         &:checked 
+//             right: 0
+            
+//             & ~ #buttons
+//                 padding-right: 320px

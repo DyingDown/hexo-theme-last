@@ -1,0 +1,60 @@
+@import "variable/variable.styl"
+    
+.archive-list
+    width 60%
+    color white
+    margin-left 20%
+    @media(max-width 900px)
+        margin-left 2%
+        width 99%
+.First-title-of-archives
+    color white
+    margin-top:100px
+    text-align: center
+.archive-list tr td:first-child
+    padding-top: 20px
+    text-align: right
+    vertical-align: top
+    padding-right 30px
+    width 50%
+.archive-list tr td:last-child
+    padding-top: 20px
+    text-align: left
+    vertical-align: top 
+    border-left solid #d31a29 3px
+    padding-left 30px
+    width 50%
+.archive-list tr td:last-child::before
+    position absolute
+    background-color :black
+    border solid 4px #d31a29
+    border-radius 20px
+    margin-left: -42px
+    content ""
+    width 13px
+    height 13px
+.archive-list
+    border-collapse: collapse;
+.article-year
+    color #d31a29
+    clear both
+    text-align: center
+    font-size: 30px
+    padding-top: 30px
+    margin-bottom: 30px
+    font-weight: bold
+.article-time
+    color #d31a29
+    font-size: 17px
+.article-title
+    text-decoration: none
+    color white
+    font-size: 25px
+    font-weight: bold
+.article-content
+    text-decoration: none
+    color white
+    img
+        display none
+    a
+        color black

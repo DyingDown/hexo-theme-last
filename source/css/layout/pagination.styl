@@ -1,0 +1,55 @@
+@import "../variable/variable.styl"
+
+$number-padding = 5px
+
+.pagination
+    clear both
+    margin: auto
+    font-size: 20px
+    color: $text-color
+    text-align: center
+    width: 100%
+    line-height: 200px
+    
+.page-number
+    display: inline-block
+    vertical-align middle
+    margin: 0 6px
+    min-width: w = 1.2rem
+    height: w
+    line-height: w
+    cursor: pointer
+    // background-color: red
+    border: 1px solid $pagination-page-number-color
+    padding: $number-padding $number-padding $number-padding $number-padding
+    border-radius: 20px
+    font-weight:  bold
+    font-family: $pagination-page-number-font
+    color $pagination-page-number-color
+    text-decoration: none
+    &.current
+        color: $pagination-hover-page-number-color
+        border: 1px solid $pagination-hover-page-number-color
+    &:hover 
+        color: $pagination-hover-page-number-color
+        border: 1px solid $pagination-hover-page-number-color
+    &:active
+        color: $pagination-hover-page-number-color
+        border: 1px solid $pagination-hover-page-number-color
+        
+.extend.next
+    text-decoration: none
+    margin-left: 40px
+    color: $pagination-extend-text-color
+    &:hover
+        color: $pagination-hover-extend-text-color
+
+.extend.prev
+    text-decoration: none
+    margin-right: 40px
+    color: $pagination-extend-text-color
+    &:hover
+        color: $pagination-hover-extend-text-color
+
+.space
+    color $patination-space-text-color
