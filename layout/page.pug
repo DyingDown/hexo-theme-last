@@ -29,10 +29,10 @@ block content
             ul.group-items.clearfix
               each item in group.items
                   li.item-friend(title=item.description)
-                    //- a.item-friend-links(href=item.url)
-                    img.site-preview(src=item.img, alt=item.name)
-                    .site-name!= item.name
-                    .site-description!= item.description
+                    a.item-friend-links(href=item.url)
+                      img.site-preview(src=item.img, alt=item.name)
+                      .site-name!= item.name
+                      .site-description!= item.description
         include includes/comment.pug
     //- each article in page.links.sort('date', -1).limit(24).toArray()
         h1!= article.title
