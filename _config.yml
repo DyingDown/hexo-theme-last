@@ -12,13 +12,13 @@ menu:
     ico: list
     submenu:
       Memories:
-        path: /categories/memories
+        path: /categories/memories/
         ico: camera
       OJ Prob:
-        path: /categories/oj-problem
+        path: /categories/ACM/
         ico: code
       Novel:
-        path: /categories/novel
+        path: /categories/Novel
         ico: book
       Essay: 
         path: /categories/essay
@@ -27,14 +27,14 @@ menu:
         path: /categories/essay
         ico: film
   About:
-    path: /about
+    path: /
     ico: lightbulb
     submenu:
       Me:
-        path: /about/me
+        path: /about/
         ico: heart
       Theme:
-        path: /about/theme-last
+        path: /theme-last
         ico: puzzle-piece
       Contat:
         path: /contact
@@ -49,10 +49,10 @@ menu:
     path: /tags
     ico: tag
   Friends:
-    path: includes/friends
+    path: /links/
     ico: link
-  Messege:
-    path: /messege/
+  Message:
+    path: /message/
     ico: comment-dots
 
 # stylesheets loaded in the <head>
@@ -71,6 +71,7 @@ stylesheets:
 - /css/categories.css
 - /css/variable/variable.css
 - /css/layout/highlight.css
+- /css/links.css
 
 # scripts loaded in the end of the body
 scripts:
@@ -143,12 +144,12 @@ contact: true
 # Comment function 评论功能
 valine:
   on: true
-  appId:  # App ID
-  appKey: # App Key
+  appId: l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI # App ID
+  appKey: nTzjKIWYitgRpJ4AyX6i3Wyy # App Key
   verify: true # 验证码
   notify: true # 评论回复邮箱提醒
   avatar: mp # 匿名者头像选项
-  placeholder: Fantastic theme Last!
+  placeholder: Leave your footprint here!
   lang: zh-cn
   guest_info: nick,mail,link
   pageSize: 10
@@ -196,7 +197,7 @@ location:
   on: true # false
 
 #是否开启“关于我”。
-aboutme: I'm a theme for hexo called "Last".
+aboutme: I expect to make friends with you! I'm a ACＭmer but not very good. I like learning.
 
 # format of your toc directory 文章目录的格式
 toc:

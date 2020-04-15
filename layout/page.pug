@@ -19,21 +19,38 @@ block content
         else
           p None.
       br
+  if page.title === 'links'
+    if page.links
+      .links
+        each group, index in page.links
+          h2.link-title!= group.group_name
+          .group-description!= group.description
+          if group.items
+            ul.group-items.clearfix
+              each item in group.items
+                  li.item-friend(title=item.description)
+                    //- a.item-friend-links(href=item.url)
+                    img.site-preview(src=item.img, alt=item.name)
+                    .site-name!= item.name
+                    .site-description!= item.description
+        include includes/comment.pug
+    //- each article in page.links.sort('date', -1).limit(24).toArray()
+        h1!= article.title
     //- .tag-cloud
     //-   .tag-cloud__title= page.title  
     //-     |  - 
     //-     span.tag-cloud__amount= site.tags.length
     //-   .tag-cloud-tags!= tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#A4D8FA', end_color: '#0790E8'})
-  else if page.type === 'categories'
-    .category-lists
-      .category__title= page.title  
-        |  - 
-        span.category__amount= site.categories.length
-      div!= list_categories()
-  else
-    article#page
-      h1= page.title
-      != page.content
-    include includes/pagination.pug
+  //- else if page.type === 'categories'
+  //-   .category-lists
+  //-     .category__title= page.title  
+  //-       |  - 
+  //-       span.category__amount= site.categories.length
+  //-     div!= list_categories()
+  //- else
+  //-   article#page
+  //-     h1= page.title
+  //-     != page.content
+  //-   include includes/pagination.pug
 
     
