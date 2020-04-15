@@ -1,0 +1,74 @@
+
+extends includes/layout.pug
+
+block content
+  - var categoriesList = list_categories({ show_count: false })
+  - var tagsList = list_tags({ show_count: false })
+  - var archivesList = list_archives({ show_count: false, depth:0 })
+
+  div.archive
+    if !is_year()
+
+      h1.First-title-of-archives Archives
+
+      //- if theme.atom
+      //-   p The feed is available via&nbsp;
+      //-     a(href=theme.atom) atom
+      //-     span.dot .
+      //-   br
+      #archives
+        if archivesList
+          //- != archivesList
+          //- each s in archivesList
+            //- each article in s
+            != s
+            //- - s.posts.each(function(article){
+            //-   .archive-list-item
+            //-     a(href=url_for(article.path))= article.title
+            //-     //- time(datetime=date_xml(article.date))= date(article.date)
+            //- - })
+          table.archive-list
+            - var year
+            - page.posts.each(function(article, index){
+              - var tempYear = date(article.date, 'YYYY')
+              if tempYear !== year
+                - year = tempYear
+                //- tr
+                .article-year!= year
+              .archive-list-item
+                tr.archive-article
+                  if index % 2 === 0
+                    tr
+                      td.article-title-content
+                        .article-t-c
+                          a.article-title(href=url_for(article.path))!= article.title
+                          .article-content!= article.excerpt
+                      td.article-time
+                        .timeline-time
+                          time(datetime=date_xml(article.date))= full_date(article.date,'dddd  MMMM Do YYYY')
+                  else 
+                    tr
+                      td.article-time
+                        .timeline-time
+                          time(datetime=date_xml(article.date))= full_date(article.date,'dddd MMMM Do YYYY')
+                      td.article-title-content
+                        .article-t-c
+                          a.article-title(href=url_for(article.path))!= article.title
+                          .article-content!= article.excerpt
+            - })
+          include includes/pagination.pug
+        else
+          p None.
+      br
+
+    //- else
+
+    //-   h1= page.month + '/' + page.year
+
+    //-   - page.posts.each(function(article){
+    //-     .archive-list-item
+    //-       a(href=url_for(article.path))= article.title
+    //-       time(datetime=date_xml(article.date))= date(article.date)
+    //-   - })
+
+      include includes/pagination.pug

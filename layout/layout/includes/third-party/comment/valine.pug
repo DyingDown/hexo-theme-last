@@ -1,0 +1,17 @@
+section.comments(style="margin: 2em; padding: 2em; background: rgba(255, 255, 255, 0.5)") 
+    div#vcomment.comment
+    //- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    script(src='//unpkg.com/valine/dist/Valine.min.js')
+    script(src='//unpkg.com/valine@1.2.0-beta1/dist/Valine.min.js')
+    script
+        -
+            new Valine({
+                el: '#vcomment',
+                notify: theme.valine.notify,
+                verify: theme.valine.verify,
+                app_id: theme.valine.appid,
+                app_key: theme.valine.appkey,
+                placeholder: theme.valine.placeholder,
+                avatar: theme.valine.avatar 
+            })
+        

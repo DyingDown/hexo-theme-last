@@ -1,0 +1,27 @@
+//- link(rel='stylesheet', href= "/css/layout/pagination.css")
+
+-
+  var options = {
+    prev_text: "« Previous",
+    next_text: "Next »"
+  }
+#paginations
+  if(!is_post())
+    .pagination
+      !=paginator(options)
+  else
+    .prev-next
+      if(page.prev)
+        .prev-post
+          a.pull-left(href=url_for(page.prev.path))
+            i.fas.fa-angle-double-left
+            != " " + page.prev.title
+      else
+        .prev-post!= " "
+      if(page.next)
+        .next-post
+          a.pull-right(href=url_for(page.next.path))
+            != page.next.title + "  "
+            i.fas.fa-angle-double-right 
+      else 
+        .next-post!= " "

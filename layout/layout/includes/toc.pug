@@ -1,0 +1,6 @@
+if(is_post())
+    if theme.toc.on && toc(page.content)
+        #sidebar-toc
+            #catalog!= "Catalog"
+            #tocs!= toc(page.content, {max_depth: toc.max_depth, list_number: theme.toc.list_number})
+    

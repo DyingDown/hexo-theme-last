@@ -1,0 +1,29 @@
+//- link(rel='stylesheet' href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css")
+//- link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css")
+
+#top
+    a#user(href="/")= config.author
+    center
+        ul#menus
+            each label, index in theme.menu
+                li.menu-item
+                    a.menu(href=url_for(label.path))
+                        - var icon_top = '<i class="fas fa-' + label.ico + '"></i>'
+                        .icon_top!= icon_top + " " +  index
+                    if label.submenu
+                        //- input.sub(type='checkbox')
+                        ul.submenu
+                            each sublabel, subindex in label.submenu
+                                li.submenu-item
+                                    a.sublabel(href=url_for(sublabel.path))
+                                        - var subicon = '<i class="fa fa-' + sublabel.ico + '"></i>'
+                                        if sublabel.ico === "pencil-alt"
+                                            - var subicon = '<i class="fas fa-' + sublabel.ico + '"></i>'
+                                        .subicon!= subicon + ' ' + subindex
+    //- label#manu_button(for='menus')
+    //- a#menu_button!= '<i class="fa fa-bars"></i>'
+    #buttons
+        if theme.search.on === true
+            a#search!= '<i class="fa fa-search"></i>'
+        a#menu_button!= '<i class="fa fa-bars"></i>'

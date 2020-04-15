@@ -1,0 +1,40 @@
+extends includes/layout.pug
+
+block content
+  .side-bar
+    include includes/side-user.pug
+    include includes/toc.pug 
+  .article
+    #post
+      .titles
+        h1.title= page.title
+        .date
+          span.post-title-icons
+            i.fa.fa-calendar
+          time.words(datetime=date_xml(page.date))= date(page.date)
+        a.category
+          span.post-title-icons
+            i.fa.fa-book
+          each category, index in page.categories.data
+              span.words(href=url_for(category.path)) #{category.name}
+        a.post-tag
+          span.post-title-icons
+            i.fa.fa-tag
+          each tag, index in page.tags.data
+              span.words(href=url_for(tag.path)) #{tag.name}  
+        span.post-title-icons  
+          i.fa.fa-clock
+        if min2read(page.content) !== "1"
+          span.words!= min2read(page.content) + " mins"
+        else
+          span.words!= min2read(page.content) + " min"
+        span.post-title-icons
+          i.fa.fa-file-alt
+        span.words!= wordcount(page.content) + " words"
+      .post-content
+        != page.content
+      //- script(type="text/javascript").
+      //-   document.write(paginator());
+    .post-information
+      include includes/pagination.pug
+      include includes/comment.pug
