@@ -2,6 +2,29 @@
     color white;
     width: 55%
     margin 100px auto 0
+.rules
+    counter-reset: li
+    list-style none
+    // list-style: decimal
+    display: block;
+    line-height: 30px
+.rules li::before
+    height 20px
+    width 20px
+    content: counter(li)
+    counter-increment: li
+    font-size: 0.875em
+    text-align: center
+    color white
+    white-space: nowrap
+    position: absolute; 
+    margin-left: -2.5em; 
+    line-height: 1.4em;
+    // top: 2px; 
+    // border solid #d31a29 1px
+    margin-top: 0.4em;
+    background: #d31a29
+    border-radius: 40px;
 .mylink li::before
     content ""
     color white
@@ -29,16 +52,12 @@
     list-style-type none;
     display inline-block
     margin 0px 1% 2% 1%
-    // -moz-box-shadow:7px 7px 0px #d31a29; 
-    // -webkit-box-shadow:7px 7px 0px #d31a29; 
-    // box-shadow:7px 7px 0px #d31a29;
     border-radius: 10px;
     background-color: black
     color white
     border lightgrey solid 2px
-    // padding 0px 20px 10px
     width: 30.5%
-.links img
+.links .site-preview
     text-align: center
     width: 70px;
     float: left;
@@ -79,3 +98,5 @@
 .links a
     color white;
     text-decoration: none
+#vcomment
+    clear both

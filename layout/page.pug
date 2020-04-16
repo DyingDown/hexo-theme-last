@@ -22,8 +22,11 @@ block content
   if page.title === 'links'
     if page.links
       .links
-        h1!= "Useful and good links"
         h2!= theme.friendPageNotice
+        ol.rules
+          each rule in theme.exchangeUrlRules
+            li!= rule
+        h3!= "The followings are my site imformation: "
         ul.mylink
           li!= "Site URL: " + theme.siteUrl
           li!= "Site Name: " + theme.siteName
@@ -41,6 +44,28 @@ block content
                       .site-name!= item.name
                       .site-description!= item.description
         include includes/comment.pug
+  else if page.title === "about"
+    .aboutMePage
+      h1!= "Who I'm I?"
+      p.seff-introduction-formal!= theme.selfIntroductionFormal
+      ul.location
+        li
+          i.fas.fa-map-marker-alt
+          span.aboutWords!= theme.Location
+        li
+          i.fas.fa-arrow-circle-right
+          span.aboutWords!= theme.Position
+      h2!= "My Experiences"
+      ul.myProjects
+        each project in theme.Projects
+          li.project
+            i.fas.fa-circle-notch
+            span.projectWords!= project
+      h2!= "My GitHub Contributions"
+      - var GitHubName = theme.GitHubUserName
+      - var charUrl = ' "https://ghchart.rshah.org/' + GitHubName + '" ';
+      img.github-contribution(src="https://ghchart.rshah.org/DyingDown")
+      include includes/comment.pug
     //- each article in page.links.sort('date', -1).limit(24).toArray()
         h1!= article.title
     //- .tag-cloud

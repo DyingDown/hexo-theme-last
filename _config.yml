@@ -72,6 +72,7 @@ stylesheets:
 - /css/variable/variable.css
 - /css/layout/highlight.css
 - /css/links.css
+- /css/about.css
 
 # scripts loaded in the end of the body
 scripts:
@@ -90,9 +91,21 @@ signature:
   from:
     on: true
     content: "—— Yao"
-# Link of friends 友链接
-friends:
-  o_oyao: https://dyingdown.github.io
+# GitHub user name GitHub用户名
+GitHubUserName: DyingDown # used for about page to display Github contributions
+
+# information of your links 自己的友链接信息
+siteUrl: https://dyingdown.github.io
+siteName: o_oyao
+Avatar: https://s1.ax1x.com/2020/04/15/JCX4JK.jpg
+siteDescription: Keep learning.
+friendPageNotice: Leave your site here!
+exchangeUrlRules:
+  1: If you want to exchange links, please add mine first
+  2: If your site can't be visited, it will be put into unvisitable category
+  3: If your site has been unable to visite for a long time, I'll remove it.
+  4: If you didn't add my link, I will remove yours.
+
 # friends: true # turn on friends page 开启朋友页面
 
 # count the visitors of the site 统计网站的访问数量
@@ -117,7 +130,7 @@ contacts:
   QQ: " ||fa fa-fw fa-qq"
   # Pinterest: " ||fa fa-fw fa-pinterest-p"
   Linkedin: " ||fa fa-fw fa-linkedin"
-  GitHub: " ||fa fa-fw fa-github"
+  GitHub: " https://github.com/DyingDown ||fa fa-fw fa-github"
   Facebook: " ||fa fa-fw fa-facebook-f"
   # Codepen: " ||fa fa-fw fa-codepen"
   # Google: "  ||fa fa-fw fa-google"
@@ -192,12 +205,21 @@ donate:
   alipay: true # false
   description: Like my post?
 
-# location function 地址定位
-location:
-  on: true # false
+# # location function 地址定位
+# location:
+#   on: true # false
 
-#是否开启“关于我”。
+#是否开启“关于我”
 aboutme: I expect to make friends with you! I'm a ACＭmer but not very good. I like learning.
+
+# about me page
+selfIntroductionFormal: I'm currently studying CS in Henan Polytechnic University, I like computer science and coding. I'm also a member of the Algorithm Association who once participated in ICPC of China but I did not well. I also like making web pages because it's interesting and fun.
+Location: Henan Polytechnic University, Jiaozuo, Henan, China
+Position: College student
+Projects: 
+  1: 2020-4-16 Commite Hexo theme Last to GitHub repository.
+  2: 2020-4-20 Finished the practive of POLO360
+  3: 2021-4-20 I really wish I can do something big but...
 
 # format of your toc directory 文章目录的格式
 toc:
