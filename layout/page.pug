@@ -46,6 +46,8 @@ block content
         include includes/comment.pug
   else if page.title === "about"
     .aboutMePage
+      center
+        img.aboutMeAvatar(src=theme.avatar)
       h1!= "Who I'm I?"
       p.seff-introduction-formal!= theme.selfIntroductionFormal
       ul.location

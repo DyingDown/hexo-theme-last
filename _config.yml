@@ -81,6 +81,8 @@ scripts:
 - /js/toc.js
 - /js/third-party/reveal/math.min.js
 
+# Avatar 头像
+avatar: https://s1.ax1x.com/2020/04/17/JEjcB8.png
 # Year of site creation 网站成立年份
 since: 2019
 
@@ -204,6 +206,8 @@ donate:
   wechat: true # false
   alipay: true # false
   description: Like my post?
+  wechatQrCode: https://s1.ax1x.com/2020/04/17/JEvVCd.jpg
+  alipayQrCode: https://s1.ax1x.com/2020/04/17/JEzojI.jpg
 
 # # location function 地址定位
 # location:

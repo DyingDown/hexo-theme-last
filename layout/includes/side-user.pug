@@ -11,7 +11,7 @@ if(is_post())
                 div#wrap
                     .triangle(for="payment" onclick="triangleClick()")
                         div#qrcode-triangle
-            img.avatar(src="/img/avatar1.png")
+            img.avatar(src=theme.avatar)
             #side-author!= config.author
             #author-description!= theme.aboutme
             #payment-codes
@@ -21,11 +21,11 @@ if(is_post())
                     //-     label.triangle(for="payment")
                 if theme.donate.on
                     if theme.donate.wechat
-                        img#wechat(src="/img/Wechat.jpg")
+                        img#wechat(src=theme.donate.wechatQrCode)
                     else if  theme.donate.alipay
-                        img#alipay(src= "/img/Alipay.jpg")
+                        img#alipay(src=theme.donate.alipayQrCode)
                     else
-                        img#wechat(src="/img/Wechat.jpg")
+                        img#wechat(src=theme.donate.wechatQrCode)
                 .buttons
                     if theme.donate.wechat
                         #wechat-button(onclick="wechatButtonClick()")!= "Wechat"
