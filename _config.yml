@@ -159,8 +159,8 @@ contact: true
 # Comment function 评论功能
 valine:
   on: true
-  appId: l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI # App ID
-  appKey: nTzjKIWYitgRpJ4AyX6i3Wyy # App Key
+  appId: # App ID
+  appKey: # App Key
   verify: true # 验证码
   notify: true # 评论回复邮箱提醒
   avatar: mp # 匿名者头像选项
@@ -224,6 +224,9 @@ Projects:
   1: 2020-4-16 Commite Hexo theme Last to GitHub repository.
   2: 2020-4-20 Finished the practive of POLO360
   3: 2021-4-20 I really wish I can do something big but...
+Abilities:
+  1: I'v been studying C++ but I still can't say I'm good at it.
+  2: I'v been studying HTML CSS and JavaScript
 
 # format of your toc directory 文章目录的格式
 toc:
