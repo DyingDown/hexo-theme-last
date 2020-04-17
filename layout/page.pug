@@ -64,7 +64,8 @@ block content
       h2!= "My GitHub Contributions"
       - var GitHubName = theme.GitHubUserName
       - var charUrl = ' "https://ghchart.rshah.org/' + GitHubName + '" ';
-      img.github-contribution(src="https://ghchart.rshah.org/DyingDown")
+      //- img.github-contribution(src="https://ghchart.rshah.org/DyingDown")
+      include includes/third-party/calendar.html
       include includes/comment.pug
     //- each article in page.links.sort('date', -1).limit(24).toArray()
         h1!= article.title
