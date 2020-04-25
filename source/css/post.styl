@@ -136,7 +136,7 @@ li>ul
 
 .post-content ul,
 .post-content ol
-    padding-left 30px
+    // padding-left 30px
     line-height: 35px
 .post-content ol
     counter-reset: li
@@ -173,15 +173,15 @@ li>ul
     margin-left 30px
 
 .post-content ul
-    counter-reset: li
-    // list-style: none
+//     counter-reset: li
+    list-style: none
     // list-style circle
-.post-content ul li::before
+.post-content ul li:nth-of-type(n)::before
     content ""
     color white
     font-weight: 20px
     position: absolute; 
-    left: 3.1em; 
+    left: 3.5em; 
     line-height: 2em;
     // top: 2px; 
     margin-top: 0.7em;
@@ -190,10 +190,11 @@ li>ul
     // padding-right 5px
     // padding-left: 5px
     border solid 3.5px #d31a29
-    height 10px
-    width 10px
-.post-content ul ol li:before
-    margin-left 30px
+    height 7px
+    width 7px
+.post-content ul li:before,
+.post-content ol li:before
+    // margin-left 30px
 // ul:first-child,
 // ol:first-child
 //     margin-top 0
@@ -213,12 +214,17 @@ li>ul
 .post-content table
     padding 0
     word-break normal
+    border-collapse:collapse;
 
 .post-content table tr
     // border-top 1px solid #dfe2e5
     margin 0
     padding 0
-
+    // border grey solid 1px
+.post-content table td,
+.post-content table th
+    border lightgrey 1px solid
+    
 .post-content table tr:nth-child(2n)
     background-color #f8f8f8
 .post-content thead
@@ -250,7 +256,7 @@ li>ul
 // p
 //     line-height: 25px
 .post-content img
-    width 100%
+    max-width 100%
 
 p code
     background-color: rgb(40, 40, 40);

@@ -14,7 +14,7 @@
 }
 figure table 
     border-collapse:collapse; 
-td
+.highlight td
     padding 0px
 .highlight {
     position: relative;
@@ -193,7 +193,7 @@ td
     font-family:'Noto Serif CJK SC','Noto Serif CJK',serif
 }
 .code-font {
-    font-family:'Source Code Pro' !important,monospace
+    font-family:'Source Code Pro', monospace !important
 }
 .Ubuntu-font {
     font-family:'Ubuntu',sans-serif
@@ -205,11 +205,13 @@ td
 .highlight table tbody
     border-collapse: collapse
     padding 0px;
-table
+.highlight table
     background-color: #1d1f21
-table tr td:last-child
+.highlight table tr td:last-child
     width: 100%
-
+.highlight table td,
+.highlight table th
+    border none !important
 figure table 
     margin 0 !important;
 
