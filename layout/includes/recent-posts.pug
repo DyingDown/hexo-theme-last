@@ -41,11 +41,12 @@ link(rel='stylesheet', href= "/css/layout/recent-posts.css")
             if index === 0
               span.category #{category.name}
           a(href=url_for(post.path))
-            if post.photos != ''
-              - var l = post.photos
-              img.cover(src= post.photos[0], alt="cover")
-            else
-              img.cover(src="https://s1.ax1x.com/2020/04/25/J6iz9K.jpg", alt="cover")
+            .box-cover
+              if post.photos != ''
+                - var l = post.photos
+                img.cover(src= post.photos[0], alt="cover")
+              else
+                img.cover(src="https://s1.ax1x.com/2020/04/25/J6iz9K.jpg", alt="cover")
           .content-tags
             if post.date
               -
