@@ -55,7 +55,7 @@ link(rel='stylesheet', href= "/css/layout/recent-posts.css")
                 let globalDateArray = globalDate.split(' ');
                 //- var test = month[globalDateArray[2]];
                 let displayDate = `${globalDateArray[2]} ${globalDateArray[1]}, ${globalDateArray[3]}`;
-              time.time(datetime=post.date.toJSON())= displayDate
+              time.time(datetime=date_xml(post.date))= full_date(post.date,'MMMM Do YYYY')
               br
             a.post_title(href=url_for(post.path))= post.title
             br

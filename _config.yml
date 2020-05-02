@@ -15,7 +15,7 @@ menu:
         path: /categories/memories/
         ico: camera
       OJ Prob:
-        path: /categories/ACM/
+        path: /categories/ACM
         ico: code
       Novel:
         path: /categories/Novel
@@ -24,7 +24,7 @@ menu:
         path: /categories/essay
         ico: pencil-alt
       Film:
-        path: /categories/essay
+        path: /categories/film
         ico: film
   About:
     path: /
@@ -73,6 +73,7 @@ stylesheets:
 - /css/layout/highlight.css
 - /css/links.css
 - /css/about.css
+# - /css/cardPage.css
 
 # scripts loaded in the end of the body
 scripts:

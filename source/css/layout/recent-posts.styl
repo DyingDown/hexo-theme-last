@@ -50,7 +50,7 @@
     z-index: 1
     font-family: $recent-post-boxed-text-font
     @media(min-width: 37.5rem)
-        margin: 0 $recent-post-item-margin 1.875px
+        margin: 0 $recent-post-item-margin 15px
     // Note 1: This complex calc right here is what makes the leftover box items
     // have the same width than their siblings.
     for $n in 2..$recent-post-max-item-per-row 
@@ -103,6 +103,7 @@
     pointer-events  none
     // font-weight: bold
     font-size: 1rem
+    line-height: 2em
 
 .recent-post-tag
     height: 22px
@@ -139,6 +140,7 @@ a.content
     font-size: 17px !important
     line-height: 26px
     text-decoration: none
+    text-overflow: ellipsis
 
 a.content, a
     color $recent-post-article-content-text-color
