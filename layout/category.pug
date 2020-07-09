@@ -1,8 +1,10 @@
 extends includes/layout.pug
 
+
 block content
+  //- link(rel="stylesheet" href="../source/css/colorBox.styl")
   if page.category == "ACM"
-    link(rel="stylesheet" href="../source/css/cardPage.styl")
+    //- link(rel="stylesheet" href="../source/css/colorBox.styl")
     #home.post(role="main")
       #grid.row.flex-grid
         - page.posts.each(function(article){
@@ -25,8 +27,28 @@ block content
                 each tag, index in article.tags.data
                   a.tg(href=url_for(tag.path))= tag.name
         - })
+  else if page.category == "Essay" 
+    //- link(rel="stylesheet" href="../source/css/categories/colorBox.styl")
+    #container.clearfix
+      div(id="grid" data-columns class="cols")
+        - page.posts.each(function(article){
+          - var bg = "background-color:#" + article.color
+          .box(style=bg)
+            if article.photos
+              img.feat-image(src=article.url)
+            .container
+              h3!= article.title
+              if article.description
+                p!= article.description
+              else
+                p!= article.excerpt
+              .action
+                != full_date(article.date,'MMMM Do YYYY')
+                a(href=url_for(article.path))
+                  i.fa.fa-arrow-right
+        - })
   else
-    link(rel="stylesheet" href="../source/css/categories.styl")
+    //- link(rel="stylesheet" href="../source/css/categories.styl")
     #category
       h1= page.category
       - page.posts.each(function(article){

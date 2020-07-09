@@ -21,7 +21,7 @@ menu:
         path: /categories/Novel
         ico: book
       Essay: 
-        path: /categories/essay
+        path: /categories/Essay
         ico: pencil-alt
       Film:
         path: /categories/film
@@ -73,7 +73,7 @@ stylesheets:
 - /css/layout/highlight.css
 - /css/links.css
 - /css/about.css
-# - /css/cardPage.css
+# - /css/colorBox.css
 
 # scripts loaded in the end of the body
 scripts:
@@ -166,7 +166,7 @@ valine:
   verify: true # 验证码
   notify: true # 评论回复邮箱提醒
   avatar: mp # 匿名者头像选项
-  placeholder: Leave your footprint here!
+  placeholder: Leave your email address so you can get reply from me!
   lang: zh-cn
   guest_info: nick,mail,link
   pageSize: 10

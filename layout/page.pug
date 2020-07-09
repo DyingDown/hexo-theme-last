@@ -75,14 +75,6 @@ block content
             i.fas.fa-leaf
             span.abilityWords!= ability
       include includes/comment.pug
-  else if page.title == "OJ-Problem"
-    .cardPage
-      h1!= "SSS"
-      h1!= "SSS"
-      h1!= "SSS"
-      h1!= "SSS"
-      each article in page.novels.sort('date', -1).limit(24).toArray()
-        != article.title
     //- each article in page.links.sort('date', -1).limit(24).toArray()
         h1!= article.title
     //- .tag-cloud

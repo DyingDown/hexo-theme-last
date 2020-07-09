@@ -1,32 +1,41 @@
 @import "../variable/variable.styl"
-
+@media (max-width 1000px)
+    :root
+        font-size 1em
 #home-cover
     width calc(98.8vw)
-    height calc(51.4vw)
-    background-image: url(https://s1.ax1x.com/2020/04/17/JV919e.jpg) 
+    height 90vh
+    background: url(https://s1.ax1x.com/2020/04/17/JV919e.jpg) center center
     // background-attachment: fixed
     background-size: 100%;
     background-repeat:no-repeat;
-
+    background-size: auto 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+#moto
+    width: 70%
+    display: block
+    // position: absolute
+    margin: auto;
+    top: 0
+    bottom: 0
 #signature-date
-    font-size: 20px
-    padding-top 18%
+    font-size: 30px;
+    margin-bottom: 20px
+    // padding-top 18%
     color $recent-post-title-date-text-color
-    margin-left 15%
+    // margin-left 15%
 #cover-title
     color $recent-post-title-text-color
-    font-size: 40px
-    padding-top: 30px
-    margin-left 15%
+    font-size: 40px;
     font-weight: bold
-    width 50%
     line-height: 50px
 #from
     text-align: right
     color $recent-post-title-from-color
-    margin-right: 35%
     font-size: 40px
-    padding-top: 30px
+    margin-top: 20px
 #chevron-down
     color $recent-post-title-chevron-down-color
     font-size: 40px
@@ -56,10 +65,10 @@
     for $n in 2..$recent-post-max-item-per-row 
         $resolution = "calc((2 * %s) + (%s * %s))"%($recent-post-row-margin $n $recent-post-item-Min-Width)
         @media(min-width: $resolution)
-            max-width: "calc(100%/%s - %s*2)"%($n $recent-post-item-margin)
+            max-width: "calc(%s/%s - %s*2)"%(100% $n $recent-post-item-margin)
     // Note 2: This sets the maximum number of box items per row.
     @media(min-width: "calc(2 * %s + %s * $s)"%($recent-post-row-margin $recent-post-max-item-per-row $recent-post-item-Min-Width))
-        flex: 1 0 "calc(100% / %s - %s * 2)"%($recent-post-max-item-per-row $recent-post-item-margin)
+        flex: 1 0 "calc(100%/%s - %s*2)"%($recent-post-max-item-per-row $recent-post-item-margin)
     // text-decoration: none
     &:hover
         z-index: 2;
@@ -68,7 +77,6 @@
             -webkit-filter: grayscale(100%);
             filter: grayscale(100%);
             transform: scale(1.05);
-
 .category
     background-color opacity 0
     display  block

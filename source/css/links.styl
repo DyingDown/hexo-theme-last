@@ -1,16 +1,30 @@
+// @media (max-width: 768px)
+//     .links
+//         width: 80%;
+
+#content-outer
+    width: 100%;
 .links
     color white;
     width: 55%
     margin 100px auto 0
+    @media (max-width: 992px)
+        width: 85%
+
+.links h2
+    font-size: 1.8em;
+
+.links h3
+    font-size: 1.2em;
 .rules
     counter-reset: li
     list-style none
     // list-style: decimal
     display: block;
-    line-height: 30px
+    line-height: 2em
 .rules li::before
-    height 20px
-    width 20px
+    height 1.45em;
+    width 1.45em
     content: counter(li)
     counter-increment: li
     font-size: 0.875em
@@ -42,7 +56,7 @@
     height 10px
     width 10px
 .mylink li
-    font-size: 16px
+    font-size: 1em;
     line-height: 30px
     list-style-type: none
 .group-items
@@ -57,18 +71,23 @@
     color white
     border lightgrey solid 2px
     width: 30.5%
+    @media (max-width: 992px)
+        width: 47.5%
 .links .site-preview
     text-align: center
     width: 70px;
     float: left;
-    border-radius:40px;
+    border-radius:80px;
     margin 15px;
     border solid lightgrey 2px
+    @media (max-width: 992px)
+        width: 30%
 
 .links .link-title
     border-bottom: solid 1px rgb(50,50,50)
     padding-bottom: 20px
     font-size: 30px
+    line-height: 30px
 .links .group-description
     margin 30px 1%
 .links .site-name
@@ -77,6 +96,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 1.2em;
+    @media (max-width: 992px)
+        font-size: 1.8em;
+        
 .links .site-description
     margin-left 110px
     margin-right: 7%
@@ -87,6 +110,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    @media (max-width: 992px)
+        font-size: 1.8em;
+
 .clearfix::after
     content: "";
     display: block;

@@ -1,5 +1,8 @@
 @import "variable/variable.styl"
 
+rem(designpx )
+    $rem = 16px;
+    return (designpx / $rem )rem
 .article
     background-color $post-background-color
     margin-top 110px
@@ -264,3 +267,74 @@ p code
     border-radius: 7px
     padding 3px 5px
     font: 18px consolas !important
+
+.fixedFunction
+    position: fixed
+    right: 30px
+    bottom: 23px
+    z-index: 99999
+@-webkit-keyframes fadeInUp 
+    0%
+        opacity:0;
+        -webkit-transform:translateY(15px)
+    100%
+        opacity:1;
+        -webkit-transform:translateY(0)
+@-moz-keyframes fadeInUp 
+    0%
+        opacity:0;
+        -moz-transform:translateY(15px)
+    100% 
+        opacity:1;
+        -moz-transform:translateY(0)
+.plus
+    background-color: darkred
+    margin 0 !important
+    cursor pointer
+    overflow hidden
+.fixedFunction
+    &:hover 
+        color red
+        #subFunction
+            display block
+            // -webkit-animation fadeInUp .3s .1s ease both;
+            // -moz-animation fadeInUp .3s .1s ease both
+
+            
+.goTop
+    background-color: darkblue
+.goComment
+    background-color: green
+.goBottom
+    background-color: orange
+.functionButton
+    font-size 2em
+    // border-radius: 2em
+    color white
+    text-align: center
+    line-height: 48px
+    padding 0
+
+#subFunction
+    display: none
+    list-style-type: none
+    padding 0
+    text-align: center
+    line-height: 48px
+    font-size: 1.8em
+    margin-block-start: 15px
+    margin-block-end: 15px
+    -webkit-animation fadeInUp .5s .1s ease both;
+    -moz-animation fadeInUp .5s .1s ease both
+    
+#subFunction a
+    color white
+.samefunction
+    width: 48px
+    height 48px
+    border-radius: 50px
+    -moz-box-shadow:1px 1px 5px #333333; 
+    -webkit-box-shadow:1px 1px 5px #333333; 
+    box-shadow:1px 1px 5px #333333;
+    color white
+    margin 15px 0
