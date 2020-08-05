@@ -27,3 +27,34 @@ function alipayButtonClick() {
     document.getElementById("alipay-button").style = "background-color: #d31a29;color: white;";
     document.getElementById("wechat-button").style = "background-color: transparent;color: #d31a29;";
 }
+
+function backToTop() {
+    document.body.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function backToComment() {
+    var comment = document.getElementById("vcomment");
+    comment.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function backToBottom() {
+    var comment = document.getElementById("bottom-inner");
+    comment.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function scrollDown() {
+    var comment = document.getElementById("recent-posts");
+    comment.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// function qqZoneShare() {
+//     alert("sss");
+// }

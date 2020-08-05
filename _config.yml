@@ -18,7 +18,7 @@ menu:
         path: /categories/ACM
         ico: code
       Novel:
-        path: /categories/Novel
+        path: /novel/
         ico: book
       Essay: 
         path: /categories/Essay
@@ -26,6 +26,9 @@ menu:
       Film:
         path: /categories/film
         ico: film
+      Template:
+        path: /books/samples/template
+        ico: bookmark
   About:
     path: /
     ico: lightbulb
@@ -73,6 +76,8 @@ stylesheets:
 - /css/layout/highlight.css
 - /css/links.css
 - /css/about.css
+- /css/novel.css
+- /css/third-party/share.min.css
 # - /css/colorBox.css
 
 # scripts loaded in the end of the body
@@ -81,6 +86,9 @@ scripts:
 - /js/post.js
 - /js/toc.js
 - /js/third-party/reveal/math.min.js
+- /js/header.js
+- /js/third-party/social-share.js
+- /js/thrid-party/qrcode.js
 
 # Avatar 头像
 avatar: https://s1.ax1x.com/2020/04/17/JEjcB8.png
@@ -115,6 +123,10 @@ exchangeUrlRules:
 # http://ibruce.info/2015/04/04/busuanzi/
 visits:
   on: true
+
+# Statistics your post and show it as calendar style 统计文章并以日历形式展示
+postCalendar: true # false
+
 
 # we use font awesome to display the fonts 我们用的是font awesome来展示图标
 # XXX: "url_for(XXX)||icon name of XXX"
@@ -161,8 +173,8 @@ contact: true
 # Comment function 评论功能
 valine:
   on: true
-  appId:  # App ID
-  appKey: # App Key
+  appId: l3oy62Wr2irl9arSb6g7A2Tj-MdYXbMMI # App ID
+  appKey: nTzjKIWYitgRpJ4AyX6i3Wyy # App Key
   verify: true # 验证码
   notify: true # 评论回复邮箱提醒
   avatar: mp # 匿名者头像选项
@@ -185,6 +197,16 @@ gitalk:
 # true: on 开启;  false: off 不开启
 search:
   on: true
+
+# Share function 分享功能
+Share:
+  on: true # if this is false, the flowing are useless 如果这个选为false,则下面的都没用了
+  Facebook: true 
+  Twitter: true
+  QQ_friend: true # QQ好友
+  Wechat: true # 微信
+  QQ_zone: true # QQ空间
+  Weibo: true # 微博
 
 # MathJax
 # Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/third-party-support.html#mathjax
@@ -254,6 +276,11 @@ code_style: 0
 
 # Tags style 标签的风格
 tags_style: 0
+
+# <blockquote> style 引用html标签的风格
+bq_pre_icon: "👣"  # emoji
+# 🍀 💙💚💛💜 💔 👣
+bq_after_icon: "”"
 
 # Category style 分类的风格
 category_style: 0

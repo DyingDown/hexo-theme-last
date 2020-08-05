@@ -1,9 +1,9 @@
 @import "variable/variable.styl"
     
 .archive-list
-    width 60%
+    width 67%
     color white
-    margin-left 20%
+    margin: 0 auto
     @media(max-width 900px)
         margin-left 2%
         width 99%
@@ -35,14 +35,18 @@
     height 13px
 .archive-list
     border-collapse: collapse;
-.article-year
+td.article-year
     color #d31a29
     clear both
-    text-align: center
+    text-align: center !important
     font-size: 30px
-    padding-top: 30px
-    margin-bottom: 30px
+    padding-top: 40px;
+    padding: 40px 0 40px !important
+    // margin-bottom: 30px
     font-weight: bold
+    border-left: none !important
+.article-year::before
+    display none
 .article-time
     color #d31a29
     font-size: 17px
@@ -58,3 +62,7 @@
         display none
     a
         color black
+    td
+        border: none !important;
+    td::before
+        display none;

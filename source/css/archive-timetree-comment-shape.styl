@@ -1,16 +1,17 @@
 @import "variable/variable.styl"
-    
+
+.archive
+    margin-top:100px   
 .archive-list
-    width 60%
+    width 67%
     color white
     font-weight: bold
-    margin-left 20%
+    margin: 0 auto
     @media(max-width 900px)
         margin-left 2%
         width 99%
 .First-title-of-archives
     color white
-    margin-top:100px
     text-align: center
 .archive-list tr td:first-child
     padding-top: 20px
@@ -86,11 +87,13 @@
     border solid rgb(170, 38, 17) 2px
     border-radius: 20px
     background-color: rgb(170, 38, 17)
-.article-year
+td.article-year
     color rgb(170, 38, 17)
     clear both
-    text-align: center
+    text-align: center !important
     font-size: 30px
-    padding-top: 30px
+    padding: 40px 0
     margin-bottom: 30px
     font-weight: bold
+.article-year::before
+    display none

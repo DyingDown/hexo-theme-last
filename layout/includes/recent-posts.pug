@@ -28,7 +28,7 @@ link(rel='stylesheet', href= "/css/layout/recent-posts.css")
     if theme.signature.from.on
       #from
         != theme.signature.from.content
-  #chevron-down
+  #chevron-down(onclick="scrollDown()")
     i.fas.fa-chevron-down
 #recent-post-content
   if page.posts.length > 0

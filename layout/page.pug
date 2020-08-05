@@ -75,6 +75,36 @@ block content
             i.fas.fa-leaf
             span.abilityWords!= ability
       include includes/comment.pug
+  else if page.title === "novel"
+    .novel
+      .left-intro
+        h2!= "阅读指南"
+        ul
+          li!= "点击书的封皮，打开对应的书"
+          li!= "← →键翻页"
+          li!= "可以手动拖拽翻页"
+        h2!= "说明"
+        div!= "作者：o_oyao"
+        div!= "本页所有书目均为博主原创，书中内容并不代表作者任何立场。"
+        div!= "图片及封面来源：网络"
+        div!= "书的封面和书中图片均来自网络并加以制作而成，如有侵权，请联系我"
+        div
+          span!="引用库：本项目引用"
+          a(href="http://www.turnjs.com/?tdsourcetag=s_pctim_aiomsg#")!= "turn.js"
+          span!= "库"
+        h3!="文笔幼稚请不要嘲笑"
+      .right-bookshell
+        .first-shell
+          a.book-lost(href="/books/samples/Lost/index.html")
+            img.cover(src="/img/cover-lost.jpg")
+          a.book-sick(href="/books/samples/Sick/index.html")
+            img.cover(src="/img/cover-sick.jpg")
+          a.book-lost(href="/books/samples/Singer/index.html")
+            img.cover(src="/img/cover-singer.jpg")
+        .second-shell
+          a.book-lost(href="/books/samples/old-man/index.html")
+            img.cover(src="/img/cover-oldman.jpg")
+      //- a(href="/books/samples/Lost/index.html")!= "book1"
     //- each article in page.links.sort('date', -1).limit(24).toArray()
         h1!= article.title
     //- .tag-cloud

@@ -1,22 +1,62 @@
 @import "variable/variable.styl"
+@import "layout/sharesvg.styl"
 
-rem(designpx )
-    $rem = 16px;
-    return (designpx / $rem )rem
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.main-post-content
+    // float: left
+    height: auto;
+    margin-top: 110px
+    padding: 2px 400px 0 150px
+    overflow hidden
 .article
     background-color $post-background-color
-    margin-top 110px
     position relative
-    margin-left 14%
-    margin-right 1%
-    width 57%
-    @media(max-width 1600px)
-        width 61%
-        margin-left 10%
-    @media(max-width 1300px)
-        margin-left: 0px
-        margin-right: 0px
-        width 100%
+    width: 100%;
+    float: left;
+    // padding: 0 40px 0 10px;
+    // margin-left 14%
+    // margin-right 1%
+    // width 57%
+    // @media(max-width 1600px)
+    //     width 61%
+    //     margin-left 10%
+    // @media(max-width 1300px)
+    //     margin 110px auto 0
+    //     width 96%
+
+#shareButtons 
+    width: 80px;
+    height: 500px;
+    // background-color pink;   
+    float: left;
+    position: relative;
+    left: -80px;
+    margin-left: -100%;
+    // position: fixed;
+    // left: 7%;
+    top: 8rem;
+
+.side-bar
+    background-color: $post-side-bar-background-color
+    border-top solid $post-side-bar-border-top-color 2px
+    float left
+    width 300px
+    height auto
+    position: relative;
+    right: -510px;
+    margin-left: -480px; // 重要
+
+@media(max-width 1000px)
+    #shareButtons  
+        display none
+    .side-bar
+        display none
+    .main-post-content
+        padding: 0px 10px 
 #post
     -webkit-box-shadow 1px 0 5px rgba(0,0,0,.4)
     box-shadow 1px 0 5px rgba(0,0,0,.4)
@@ -50,6 +90,7 @@ rem(designpx )
     border-bottom: 0px
     margin-bottom: 0.8rem 
     font-weight: 900
+    margin-block-start: 0em !important
 
 .date
     float: right
@@ -69,25 +110,15 @@ rem(designpx )
         color black
 .post-title-icons
     margin-left 0.5rem
-.side-bar
-    background-color: $post-side-bar-background-color
-    border-top solid $post-side-bar-border-top-color 2px
-    // margin-top: 100px
-    float right
-    margin-right: 8%
-    position relative
-    // -webkit-box-shadow: 1px 0 5px rgba(0,0,0,.4);
-    // box-shadow: 1px 0 5px rgba(0,0,0,.4);
-    // padding-top 10px
-    // padding-right 10px
-    // padding-bottom: 10px
-    width 18%
-    height auto
-    @media(max-width 1300px)
-        display none
-    @media(max-width 1600px)
-        margin-right 8%
-        
+
+.shareStyle
+    // width: 48px;
+    margin: 0 10px 10px;
+    border-radius: 500px;
+    // z-index -100;
+.weibo
+    // width: 48px;
+    // border red solid 1px;
 .post-content h1
     padding-bottom .3em
     font-size 2.25em
@@ -207,11 +238,45 @@ li>ul
 //     margin-bottom 0
 
 .post-content blockquote
-    border-left 4px solid #dfe2e5
-    padding 0 15px
-    color #777777
-
-.post-content blockquote blockquote
+    // border-left 4px solid #dfe2e5
+    // padding 0 15px
+    // color #777777
+    display: block; 
+    font-size: 0.9em; 
+    overflow: auto; 
+    overflow-scrolling: touch; 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    padding-left: 20px; 
+    padding-right: 10px; 
+    margin-bottom: 20px; 
+    margin-top: 20px; 
+    font-style: normal; 
+    border-left: none; 
+    padding: 10px; 
+    position: relative; 
+    line-height: 1.8; 
+    border-radius: 0px 0px 10px 10px; 
+    color: #FEEEED; 
+    background: #000; 
+    box-shadow: #84A1A8 0px 10px 15px;
+.post-content blockquote p
+    display inline;
+.post-content blockquote::before
+    // content: "👣"
+    color: #FFF
+    line-height: 1em;
+    font-weight: 700;
+    font-size: 30px
+.post-content blockquote::after
+    content: "”"
+    float: right; 
+    display: inline; 
+    color: #FFF; 
+    font-size: 3em; 
+    line-height: 1em; 
+    font-weight: 500;
+.post-content blockquote
     padding-right 0
 
 .post-content table
@@ -260,7 +325,8 @@ li>ul
 //     line-height: 25px
 .post-content img
     max-width 100%
-
+.post-content p
+    font-size: 16px;
 p code
     background-color: rgb(40, 40, 40);
     color white
@@ -338,3 +404,20 @@ p code
     box-shadow:1px 1px 5px #333333;
     color white
     margin 15px 0
+
+/*滑块*/        
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
+
+
+/*滑道*/
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #333;
+    border-radius: 10px;
+}

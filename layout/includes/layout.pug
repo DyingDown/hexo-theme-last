@@ -11,6 +11,7 @@
 doctype html
 html(lang=config.language)
   head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes')
     meta(charset='UTF-8')
     title= pageTitle
     if theme.stylesheets !== undefined && theme.stylesheets.length > 0
@@ -22,6 +23,14 @@ html(lang=config.language)
       link(rel='stylesheet', href= "/css/layout/footer-post.css")
       link(rel='stylesheet', href= "/css/layout/layout-post.css")
       link(rel='stylesheet', href= "/css/post.css")
+      style(type="text/css").
+        .post-content blockquote::before {
+          content: "👣";    
+          color: #FFF;
+          line-height: 1em;
+          font-weight: 700;
+          font-size: 30px
+        }
     else if(page.category == "ACM")
       link(rel='stylesheet', href= "/css/layout/pagination.css")
       link(rel='stylesheet', href= "/css/layout/footer-post.css")
@@ -32,6 +41,12 @@ html(lang=config.language)
       link(rel='stylesheet', href= "/css/layout/footer-post.css")
       link(rel='stylesheet', href= "/css/layout/layout-post.css")
       link(rel="stylesheet" href="/css/categories/colorBox.css")
+    else if(page.title == "novel")
+      link(rel='stylesheet', href= "/css/layout/pagination.css")
+      link(rel='stylesheet', href= "/css/layout/footer-post.css")
+      link(rel='stylesheet', href= "/css/layout/layout-post.css")
+      link(rel="stylesheet" href="/css/categories/bookshell.css")
+    //- else if(page.title == "novel")
     else
       link(rel='stylesheet', href= "/css/layout/pagination.css")
       link(rel='stylesheet', href= "/css/layout/footer.css")
@@ -46,6 +61,7 @@ html(lang=config.language)
     #menu-outer
       //- include menu-side.pugn
       include header.pug
+    .overlay
     #content-outer
       #content-inner
         if body

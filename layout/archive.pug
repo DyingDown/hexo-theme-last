@@ -9,13 +9,16 @@ block content
   div.archive
     if !is_year()
 
-      h1.First-title-of-archives Archives
 
       //- if theme.atom
       //-   p The feed is available via&nbsp;
       //-     a(href=theme.atom) atom
       //-     span.dot .
       //-   br
+      .post-calender-chart
+        //- if theme.postCalander
+        include widget/post-calender.pug
+      h1.First-title-of-archives Archives
       #archives
         if archivesList
           //- != archivesList
@@ -34,7 +37,8 @@ block content
               if tempYear !== year
                 - year = tempYear
                 //- tr
-                .article-year!= year
+                tr
+                  td(colspan="2").article-year!= year
               .archive-list-item
                 tr.archive-article
                   if index % 2 === 0

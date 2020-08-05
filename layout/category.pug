@@ -47,6 +47,11 @@ block content
                 a(href=url_for(article.path))
                   i.fa.fa-arrow-right
         - })
+  else if page.category == "Novel"
+    //- #bookshell
+    //-   .shell-f
+    //-     a(href="books/samples/Lost/index.html") != Book1
+        
   else
     //- link(rel="stylesheet" href="../source/css/categories.styl")
     #category

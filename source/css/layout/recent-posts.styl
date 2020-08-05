@@ -4,7 +4,7 @@
         font-size 1em
 #home-cover
     width calc(98.8vw)
-    height 90vh
+    height 100vh
     background: url(https://s1.ax1x.com/2020/04/17/JV919e.jpg) center center
     // background-attachment: fixed
     background-size: 100%;
@@ -21,30 +21,30 @@
     top: 0
     bottom: 0
 #signature-date
-    font-size: 30px;
+    font-size: 24px;
     margin-bottom: 20px
     // padding-top 18%
     color $recent-post-title-date-text-color
     // margin-left 15%
 #cover-title
     color $recent-post-title-text-color
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold
     line-height: 50px
 #from
     text-align: right
     color $recent-post-title-from-color
-    font-size: 40px
+    font-size: 30px
     margin-top: 20px
 #chevron-down
     color $recent-post-title-chevron-down-color
     font-size: 40px
     position: absolute
-    bottom: 20px
+    bottom: 50px
     left 50%
-    @media(max-width 1500px) {
-        display none
-    }
+    // @media(max-width 1500px) {
+    //     display none
+    // }
 .recent-post-item
     float left
     height $recent-post-boxes-height
@@ -92,12 +92,14 @@
 // .box-cover
 //     // width  100%
 //     height 17vmin
-.cover
+#recent-post-content .cover
     width  100%
     height auto
     // height  'calc(%s / 4)'%@width
     margin  0 auto
     transition  all 0.2s ease-in-out
+    box-shadow: none 
+    -webkit-box-shadow: none;
     // &:hover
     //     -webkit-filter: grayscale(100%);
 
