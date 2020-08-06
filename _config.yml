@@ -78,6 +78,7 @@ stylesheets:
 - /css/about.css
 - /css/novel.css
 - /css/third-party/share.min.css
+- /css/third-party/post-recommend.css
 # - /css/colorBox.css
 
 # scripts loaded in the end of the body
@@ -199,14 +200,31 @@ search:
   on: true
 
 # Share function 分享功能
+# https://github.com/overtrue/share.js
 Share:
   on: true # if this is false, the flowing are useless 如果这个选为false,则下面的都没用了
-  Facebook: true 
-  Twitter: true
-  QQ_friend: true # QQ好友
-  Wechat: true # 微信
-  QQ_zone: true # QQ空间
-  Weibo: true # 微博
+  datasites: "facebook,twitter,qq,wechat,qzone,weibo" # You can combine these arbitrarily 你可以任意的组合这些
+  # there are facebook,linkedin, twitter, qq, douban, wechat, qzone, weibo
+
+# Receommemded Posts function 相关阅读功能
+# https://github.com/huiwang/hexo-recommended-posts
+# 此插件借助人工智能为友情链接升级换代，通过文章推荐的方式帮助大家推广博客。
+# 它从推荐引擎里获取文章推荐列表，列表里既有您博客的内部文章链接，也有使用此服务的其他博主的外部链接，自动，精准，公平的实现文章互推。
+# This plug-in corrects artificial intelligence to upgrade the friendship link, and help everyone to promote the blog through article recommendation. It obtains the article recommendation list from the recommendation engine. 
+# The list contains both the internal article links of your blog and the external links of other bloggers who use this service. It automatically, accurately and fairly realizes the mutual push of articles.
+# After generating a new post ,type hexo recommend
+# 在编辑完新的文章之后，使用如下命令获取推荐列表: hexo recommend
+recommended_posts:
+  enable: true
+  timeoutInMillis: 10000 # Service time, if it exceeds this time, use offline recommendation mode 服务时长，超过此时长，则使用离线推荐模式
+  internalLinks: 5 # number of your own posts 内部文章数量
+  externalLinks: 2 # number of outer posts 外部文章数量
+  fixedNumber: false
+  autoDisplay: false # Automatically show recommended articles at the bottom of the article 自动在文章底部显示推荐文章
+  excludePattern: []
+  titleHtml: <h1>推荐文章<span style="font-size:0.45em; color:gray">（由<a href="https://github.com/huiwang/hexo-recommended-posts">hexo文章推荐插件</a>驱动）</span></h1> #自定义标题
+
+
 
 # MathJax
 # Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/third-party-support.html#mathjax

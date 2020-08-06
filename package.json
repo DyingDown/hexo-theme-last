@@ -1,6 +1,11 @@
 {
-  "name": "Yao",
-  "version": "0.1.0",
-  "description": "",
-  "private": true
+    "name": "hexo-theme-melody",
+    "version": "0.1.0",
+    "description": "",
+    "private": true,
+    "dependencies": {
+        "hexo-math": "^3.0.4",
+        "hexo-wordcount": "^6.0.1",
+        "hexo-related-popular-posts": "2.0.6"
+    }
 }

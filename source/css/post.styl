@@ -1,5 +1,4 @@
 @import "variable/variable.styl"
-@import "layout/sharesvg.styl"
 
 .clearfix:after {
     content: "";
@@ -39,7 +38,8 @@
     // position: fixed;
     // left: 7%;
     top: 8rem;
-
+#shareButtonsInner
+    margin-left: 10px;
 .side-bar
     background-color: $post-side-bar-background-color
     border-top solid $post-side-bar-border-top-color 2px
@@ -50,7 +50,7 @@
     right: -510px;
     margin-left: -480px; // 重要
 
-@media(max-width 1000px)
+@media(max-width 1200px)
     #shareButtons  
         display none
     .side-bar
@@ -111,14 +111,6 @@
 .post-title-icons
     margin-left 0.5rem
 
-.shareStyle
-    // width: 48px;
-    margin: 0 10px 10px;
-    border-radius: 500px;
-    // z-index -100;
-.weibo
-    // width: 48px;
-    // border red solid 1px;
 .post-content h1
     padding-bottom .3em
     font-size 2.25em
