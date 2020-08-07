@@ -12,7 +12,7 @@
 .popular-posts-item
     border-radius 10px;
     float left
-    height 500px
+    height 480px
     // font-family $fonts
     // border green 2px solid;
     flex: 1 0 18.75em
@@ -21,7 +21,7 @@
     min-height: 285px
     transition: all 0.3s
     position: relative
-    z-index: 1
+    z-index: 0
     font-family: "Lato"
     @media(min-width: 37.5rem)
         margin: 0 0.9375em 15px
@@ -44,7 +44,13 @@
 .popular-posts-title,
 .popular-posts-excerpt
     margin: 0 15px;
-
+.popular-posts-excerpt
+    line-height: 24px;
+.popular-posts-excerpt code
+    background-color: #eee;
+    padding: 0 5px;
+    color: black;
+    // border: 0.5px solid darkgray;
 .popular-posts-title a
     color: #111 !important
     text-decoration: none;

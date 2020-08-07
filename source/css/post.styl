@@ -261,7 +261,7 @@ li>ul
     font-weight: 700;
     font-size: 30px
 .post-content blockquote::after
-    content: "”"
+    // content: "”"
     float: right; 
     display: inline; 
     color: #FFF; 
@@ -313,8 +313,8 @@ li>ul
 // .post-content code
 //     background-color: black
 //     color white
-// p
-//     line-height: 25px
+p
+    line-height: 25px
 .post-content img
     max-width 100%
 .post-content p
@@ -323,7 +323,7 @@ p code
     background-color: rgb(40, 40, 40);
     color white
     border-radius: 7px
-    padding 3px 5px
+    padding 0px 5px
     font: 18px consolas !important
 
 .fixedFunction
@@ -397,6 +397,23 @@ p code
     color white
     margin 15px 0
 
+.date-warning
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #eef7fa;
+    border-left: 3px solid;
+    border-left-color: #428bca;
+    border-radius: 3px;
+    // position: relative;
+.date-warning:before
+    content: "\f05a";
+    color: #428bca;
+    font-family: 'FontAwesome';
+    font-size: larger;
+    margin-right: 10px;
+    
+    // top: 13px;
+    // left: 15px;
 /*滑块*/        
 ::-webkit-scrollbar-thumb {
     background-color: #333;

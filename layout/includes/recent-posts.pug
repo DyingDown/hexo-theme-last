@@ -43,11 +43,11 @@ link(rel='stylesheet', href= "/css/layout/recent-posts.css")
               span.category #{category.name}
           a(href=url_for(post.path))
             .box-cover
-              if post.eyeCatchImage != ''
-                - var l = post.eyeCatchImage
-                img.cover(src= post.eyeCatchImage, alt="cover")
+              if post.postImage
+                - var l = post.postImage
+                img.cover(src=post.postImage, alt="cover")
               else
-                img.cover(src="https://s1.ax1x.com/2020/04/25/J6iz9K.jpg", alt="cover")
+                img.cover(src="https://s1.ax1x.com/2020/04/25/J6iz9K.jpg", alt="Default cover")
           .content-tags
             if post.date
               -

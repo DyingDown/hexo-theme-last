@@ -79,6 +79,7 @@ stylesheets:
 - /css/novel.css
 - /css/third-party/share.min.css
 - /css/third-party/post-recommend.css
+- /css/layout/license.css
 # - /css/colorBox.css
 
 # scripts loaded in the end of the body
@@ -89,8 +90,8 @@ scripts:
 - /js/third-party/reveal/math.min.js
 - /js/header.js
 - /js/third-party/social-share.js
-- /js/thrid-party/qrcode.js
-
+- /js/third-party/qrcode.js
+- /js/third-party/clipboard.min.js
 # Avatar 头像
 avatar: https://s1.ax1x.com/2020/04/17/JEjcB8.png
 # Year of site creation 网站成立年份
@@ -194,11 +195,18 @@ livere:
 gitalk:
   on: false
 
+# Content may be out of date reminder 文章内容可能过期提醒
+# Or you can use it in your md file 
+# Warning: true  # write this in your md file
+Warning:
+  on: false # if is true, every article have this note 如果选择true，所有的文章都带有提示信息
+  Days: 1 # Day,  after these days, your post will show out of date content
+  Content: "This article was written {} days ago. The content of the article may be out of date."
+
 # Search function 搜索功能
 # true: on 开启;  false: off 不开启
 search:
   on: true
-
 # Share function 分享功能
 # https://github.com/overtrue/share.js
 Share:
@@ -224,6 +232,13 @@ recommended_posts:
   excludePattern: []
   titleHtml: <h1>推荐文章<span style="font-size:0.45em; color:gray">（由<a href="https://github.com/huiwang/hexo-recommended-posts">hexo文章推荐插件</a>驱动）</span></h1> #自定义标题
 
+
+# Related post function 
+# https://github.com/tea3/hexo-related-popular-posts
+related_post:
+  enable: true
+  PPMixingRate: false
+  maxCount: 3
 
 
 # MathJax

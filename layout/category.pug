@@ -34,8 +34,8 @@ block content
         - page.posts.each(function(article){
           - var bg = "background-color:#" + article.color
           .box(style=bg)
-            if article.url
-              img.feat-image(src=article.url)
+            if article.postImage
+              img.feat-image(src=article.postImage)
             .container
               h3!= article.title
               if article.description

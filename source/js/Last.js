@@ -54,7 +54,3 @@ function scrollDown() {
         behavior: "smooth"
     });
 }
-
-// function qqZoneShare() {
-//     alert("sss");
-// }

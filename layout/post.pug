@@ -30,17 +30,25 @@ block content
             i.fa.fa-file-alt
           span.words!= wordcount(page.content) + " words"
         .post-content
+          - let notes = theme.Warning.Content.split('{}');
+          - let diffDays = moment(new Date()).diff(moment(page.date), 'day');
+          if (page.warning || theme.Warning.on) && diffDays > theme.Warning.Days
+            .date-warning
+              span!= notes[0]
+              strong!= diffDays
+              span!= notes[1]
           != page.content
         //- script(type="text/javascript").
         //-   document.write(paginator());
+      include includes/license.pug
       .post-information
-        //- != (Popular_posts_json({maxCount:5,ulClass:'popular-posts',PPMixingRate:0.0,isDate:true,isImage:true,isExcerpt:true}, page))
-        h2.recommend!= "Recommend Article"
-        != popular_posts({PPMixingRate: false, maxCount: 5, isImage: true, isExcerpt: true} , page )
-        <div style="clear:both"></div>
+        if theme.related_post.enable == true
+          h2.recommend!= "Recommend Article"
+          != popular_posts({PPMixingRate: theme.related_post.PPMixingRate, maxCount: theme.related_post.maxCount, isImage: true, isExcerpt: true} , page )
+          <div style="clear:both"></div>
         if config.recommended_posts.enable == true
           div.recommended_posts
-            h3() 推荐阅读
+            h3() Recommened Reading
             - var post_list = recommended_posts(page, site)
             - for (var i in post_list)
                 li
@@ -74,8 +82,8 @@ block content
     .post-content blockquote::after {
       content: "#{theme.bq_after_icon}";
     }
-  <script src="/js/third-party/social-share.js"></script>
-  <script src="/js/third-party/qrcode.js"></script>
+  //- <script src="/js/third-party/social-share.js"></script>
+  //- <script src="/js/third-party/qrcode.js"></script>
   script.
     var desc = "#{page.excerpt}";
     var $config = {

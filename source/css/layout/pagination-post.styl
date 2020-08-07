@@ -12,32 +12,37 @@
     // height 800px
     line-height: 200px
     text-decoration: none
+    
 
 .prev-next
     display flex
     align-items: center
     justify-content: space-between
     background-color: white
-    margin-top: 30px;
+    margin: 30px 0;
+    padding: 0 15px;
     // margin-left: 14%
     // margin-right 28.5%
+    &:hover
+        color white
+        background-color: rgba(200, 0, 0, 0.1);
 
 .pull-left
     float left
     font-size: 20px
-    line-height: 90px
+    line-height: 45px
     text-decoration: none
     color $pagination-post-extend-text-color
     &:hover
-        color $pagination-post-hover-extend-text-color
+        color gray
 
 .pull-right
     float right
-    line-height: 90px
+    line-height: 45px
     text-decoration: none
     clear both
     color $pagination-post-extend-text-color
     font-size: 20px
     &:hover
-        color $pagination-post-hover-extend-text-color
+        color: gray
         
