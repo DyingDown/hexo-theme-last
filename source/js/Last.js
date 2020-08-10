@@ -54,3 +54,25 @@ function scrollDown() {
         behavior: "smooth"
     });
 }
+
+function closeSearch() {
+    // let son = document.getElementById("search");
+    // son.click(function(event) {
+    //     event.stopPropgation();
+    // })
+    document.getElementById("search-overlay").style.display = "none";
+}
+
+function openSearch() {
+    document.getElementById("search-overlay").style.display = "block";
+}
+
+function stopBubble(e) {
+    // 非 IE 浏览器
+    if (e && e.stopPropagation) {
+        e.stopPropagation();
+        return;
+    }
+    // IE 浏览器
+    window.event.cancelBubble = true;
+}
