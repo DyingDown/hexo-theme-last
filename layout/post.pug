@@ -38,8 +38,7 @@ block content
               strong!= diffDays
               span!= notes[1]
           != page.content
-        //- script(type="text/javascript").
-        //-   document.write(paginator());
+          include widget/rating-star.pug
       include includes/license.pug
       .post-information
         if theme.related_post.enable == true

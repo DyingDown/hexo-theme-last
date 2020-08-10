@@ -33,5 +33,6 @@
     //- a#menu_button!= '<i class="fa fa-bars"></i>'
     #buttons
         if theme.search.on === true
-            a#search!= '<i class="fa fa-search"></i>'
+            a.social-icon.search
+                i.fa.fa-search(onclick="openSearch()")
     //- #menu_button!= '<i class="fa fa-bars"></i>'

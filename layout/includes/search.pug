@@ -1,0 +1,18 @@
+#search-overlay(onclick="closeSearch()")
+    #search(onclick="stopBubble(this.id)")
+        h2!= "Search"
+        i.fa.fa-times-circle(onclick="closeSearch()")
+        form.site-search-form
+            input#local-search-input.st-search-input(type="text" placeholder=theme.local_search.placeholder autocomplete="off")
+        hr
+        div#local-search-result.local-search-result-cls
+    script(id="local.search.active").
+        var inputArea       = document.querySelector("#local-search-input");
+        inputArea.onclick   = function(){ 
+            getSearchFile(); 
+            this.onclick = null;
+        }
+        inputArea.onkeydown = function(){ 
+            if(event.keyCode == 13) 
+                return false;
+        }
