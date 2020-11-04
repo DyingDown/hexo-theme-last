@@ -1,3 +1,5 @@
+@import "../variable/variable.styl"
+
 .search-box {
     background: none;
     height: 25px;
@@ -43,11 +45,11 @@
 }
 .search-box:hover > .search-btn {
     background: none;
-    color: #e84118;
+    color: $search-box-color-hover;
 }
 
 .search-box:hover
-    border: solid #e84118 1.5px;
+    border: solid $search-box-color-hover 1.5px;
     font-size: 16px;
 #search-overlay
     z-index 999

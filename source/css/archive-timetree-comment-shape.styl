@@ -34,7 +34,7 @@
         width: 0;
         height: 30;
         border-top: 20px solid transparent;
-        border-right: 30px solid rgb(170, 38, 17);
+        border-right: 30px solid $comment-color;
         border-bottom: 20px solid transparent;
     .timeline-time::before
         content:"";
@@ -44,12 +44,12 @@
         width: 0;
         height: 30;
         border-top: 20px solid transparent;
-        border-left: 30px solid rgb(170, 38, 17);
+        border-left: 30px solid $comment-color;
         border-bottom: 20px solid transparent;
 .archive-list td:last-child::before
     position absolute
-    background-color :rgb(170, 38, 17)
-    border solid 4px rgb(170, 38, 17)
+    background-color :$comment-color
+    border solid 4px $comment-color
     border-radius 20px
     margin-top 40px
     margin-left: -62px
@@ -66,10 +66,10 @@
 .timeline-time
     padding-top: 40px
 .article-time:nth-child(2n)
-    border-left solid rgb(170, 38, 17) 3px
+    border-left solid $comment-color 3px
     
 .article-time:nth-child(2n-1)
-    border-right solid rgb(170, 38, 17) 3px
+    border-right solid $comment-color 3px
 .article-title
     text-decoration: none
     color white
@@ -84,11 +84,11 @@
         color black
 .article-t-c
     padding 20px
-    border solid rgb(170, 38, 17) 2px
+    border solid $comment-color 2px
     border-radius: 20px
-    background-color: rgb(170, 38, 17)
+    background-color: $comment-color
 td.article-year
-    color rgb(170, 38, 17)
+    color $comment-color // rgb(170, 38, 17)
     clear both
     text-align: center !important
     font-size: 30px

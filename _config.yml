@@ -7,28 +7,6 @@ menu:
   Home:
     path: /
     ico: home
-  Category:
-    path: /categories
-    ico: list
-    submenu:
-      Memories:
-        path: /categories/memories/
-        ico: camera
-      OJ Prob:
-        path: /categories/ACM
-        ico: code
-      Novel:
-        path: /novel/
-        ico: book
-      Essay: 
-        path: /categories/Essay
-        ico: pencil-alt
-      Film:
-        path: /categories/film
-        ico: film
-      Template:
-        path: /books/samples/template
-        ico: bookmark
   About:
     path: /
     ico: lightbulb
@@ -39,38 +17,15 @@ menu:
       Theme:
         path: /theme-last
         ico: puzzle-piece
-      Contat:
-        path: /contact
-        ico: lightbulb
-  Star:
-    path: /top/
-    ico: star
   Archives:
     path: /archives
     ico: archive
-  Lab:
-    path: /
-    ico: cog
-    submenu:
-      Project:
-        path: /project/
-        ico: paperclip
   Tags:
     path: /tags
     ico: tag
   Friends:
     path: /links/
     ico: link
-  Game:
-    path: /
-    ico: gamepad-alt
-    submenu:
-      Rubik's Cube:
-        path: /project/RubikCube/index.html
-        ico: cube
-  # Message:
-  #   path: /message/
-  #   ico: comment-dots
 
 # stylesheets loaded in the <head>
 stylesheets:
@@ -90,13 +45,10 @@ stylesheets:
 - /css/layout/highlight.css
 - /css/links.css
 - /css/about.css
-- /css/novel.css
-- /css/projects.css
 - /css/third-party/share.min.css
 - /css/third-party/post-recommend.css
 - /css/layout/license.css
 - /css/layout/search.css
-# - /css/colorBox.css
 
 # scripts loaded in the end of the body
 scripts:
@@ -155,7 +107,7 @@ leancloud_visitors:
 # Tidio online chat
 # see: https://www.tidiochat.com
 tidio:
-  enable: true
+  enable: false
   key: 1pcrbxbh2qspmtd9phcfc5r5heykzr5k # Public_Key
 
 # Statistics your post and show it as calendar style 统计文章并以日历形式展示
@@ -257,10 +209,13 @@ local_search:
 # Share function 分享功能
 # https://github.com/overtrue/share.js
 Share:
-  on: true # if this is false, the flowing are useless 如果这个选为false,则下面的都没用了
+  on: false # if this is false, the flowing are useless 如果这个选为false,则下面的都没用了
   datasites: "facebook,twitter,qq,wechat,qzone,weibo" # You can combine these arbitrarily 你可以任意的组合这些
   # there are facebook,linkedin, twitter, qq, douban, wechat, qzone, weibo
 
+## Word Count
+word_count:
+  enable: false
 # Receommemded Posts function 相关阅读功能
 # https://github.com/huiwang/hexo-recommended-posts
 # 此插件借助人工智能为友情链接升级换代，通过文章推荐的方式帮助大家推广博客。
@@ -270,7 +225,7 @@ Share:
 # After generating a new post ,type hexo recommend
 # 在编辑完新的文章之后，使用如下命令获取推荐列表: hexo recommend
 recommended_posts:
-  enable: true
+  enable: false
   timeoutInMillis: 10000 # Service time, if it exceeds this time, use offline recommendation mode 服务时长，超过此时长，则使用离线推荐模式
   internalLinks: 5 # number of your own posts 内部文章数量
   externalLinks: 2 # number of outer posts 外部文章数量
@@ -283,7 +238,7 @@ recommended_posts:
 # Related post function 
 # https://github.com/tea3/hexo-related-popular-posts
 related_post:
-  enable: true
+  enable: false
   PPMixingRate: 0.5
   maxCount: 3
 
@@ -323,7 +278,7 @@ donate:
 #   on: true # false
 
 #是否开启“关于我”
-aboutme: I expect to make friends with you! I'm an ACＭmer but not very good. I like learning.
+# aboutme: I expect to make friends with you! I'm an ACＭmer but not very good. I like learning.
 
 # about me page
 selfIntroductionFormal: I'm currently studying CS at Henan Polytechnic University, I like computer science and coding. I'm also a member of the Algorithm Association who once participated in ICPC of China but I did not well. I also like making web pages because it's interesting and fun.

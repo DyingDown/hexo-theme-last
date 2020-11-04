@@ -45,7 +45,7 @@
     text-decoration: none
     color: gray;
     :hover
-        color red
+        color $header-menu-subitem-hover-text-color
 
 #top .avatar
     display: block
@@ -203,10 +203,10 @@
         // line-height: $header-height
         align-items: center
         width: auto
-        &:hover
-            border-radius 10px
-            background-color $header-user-hover-background-color
-            color $header-user-hover-text-color !important
+        // &:hover
+        //     border-radius 10px
+        //     background-color $header-user-hover-background-color
+        //     color $header-user-hover-text-color !important
     #phoneButton,
     #top .avatar
         display none
@@ -338,7 +338,7 @@
         line-height $header-height
         cursor: pointer
     .search:hover
-        color: red;
+        color: green;
 @media (max-width: 1200px)
     #top
         // position: fixed

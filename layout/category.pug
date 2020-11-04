@@ -2,73 +2,21 @@ extends includes/layout.pug
 
 
 block content
-  //- link(rel="stylesheet" href="../source/css/colorBox.styl")
-  if page.category == "ACM"
-    //- link(rel="stylesheet" href="../source/css/colorBox.styl")
-    #home.post(role="main")
-      #grid.row.flex-grid
-        - page.posts.each(function(article){
-          - var classname = "post-" + article.main
-          div.box-item(id=classname )
-            span.ribbon
-              each tag, index in article.tags.data
-                if tag.name == article.main
-                  a(href=url_for(tag.path) class=" externalLink" target=_blank)
-                    span.ri
-                      != tag.name
-                //- article.title
-            .box-body
-              time(datetime=date_xml(article.date))= full_date(article.date,'MMMM Do YYYY')
-              a.post-link(href=url_for(article.path))
-                h2.post-title!= article.title
-              a.post-link(href=url_for(article.path))
-                p!= article.description
-              .tags
-                each tag, index in article.tags.data
-                  a.tg(href=url_for(tag.path))= tag.name
-        - })
-  else if page.category == "Essay" 
-    //- link(rel="stylesheet" href="../source/css/categories/colorBox.styl")
-    #container.clearfix
-      div(id="grid" data-columns class="cols")
-        - page.posts.each(function(article){
-          - var bg = "background-color:#" + article.color
-          .box(style=bg)
-            if article.postImage
-              img.feat-image(src=article.postImage)
-            .container
-              h3!= article.title
-              if article.description
-                p!= article.description
-              else
-                p!= article.excerpt
-              .action
-                != full_date(article.date,'MMMM Do YYYY')
-                a(href=url_for(article.path))
-                  i.fa.fa-arrow-right
-        - })
-  else if page.category == "Novel"
-    //- #bookshell
-    //-   .shell-f
-    //-     a(href="books/samples/Lost/index.html") != Book1
-        
-  else
-    //- link(rel="stylesheet" href="../source/css/categories.styl")
-    #category
-      h1= page.category
-      - page.posts.each(function(article){
-        .category-item
-          a.category-article-title(href=url_for(article.path))= article.title
-          .category-time
-            i.fa.fa-calendar
-            time.category-time-content(datetime=date_xml(article.date))= date(article.date)
-          br
-          span.category-tag-icon
-            i.fas.fa-tag
-          each tag, index in article.tags.data
-            span.tags
-              a.tagOfa(href=url_for(tag.path))= tag.name
-          br
-          br
-      - })
+  #category
+    h1= page.category
+    - page.posts.each(function(article){
+      .category-item
+        a.category-article-title(href=url_for(article.path))= article.title
+        .category-time
+          i.fa.fa-calendar
+          time.category-time-content(datetime=date_xml(article.date))= date(article.date)
+        br
+        span.category-tag-icon
+          i.fas.fa-tag
+        each tag, index in article.tags.data
+          span.tags
+            a.tagOfa(href=url_for(tag.path))= tag.name
+        br
+        br
+    - })
   include includes/pagination.pug

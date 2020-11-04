@@ -8,9 +8,8 @@ if(is_post())
         #me
             //- input#payment(type='checkbox')
             if theme.donate.on
-                div#wrap
-                    .triangle(for="payment" onclick="triangleClick()")
-                        div#qrcode-triangle
+                //- div#wrap
+                    img#qrcode-triangle(src="img/qrcode_icon.png" onclick="triangleClick()")
             img.avatar(src="/img/avatar1.png")
             #side-author!= config.author
             #author-description!= theme.aboutme

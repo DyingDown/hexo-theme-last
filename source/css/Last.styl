@@ -1,3 +1,4 @@
+@import "variable/variable.styl"
 
 body
   // margin-left 15px
@@ -12,12 +13,16 @@ body
   background-size: 120px
   background-position: 98% 5px
 .vat
-  border solid red 1px
+  border solid $valine-button 1px
   border-radius: 10px
   padding 0px 10px
+  color $valine-button !important
 .vat:hover
-    background-color: red
+    background-color: $valine-button
     color white !important
+
+.vnick:hover
+  color: $valine-button !important
 .novel+.v
   width: 80%;
   margin: 50px auto;

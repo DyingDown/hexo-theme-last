@@ -11,25 +11,28 @@ block content
               span.post-title-icons
                 i.fa.fa-calendar
               time.words(datetime=date_xml(page.date))= date(page.date)
-          a.category
+          if page.categories.data[0]
+            a.category
+              span.post-title-icons
+                i.fa.fa-book
+              each category, index in page.categories.data
+                  span.words(href=url_for(category.path)) #{category.name}
+          if page.tags.data[0]
+            a.post-tag
+              span.post-title-icons
+                i.fa.fa-tag
+              each tag, index in page.tags.data
+                  span.words(href=url_for(tag.path)) #{tag.name}  
+          if theme.word-count
+            span.post-title-icons  
+              i.fa.fa-clock
+            if min2read(page.content) !== "1"
+              span.words!= min2read(page.content) + " mins"
+            else
+              span.words!= min2read(page.content) + " min"
             span.post-title-icons
-              i.fa.fa-book
-            each category, index in page.categories.data
-                span.words(href=url_for(category.path)) #{category.name}
-          a.post-tag
-            span.post-title-icons
-              i.fa.fa-tag
-            each tag, index in page.tags.data
-                span.words(href=url_for(tag.path)) #{tag.name}  
-          span.post-title-icons  
-            i.fa.fa-clock
-          if min2read(page.content) !== "1"
-            span.words!= min2read(page.content) + " mins"
-          else
-            span.words!= min2read(page.content) + " min"
-          span.post-title-icons
-            i.fa.fa-file-alt
-          span.words!= wordcount(page.content) + " words"
+              i.fa.fa-file-alt
+            span.words!= wordcount(page.content) + " words"
           .fdate
             span.post-title-icons
               i.fa.fa-calendar
@@ -51,7 +54,7 @@ block content
           h2.recommend!= "Recommend Article"
           != popular_posts({PPMixingRate: theme.related_post.PPMixingRate, maxCount: theme.related_post.maxCount, isImage: true, isExcerpt: true} , page )
           <div style="clear:both"></div>
-        if config.recommended_posts.enable == true
+        if config.recommended_post && config.recommended_posts.enable == true
           div.recommended_posts
             h3() Recommened Reading
             - var post_list = recommended_posts(page, site)

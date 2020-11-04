@@ -46,8 +46,9 @@
     right: 0;
     width: 70px;
     height: 70px;
-    background: url(/img/qrcode_icon.png) no-repeat 0 0;
-    background-size: 70px 70px;
+    // background: url(/img/qrcode_icon.png) no-repeat 0 0 ;      
+
+    // background-size: 70px 70px;
     z-index: 100;
     // background-color: blue
     // cursor: pointer
@@ -73,6 +74,7 @@
     font-size: 25px
     text-align: center
     padding-bottom: 20px
+    // position: relative
 
 #author-description
     margin-left: 8%
@@ -84,8 +86,8 @@
 
 #payment-codes
     display none
-    position absolute
-    top 40px
+    // position absolute
+    top 0 // 40px
     background-color: rgba(0,0,0,0.8)
     z-index 2
     height auto
@@ -94,19 +96,21 @@
     color white
     font-size: 30px
     line-height: 40px
-    margin-top: 35px
+    padding-top: 10px
     text-align: center
 
 #wechat
-    margin-top: 20px
-    margin-bottom: 10%
-    width: 50%
-    margin-left: 25%
+    margin-top: 8%;
+    margin-bottom: 8%;
+    width: 50%;
+    padding-left: 25%;
+    padding-right: 25%;
 #alipay
-    margin-top: 20px
-    margin-bottom: 40px
-    width: 50%
-    margin-left: 25%
+    margin-top: 4%;
+    margin-bottom: 4%;
+    width: 50%;
+    padding-left: 25%;
+    padding-right: 25%;
 
 .buttons
     display flex
@@ -118,7 +122,7 @@
     font-size:20px
     border-radius:6px
     color $side-user-button-color;
-    line-height: 25px
+    // line-height: 25px
     padding-left: 10px
     padding-right: 10px
     border solid 1px $side-user-button-color
