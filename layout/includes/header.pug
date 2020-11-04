@@ -32,7 +32,10 @@
     //- label#manu_button(for='menus')
     //- a#menu_button!= '<i class="fa fa-bars"></i>'
     #buttons
-        if theme.search.on === true
-            a.social-icon.search
-                i.fa.fa-search(onclick="openSearch()")
-    //- #menu_button!= '<i class="fa fa-bars"></i>'
+        include search.pug
+    //-     if theme.search.on === true
+    //-         .search-box
+    //-             input#local-search-input(tpye="text" placeholder="Type to search")
+    //-             a.search-btn
+    //-                 i.fa.fa-search(onclick="openSearch()")
+    //- //- #menu_button!= '<i class="fa fa-bars"></i>'

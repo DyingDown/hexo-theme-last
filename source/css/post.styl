@@ -26,7 +26,8 @@
     // @media(max-width 1300px)
     //     margin 110px auto 0
     //     width 96%
-
+.fdate
+    display none;
 #shareButtons 
     width: 80px;
     height: 500px;
@@ -40,6 +41,10 @@
     top: 8rem;
 #shareButtonsInner
     margin-left: 10px;
+
+.fa .fa-share-alt {
+    font-size: 25px;
+}
 .side-bar
     background-color: $post-side-bar-background-color
     border-top solid $post-side-bar-border-top-color 2px
@@ -52,11 +57,21 @@
 
 @media(max-width 1200px)
     #shareButtons  
-        display none
+        position: static !important
+        width: 100%;
+        height: auto
+        margin: 0 auto
     .side-bar
         display none
     .main-post-content
         padding: 0px 10px 
+    .post-content
+        padding: 10px !important;
+@media(max-width 800px)
+    .date
+        display none;
+    .fdate
+        display: inline;
 #post
     -webkit-box-shadow 1px 0 5px rgba(0,0,0,.4)
     box-shadow 1px 0 5px rgba(0,0,0,.4)
@@ -77,7 +92,10 @@
     // margin-left 14%
     // margin-right 1%
     // width 57%
-
+.first-line
+    display flex;
+    justify-content: space-between
+    align-items: center
 .titles
     padding-left 20px
     border-left solid 0.3125rem $post-title-border-left-color
@@ -93,10 +111,11 @@
     margin-block-start: 0em !important
 
 .date
-    float: right
+    min-width: 130px
+    // float: right
     margin-right: 20px
-    position relative
-    margin-top: -30px
+    // position relative
+    // margin-top: -30px
 .category
 .post-tag
     &:hover
@@ -319,18 +338,17 @@ p
     max-width 100%
 .post-content p
     font-size: 16px;
-p code
+p code,
+li code
     background-color: rgb(40, 40, 40);
     color white
     border-radius: 7px
     padding 0px 5px
     font: 18px consolas !important
+.post-content a
+    color: #d31a29
+    word-break: break-all
 
-.fixedFunction
-    position: fixed
-    right: 30px
-    bottom: 23px
-    z-index: 99999
 @-webkit-keyframes fadeInUp 
     0%
         opacity:0;
@@ -345,58 +363,56 @@ p code
     100% 
         opacity:1;
         -moz-transform:translateY(0)
-.plus
-    background-color: darkred
-    margin 0 !important
-    cursor pointer
-    overflow hidden
-.fixedFunction
-    &:hover 
-        color red
-        #subFunction
-            display block
-            // -webkit-animation fadeInUp .3s .1s ease both;
-            // -moz-animation fadeInUp .3s .1s ease both
 
-            
-.goTop
+#goTo
+    position fixed;
+    right: 0;
+    bottom: 40px;    
+    font-size: 20px
+    line-height: 30px;
+    color: white
+    // writing-mode: vertical-lr
+    // direction: ltr
+    transform: translateX(50% - 8px) translateY(-64px) rotate(-90deg);
+    -ms-transform:translateX(50% - 8px) translateY(-64px) rotate(-90deg); 	/* IE 9 */
+    -moz-transform:translateX(50% - 8px) translateY(-64px) rotate(-90deg); 	/* Firefox */
+    -webkit-transform:translateX(50% - 8px) translateY(-64px) rotate(-90deg); /* Safari 和 Chrome */
+    -o-transform: translateX(50% - 8px) translateY(-64px) rotate(-90deg); 	/* Opera */        -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer 
+.goTop.showBtn
     background-color: darkblue
+    padding: 0px 10px;   
+    display inline-block
+    margin: 0 2px;
+    border-radius: 10px 10px 0 0;
+    transition: background-color .3s 
+.goTop.hideBtn
+    background-color: darkblue
+    padding: 0px 10px;
+    margin: 30px 2px 0;
+    visibility: hidden;
 .goComment
+    border-radius: 10px 10px 0 0;
     background-color: green
-.goBottom
-    background-color: orange
-.functionButton
-    font-size 2em
-    // border-radius: 2em
-    color white
-    text-align: center
-    line-height: 48px
-    padding 0
-
-#subFunction
-    display: none
-    list-style-type: none
-    padding 0
-    text-align: center
-    line-height: 48px
-    font-size: 1.8em
-    margin-block-start: 15px
-    margin-block-end: 15px
-    -webkit-animation fadeInUp .5s .1s ease both;
-    -moz-animation fadeInUp .5s .1s ease both
-    
-#subFunction a
-    color white
-.samefunction
-    width: 48px
-    height 48px
-    border-radius: 50px
-    -moz-box-shadow:1px 1px 5px #333333; 
-    -webkit-box-shadow:1px 1px 5px #333333; 
-    box-shadow:1px 1px 5px #333333;
-    color white
-    margin 15px 0
-
+    padding: 0px 10px;
+    display: inline-block
+    margin: 0 2px;
+    transition: background-color .3s 
+.goComment:hover 
+    box-sizing: border-box;
+    border-top: 1px solid green;
+    background: white
+    color: green;
+.goTop:hover 
+    box-sizing: border-box;
+    border-top: 1px solid darkblue;
+    background: white
+    color: darkblue;
 .date-warning
     padding: 15px;
     margin: 20px 0;

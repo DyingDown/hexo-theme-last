@@ -268,3 +268,22 @@
 .social-share .icon-wechat:hover .wechat-qrcode {
     display: block
 }
+
+#shareButtonsInner .fa {
+    line-height: 40px;
+}
+
+.fa-share-alt {
+    font-size: 25px !important;
+    border: solid 1px black;
+    margin: 10px 4px;
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    border-radius: 50%;
+    line-height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+}

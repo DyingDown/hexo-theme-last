@@ -5,11 +5,12 @@ block content
     .article
       #post
         .titles
-          h1.title= page.title
-          .date
-            span.post-title-icons
-              i.fa.fa-calendar
-            time.words(datetime=date_xml(page.date))= date(page.date)
+          .first-line
+            h1.title= page.title
+            .date
+              span.post-title-icons
+                i.fa.fa-calendar
+              time.words(datetime=date_xml(page.date))= date(page.date)
           a.category
             span.post-title-icons
               i.fa.fa-book
@@ -29,6 +30,10 @@ block content
           span.post-title-icons
             i.fa.fa-file-alt
           span.words!= wordcount(page.content) + " words"
+          .fdate
+            span.post-title-icons
+              i.fa.fa-calendar
+            time.words(datetime=date_xml(page.date))= date(page.date)
         .post-content
           - let notes = theme.Warning.Content.split('{}');
           - let diffDays = moment(new Date()).diff(moment(page.date), 'day');
@@ -37,8 +42,9 @@ block content
               span!= notes[0]
               strong!= diffDays
               span!= notes[1]
-          != page.content
-          include widget/rating-star.pug
+          div(data-toc="#toc")!= page.content
+          if theme.star.on
+            include widget/rating-star.pug
       include includes/license.pug
       .post-information
         if theme.related_post.enable == true
@@ -59,21 +65,15 @@ block content
     #shareButtons
       if theme.Share.on
         #shareButtonsInner
-          div.social-share(data-sites=theme.Share.datasites)
+          span.share
+            i.fa.fa-share-alt
+          span.social-share(data-sites=theme.Share.datasites)
     .side-bar
       include includes/side-user.pug
       include includes/toc.pug 
-  .fixedFunction
-    ul#subFunction
-      li.goTop.samefunction(onclick="backToTop()")
-        i.fa.fa-arrow-up
-      li.goComment.samefunction(onclick="backToComment()")
-        i.fa.fa-comment
-      li.goBottom.samefunction(onclick="backToBottom()")
-        i.fa.fa-arrow-down
-    .functionButton
-      .plus.samefunction
-        i.fa.fa-plus
+    #goTo
+      span.goComment(onclick="backToComment()")!= "Comment"
+      span.goTop!= "Top"
   style(type="text/css").
     .post-content blockquote::before {
       content: "#{theme.bq_pre_icon}";

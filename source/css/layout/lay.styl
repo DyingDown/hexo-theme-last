@@ -18,18 +18,26 @@ body
 #content-inner
     width 100%
     margin-right: 0px
-// #menu-side    
-//     width 100%
-//     top 0
-//     left 0
-//     z-index 9989
-//     position fixed
-//     height 80px
-//     background-color: rgba(0, 0, 0, 0.9)
-//     // opacity 0.5
 
-    // text-align: left
-
+#progress-bar 
+    position: fixed;
+    top: 0;
+    height: 2px;
+    // width: 100%;
+    // background: linear-gradient(to left, #008aff, #00ffe7);
+    background-color: #d31a29;
+    z-index: 9998
+    // animation: animate 5s linear infinite;
+.widget-position-left,
+#button:not(.sidebar) {
+    left: 100px !important;
+    right: auto;
+}
+@keyframes animate
+    0%, 100%
+        filter: hue-rotate(0deg);
+    50%
+        filter: hue-rotate(360deg);
 
 ::-webkit-scrollbar {
     width: 10px;

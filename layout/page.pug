@@ -44,6 +44,32 @@ block content
                       .site-name!= item.name
                       .site-description!= item.description
         include includes/comment.pug
+  else if page.title === "project"
+    if page.projects
+      .projects
+        .projects-header
+          h1!= "Study Projects"
+        ul
+          li
+            i.fa.fa-circle
+            span!= "All projects in this page is not original"
+          li
+            i.fa.fa-circle
+            span!= "But all projects are written by blogger"
+          li
+            i.fa.fa-circle
+            span!= "Click the title to jumpt to the certain original link"
+        .projects-container-outer
+          .project-container
+            each item, index in page.projects
+              .box(onclick="javascript:window.location.href='#{item.origin}''")
+                .content
+                  h2!= ("000" + String(index)).substr(-2)
+                  a.title(href=item.origin ,target="_blank")!= item.title
+                  p!= item.description
+                  a.readmore(href=item.url)!= "Preview"
+        .comment
+          include includes/comment.pug
   else if page.title === "about"
     .aboutMePage
       center
@@ -75,6 +101,11 @@ block content
             i.fas.fa-leaf
             span.abilityWords!= ability
       include includes/comment.pug
+  else if page.title == "top"
+    div#post-rank
+    h1!= "sss"
+    h1!= "sss"
+    h1!= "sss"
   else if page.title === "novel"
     .novel
       .left-intro
@@ -104,9 +135,10 @@ block content
         .second-shell
           a.book-lost(href="/books/samples/old-man/index.html")
             img.cover(src="/img/cover-oldman.jpg")
+    include includes/comment.pug
       //- a(href="/books/samples/Lost/index.html")!= "book1"
     //- each article in page.links.sort('date', -1).limit(24).toArray()
-        h1!= article.title
+        //- h1!= article.title
     //- .tag-cloud
     //-   .tag-cloud__title= page.title  
     //-     |  - 

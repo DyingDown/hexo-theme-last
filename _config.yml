@@ -43,20 +43,34 @@ menu:
         path: /contact
         ico: lightbulb
   Star:
-    path: /star/
+    path: /top/
     ico: star
   Archives:
     path: /archives
     ico: archive
+  Lab:
+    path: /
+    ico: cog
+    submenu:
+      Project:
+        path: /project/
+        ico: paperclip
   Tags:
     path: /tags
     ico: tag
   Friends:
     path: /links/
     ico: link
-  Message:
-    path: /message/
-    ico: comment-dots
+  Game:
+    path: /
+    ico: gamepad-alt
+    submenu:
+      Rubik's Cube:
+        path: /project/RubikCube/index.html
+        ico: cube
+  # Message:
+  #   path: /message/
+  #   ico: comment-dots
 
 # stylesheets loaded in the <head>
 stylesheets:
@@ -77,6 +91,7 @@ stylesheets:
 - /css/links.css
 - /css/about.css
 - /css/novel.css
+- /css/projects.css
 - /css/third-party/share.min.css
 - /css/third-party/post-recommend.css
 - /css/layout/license.css
@@ -95,10 +110,13 @@ scripts:
 - /js/third-party/clipboard.min.js
 - /js/jquery-3.5.1.min.js
 - /js/search.js
+
 # Avatar 头像
 avatar: https://s1.ax1x.com/2020/04/17/JEjcB8.png
 # Year of site creation 网站成立年份
 since: 2019
+
+percent: true
 
 # Signature in Home Page Home界面的个性签名
 signature:
@@ -128,6 +146,17 @@ exchangeUrlRules:
 # http://ibruce.info/2015/04/04/busuanzi/
 visits:
   on: true
+
+leancloud_visitors:
+  enable: true
+  app_id: Pmj2ml22nKDDTdi8l07y17Qr-MdYXbMMI #<AppID>
+  app_key: KjlKCAqWiy8XBYJIMt5OYmS3 #<AppKEY>
+
+# Tidio online chat
+# see: https://www.tidiochat.com
+tidio:
+  enable: true
+  key: 1pcrbxbh2qspmtd9phcfc5r5heykzr5k # Public_Key
 
 # Statistics your post and show it as calendar style 统计文章并以日历形式展示
 postCalendar: true # false
@@ -203,7 +232,7 @@ gitalk:
 # Warning: true  # write this in your md file
 Warning:
   on: false # if is true, every article have this note 如果选择true，所有的文章都带有提示信息
-  Days: 1 # Day,  after these days, your post will show out of date content
+  Days: 50 # Day,  after these days, your post will show out of date content
   Content: "This article was written {} days ago. The content of the article may be out of date."
 
 # Search function 搜索功能
@@ -255,14 +284,14 @@ recommended_posts:
 # https://github.com/tea3/hexo-related-popular-posts
 related_post:
   enable: true
-  PPMixingRate: false
+  PPMixingRate: 0.5
   maxCount: 3
 
 # Rating star function 打星功能
 star:
   on: true
-  id: 26703 # app id
-  color: fadb14
+  id: 26703 # app id 用户id
+  color: fadb14 # color of stars in Hexadecimal 星星的颜色
 
 # MathJax
 # Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/third-party-support.html#mathjax
@@ -294,10 +323,10 @@ donate:
 #   on: true # false
 
 #是否开启“关于我”
-aboutme: I expect to make friends with you! I'm a ACＭmer but not very good. I like learning.
+aboutme: I expect to make friends with you! I'm an ACＭmer but not very good. I like learning.
 
 # about me page
-selfIntroductionFormal: I'm currently studying CS in Henan Polytechnic University, I like computer science and coding. I'm also a member of the Algorithm Association who once participated in ICPC of China but I did not well. I also like making web pages because it's interesting and fun.
+selfIntroductionFormal: I'm currently studying CS at Henan Polytechnic University, I like computer science and coding. I'm also a member of the Algorithm Association who once participated in ICPC of China but I did not well. I also like making web pages because it's interesting and fun.
 Location: Henan Polytechnic University, Jiaozuo, Henan, China
 Position: College student
 Projects: 

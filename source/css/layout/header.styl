@@ -26,7 +26,7 @@
     text-decoration: none
     font-size: 25px
 #user:visited
-        color lightgray
+    color lightgray
 #buttons
     display none
 #menus,
@@ -68,107 +68,107 @@
     transition: 0.2s ease-out;
 
 #burger-toggle {
-  appearance: none;
-  opacity: 0;
+    appearance: none;
+    opacity: 0;
 
-  &:checked {
+    &:checked {
 
-    // Here don't use box-shadow to make overlay because it will damage performance.
-    
-    &~.burger-menu {
-      .line {
-        &:nth-child(1) {
-          transform: translateY(calc(var(--burger-menu-radius) / 5)) rotate(45deg);
+        // Here don't use box-shadow to make overlay because it will damage performance.
+        
+        &~.burger-menu {
+            .line {
+                &:nth-child(1) {
+                    transform: translateY(calc(var(--burger-menu-radius) / 5)) rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    transform: scaleX(0);
+                }
+
+                &:nth-child(3) {
+                    transform: translateY(calc(var(--burger-menu-radius) / -5)) rotate(-45deg);
+                }
+            }
         }
-
-        &:nth-child(2) {
-          transform: scaleX(0);
+        &~#content-outer {
+            margin-left: 200px;
         }
-
-        &:nth-child(3) {
-          transform: translateY(calc(var(--burger-menu-radius) / -5)) rotate(-45deg);
+        &+.overlay{
+            opacity 0.6
         }
-      }
     }
-    &~#content-outer {
-      margin-left: 200px;
-    }
-    &+.overlay{
-        opacity 0.6
-    }
-  }
 }
 
 #burger-toggle {
-  appearance: none;
-  opacity: 0;
-  display none
+    appearance: none;
+    opacity: 0;
+    display none
 }
 #burger-toggle:checked ~ .burger-menu .line:nth-child(1) {
-  transform: translateY(calc(var(--burger-menu-radius) / 5)) rotate(45deg);
+    transform: translateY(calc(var(--burger-menu-radius) / 5)) rotate(45deg);
 }
 #burger-toggle:checked ~ .burger-menu .line:nth-child(2) {
-  transform: scaleX(0);
+    transform: scaleX(0);
 }
 #burger-toggle:checked ~ .burger-menu .line:nth-child(3) {
-  transform: translateY(calc(var(--burger-menu-radius) / -5)) rotate(-45deg);
+    transform: translateY(calc(var(--burger-menu-radius) / -5)) rotate(-45deg);
 }
 
 .burger-menu {
-  --burger-menu-radius: 3em;
-  position: relative;
-  z-index: 10000;
-  display: block;
-  width: var(--burger-menu-radius);
-  height: var(--burger-menu-radius);
-  background: white;
-  border: solid 2px rgba(149, 166, 167, 0.4);
-  border-radius: 50%;
-  outline: none;
-  cursor: pointer;
-  transition: 0.5s ease-in-out;
+    --burger-menu-radius: 3em;
+    position: relative;
+    z-index: 10000;
+    display: block;
+    width: var(--burger-menu-radius);
+    height: var(--burger-menu-radius);
+    background: white;
+    border: solid 2px rgba(149, 166, 167, 0.4);
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
 }
 .burger-menu .line {
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 3px;
-  background: rgba(43, 61, 79, 0.3);
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.5s ease;
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: rgba(43, 61, 79, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.5s ease;
 }
 .burger-menu .line:nth-child(1) {
-  top: 30%;
+    top: 30%;
 }
 .burger-menu .line:nth-child(2) {
-  top: 50%;
+    top: 50%;
 }
 .burger-menu .line:nth-child(3) {
-  top: 70%;
+    top: 70%;
 }
 .burger-menu .line::after {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #2980b9;
-  transform: translateX(-100%);
-  transition: all 0.25s ease;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2980b9;
+    transform: translateX(-100%);
+    transition: all 0.25s ease;
 }
 .burger-menu .line:nth-child(2)::after {
-  transition-delay: 0.1s;
+    transition-delay: 0.1s;
 }
 .burger-menu .line:nth-child(3)::after {
-  transition-delay: 0.2s;
+    transition-delay: 0.2s;
 }
 .burger-menu:hover {
-  box-shadow: 0.4px 0.4px 0.8px rgba(0, 0, 0, 0.042), 1px 1px 2px rgba(0, 0, 0, 0.061), 1.9px 1.9px 3.8px rgba(0, 0, 0, 0.075), 3.4px 3.4px 6.7px rgba(0, 0, 0, 0.089), 6.3px 6.3px 12.5px rgba(0, 0, 0, 0.108), 15px 15px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0.4px 0.4px 0.8px rgba(0, 0, 0, 0.042), 1px 1px 2px rgba(0, 0, 0, 0.061), 1.9px 1.9px 3.8px rgba(0, 0, 0, 0.075), 3.4px 3.4px 6.7px rgba(0, 0, 0, 0.089), 6.3px 6.3px 12.5px rgba(0, 0, 0, 0.108), 15px 15px 30px rgba(0, 0, 0, 0.15);
 }
 .burger-menu:hover .line::after {
-  transform: translateX(0);
+    transform: translateX(0);
 }
 
 
@@ -186,6 +186,8 @@
         justify-content: space-between
         opacity 0.98 // 0.98
         filter: alpha($header-background, 98)
+        transition: none;
+        align-items: center
     #user
         display flex
         // float left
@@ -230,7 +232,7 @@
         margin-left: 1vw
         margin-right: 1vw
         // margin-bottom: 6px
-        line-height: 20px
+        line-height: 20px;
         // margin-top: 2.5%
         &:hover .submenu
             display: block
@@ -249,6 +251,7 @@
         // padding-bottom: 18px
         // border-top: 0px
         // line-height 1
+        
         &:hover
             color $header-menu-item-hover-text-color
             // border-bottom: solid
@@ -259,15 +262,17 @@
                 content ""
                 display block
                 position absolute
-                bottom -25px
+                bottom -15px
                 background-color: $header-menu-item-hover-text-color
                 width 100%
                 height 5px
                 // max-width 0
                 transition  .25s ease-in-out
-    .icon_top,
-    .subicon
-      margin: 10px auto
+                box-sizing: border-box;
+    
+    .subicon,
+    .icon_top
+        margin: 10px auto
     .sublabel
         text-decoration: none
         font-size: 18px
@@ -297,7 +302,7 @@
         position:absolute;
         background:$header-submenu-background-color;
         padding:10px;
-        top:40px;
+        top:45px;
         right:-8px;
         width:auto;
         height: auto
@@ -333,8 +338,9 @@
         line-height $header-height
         cursor: pointer
     .search:hover
-      color: red;
+        color: red;
 @media (max-width: 1200px)
     #top
         // position: fixed
         overflow: auto
+        transition: none;

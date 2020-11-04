@@ -47,9 +47,9 @@ html(lang=config.language)
       link(rel='stylesheet', href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css")
       link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
       link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css")
-      //- link(rel="stylesheet" href="../../source/font-awesome/css/all.min.css")
-
+      //- link(rel="stylesheet" href="../../source/font-awesome/css/all.min.css") 
   body
+    #progress-bar
     #menu-outer
       //- include menu-side.pugn
       include header.pug
@@ -59,7 +59,7 @@ html(lang=config.language)
         if body
           div!= body
         else
-          include search.pug
+          //- include search.pug
           block content
     include footer.pug
     include third-party/mathjax.pug
@@ -69,4 +69,6 @@ html(lang=config.language)
         script(src=url)
     if(is_post())
       script(src="/js/toc.js")
+    if theme.tidio.enable
+      script(async src="//code.tidio.co/1pcrbxbh2qspmtd9phcfc5r5heykzr5k.js")
     //- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")

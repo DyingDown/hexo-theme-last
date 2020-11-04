@@ -46,7 +46,11 @@ block content
                       td.article-title-content
                         .article-t-c
                           a.article-title(href=url_for(article.path))!= article.title
-                          .article-content!= article.excerpt
+                          .article-content
+                            if article.description
+                             != article.description
+                            else
+                              != article.excerpt
                       td.article-time
                         .timeline-time
                           time(datetime=date_xml(article.date))= full_date(article.date,'dddd  MMMM Do YYYY')
@@ -58,7 +62,11 @@ block content
                       td.article-title-content
                         .article-t-c
                           a.article-title(href=url_for(article.path))!= article.title
-                          .article-content!= article.excerpt
+                          .article-content
+                            if article.description
+                             != article.description
+                            else
+                              != article.excerpt
             - })
           include includes/pagination.pug
         else

@@ -1,101 +1,161 @@
+.search-box {
+    background: none;
+    height: 25px;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 25px;
+    // width: 10.5vw;
+}
+.search-btn {
+    color: white;
+    float: right;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    text-decoration: none;
+}
+#local-search-input {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 25px;
+    width: 0;
+}
+// #local-search-input::placeholder
+//     font-weight: bold;
+
+.search-box:hover > #local-search-input {
+    width: 8vw;
+    padding: 0 6px;
+}
+.search-box:hover > .search-box {
+    width: 20px;
+}
+.search-box:hover > .search-btn {
+    background: none;
+    color: #e84118;
+}
+
+.search-box:hover
+    border: solid #e84118 1.5px;
+    font-size: 16px;
 #search-overlay
     z-index 999
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    // background-color: rgba(0, 0, 0, 0.99);
+    background: #060c21;
     width: 100%;
     height: 100%;
     display none;
 
-#search
-    width: 600px;
-    height: 60%;
+#search {
+    position: relative;
     margin-top: 8%;
-    background-color: white;
-    // border-radius: 10px;
-    position: fixed;
-    padding: 0px 20px 20px
-    left: calc(50% - 320px);
+    width: 700px;
+    height: 70%
+    left: calc(50% - 350px);
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    background: #060c21;
+    color: white !important
+    // padding: 0 20px;
+}
+#search::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -1;
+}
+/* 于上面类似,做一个面积比box略大的矩形,并通过改变层叠次序,置于box的下层,达到给box设置边框的效果 */
+#search::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -2;
+    /* 滤镜属性  给图像设置高斯模糊。"radius"一值设定高斯函数的标准差，或者是屏幕上以多少像素融在一起，所以值越大越模糊；如果没有设定值，则默认是0；这个参数可设置css长度值，但不接受百分比值。 */
+    filter: blur(40px);
+}
+#search::before,
+#search::after {
+    /* linear-gradient() 函数用于创建一个线性渐变的 "图像"。 参数1:用角度值指定渐变的方向（或角度）  12点钟方向为0deg*/
+    background: linear-gradient(218deg, #89ff00, #060c21, #00bcd4);
+}
+// .content {
+//     padding: 20px;
+//     box-sizing: border-box;
+//     color: #fff;
+// }
+#search-header
+    padding: 0 20px;
+    border-bottom: solid gray 1px;
 #search h2
     // float left
     display inline-block
-.site-search-form
-    width: 96%;
-    border solid 2px #d31a29
-    border-radius: 20px;
-    // position: relative;
+    color: gray;
 #search .fa-times-circle
     float: right;
     margin: 20px 10px 0 0;
     font-size: 30px;
     line-height: 30px;
-    // position: relative;
-    // top: -40px;
-    // right: 0px;
-    // padding: .3125rem
-    // margin: .4375rem;
     color: gray
     cursor: pointer;
 #search .fa-times-circle:hover
-    color: #d31a29
+    color: #89ff00
     cursor: pointer;
-#local-search-input
-    width: 530px;
-    // margin: 10px 0
-    line-height: 30px;
-    padding: 0 20px 0 20px;
-    border:none
-    background: rgba(255, 255, 255, 0)
-    outline: 0
-    border-radius: 20px;
-    font-size: 18px
-#local-search-input:focus
-    outline: none
-#local-search-input::placeholder
-    font-size: 18px
-    line-height: 30px;
-#search hr
-    width: 83%;
-    position: static
-    height: 1px
-    border: none;
-    border-top: dashed #df6879 4px
-    margin-top: 40px !important;
-    margin-left: 65px
-    overflow hidden
-    margin-block-start: 0px
-    margin-block-end: 0
-    margin-inline-end: 0
-#search hr:before
-    content: ""
-    background: url(/img/plane.png) no-repeat;
-    width: 60px
-    height: 30px
-    background-size: 60px
-    position: absolute;
-    margin-top: -15px;
-    margin-left: -60px;
-    z-index: 10000;
 
 .search-result
     word-break: break-all
+    color: white;
 
 #local-search-result
     display flex
-    height: calc(100% - 160px);
+    height: calc(100% - 73px);
     overflow: auto
-    margin-top: 20px
+#local-search-result::-webkit-scrollbar {
+  width: 8px;
+}
+
+#local-search-result::-webkit-scrollbar-track {
+    // box-shadow: inset 0 0 6px white;
+    border-radius: none !important;
+    border:none !important
+}
+#local-search-result::-webkit-scrollbar-thumb {
+    background-color: #89ff00;
+    // border-radius: 10px;
+}
 .search-result-title
-    font-weight: bold;
-    color: black;
-    font-size: 20px;
+    // font-weight: bold;
+    color: #0ed2f7
+    font-size: 1.8rem;
+    font-weight: 700;
 .search-result-title:hover
-    color: #d31a29
+    color: #89ff00
 .search-keyword
-    color: #d31a29
+    color: #89ff00
     font-style: normal
-    border-bottom: dashed 2px #d31a29
+    border-bottom: dashed 2px #89ff00
     // text-decoration: underline
 // .search-result-list li
 //     list-style-type: '\f10c'
@@ -103,6 +163,9 @@
 //     font-family: "fontawesome"
 .search-result-list
     padding-left: 20px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    list-style-type: none;
 .search-result-list li .search-result-title:before
     // position: absolute;
     // margin-top: .4rem;

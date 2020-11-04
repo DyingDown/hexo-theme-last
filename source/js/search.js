@@ -90,14 +90,14 @@ var searchFunc = function(path, search_id, content_id) {
                         if (first_occur >= 0) {
                             // cut out 100 characters
                             var start = first_occur - 20;
-                            var end = first_occur + 80;
+                            var end = first_occur + 10;
 
                             if (start < 0) {
                                 start = 0;
                             }
 
                             if (start == 0) {
-                                end = 100;
+                                end = 20;
                             }
 
                             if (end > content.length) {
