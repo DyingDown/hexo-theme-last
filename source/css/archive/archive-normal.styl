@@ -1,0 +1,152 @@
+@import "../themes/variable.styl"
+
+$type = hexo-config("archiveStyle.type") || "center"
+
+if $type == "center"
+  $maxW1 = 768px
+  $maxW2 = 992px
+else if $type == "split"
+  $maxW1 = 768px;
+.archive
+  width: 82%;
+  margin: 100px auto 0
+  color: white;
+  line-height: 22px;
+  font-size: 16px
+.timeline 
+  width: 100%
+.timeline-item
+  border-left: 3px solid $minorColor
+  padding: 0 0 0 20px
+  flex-direction: column
+  display flex
+  position: relative
+  width: 100%;
+.period
+    text-align: center;
+    font-size: 30px;
+    padding: 40px 0
+    color: $minorColor;
+
+.timeline-item .timeline-info
+  line-height: 25px
+  margin-bottom: 20px
+
+.timeline-item .timeline-content .post-content h3 a
+  font-size: 22px;
+  color: $minorColor
+  text-decoration: none
+  line-height: 25px;
+.timeline-item:nth-of-type(2n) .timeline-info .post-time:after,
+.timeline-item:nth-of-type(2n+1) .timeline-info .post-time:after
+  content: " ";
+  width: 13px
+  height: 13px;
+  background-color $bg;
+  border: $minorColor solid 4px;
+  position: absolute
+  left -11.5px;
+  border-radius: 20px;
+  z-index 2
+@media(min-width $maxW1)
+  .archive
+    width: 82%;
+  .period
+    text-align: left;
+    margin-left: 30%;  
+  .timeline-item
+    border-left: none
+    flex-direction: row
+  .timeline-item .timeline-info
+    float: right;
+    text-align: right;
+    width: 27%;
+    vertical-align: top
+    position relative
+    margin: 0
+  .timeline-item .timeline-content 
+    text-align: left;
+    float: left;
+    width: 70%;
+    position relative
+    padding: 0 20px 20px 20px;  
+  .timeline-item .timeline-content .post-content
+    text-decoration: none;
+    color: white;
+    border-radius: 20px;
+
+  .timeline-item:nth-of-type(2n) .timeline-info,
+  .timeline-item:nth-of-type(2n+1) .timeline-info
+    border-right: $minorColor solid 1.5px
+    padding-right: 50px;
+    
+  .timeline-item:nth-of-type(2n) .timeline-content,
+  .timeline-item:nth-of-type(2n+1) .timeline-content
+    border-left: $minorColor solid 1.5px 
+    padding-left: 50px;
+
+  .timeline-item .timeline-content .post-content
+    padding: 0 20px 20px 20px;
+
+  .timeline-item:nth-of-type(2n) .timeline-info .post-time:after,
+  .timeline-item:nth-of-type(2n+1) .timeline-info .post-time:after
+    content: " ";
+    width: 13px
+    height: 13px;
+    background-color $bg;
+    border: $minorColor solid 4px;
+    position: absolute
+    right -11.5px;
+    left: auto
+    border-radius: 20px;
+    z-index 2
+
+@media(min-width $maxW2)
+  .archive
+    width: 67%;
+  .period
+    text-align: center;
+    margin: auto;
+  .timeline-item
+    border-left: none
+    padding: 0
+  .timeline-item .timeline-info
+    float: right;
+    text-align: right;
+    width: 50%;
+    vertical-align: top
+    position relative
+  .timeline-item .timeline-content 
+    text-align: left;
+    float: left;
+    width: 50%;
+    position relative
+    padding: 0
+
+  .timeline-item:nth-of-type(2n) .timeline-info
+    order: 2
+    text-align: left;
+    border-left: $minorColor solid 1.5px
+    padding-left: 50px;
+    border-right: none;
+    padding-right: 0  
+  .timeline-item:nth-of-type(2n) .timeline-content
+    text-align: right ;
+    border-right: $minorColor solid 1.5px
+    padding-right: 50px;
+    border-left: none;
+    padding-left: 0;
+
+  .timeline-item:nth-of-type(2n) .timeline-info .post-time:before
+    content: " ";
+    width: 13px
+    height: 13px;
+    background-color $bg;
+    border: $minorColor solid 4px;
+    position: absolute
+    left -11.5px;
+    border-radius: 20px;
+    z-index: 2
+
+  .timeline-item:nth-of-type(2n) .timeline-info .post-time:after
+    content: none !important

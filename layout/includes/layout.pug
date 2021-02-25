@@ -1,4 +1,4 @@
-//- include icons
+
 - var pageTitle = page.title || config.subtitle || ''
 - if (is_archive()) pageTitle = 'Archives'
 - if (is_tag()) pageTitle = 'Tag: ' + page.tag
@@ -6,69 +6,29 @@
 - if (is_month()) pageTitle += ': ' + page.month + '/' + page.year
 - if (is_year()) pageTitle += ': ' + page.year
 - pageTitle += ' [ ' + config.title + ' ]'
-//- != pageTitle
 
 doctype html
 html(lang=config.language)
   head
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes')
     meta(charset='UTF-8')
     title= pageTitle
-    if theme.stylesheets !== undefined && theme.stylesheets.length > 0
-      //- stylesheets list from _config.yml
-      each url in theme.stylesheets
-        link(rel='stylesheet', href=url)
-    script(src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js")
-    if(is_post())
-      link(rel='stylesheet', href= "/css/layout/pagination-post.css")
-      link(rel='stylesheet', href= "/css/layout/footer-post.css")
-      link(rel='stylesheet', href= "/css/layout/layout-post.css")
-      link(rel='stylesheet', href= "/css/post.css")
-    else if(page.category == "ACM")
-      link(rel='stylesheet', href= "/css/layout/pagination.css")
-      link(rel='stylesheet', href= "/css/layout/footer-post.css")
-      link(rel='stylesheet', href= "/css/layout/layout-post.css")
-      link(rel="stylesheet" href="/css/categories/cardPage.css")
-    else if(page.category == "Essay")
-      link(rel='stylesheet', href= "/css/layout/pagination.css")
-      link(rel='stylesheet', href= "/css/layout/footer-post.css")
-      link(rel='stylesheet', href= "/css/layout/layout-post.css")
-      link(rel="stylesheet" href="/css/categories/colorBox.css")
-    else if(page.title == "novel")
-      link(rel='stylesheet', href= "/css/layout/pagination.css")
-      link(rel='stylesheet', href= "/css/layout/footer-post.css")
-      link(rel='stylesheet', href= "/css/layout/layout-post.css")
-      link(rel="stylesheet" href="/css/categories/bookshell.css")
-    //- else if(page.title == "novel")
-    else
-      link(rel='stylesheet', href= "/css/layout/pagination.css")
-      link(rel='stylesheet', href= "/css/layout/footer.css")
-      link(rel='stylesheet', href= "/css/layout/lay.css")
-      link(rel='stylesheet', href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css")
-      link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
-      link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css")
-      //- link(rel="stylesheet" href="../../source/font-awesome/css/all.min.css") 
+    include ./head.pug
   body
-    #progress-bar
-    #menu-outer
-      //- include menu-side.pugn
-      include header.pug
-    .overlay
+    include header.pug
     #content-outer
       #content-inner
         if body
           div!= body
         else
-          //- include search.pug
           block content
     include footer.pug
-    include third-party/mathjax.pug
+    script(src="/js/third-party/tools.js")
+    - if (theme.carousel.on && pageTitle == ' [ ' + config.title + ' ]')
+      script(src="/js/carousel.js")
     if theme.scripts !== undefined && theme.scripts.length > 0
       //- scripts list from config.yml
       each url in theme.scripts
         script(src=url)
-    if(is_post())
-      script(src="/js/toc.js")
-    if theme.tidio.enable
-      script(async src="//code.tidio.co/1pcrbxbh2qspmtd9phcfc5r5heykzr5k.js")
-    //- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+    - if (is_post())
+      script(src="/js/post.js")
+    <script src="https://use.typekit.net/bkt6ydm.js"></script>

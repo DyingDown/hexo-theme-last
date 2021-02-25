@@ -1,61 +1,50 @@
-link(rel='stylesheet', href= "/css/layout/recent-posts.css")
-//- -
-//-   var month = {
-//-     "Jan": "January"
-//-     "Feb": "Feburary"
-//-     "Mar": "March"
-//-     "Apr": "April"
-//-     "May": "May"
-//-     "Jun": "June"
-//-     "Jul": "July"
-//-     "Aug": "August"
-//-     "Sept": "September"
-//-     "Oct": "October"
-//-     "Nov": "November"
-//-     "Dec": "December"
-//-   };
-
-//- img#title-cover(src="/img/germany.jpg", alt="cover")
-//- #cover
-//-   != "The Jigsaw puzzle is incomplete with even one missing piece."
 
 #home-cover
-  #moto
-    #signature-date
-      != theme.signature.date
-    #cover-title
-      != theme.signature.content
-    if theme.signature.from.on
-      #from
-        != theme.signature.from.content
-  #chevron-down(onclick="scrollDown()")
-    i.fas.fa-chevron-down
+  if theme.carousel != undefined && theme.carousel.on
+    //- outer container of carousel
+    .carousel-container
+      //- put post list
+      ul.postList
+        //- each post in carouselPosts
+        for post in site.posts.data
+          if post.isCarousel != undefined && post.isCarousel && post.postImage != undefined && post.postImage
+            li.postCarousel(style="background-image:url(" + post.postImage + ")")
+              if theme.carousel.mask.on
+                div.shadowBox
+                  .carouselContent
+                    h2!= post.title
+                    p.carouselText
+                      != post.description || post.excerpt
+                    br
+                    br
+                    a(href= url_for(post.path)).readMore!= "Read More"
+      //- previous next arrow
+      if theme.carousel.prevNext
+        i.fa.fa-chevron-left
+        i.fa.fa-chevron-right
+      //- nav button
+      if theme.carousel.indicators.on
+        .navDots
+          for post in site.posts.data
+            if post.isCarousel != undefined && post.isCarousel && post.postImage != undefined && post.postImage
+              a.navDot(href="javascript:;")= ""
+      
 #recent-post-content
   if page.posts.length > 0
     #recent-posts
-      //- h1 Recent Posts
       each post in page.posts.sort('date', -1).limit(24).toArray()
-        //- a.block(href=url_for(post.path))
         .recent-post-item
-          //- .category
           each category, index in post.categories.data
             if index === 0
               span.category #{category.name}
           a(href=url_for(post.path))
             .box-cover
               if post.postImage
-                - var l = post.postImage
                 img.cover(src=post.postImage, alt="cover")
               else
                 img.cover(src="https://s1.ax1x.com/2020/04/25/J6iz9K.jpg", alt="Default cover")
           .content-tags
             if post.date
-              -
-                let date = new Date(post.date);
-                let globalDate = date.toUTCString();
-                let globalDateArray = globalDate.split(' ');
-                //- var test = month[globalDateArray[2]];
-                let displayDate = `${globalDateArray[2]} ${globalDateArray[1]}, ${globalDateArray[3]}`;
               time.time(datetime=date_xml(post.date))= full_date(post.date,'MMMM Do YYYY')
               br
             a.post_title(href=url_for(post.path))= post.title
@@ -65,9 +54,5 @@ link(rel='stylesheet', href= "/css/layout/recent-posts.css")
                 p.content!= post.description
               else
                 p.content!= post.excerpt
-            //- - var tagsList = list_tags({ show_count: false })
-            //- each tag, index in tagsList   
-              p #{tag.name}
             each tag, index in post.tags.data
               a.recent-post-tag(href=url_for(tag.path))= tag.name
-      //- #pagination!= paginator() 

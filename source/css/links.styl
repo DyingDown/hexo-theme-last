@@ -1,78 +1,44 @@
-// @media (max-width: 768px)
-//     .links
-//         width: 80%;
-
+@import "themes/variable.styl"
 #content-outer
     width: 100%;
 .links
     color white;
-    width: 55%
+    width: 80%;
     margin 100px auto 0
-    @media (max-width: 992px)
-        width: 85%
-
+    @media(min-width 900px)
+        width 65%
+    
 .links h2
     font-size: 1.8em;
 
 .links h3
     font-size: 1.2em;
-.rules
-    counter-reset: li
-    list-style none
-    // list-style: decimal
-    display: block;
-    line-height: 2em
-.rules li::before
-    height 1.45em;
-    width 1.45em
-    content: counter(li)
-    counter-increment: li
-    font-size: 0.875em
-    text-align: center
-    color white
-    white-space: nowrap
-    position: absolute; 
-    margin-left: -2.5em; 
-    line-height: 1.4em;
-    // top: 2px; 
-    // border solid #d31a29 1px
-    margin-top: 0.4em;
-    background: #d31a29
-    border-radius: 40px;
-.mylink li::before
-    content ""
-    color white
-    font-weight: 20px
-    position: absolute; 
-    margin-left: -2em; 
-    line-height: 2em;
-    // top: 2px; 
-    margin-top: 0.4em;
-    background: black
-    border-radius: 30px;
-    // padding-right 5px
-    // padding-left: 5px
-    border solid 3.5px #d31a29
-    height 10px
-    width 10px
-.mylink li
-    font-size: 1em;
-    line-height: 30px
-    list-style-type: none
+
 .group-items
     padding 0;
     margin-bottom: 50px
+    width: 100%;
 .item-friend
+    // float left
     list-style-type none;
     display inline-block
-    margin 0px 1% 2% 1%
+    margin: 10px auto
+    width: 100%
+    flex: 1 0 18.75em
+    margin: 0 0 1.875rem 
     border-radius: 10px;
     background-color: black
     color white
     border lightgrey solid 2px
-    width: 30.5%
-    @media (max-width: 992px)
-        width: 47.5%
+    @media(min-width: 37.5rem)
+        margin: 0 0.9375em 15px
+    for $n in 2..3 
+        $resolution = "calc((2 * %s) + (%s * %s))"%(0.625em $n 18.75em)
+        @media(min-width: $resolution)
+            max-width: "calc(%s/%s - %s*2)"%(100% $n 1.5em)
+    // Note 2: This sets the maximum number of box items per row.
+    @media(min-width: "calc(2 * %s + %s * $s)"%(0.625em 3 18.75em))
+        flex: 1 0 "calc(100%/%s - %s*2)"%(3 0.9375em)
 .links .site-preview
     text-align: center
     width: 70px;
@@ -80,8 +46,11 @@
     border-radius:80px;
     margin 15px;
     border solid lightgrey 2px
-    @media (max-width: 992px)
-        width: 30%
+    transform-origin: center
+    transition: 0.5s
+.links .site-preview:hover
+    transform: rotate(360deg)
+
 
 .links .link-title
     border-bottom: solid 1px rgb(50,50,50)
@@ -97,8 +66,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 1.2em;
-    @media (max-width: 992px)
-        font-size: 1.8em;
+    line-height: 24px;
         
 .links .site-description
     margin-left 110px
@@ -110,8 +78,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    @media (max-width: 992px)
-        font-size: 1.8em;
 
 .clearfix::after
     content: "";
@@ -126,6 +92,3 @@
     text-decoration: none
 #vcomment
     clear both
-@media (max-width: 1200px)
-    .links
-        margin-top: 90px;

@@ -1,37 +1,22 @@
 extends includes/layout.pug
 
 block content
-  if page.title === 'tags'
-    #category
-      - var categoriesList = list_categories({ show_count: false })
-      - var tagsList = list_tags({ show_count: false })
-      #categories
-        h1 Categories
-        if categoriesList
-          != list_categories({show_count: false, style: span, depth: 1})
-        else
-          p None.
-      br
-      #tags
-        h1 Tags
-        if tagsList
-          != tagsList
-        else
-          p None.
-      br
+  article#page
+    h1= page.title
+    != page.content
   if page.title === 'links'
     if page.links
       .links
-        h2!= theme.friendPageNotice
-        ol.rules
-          each rule in theme.exchangeUrlRules
-            li!= rule
-        h3!= "The followings are my site imformation: "
-        ul.mylink
-          li!= "Site URL: " + theme.siteUrl
-          li!= "Site Name: " + theme.siteName
-          li!= "Avatar(URL): " + theme.Avatar
-          li!= "Site Description: " + theme.siteDescription
+        //- h2!= theme.friendPageNotice
+        //- ol.rules
+        //-   each rule in theme.exchangeUrlRules
+        //-     li!= rule
+        //- h3!= "The followings are my site imformation: "
+        //- ul.mylink
+        //-   li!= "Site URL: " + theme.siteUrl
+        //-   li!= "Site Name: " + theme.siteName
+        //-   li!= "Avatar(URL): " + theme.Avatar
+        //-   li!= "Site Description: " + theme.siteDescription
         each group, index in page.links
           h2.link-title!= group.group_name
           .group-description!= group.description
@@ -44,55 +29,4 @@ block content
                       .site-name!= item.name
                       .site-description!= item.description
         include includes/comment.pug
-  else if page.title === "about"
-    .aboutMePage
-      center
-        img.aboutMeAvatar(src=theme.avatar)
-      h1!= "Who I'm I?"
-      p.seff-introduction-formal!= theme.selfIntroductionFormal
-      ul.location
-        li
-          i.fas.fa-map-marker-alt
-          span.aboutWords!= theme.Location
-        li
-          i.fas.fa-arrow-circle-right
-          span.aboutWords!= theme.Position
-      h2!= "My Experiences"
-      ul.myProjects
-        each project in theme.Projects
-          li.project
-            i.fas.fa-circle-notch
-            span.projectWords!= project
-      h2!= "My GitHub Contributions"
-      - var GitHubName = theme.GitHubUserName
-      - var charUrl = ' "https://ghchart.rshah.org/' + GitHubName + '" ';
-      //- img.github-contribution(src="https://ghchart.rshah.org/DyingDown")
-      include includes/third-party/calendar.html
-      h2!= "My abbilities"
-      ul.myAbilities
-        each ability in theme.Abilities
-          li
-            i.fas.fa-leaf
-            span.abilityWords!= ability
-      include includes/comment.pug
-      //- a(href="/books/samples/Lost/index.html")!= "book1"
-    //- each article in page.links.sort('date', -1).limit(24).toArray()
-        //- h1!= article.title
-    //- .tag-cloud
-    //-   .tag-cloud__title= page.title  
-    //-     |  - 
-    //-     span.tag-cloud__amount= site.tags.length
-    //-   .tag-cloud-tags!= tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#A4D8FA', end_color: '#0790E8'})
-  //- else if page.type === 'categories'
-  //-   .category-lists
-  //-     .category__title= page.title  
-  //-       |  - 
-  //-       span.category__amount= site.categories.length
-  //-     div!= list_categories()
-  //- else
-  //-   article#page
-  //-     h1= page.title
-  //-     != page.content
-  //-   include includes/pagination.pug
-
-    
+  #paginator!= paginator()

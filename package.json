@@ -1,6 +1,9 @@
 {
-    "name": "hexo-theme-melody",
-    "version": "0.1.0",
-    "description": "",
-    "private": true
+  "name": "last",
+  "version": "0.1.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "hexo-wordcount": "^6.0.1"
+  }
 }

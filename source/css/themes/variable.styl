@@ -1,0 +1,23 @@
+$isCustomize = hexo-config("themeColor.on") || false
+
+$bg = #202020
+$minorColor = #d31b29
+
+$headerBg = #191919
+$headerSubBg = #333333
+$headerCt = #ffffff
+$headerHv = #ff0000
+
+$homeTm = #737373
+$homeMainTx = #ffffff
+$homeCt = #bfbfbf
+$homeRowMaxItem = 6
+
+$postBg = #ffffff
+$sInfoTp = #808080
+$sInfoBg = #d3d3d3
+$sInfoTx = #666666
+if $isCustomize
+    $defaultMainColor = hexo-config("themeColor.mainColorSeries") || 'black'
+    $defaultMinorColor = hexo-config("themeColor.minorColorSeries") || 'red'
+    // if $defaultMainColor == 'black'

@@ -1,96 +1,63 @@
 extends includes/layout.pug
 
 block content
-  .main-post-content.clearfix
-    .article
+  #post-outer
+    #share-col
+      #shareButtons
+        if theme.Share.on
+          #shareButtonsInner
+            span.social-share(data-sites=theme.Share.datasites)
+    #mid-col
       #post
-        .titles
-          .first-line
-            h1.title= page.title
+        #titles
+          #first-line
+            h1= page.title
             .date
               span.post-title-icons
                 i.fa.fa-calendar
               time.words(datetime=date_xml(page.date))= date(page.date)
-          if page.categories.data[0]
-            a.category
+          #post-information
+            a.category-post
               span.post-title-icons
                 i.fa.fa-book
               each category, index in page.categories.data
                   span.words(href=url_for(category.path)) #{category.name}
-          if page.tags.data[0]
             a.post-tag
               span.post-title-icons
                 i.fa.fa-tag
               each tag, index in page.tags.data
                   span.words(href=url_for(tag.path)) #{tag.name}  
-          if theme.word-count
-            span.post-title-icons  
-              i.fa.fa-clock
-            if min2read(page.content) !== "1"
-              span.words!= min2read(page.content) + " mins"
-            else
-              span.words!= min2read(page.content) + " min"
-            span.post-title-icons
-              i.fa.fa-file-alt
-            span.words!= wordcount(page.content) + " words"
-          .fdate
-            span.post-title-icons
-              i.fa.fa-calendar
-            time.words(datetime=date_xml(page.date))= date(page.date)
-        .post-content
+            if theme.wordCount != undefined && theme.wordCount
+              span.post-title-icons  
+                i.fa.fa-clock
+              if min2read(page.content) !== "1"
+                span.words!= min2read(page.content) + " mins"
+              else
+                span.words!= min2read(page.content) + " min"
+              span.post-title-icons
+                i.fa.fa-file-alt
+              span.words!= wordcount(page.content) + " words"
+            
+        
+        #post-content
           - let notes = theme.Warning.Content.split('{}');
           - let diffDays = moment(new Date()).diff(moment(page.date), 'day');
-          if (page.warning || theme.Warning.on) && diffDays > theme.Warning.Days
-            .date-warning
-              span!= notes[0]
-              strong!= diffDays
-              span!= notes[1]
-          div(data-toc="#toc")!= page.content
-          if theme.star.on
-            include widget/rating-star.pug
-      include includes/license.pug
-      .post-information
-        if theme.related_post.enable == true
-          h2.recommend!= "Recommend Article"
-          != popular_posts({PPMixingRate: theme.related_post.PPMixingRate, maxCount: theme.related_post.maxCount, isImage: true, isExcerpt: true} , page )
-          <div style="clear:both"></div>
-        if config.recommended_post && config.recommended_posts.enable == true
-          div.recommended_posts
-            h3() Recommened Reading
-            - var post_list = recommended_posts(page, site)
-            - for (var i in post_list)
-                li
-                  img(src=post_list[i].excerpt)
-                  a(href=post_list[i].permalink, target='_blank')= post_list[i].title
-        include includes/pagination.pug
-        include includes/comment.pug
-    
-    #shareButtons
-      if theme.Share.on
-        #shareButtonsInner
-          span.share
-            i.fa.fa-share-alt
-          span.social-share(data-sites=theme.Share.datasites)
-    .side-bar
+            if (page.warning || theme.Warning.on) && diffDays > theme.Warning.Days
+              .date-warning
+                span!= notes[0]
+                strong!= diffDays
+                span!= notes[1]
+            != page.content
+      include includes/comment.pug
+      //- #paginator!= paginator()
+    #toc-col
       include includes/side-user.pug
       include includes/toc.pug 
-    #goTo
-      span.goComment(onclick="backToComment()")!= "Comment"
-      span.goTop!= "Top"
-  style(type="text/css").
-    .post-content blockquote::before {
-      content: "#{theme.bq_pre_icon}";
-    }    
-    .post-content blockquote::after {
-      content: "#{theme.bq_after_icon}";
-    }
-  //- <script src="/js/third-party/social-share.js"></script>
-  //- <script src="/js/third-party/qrcode.js"></script>
   script.
     var desc = "#{page.excerpt}";
     var $config = {
         description         : desc,
-        wechatQrcodeTitle   : "微信扫一扫：分享", // 微信二维码提示文字
+        wechatQrcodeTitle   : "#{theme.Share.wechatQrcodeTitle}", // 微信二维码提示文字
         wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
     };
-    socialShare('.social-share', $config);
+    //- socialShare('.social-share', $config);

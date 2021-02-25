@@ -1,418 +1,122 @@
-@import "variable/variable.styl"
+@import "themes/variable.styl"
 
-.clearfix:after {
-    content: "";
-    display: block;
-    clear: both;
+@font-face {
+    font-family: "fontawesome";
+    src: url("/font-awesome/webfonts/fa-solid-900.eot");
+    src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), 
+         url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), 
+         url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), 
+         url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg")
 }
-.main-post-content
-    // float: left
-    height: auto;
-    margin-top: 110px
-    padding: 2px 400px 0 150px
-    overflow hidden
-.article
-    background-color $post-background-color
-    position relative
-    width: 100%;
-    float: left;
-    // padding: 0 40px 0 10px;
-    // margin-left 14%
-    // margin-right 1%
-    // width 57%
-    // @media(max-width 1600px)
-    //     width 61%
-    //     margin-left 10%
-    // @media(max-width 1300px)
-    //     margin 110px auto 0
-    //     width 96%
-.fdate
-    display none;
-#shareButtons 
-    width: 80px;
-    height: 500px;
-    // background-color pink;   
-    float: left;
-    position: relative;
-    left: -80px;
-    margin-left: -100%;
-    // position: fixed;
-    // left: 7%;
-    top: 8rem;
-#shareButtonsInner
-    margin-left: 10px;
+$postStyle = hexo-config("postStyle.contentStyle") || 'concise'
+$tocPos = hexo-config("postStyle.authorInfoPosition") || 'right'
+$isShare = hexo-config("Share.on") || false
+$tocOd = 3
+$midOd = 2
+$shareOd = 1
 
-.fa .fa-share-alt {
-    font-size: 25px;
-}
-.side-bar
-    background-color: $post-side-bar-background-color
-    border-top solid $post-side-bar-border-top-color 2px
-    float left
-    width 300px
-    height auto
-    position: relative;
-    right: -510px;
-    margin-left: -480px; // 重要
+@import 'post/' + $postStyle + '.styl'
 
-@media(max-width 1200px)
-    #shareButtons  
-        position: static !important
-        width: 100%;
-        height: auto
-        margin: 0 auto
-    .side-bar
-        display none
-    .main-post-content
-        padding: 0px 10px 
-    .post-content
-        padding: 10px !important;
-@media(max-width 800px)
-    .date
-        display none;
-    .fdate
-        display: inline;
+if $isShare == true
+    if $tocPos == 'left'
+        $tocOd = 1
+        $shareOd = 3
+else 
+    if $tocPos == 'left'
+        $midOd = 2
+        $tocOd = 1
+
+body
+    background-color: $postBg !important
+
+#content-outer
+    width: 100vw;    
+#post-outer
+    margin-top: 75px;
+    display flex
+    padding: 40px 5% 0;
+    // width: 100%;
+#mid-col
+    order: $midOd
+    margin: 0 20px;
+    flex: auto
+    width: 0
 #post
     -webkit-box-shadow 1px 0 5px rgba(0,0,0,.4)
     box-shadow 1px 0 5px rgba(0,0,0,.4)
-    // padding-right: 40px
-    // padding-top: 5px
-    // line-height: 1.6
-    // float left
-    // height auto
-.post-content
-    padding-top: 20px
-    padding-bottom 40px
-    padding-right: 40px
-    padding-left: 40px
-.post-information
-    // background-color $post-background-color
-    // margin-top 110px
-    // position relative
-    // margin-left 14%
-    // margin-right 1%
-    // width 57%
-.first-line
+#toc-col
+    order: $tocOd
+    flex: 0 0 300px;
+#share-col
+    order: $shareOd
+    flex: 0 0 50px;
+#shareButtons
+    padding-top: 100px;
+    position: fixed
+    width: 50px;
+.newShare
+    width: 100% !important
+    position static !important
+    padding-top: 0px !important;
+    margin-left: 40px;
+.newShare .social-share .social-share-icon
+    width: 30px
+    height: 30px
+    font-size: auto !important
+    line-height: 30px;
+
+@media only screen
+    @media (max-width: 900px)
+        #toc-col
+            display: none;
+        #mid-col
+            margin: 0 5px;
+        #post-outer
+            padding: 5px
+        #post
+            -webkit-box-shadow none
+            box-shadow none
+        #post-content 
+            padding: 0 20px 20px !important
+        #firstline .date
+            display block;
+        .fdate
+            display: none
+// post title
+#titles
+    padding-left: 20px;
+    border-left: solid 0.3125rem #000;
+    padding-bottom: 0.3125rem;
+#titles h1
+    padding-top: 0.9375rem;
+    border-bottom: 0px;
+    margin-bottom: 0.8rem;
+    font-weight: 900;
+    // margin-block-start: 0em !important;
+    font-size: 2em
+#first-line
     display flex;
     justify-content: space-between
     align-items: center
-.titles
-    padding-left 20px
-    border-left solid 0.3125rem $post-title-border-left-color
-    padding-bottom: 0.3125rem
-    &:hover
-        border-color: $post-title-hover-border-left-color
-
-.title
-    padding-top: 0.9375rem
-    border-bottom: 0px
-    margin-bottom: 0.8rem 
-    font-weight: 900
-    margin-block-start: 0em !important
-
+// post information
 .date
     min-width: 130px
-    // float: right
     margin-right: 20px
-    // position relative
-    // margin-top: -30px
-.category
+    display inline-block
+.category-post,
 .post-tag
     &:hover
         color $post-tag-hover-text-color
 .words
     margin-left: 0.5rem
-    // padding-right: 0.5rem
+    line-height: 24px;
     text-decoration: none
     font-size: 0.9375rem
     &:link
         color black
 .post-title-icons
     margin-left 0.5rem
-
-.post-content h1
-    padding-bottom .3em
-    font-size 2.25em
-    line-height 1.2
-    border-bottom 1px solid #eee
-.post-content h2
-    padding-bottom .3em
-    font-size 1.75em
-    line-height 1.225
-    border-bottom 1px solid #eee
-
-.post-content h3
-    font-size 1.5em
-    line-height 1.43
-
-.post-content h4
-    font-size 1.25em
-
-.post-content h5
-    font-size 1em
-
-.post-content h6
-   font-size 1em
-    color #777
-
-.post-content p,
-.post-content blockquote,
-// ul,
-// ol,
-// dl,
-.post-content table
-    margin 1rem 0
-li>ol,
-li>ul
-    margin 0 0
-
-.post-content hr
-    height 2px
-    padding 0
-    margin 16px 0
-    background-color #e7e7e7
-    border 0 none
-    overflow hidden
-    box-sizing content-box
-
-
-// li p.first
-//     display inline-block
-
-.post-content ul,
-.post-content ol
-    // padding-left 30px
-    line-height: 35px
-.post-content ol
-    counter-reset: li
-    list-style none
-    // list-style: decimal
-    display: block;
-    // list-style-type: decimal;
-    margin-block-start: 1em;
-    margin-block-end: 0em;
-    margin-inline-start: 1px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-
-.post-content ol li::before
-    height 20px
-    width 20px
-    content: counter(li)
-    counter-increment: li
-    font-size: 0.875em
-    text-align: center
-    color white
-    white-space: nowrap
-    position: absolute; 
-    left: 3.8em; 
-    line-height: 1.4em;
-    // top: 2px; 
-    // border solid #d31a29 1px
-    margin-top: 0.5em;
-    background: #d31a29
-    border-radius: 40px;
-    // padding-right 5px
-    // padding-left: 5px
-.post-content ol ol li:before
-    margin-left 30px
-
-.post-content ul
-//     counter-reset: li
-    list-style: none
-    // list-style circle
-.post-content ul li:nth-of-type(n)::before
-    content ""
-    color white
-    font-weight: 20px
-    position: absolute; 
-    left: 3.5em; 
-    line-height: 2em;
-    // top: 2px; 
-    margin-top: 0.7em;
-    background: white
-    border-radius: 30px;
-    // padding-right 5px
-    // padding-left: 5px
-    border solid 3.5px #d31a29
-    height 7px
-    width 7px
-.post-content ul li:before,
-.post-content ol li:before
-    // margin-left 30px
-// ul:first-child,
-// ol:first-child
-//     margin-top 0
-
-// ul:last-child,
-// ol:last-child
-//     margin-bottom 0
-
-.post-content blockquote
-    // border-left 4px solid #dfe2e5
-    // padding 0 15px
-    // color #777777
-    display: block; 
-    font-size: 0.9em; 
-    overflow: auto; 
-    overflow-scrolling: touch; 
-    padding-top: 10px; 
-    padding-bottom: 10px; 
-    padding-left: 20px; 
-    padding-right: 10px; 
-    margin-bottom: 20px; 
-    margin-top: 20px; 
-    font-style: normal; 
-    border-left: none; 
-    padding: 10px; 
-    position: relative; 
-    line-height: 1.8; 
-    border-radius: 0px 0px 10px 10px; 
-    color: #FEEEED; 
-    background: #000; 
-    box-shadow: #84A1A8 0px 10px 15px;
-.post-content blockquote p
-    display inline;
-.post-content blockquote::before
-    // content: "👣"
-    color: #FFF
-    line-height: 1em;
-    font-weight: 700;
-    font-size: 30px
-.post-content blockquote::after
-    // content: "”"
-    float: right; 
-    display: inline; 
-    color: #FFF; 
-    font-size: 3em; 
-    line-height: 1em; 
-    font-weight: 500;
-.post-content blockquote
-    padding-right 0
-
-.post-content table
-    padding 0
-    word-break normal
-    border-collapse:collapse;
-
-.post-content table tr
-    // border-top 1px solid #dfe2e5
-    margin 0
-    padding 0
-    // border grey solid 1px
-.post-content table td,
-.post-content table th
-    border lightgrey 1px solid
-    
-.post-content table tr:nth-child(2n)
-    background-color #f8f8f8
-.post-content thead
-    background-color: black
-    color white
-.post-content table tr th
-    font-weight bold
-    // border 1px solid #dfe2e5
-    // border-bottom 0
-    // margin 0
-    padding 6px 13px
-
-.post-content table tr td
-    // border 1px solid #dfe2e5
-    // margin 0
-    padding 6px 13px
-
-.post-content table tr th:first-child,
-.post-content table tr td:first-child
-    margin-top 0
-
-.post-content table tr th:last-child,
-.post-content table tr td:last-child
-    margin-bottom 0
-
-// .post-content code
-//     background-color: black
-//     color white
-p
-    line-height: 25px
-.post-content img
-    max-width 100%
-.post-content p
-    font-size: 16px;
-p code,
-li code
-    background-color: rgb(40, 40, 40);
-    color white
-    border-radius: 7px
-    padding 0px 5px
-    font: 18px consolas !important
-.post-content a
-    color: $post-content-a-color // #d31a29
-    word-break: break-all
-
-@-webkit-keyframes fadeInUp 
-    0%
-        opacity:0;
-        -webkit-transform:translateY(15px)
-    100%
-        opacity:1;
-        -webkit-transform:translateY(0)
-@-moz-keyframes fadeInUp 
-    0%
-        opacity:0;
-        -moz-transform:translateY(15px)
-    100% 
-        opacity:1;
-        -moz-transform:translateY(0)
-
-#goTo
-    position fixed;
-    right: 0;
-    bottom: 40px;    
-    font-size: 20px
-    line-height: 30px;
-    color: white
-    // writing-mode: vertical-lr
-    // direction: ltr
-    transform: translateX(50% - 8px) translateY(-64px) rotate(-90deg);
-    -ms-transform:translateX(50% - 8px) translateY(-64px) rotate(-90deg); 	/* IE 9 */
-    -moz-transform:translateX(50% - 8px) translateY(-64px) rotate(-90deg); 	/* Firefox */
-    -webkit-transform:translateX(50% - 8px) translateY(-64px) rotate(-90deg); /* Safari 和 Chrome */
-    -o-transform: translateX(50% - 8px) translateY(-64px) rotate(-90deg); 	/* Opera */        -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    cursor: pointer 
-.goTop.showBtn
-    background-color: darkblue
-    padding: 0px 10px;   
-    display inline-block
-    margin: 0 2px;
-    border-radius: 10px 10px 0 0;
-    transition: background-color .3s 
-.goTop.hideBtn
-    background-color: darkblue
-    padding: 0px 10px;
-    margin: 30px 2px 0;
-    visibility: hidden;
-.goComment
-    border-radius: 10px 10px 0 0;
-    background-color: green
-    padding: 0px 10px;
-    display: inline-block
-    margin: 0 2px;
-    transition: background-color .3s 
-.goComment:hover 
-    box-sizing: border-box;
-    border-top: 1px solid green;
-    background: white
-    color: green;
-.goTop:hover 
-    box-sizing: border-box;
-    border-top: 1px solid darkblue;
-    background: white
-    color: darkblue;
+//warning 
 .date-warning
     padding: 15px;
     margin: 20px 0;
@@ -424,25 +128,85 @@ li code
 .date-warning:before
     content: "\f05a";
     color: #428bca;
-    font-family: 'FontAwesome';
+    font-family: 'fontawesome';
     font-size: larger;
     margin-right: 10px;
-    
-    // top: 13px;
-    // left: 15px;
-/*滑块*/        
-::-webkit-scrollbar-thumb {
-    background-color: #333;
-    border-radius: 10px;
-}
+    display: block
+    float left
+    vertical-align: middle
+.date-warning strong
+    color: inherit !important
+.date-warning strong:before,
+.date-warning strong:after
+    content: '' !important
 
-::-webkit-scrollbar-thumb:hover {
-    background-color: #777;
-}
-
-
-/*滑道*/
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px #333;
-    border-radius: 10px;
-}
+// post content
+#post-content 
+    padding: 20px 40px 40px 40px 
+    margin-bottom: 40px         
+#post img 
+    width: 100%
+#post figure,
+#post table
+    width: 100%
+    overflow-x: hidden
+#post .highlight
+    width: 100%
+    overflow: scroll
+#post-content h1
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    font-size: 25px;
+#post-content  h2
+    line-height: 1.225
+    // display block
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    position relative
+    font-size: 20px;
+#post-content h3
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+#post-content  h4
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+#post-content  h5
+    display: block;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+#post-content  h6
+    display: block;
+    font-size: 0.67em;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+#post-content li
+    line-height: 25px
+#post-content table tr th,
+#post-content table tr td 
+    text-align: center
+    padding: 5px 8px
+// bottom
+#bottom-inner
+    border-color: #ddd

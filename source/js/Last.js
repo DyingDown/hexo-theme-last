@@ -1,107 +1,79 @@
-var countForTriangleClick = 1;
+/*********show menu in phone or else device *******/
+var menuIcon = document.getElementsByClassName("menu-icon")[0]
+var menuClickFlag = 0;
+var menuOuter = document.getElementById("menu-outer");
 
-function triangleClick() {
-    if (countForTriangleClick == 1) {
-        document.getElementById("payment-codes").style = "height:" + document.getElementById("me").offsetHeight + "px;display: block";
-        document.getElementById("qrcode-triangle").style = "background:url(/img/person.png) no-repeat 0 0; "
-        countForTriangleClick = 0;
+/****** add or remove a class  *************/
+function modifyClass(obj, className, op) { // op = 1 add; op == 0 remove
+    if (op == 1) {
+        obj.classList.add(className);
     } else {
-        document.getElementById("payment-codes").style = "height:" + document.getElementById("me").offsetHeight + "px;display:none";
-        document.getElementById("qrcode-triangle").style = "background:url(/img/qrcode_icon.png) no-repeat 0 0; "
-        countForTriangleClick = 1;
-    }
-    if (theme.donate.wechat !== true) {
-        document.getElementById("alipay-button").style = "background-color:#d31a29;color:white";
-    }
-}
-
-function wechatButtonClick() {
-    document.getElementById("wechat").src = "/img/Wechat.jpg";
-    document.getElementById("wechat-button").style = "background-color:#d31a29;color:white";
-    document.getElementById("alipay-button").style = "background-color: transparent;color: #d31a29;";
-
-}
-
-function alipayButtonClick() {
-    document.getElementById("wechat").src = "/img/Alipay.jpg"
-    document.getElementById("alipay-button").style = "background-color: #d31a29;color: white;";
-    document.getElementById("wechat-button").style = "background-color: transparent;color: #d31a29;";
-}
-
-// function backToTop() {
-//     document.body.scrollIntoView({
-//         behavior: "smooth"
-//     });
-// }
-
-function backToComment() {
-    var comment = document.getElementById("vcomment");
-    comment.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-function scrollDown() {
-    var comment = document.getElementById("recent-posts");
-    comment.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-function closeSearch() {
-    // let son = document.getElementById("search");
-    // son.click(function(event) {
-    //     event.stopPropgation();
-    // })
-    document.getElementById("search-overlay").style.display = "none";
-}
-
-function openSearch() {
-    document.getElementById("search-overlay").style.display = "block";
-}
-
-function stopBubble(e) {
-    // 非 IE 浏览器
-    if (e && e.stopPropagation) {
-        e.stopPropagation();
-        return;
-    }
-    // IE 浏览器
-    window.event.cancelBubble = true;
-}
-
-// back to top
-(function() {
-    let backTop = document.getElementsByClassName('goTop')[0]
-    let goto = document.getElementById("goTo")
-        // 监听滚动
-    window.addEventListener('scroll', function() {
-            if (document.documentElement.scrollTop > document.documentElement.clientHeight) {
-                backTop.className = "goTop showBtn";
-            } else if (document.documentElement.scrollTop <= document.documentElement.clientHeight) {
-                backTop.className = "goTop hideBtn";
-                goto.style.transform = "translateX(50% - 12px) translateY(-64px) rotate(-90deg)"
-            }
-        })
-        // 为按钮绑定点击事件
-    backTop.addEventListener('click', function() {
-        function move() {
-            // 当离顶部还有10的时候直接跳回
-            if (document.documentElement.scrollTop < 10) {
-                document.documentElement.scrollTop = 0;
-                return false;
-                // 否则每次回到当前离顶部距离的9/10处   
-            } else {
-                document.documentElement.scrollTop -= document.documentElement.scrollTop / 10
-                return true;
-            }
+        if (obj.classList.contains(className)) {
+            obj.classList.remove(className);
         }
-        // 使用requestAnimationFrame做一个缓冲回到顶部
-        requestAnimationFrame(function fn() {
-            if (move()) {
-                requestAnimationFrame(fn)
-            }
-        })
-    })
+    }
+}
 
-})()
+/******* insert After **********/
+function insertAfter(newElement, targetElement) { // newElement是要追加的元素 targetElement 是指定元素的位置 
+    var parent = targetElement.parentNode; // 找到指定元素的父节点 
+    if (parent.lastChild == targetElement) { // 判断指定元素的是否是节点中的最后一个位置 如果是的话就直接使用appendChild方法 
+        parent.appendChild(newElement, targetElement);
+    } else {
+        parent.insertBefore(newElement, targetElement.nextSibling);
+    };
+};
+
+if (isHome == false) {
+    menuOuter.style.backgroundColor = "#191919";
+}
+
+
+/********** toc fix **********/
+
+
+menuIcon.onclick = function() {
+    var first = this.childNodes[0];
+    var second = this.childNodes[1];
+    var third = this.childNodes[2];
+    var nav = document.getElementById("nav");
+    if (menuClickFlag == 0) {
+        modifyClass(second, "newSecondLine", 1);
+        modifyClass(first, "newFirstLine", 1);
+        modifyClass(third, "newThirdLine", 1);
+        modifyClass(nav, "newNav", 1);
+        modifyClass(menuOuter, "newMenuOuter", 1);
+        menuClickFlag = 1;
+    } else {
+        modifyClass(second, "newSecondLine", 0);
+        modifyClass(first, "newFirstLine", 0);
+        modifyClass(third, "newThirdLine", 0);
+        modifyClass(nav, "newNav", 0);
+        menuClickFlag = 0;
+        modifyClass(menuOuter, "newMenuOuter", 0);
+    }
+
+}
+
+
+window.addEventListener("scroll", function() {
+    if (isHome) {
+        if (this.window.scrollY > 0) {
+            modifyClass(menuOuter, "newMenuOuterColor", 1);
+        } else {
+            modifyClass(menuOuter, "newMenuOuterColor", 0);
+        }
+    }
+    /******** fix toc *******/
+    let s = document.body.scrollTop || document.documentElement.scrollTop;
+    if (typeof(toc) != 'undefined') {
+        if (s > H - 100) {
+            let sidebar = document.getElementById("toc-col");
+            let width = sidebar.offsetWidth;
+            toc.style = "position:fixed;top:50px;width:" + width + "px";
+        } else {
+            toc.style = "";
+        }
+    }
+
+});

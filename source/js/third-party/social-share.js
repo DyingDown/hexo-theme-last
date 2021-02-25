@@ -16,7 +16,8 @@
  * });
  * </pre>
  */
-;(function (window, document, undefined) {
+;
+(function(window, document, undefined) {
 
     // Initialize a variables.
 
@@ -71,14 +72,14 @@
      * @param  {String|Element} elem
      * @param  {Object} options
      */
-    window.socialShare = function (elem, options) {
+    window.socialShare = function(elem, options) {
         elem = typeof elem === 'string' ? querySelectorAlls(elem) : elem;
 
         if (elem.length === undefined) {
             elem = [elem];
         }
 
-        each(elem, function (el) {
+        each(elem, function(el) {
             if (!el.initialized) {
                 share(el, options);
             }
@@ -86,7 +87,7 @@
     };
 
     // Domready after initialization
-    alReady(function () {
+    alReady(function() {
         socialShare('.social-share, .share-component');
     });
 
@@ -125,7 +126,7 @@
         var sites = getSites(data);
         var isPrepend = data.mode == 'prepend';
 
-        each(isPrepend ? sites.reverse() : sites, function (name) {
+        each(isPrepend ? sites.reverse() : sites, function(name) {
             var url = makeUrl(name, data);
             var link = data.initialized ? getElementsByClassName(elem, 'icon-' + name) : createElementByString('<a class="social-share-icon icon-' + name + '"></a>');
 
@@ -154,7 +155,7 @@
      * @param {Element} elem
      * @param {Object} data
      */
-    function createWechat (elem, data) {
+    function createWechat(elem, data) {
         var wechat = getElementsByClassName(elem, 'icon-wechat', 'a');
 
         if (wechat.length === 0) {
@@ -164,7 +165,7 @@
         var elems = createElementByString('<div class="wechat-qrcode"><h4>' + data.wechatQrcodeTitle + '</h4><div class="qrcode"></div><div class="help">' + data.wechatQrcodeHelper + '</div></div>');
         var qrcode = getElementsByClassName(elems[0], 'qrcode', 'div');
 
-        new QRCode(qrcode[0], {text: data.url, width: data.wechatQrcodeSize, height: data.wechatQrcodeSize});
+        new QRCode(qrcode[0], { text: data.url, width: data.wechatQrcodeSize, height: data.wechatQrcodeSize });
         wechat[0].appendChild(elems[0]);
     }
 
@@ -196,7 +197,7 @@
         }
 
         // Remove elements
-        disabled.length && each(disabled, function (it) {
+        disabled.length && each(disabled, function(it) {
             sites.splice(inArray(it, sites), 1);
         });
 
@@ -214,11 +215,11 @@
      */
     function makeUrl(name, data) {
 
-        if (! data['summary']){
+        if (!data['summary']) {
             data['summary'] = data['description'];
         }
 
-        return templates[name].replace(/\{\{(\w)(\w*)\}\}/g, function (m, fix, key) {
+        return templates[name].replace(/\{\{(\w)(\w*)\}\}/g, function(m, fix, key) {
             var nameKey = name + fix + key.toLowerCase();
             key = (fix + key).toLowerCase();
 
@@ -281,7 +282,7 @@
             var classNames = (elem.className + ' ' + value).split(/\s+/);
             var setClass = ' ';
 
-            each(classNames, function (className) {
+            each(classNames, function(className) {
                 if (setClass.indexOf(' ' + className + ' ') < 0) {
                     setClass += className + ' ';
                 }
@@ -322,7 +323,7 @@
         var elems = elem.getElementsByTagName(tag || '*');
         name = ' ' + name + ' ';
 
-        each(elems, function (elem) {
+        each(elems, function(elem) {
             if ((' ' + (elem.className || '') + ' ').indexOf(name) >= 0) {
                 elements.push(elem);
             }
@@ -361,8 +362,8 @@
 
         var target = {};
 
-        each(args, function (it) {
-            each(it, function (v, k) {
+        each(args, function(it) {
+            each(it, function(v, k) {
                 target[k] = v;
             });
         });
@@ -386,14 +387,14 @@
         var target = {};
 
         if (elem.hasAttributes()) {
-            each(elem.attributes, function (attr) {
+            each(elem.attributes, function(attr) {
                 var name = attr.name;
                 if (name.indexOf('data-') !== 0) {
                     return true;
                 }
 
                 name = name.replace(/^data-/i, '')
-                    .replace(/-(\w)/g, function (all, letter) {
+                    .replace(/-(\w)/g, function(all, letter) {
                         return letter.toUpperCase();
                     });
 
@@ -475,18 +476,17 @@
      *
      * @link https://github.com/jed/alReady.js
      */
-    function alReady ( fn ) {
+    function alReady(fn) {
         var add = 'addEventListener';
-        var pre = document[ add ] ? '' : 'on';
+        var pre = document[add] ? '' : 'on';
 
-        ~document.readyState.indexOf( 'm' ) ? fn() :
-            'load DOMContentLoaded readystatechange'.replace( /\w+/g, function( type, i ) {
-                ( i ? document : window )
-                    [ pre ? 'attachEvent' : add ]
+        ~document.readyState.indexOf('m') ? fn() :
+            'load DOMContentLoaded readystatechange'.replace(/\w+/g, function(type, i) {
+                (i ? document : window)[pre ? 'attachEvent' : add]
                 (
                     pre + type,
-                    function(){ if ( fn ) if ( i < 6 || ~document.readyState.indexOf( 'm' ) ) fn(), fn = 0 },
-                    !1
+                    function() { if (fn)
+                            if (i < 6 || ~document.readyState.indexOf('m')) fn(), fn = 0 }, !1
                 )
             })
     }

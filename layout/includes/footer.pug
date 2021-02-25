@@ -1,19 +1,7 @@
-//- link(rel='stylesheet', href= "/css/layout/footer.css")
-link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css")
-link(rel='stylesheet', href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css")
-link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
-//- link(rel="stylesheet" href="../../source/font-awesome/css/all.min.css")
-
 #bottom-outer
     #bottom-inner
-        //- if theme.stylesheets !== undefined && theme.stylesheets.length > 0
-        //-     != 1
-            //- //- stylesheets list from _config.yml
-            //- each url in theme.stylesheets
-            //-     link(rel='stylesheet', href=url)
-        //- if theme.contacts !== undefined && theme.contacts.length > 0
-        //-     != "sss"
         each media, index in theme.contacts
+            //- social icons that display in the bottoms
             #incons
                 -
                     let url_icon = media.split("||");
@@ -26,18 +14,7 @@ link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/
             span= " made with "
             span#heart ❤️
             span= " by "
-            a#theme_author(href='http://dyingdown.github.io')=config.author
+            a#theme_author(href='http://dyingdown.github.io')= "o_oyao"
             br
-            //- script(type="text/javascript").
-            //- - var date = new Date()
             span= '©' + config.author + ' ' + theme.since + '-' + date(new Date(), 'YYYY')
         br
-        script(async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js")
-        if theme.visits.on === true
-            span#busuanzi_container_site_pv
-                - var user = '<i class="fa fa-user"></i>'
-                - var eye = '<i class="fa fa-fw fa-eye"></i>'
-                - var total_visits = '<span id="busuanzi_value_site_uv"></span>'
-                - var total_reads = '<span id="busuanzi_value_page_pv"></spsan>'
-                .visits!= user + ' ' + total_visits + ' ' + ' | ' + eye + ' ' + total_reads
-    //- a(href=config.root) Home

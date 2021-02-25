@@ -1,6 +1,34 @@
-doctype html
-html(lang=config.language)
-  head
-    meta(charset='UTF-8')
-    title= pageTitle
-    
+//- link(rel='stylesheet', href='/css/themes/variable.css')
+link(rel='stylesheet', href='/css/reset.css')
+link(rel='stylesheet', href='/css/includes/header.css')
+link(rel='stylesheet', href='/css/includes/footer.css')
+link(rel='stylesheet', href='/css/last.css')
+link(rel='stylesheet', href='/css/recent-posts.css')
+link(rel='stylesheet', href='/font-awesome/css/all.min.css')
+link(rel='stylesheet', href='/css/includes/side-user.css')
+link(rel='stylesheet', href='/css/includes/toc.css')
+link(rel='stylesheet', href='/css/links.css')
+- if (is_post())
+    link(rel='stylesheet', href='/css/post.css')
+    link(rel='stylesheet', href='/css/third-party/share.min.css')
+    link(rel='stylesheet', href='/css/article/simple.css')
+- if (is_archive())
+    if theme.archiveStyle.style != undefined && theme.archiveStyle.style == 'comment-shape'
+        link(rel='stylesheet', href='/css/archive/archive-comment.css')
+    else
+        link(rel='stylesheet', href='/css/archive/archive-normal.css')
+
+if theme.stylesheets !== undefined && theme.stylesheets.length > 0
+    //- stylesheets list from _config.yml
+    each url in theme.stylesheets
+        link(rel='stylesheet', href=url)
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+script.
+    var isHome = false;
+    var isCenter = false;
+if pageTitle == ' [ ' + config.title + ' ]'
+    script.
+        var isHome = true;
+if theme.carousel.indicators.position == 'center'
+    script.
+        var isCenter = true;

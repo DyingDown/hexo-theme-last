@@ -1,0 +1,238 @@
+@import "themes/variable.styl"
+
+$carouselIndicators = hexo-config("carousel.indicators.style") || 'dot'
+$carouselIndicatorsPos = hexo-config("carousel.indicators.position") || 'left'
+$carouselTextColor =  convert(hexo-config("carousel.textColor")) || #fff
+$carouselMask = hexo-config("carousel.mask.on") || true
+$carouselIndiCurrentColor = convert(hexo-config("carousel.indicators.currentColor.color")) || #222
+$carouselIndiCurrentOp = hexo-config("carousel.indicators.currentColor.opacity") || 0.9
+$carouselIndiOtherColor = convert(hexo-config("carousel.indicators.otherColor.color")) || #fff
+$carouselIndiOtherOp = hexo-config("carousel.indicators.otherColor.opacity") || 1
+if $carouselMask == true
+    $MaskColor = convert(hexo-config("carousel.mask.color")) || #000
+    $MaskColorO = hexo-config("carousel.mask.opacity") || 0.5
+if $carouselIndicators == "line"
+    $dotWidth = 35px;
+    $dotHeight = 10px;
+    $hoverDotWidth = 35px;
+    $hoverDotHeight = 10px;
+else if $carouselIndicators == "dot"
+    $dotWidth = 20px;
+    $dotHeight = 20px;
+    $hoverDotWidth = 22.5px
+    $hoverDotHeight = 22.5px;
+
+if $carouselIndicatorsPos == 'left'
+    .navDots
+        left: 5%;
+else if $carouselIndicatorsPos == 'right'
+    .navDots
+        right: 5%;
+
+#home-cover
+    width 100%
+    height 100vh
+    background: url("https://s1.ax1x.com/2020/04/17/JV919e.jpg") center center no-repeat // (https://s1.ax1x.com/2020/04/17/JV919e.jpg
+    background-attachment: fixed
+    background-size: cover;  
+    position: relative 
+    overflow hidden;
+
+/********** carcousel **********/
+.postCarousel
+    float: left
+    width: 100vw;
+    height: 100vh;
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover;
+    overflow hidden
+.postList
+    width: 500vw;
+    position: absolute;
+
+.navDots
+    position absolute
+    bottom: 5%;
+
+.navDots .navDot
+    width: $dotWidth
+    height: $dotHeight
+    background-color: $carouselIndiOtherColor;
+    float: left
+    margin: 8px
+    border-radius: 20px;
+    opacity $carouselIndiOtherOp
+    // border: 6px solid black
+.navDots .currentDot
+    background: $carouselIndiCurrentColor;
+    opacity: $carouselIndiCurrentOp
+    width: $hoverDotWidth
+    height: $hoverDotHeight
+.navDots .navDot:hover
+    background-color: $carouselIndiCurrentColor;
+    opacity: $carouselIndiCurrentOp
+
+.shadowBox
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($MaskColor, $MaskColorO);
+    // opacity: 0.5;
+    position absolute
+    // color: red;
+    float left
+    
+// arrow prev next
+.fa-chevron-left,
+.fa-chevron-right
+    position: absolute
+    font-size: 50px;
+    color: white;
+    opacity: 0.5
+    top: 50%;
+
+.fa-chevron-left
+    left: 10px;
+.fa-chevron-right
+    right 10px
+
+/********** carousel content *************/
+.carouselContent
+    width: 75vw
+    margin: auto
+    text-align: center
+    vertical-align: middle
+    margin-top: 35vh;
+    color: $carouselTextColor
+.carouselContent h2
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: bold
+
+.carouselContent p
+    font-size: 18px;
+    line-height: 30px;
+.carouselContent table
+    margin: auto
+.readMore
+    margin-top: 500px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: $carouselTextColor
+    border: $carouselTextColor solid 1px;
+    text-decoration: none;
+    &:hover
+        background-color: $carouselTextColor;
+        color: $bg
+@media only screen
+    @media (max-width: 1000px)
+        .carouselContent
+            margin-top: 15vh ;
+        .navDots .currentDot,
+        .navDots .navDot
+            width: $dotWidth * 0.8
+            height: $dotHeight * 0.8
+        .carouselContent h2
+            font-size: 35px;
+            line-height: 40px;
+/******* articles **********/
+.recent-post-item
+    float left
+    height 42.5em
+    color  $homeCt
+    flex: 1 0 18.75em
+    margin: 0 0 1.875rem 
+    display: inline-block
+    min-height: 285px
+    transition: all 0.3s
+    position: relative
+    z-index: 1
+    // font-family: $recent-post-boxed-text-font
+    @media(min-width: 37.5rem)
+        margin: 0 0.9375em 15px
+    // Note 1: This complex calc right here is what makes the leftover box items
+    // have the same width than their siblings.
+    for $n in 2..$homeRowMaxItem 
+        $resolution = "calc((2 * %s) + (%s * %s))"%(0.625em $n 18.75em)
+        @media(min-width: $resolution)
+            max-width: "calc(%s/%s - %s*2)"%(100% $n 0.9375em)
+    // Note 2: This sets the maximum number of box items per row.
+    @media(min-width: "calc(2 * %s + %s * $s)"%(0.625em $homeRowMaxItem 18.75em))
+        flex: 1 0 "calc(100%/%s - %s*2)"%($homeRowMaxItem 0.9375em)
+    &:hover
+        z-index: 2;
+        transform: scale(1.1);
+        img 
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            transform: scale(1.05);
+.category
+    background-color opacity 0
+    display  block
+    height 2.25rem
+    line-height  2.25rem
+    text-transform  uppercase
+    font-weight  bold
+    font-size 1rem
+    padding  0 0.9375rem
+    color $homeMainTx
+
+#recent-post-content .cover
+    width  100%
+    height auto
+    margin  0 auto
+    transition  all 0.2s ease-in-out
+    box-shadow: none 
+    -webkit-box-shadow: none;
+
+.content-tags
+    background-color $bg
+    padding  .9375rem
+
+.time
+    color $homeTm
+    pointer-events  none
+    font-size: 1rem
+    line-height: 2em
+
+.recent-post-tag
+    height: 22px
+    line-height: 26px
+    color: $homeMainTx
+    // font-family: $recent-post-article-tag-text-font
+    padding: 0 10px 5px
+    border: 1px solid $homeMainTx
+    border-radius: 15px
+    display: inline-block
+    margin: 0 10px 10px 0
+    z-index: 50
+    text-align: center
+    text-decoration: none
+    &:hover
+        background-color: $homeMainTx
+        color $bg
+
+
+.post_title
+    margin  10px 0
+    font-size  24px
+    color  $homeMainTx
+    line-height  30px
+    font-weight  bold
+    text-decoration: none
+
+a.content
+    margin: 0 0 30px
+    color: $homeCt
+    font-family: $recent-post-article-content-text-font
+    font-size: 17px !important
+    line-height: 26px
+    text-decoration: none
+    text-overflow: ellipsis
+
+a.content, a
+    color $homeCt
+
+p
+    margin-block-start: 1em;
+    margin-block-end: 1em;

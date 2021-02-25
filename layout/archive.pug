@@ -4,83 +4,78 @@ extends includes/layout.pug
 block content
   - var categoriesList = list_categories({ show_count: false })
   - var tagsList = list_tags({ show_count: false })
-  - var archivesList = list_archives({ show_count: false, depth:0 })
+  - var archivesList = list_archives({ show_count: false })
 
-  div.archive
+  div.archive.container-fluid.col-sm-offset-2
     if !is_year()
-
-
-      //- if theme.atom
-      //-   p The feed is available via&nbsp;
-      //-     a(href=theme.atom) atom
-      //-     span.dot .
-      //-   br
-      .post-calender-chart
-        //- if theme.postCalander
-        include widget/post-calender.pug
-      h1.First-title-of-archives Archives
-      #archives
+      //- h1.First-title-of-archives Archives
+      ul.timeline.timeline-centered
         if archivesList
-          //- != archivesList
-          //- each s in archivesList
-            //- each article in s
-            != s
-            //- - s.posts.each(function(article){
-            //-   .archive-list-item
-            //-     a(href=url_for(article.path))= article.title
-            //-     //- time(datetime=date_xml(article.date))= date(article.date)
-            //- - })
-          table.archive-list
-            - var year
-            - page.posts.each(function(article, index){
-              - var tempYear = date(article.date, 'YYYY')
-              if tempYear !== year
-                - year = tempYear
-                //- tr
-                tr
-                  td(colspan="2").article-year!= year
-              .archive-list-item
-                tr.archive-article
-                  if index % 2 === 0
-                    tr
-                      td.article-title-content
-                        .article-t-c
-                          a.article-title(href=url_for(article.path))!= article.title
-                          .article-content
-                            if article.description
-                             != article.description
-                            else
-                              != article.excerpt
-                      td.article-time
-                        .timeline-time
-                          time(datetime=date_xml(article.date))= full_date(article.date,'dddd  MMMM Do YYYY')
-                  else 
-                    tr
-                      td.article-time
-                        .timeline-time
-                          time(datetime=date_xml(article.date))= full_date(article.date,'dddd MMMM Do YYYY')
-                      td.article-title-content
-                        .article-t-c
-                          a.article-title(href=url_for(article.path))!= article.title
-                          .article-content
-                            if article.description
-                             != article.description
-                            else
-                              != article.excerpt
-            - })
-          include includes/pagination.pug
+          - var year
+          - page.posts.each(function(article, index){
+            - var tempYear = date(article.date, 'YYYY')
+            if tempYear !== year
+              - year = tempYear
+              h2.period!= year
+            .timeline-item
+              .timeline-info
+                time.post-time(datetime=date_xml(article.date))= full_date(article.date,'MMMM Do YYYY')
+              .timeline-content
+                .post-content
+                  h3.timeline-title
+                    a(href=url_for(article.path))!= article.title
+                  if article.description
+                    p!= article.description
+                  else
+                    p!= article.excerpt
+          - })
+          //- include includes/pagination.pug
         else
           p None.
       br
+  //- div.archive
+  //-   if !is_year()
 
-    //- else
+  //-     h1 Archives
 
-    //-   h1= page.month + '/' + page.year
+  //-     if theme.atom
+  //-       p The feed is available via&nbsp;
+  //-         a(href=theme.atom) atom
+  //-         span .
+  //-       br
 
-    //-   - page.posts.each(function(article){
-    //-     .archive-list-item
-    //-       a(href=url_for(article.path))= article.title
-    //-       time(datetime=date_xml(article.date))= date(article.date)
-    //-   - })
+  //-     aside
+  //-       h2 Categories
+  //-       if categoriesList
+  //-         != categoriesList
+  //-       else
+  //-         p None.
+  //-     br
 
-      include includes/pagination.pug
+  //-     aside
+  //-       h2 Tags
+  //-       if tagsList
+  //-         != tagsList
+  //-       else
+  //-         p None.
+  //-     br
+
+  //-     aside
+  //-       h2 Archives
+  //-       if archivesList
+  //-         != archivesList
+  //-       else
+  //-         p None.
+  //-     br
+
+  //-   else
+
+  //-     h1= page.month + '/' + page.year
+
+  //-     - page.posts.each(function(article){
+  //-       .archive-list-item
+  //-         a(href=url_for(article.path))= article.title
+  //-         time(datetime=date_xml(article.date))= date(article.date)
+  //-     - })
+
+  //-     #paginator!= paginator()
