@@ -9,15 +9,17 @@
         for post in site.posts.data
           if post.isCarousel != undefined && post.isCarousel && post.postImage != undefined && post.postImage
             li.postCarousel(style="background-image:url(" + post.postImage + ")")
+              if theme.carousel.blur.on
+                div.blur(style="background-image:url(" + post.postImage + ")")
               if theme.carousel.mask.on
                 div.shadowBox
-                  .carouselContent
-                    h2!= post.title
-                    p.carouselText
-                      != post.description || post.excerpt
-                    br
-                    br
-                    a(href= url_for(post.path)).readMore!= "Read More"
+              .carouselContent
+                h2!= post.title
+                p.carouselText
+                  != post.description || post.excerpt
+                br
+                br
+                a(href= url_for(post.path)).readMore!= "Read More"
       //- previous next arrow
       if theme.carousel.prevNext
         i.fa.fa-chevron-left
@@ -34,15 +36,18 @@
     #recent-posts
       each post in page.posts.sort('date', -1).limit(24).toArray()
         .recent-post-item
+          if post.categories.data.length == 0
+            span.category &nbsp;
           each category, index in post.categories.data
-            if index === 0
+            if index === 0                
               span.category #{category.name}
+              break
           a(href=url_for(post.path))
             .box-cover
               if post.postImage
-                img.cover(src=post.postImage, alt="cover")
+                img.cover(src=post.postImage,onerror="this.src='img/pic_load_fail.png'",  alt="cover")
               else
-                img.cover(src="https://s1.ax1x.com/2020/04/25/J6iz9K.jpg", alt="Default cover")
+                img.cover(src="https://s1.ax1x.com/2020/04/25/J6iz9K.jpg" ,onerror="this.src='img/pic_load_fail.png'", alt="Default cover")
           .content-tags
             if post.date
               time.time(datetime=date_xml(post.date))= full_date(post.date,'MMMM Do YYYY')
@@ -52,7 +57,10 @@
             a.content(href=url_for(post.path))
               if post.description
                 p.content!= post.description
-              else
+              else if post.excerpt
                 p.content!= post.excerpt
+              else
+                p.content
+                  != "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
             each tag, index in post.tags.data
               a.recent-post-tag(href=url_for(tag.path))= tag.name

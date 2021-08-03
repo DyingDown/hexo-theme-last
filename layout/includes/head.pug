@@ -2,6 +2,7 @@
 link(rel='stylesheet', href='/css/reset.css')
 link(rel='stylesheet', href='/css/includes/header.css')
 link(rel='stylesheet', href='/css/includes/footer.css')
+link(rel='stylesheet', href='/css/includes/pagination.css')
 link(rel='stylesheet', href='/css/last.css')
 link(rel='stylesheet', href='/css/recent-posts.css')
 link(rel='stylesheet', href='/font-awesome/css/all.min.css')
@@ -12,11 +13,14 @@ link(rel='stylesheet', href='/css/links.css')
     link(rel='stylesheet', href='/css/post.css')
     link(rel='stylesheet', href='/css/third-party/share.min.css')
     link(rel='stylesheet', href='/css/article/simple.css')
+    link(rel='stylesheet', href='/css/includes/code/highlights/sakura.css')
 - if (is_archive())
     if theme.archiveStyle.style != undefined && theme.archiveStyle.style == 'comment-shape'
         link(rel='stylesheet', href='/css/archive/archive-comment.css')
     else
         link(rel='stylesheet', href='/css/archive/archive-normal.css')
+- if (is_tag())
+    link(rel='stylesheet', href='/css/tags.css')
 
 if theme.stylesheets !== undefined && theme.stylesheets.length > 0
     //- stylesheets list from _config.yml

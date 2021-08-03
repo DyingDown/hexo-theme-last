@@ -8,6 +8,10 @@ $carouselIndiCurrentColor = convert(hexo-config("carousel.indicators.currentColo
 $carouselIndiCurrentOp = hexo-config("carousel.indicators.currentColor.opacity") || 0.9
 $carouselIndiOtherColor = convert(hexo-config("carousel.indicators.otherColor.color")) || #fff
 $carouselIndiOtherOp = hexo-config("carousel.indicators.otherColor.opacity") || 1
+$carouselBlur = hexo-config("carousel.blur.px") || 5
+
+$lineClamp = hexo-config("clampLines") || 9
+
 if $carouselMask == true
     $MaskColor = convert(hexo-config("carousel.mask.color")) || #000
     $MaskColorO = hexo-config("carousel.mask.opacity") || 0.5
@@ -47,6 +51,10 @@ else if $carouselIndicatorsPos == 'right'
     background-repeat: no-repeat
     background-size: cover;
     overflow hidden
+    // position relative
+    justify-content:center;//子元素水平居中
+    align-items:center;//子元素垂直居中
+    display:-webkit-flex;
 .postList
     width: 500vw;
     position: absolute;
@@ -63,7 +71,7 @@ else if $carouselIndicatorsPos == 'right'
     margin: 8px
     border-radius: 20px;
     opacity $carouselIndiOtherOp
-    // border: 6px solid black
+    
 .navDots .currentDot
     background: $carouselIndiCurrentColor;
     opacity: $carouselIndiCurrentOp
@@ -77,11 +85,21 @@ else if $carouselIndicatorsPos == 'right'
     width: 100vw;
     height: 100vh;
     background-color: rgba($MaskColor, $MaskColorO);
-    // opacity: 0.5;
     position absolute
-    // color: red;
     float left
-    
+    // display flex
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover;
+.blur
+    width: 100vw;
+    height: 100vh;
+    position absolute
+    float left
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover;
+    filter: blur(unit($carouselBlur, px))
 // arrow prev next
 .fa-chevron-left,
 .fa-chevron-right
@@ -99,10 +117,10 @@ else if $carouselIndicatorsPos == 'right'
 /********** carousel content *************/
 .carouselContent
     width: 75vw
-    margin: auto
+    margin: 0
     text-align: center
-    vertical-align: middle
-    margin-top: 35vh;
+    // vertical-align: middle
+    z-index: 5
     color: $carouselTextColor
 .carouselContent h2
     font-size: 40px;
@@ -115,7 +133,7 @@ else if $carouselIndicatorsPos == 'right'
 .carouselContent table
     margin: auto
 .readMore
-    margin-top: 500px;
+    // margin-top: 500px;
     padding: 5px 15px;
     border-radius: 20px;
     color: $carouselTextColor
@@ -126,8 +144,6 @@ else if $carouselIndicatorsPos == 'right'
         color: $bg
 @media only screen
     @media (max-width: 1000px)
-        .carouselContent
-            margin-top: 15vh ;
         .navDots .currentDot,
         .navDots .navDot
             width: $dotWidth * 0.8
@@ -135,15 +151,16 @@ else if $carouselIndicatorsPos == 'right'
         .carouselContent h2
             font-size: 35px;
             line-height: 40px;
+
 /******* articles **********/
 .recent-post-item
     float left
-    height 42.5em
+    height 29px * $lineClamp + 430px
     color  $homeCt
     flex: 1 0 18.75em
     margin: 0 0 1.875rem 
     display: inline-block
-    min-height: 285px
+    // min-height: 285px
     transition: all 0.3s
     position: relative
     z-index: 1
@@ -166,6 +183,8 @@ else if $carouselIndicatorsPos == 'right'
             -webkit-filter: grayscale(100%);
             filter: grayscale(100%);
             transform: scale(1.05);
+        img[src$="pic_load_fail.png"]
+            object-fit: contain;
 .category
     background-color opacity 0
     display  block
@@ -176,15 +195,34 @@ else if $carouselIndicatorsPos == 'right'
     font-size 1rem
     padding  0 0.9375rem
     color $homeMainTx
+    // -webkit-line-clamp: 1; /* 设置超出多少行隐藏 */
+    // -webkit-box-orient: vertical;
+    // overflow: hidden;
+    // text-overflow: ellipsis
+    // /* 设置 display 为 -webkit-box 或者 -webkit-inline-box 时为隐藏状态 */
+    // display: -webkit-inline-box;
+    // word-break: break-word
 
+
+#recent-post-content .box-cover
+    position: relative; 
+    height: 0; 
+    padding-top: 56.25% // 9 / 16 * 100% 
 #recent-post-content .cover
-    width  100%
-    height auto
     margin  0 auto
     transition  all 0.2s ease-in-out
     box-shadow: none 
     -webkit-box-shadow: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; 
+    // height: 500px 
 
+#recent-post-content .content
+    table, img
+        display: none
 .content-tags
     background-color $bg
     padding  .9375rem
@@ -228,11 +266,16 @@ a.content
     font-size: 17px !important
     line-height: 26px
     text-decoration: none
+    -webkit-line-clamp: $lineClamp; /* 设置超出多少行隐藏 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     text-overflow: ellipsis
+    /* 设置 display 为 -webkit-box 或者 -webkit-inline-box 时为隐藏状态 */
+    display: -webkit-inline-box;
+    word-break: break-word
 
 a.content, a
     color $homeCt
-
 p
     margin-block-start: 1em;
     margin-block-end: 1em;

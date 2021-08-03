@@ -105,3 +105,21 @@ tocbot.init({
     headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
     // scrollSmoothOffset: 50
 });
+
+
+/******** code block style ************/
+var codes = document.getElementsByClassName("highlight");
+// console.log(codes)
+for (var i = 0; i < codes.length; i++) {
+    AddLanguageName(codes[i]);
+}
+
+function AddLanguageName(pre) {
+    var language = pre.className.split(" ")[1].toUpperCase();
+    var code = pre.children[0].children[0].children[0].children[1];
+    if (language == 'HLJS') language = 'TEXT'
+    if (language == 'JS') language = 'JavaScript'
+    if (language == 'MD') language = 'MarkDown'
+    if (language == 'PY') language = 'PYTHON'
+    code.setAttribute("language", language)
+}

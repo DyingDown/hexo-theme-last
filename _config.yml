@@ -58,7 +58,7 @@ themeColor:
     minorColor: "#f00"
 
 archiveStyle:
-  style: comment-shape # comment-shape, normal
+  style: normal # comment-shape, normal
   type: center # basic, split, center
   color: pink
 
@@ -73,7 +73,7 @@ carousel:
   prevNext: true
   indicators: # the indicator dots under the pictures 图片下面的点指示器
     on: true
-    position: left # left, center, right
+    position: center # left, center, right
     style: line # dot, line
     currentColor:
       color: "#222" # Hex or color name 16进制的颜色或者颜色名字
@@ -85,8 +85,24 @@ carousel:
     on: true
     color: "#000" # Hex or color name 16进制的颜色或者颜色名字
     opacity: 0.5 # float number 0 - 1 eg. 0.55
+  blur:
+    on: true
+    px: 5
   textColor: "#fff" # Hex or color name 16进制的颜色或者颜色名字
-  
+
+# Search Function
+search:
+  on: true
+
+# Home page
+# the number of lines show of each post's description
+clampLines: 8 # any number
+# home page patination style: true with background, false not
+paginationNumberBackground: true # false
+# style of post page pagination 
+postPagePaginationStyle: card # normal  picture  card
+
+
 # Share function 分享功能
 # https://github.com/overtrue/share.js
 Share:
@@ -98,9 +114,9 @@ Share:
 # format of your toc directory 文章目录的格式
 toc:
   on: true
-  list_number: true # 有数字序号; false 无数字序号
-  max_depth: 3 # 0-6 最大深度
-  min_depth: 3 # 0-6 最小深度
+  # list_number: true # 有数字序号; false 无数字序号
+  # max_depth: 3 # 0-6 最大深度
+  # min_depth: 3 # 0-6 最小深度
 
 postStyle:
   # also the catalog's positon 同样也是目录的位置
@@ -173,6 +189,13 @@ contacts:
 
 # Year of site creation 网站成立年份
 since: 2019
+
+# Latex 
+# MathJax Support
+mathjax:
+  enable: true
+  per_page: true
+  cdn: https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 # stylesheets loaded in the <head>
 stylesheets:

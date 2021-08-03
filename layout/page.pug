@@ -4,6 +4,8 @@ block content
   article#page
     h1= page.title
     != page.content
+  //- if page.type === 'tags'
+  //-   include tag.pug
   if page.title === 'links'
     if page.links
       .links

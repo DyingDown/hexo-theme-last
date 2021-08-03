@@ -13,9 +13,7 @@ var container = document.getElementsByClassName("carousel-container")[0];
 var prevPic = container.getElementsByClassName("fa-chevron-left")[0];
 var nextPic = container.getElementsByClassName("fa-chevron-right")[0];
 var carouselContent = document.getElementsByClassName("carouselContent");
-for (var i = 0; i < carouselContent.length; i++) {
-    carouselContent[i].style.marginTop = (window.innerHeight - carouselContent[i].clientHeight) / 2 + "px";
-}
+
 // make the dot be in the center
 if (isCenter) {
     var Dots = document.getElementsByClassName("navDots")[0];
