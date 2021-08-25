@@ -35,9 +35,9 @@ menu:
   Tag:
     path: /tags
     ico: tag
-  Comment:
-    path: /
-    ico: comment
+  Last:
+    path: /theme-last-guide/site
+    ico: puzzle-piece
   Friends:
     path: /links
     ico: link
@@ -58,9 +58,16 @@ themeColor:
     minorColor: "#f00"
 
 archiveStyle:
-  style: normal # comment-shape, normal
+  style: comment-shape # comment-shape, normal
   type: center # basic, split, center
-  color: pink
+  color: 
+
+# categories & tags
+tagsPage:
+  category:
+    show_count: true # false
+  tag:
+    show_count: false # false
 
 homeCover:
   fixed: true
@@ -73,7 +80,7 @@ carousel:
   prevNext: true
   indicators: # the indicator dots under the pictures 图片下面的点指示器
     on: true
-    position: center # left, center, right
+    position: left # left, center, right
     style: line # dot, line
     currentColor:
       color: "#222" # Hex or color name 16进制的颜色或者颜色名字
@@ -150,7 +157,7 @@ valine:
 # Or you can use it in your md file 
 # Warning: true  # write this in your md file
 Warning:
-  on: true # if is true, every article have this note 如果选择true，所有的文章都带有提示信息
+  on: false # if is true, every article have this note 如果选择true，所有的文章都带有提示信息
   Days: 5 # Day,  after these days, your post will show out of date content
   Content: "This article was written {} days ago. The content of the article may be out of date."
 

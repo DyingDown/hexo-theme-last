@@ -1,11 +1,21 @@
 extends includes/layout.pug
 
 block content
-  div#tag
-    h1= 'Tag: ' + page.tag
+  div#tag-block
+    h1= 'Tag:' + " " + page.tag
     - page.posts.each(function(article){
-      a(href=url_for(article.path))= article.title
-      time(datetime=date_xml(article.date))= date(article.date)
-      br.clear
+      .category-item
+        a.category-article-title(href=url_for(article.path))= article.title
+        .category-time
+          i.fa.fa-calendar
+          time.category-time-content(datetime=date_xml(article.date))= date(article.date)
+        br
+        span.category-tag-icon
+          i.fa.fa-book
+        each category, index in article.categories.data
+          span.tags
+            a.tagOfa(href=url_for(category.path))= category.name
+        br
+        br.clear
     - })
-  #paginator!= paginator()
+  include includes/pagination.pug

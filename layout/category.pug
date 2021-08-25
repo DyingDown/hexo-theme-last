@@ -8,4 +8,4 @@ block content
         a(href=url_for(article.path))= article.title
         time(datetime=date_xml(article.date))= date(article.date)
     - })
-  #paginator!= paginator()
+  include includes/pagination.pug

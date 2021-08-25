@@ -2,23 +2,29 @@ extends includes/layout.pug
 
 block content
   article#page
-    h1= page.title
-    != page.content
-  //- if page.type === 'tags'
-  //-   include tag.pug
+    //- h1= page.title
+    //- != page.content
+  if page.title === 'tags'
+    #category
+      - var categoriesList = list_categories({ show_count: theme.tagsPage.category.show_count })
+      - var tagsList = list_tags({ show_count: theme.tagsPage.tag.show_count })
+      #categories
+        h1 Categories
+        if categoriesList
+          != list_categories({show_count: theme.tagsPage.category.show_count, style: span, depth: 1})
+        else
+          p None.
+      br
+      #tags
+        h1 Tags
+        if tagsList
+          != tagsList
+        else
+          p None.
+      br
   if page.title === 'links'
     if page.links
       .links
-        //- h2!= theme.friendPageNotice
-        //- ol.rules
-        //-   each rule in theme.exchangeUrlRules
-        //-     li!= rule
-        //- h3!= "The followings are my site imformation: "
-        //- ul.mylink
-        //-   li!= "Site URL: " + theme.siteUrl
-        //-   li!= "Site Name: " + theme.siteName
-        //-   li!= "Avatar(URL): " + theme.Avatar
-        //-   li!= "Site Description: " + theme.siteDescription
         each group, index in page.links
           h2.link-title!= group.group_name
           .group-description!= group.description
@@ -27,7 +33,7 @@ block content
               each item in group.items
                   li.item-friend(title=item.description)
                     a.item-friend-links(href=item.url)
-                      img.site-preview(src=item.img, alt=item.name)
+                      img.site-preview(src=item.img, alt=item.name,,onerror="this.src='img/pic_load_fail.png'")
                       .site-name!= item.name
                       .site-description!= item.description
         include includes/comment.pug
