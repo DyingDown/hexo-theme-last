@@ -6,7 +6,7 @@ block content
   - var tagsList = list_tags({ show_count: false })
   - var archivesList = list_archives({ show_count: false })
 
-  div.archive.container-fluid.col-sm-offset-2
+  div.archive
     if !is_year()
       //- h1.First-title-of-archives Archives
       ul.timeline.timeline-centered
@@ -16,7 +16,9 @@ block content
             - var tempYear = date(article.date, 'YYYY')
             if tempYear !== year
               - year = tempYear
-              h2.period!= year
+              h2.period
+                - var urlofTime = '/archives/'+ year
+                a(href=url_for(urlofTime))!= year
             .timeline-item
               .timeline-info
                 time.post-time(datetime=date_xml(article.date))= full_date(article.date,'MMMM Do YYYY')
@@ -33,50 +35,57 @@ block content
         else
           p None.
       br
-      include includes/pagination.pug
-  //- div.archive
-  //-   if !is_year()
-
-  //-     h1 Archives
-
-  //-     if theme.atom
-  //-       p The feed is available via&nbsp;
-  //-         a(href=theme.atom) atom
-  //-         span .
-  //-       br
-
-  //-     aside
-  //-       h2 Categories
-  //-       if categoriesList
-  //-         != categoriesList
-  //-       else
-  //-         p None.
-  //-     br
-
-  //-     aside
-  //-       h2 Tags
-  //-       if tagsList
-  //-         != tagsList
-  //-       else
-  //-         p None.
-  //-     br
-
-  //-     aside
-  //-       h2 Archives
-  //-       if archivesList
-  //-         != archivesList
-  //-       else
-  //-         p None.
-  //-     br
-
-  //-   else
-
-  //-     h1= page.month + '/' + page.year
-
-  //-     - page.posts.each(function(article){
-  //-       .archive-list-item
-  //-         a(href=url_for(article.path))= article.title
-  //-         time(datetime=date_xml(article.date))= date(article.date)
-  //-     - })
-
-  //-     #paginator!= paginator()
+    else if !is_month()
+      ul.timeline.timeline-centered
+        if archivesList
+          h2.period!= page.year
+          - var year
+          - page.posts.each(function(article, index){
+            - var tempYear = date(article.date, 'MM')
+            if tempYear !== year
+              - year = tempYear
+              h2.period
+                - var urlOfMon = '/archives/' + page.year + '/' + year
+                a(href=url_for(urlOfMon))!= year
+            .timeline-item
+              .timeline-info
+                time.post-time(datetime=date_xml(article.date))= full_date(article.date,'MMMM Do, dddd')
+              .timeline-content
+                .post-content
+                  h3.timeline-title
+                    a(href=url_for(article.path))!= article.title
+                  if article.description
+                    p!= article.description
+                  else
+                    p!= article.excerpt
+          - })
+          //- include includes/pagination.pug
+        else
+          p None.
+      br
+    else
+      ul.timeline.timeline-centered
+        if archivesList
+          - var year
+          - page.posts.each(function(article, index){
+            - var tempYear = date(article.date, 'YYYY MMMM')
+            if tempYear !== year
+              - year = tempYear
+              h2.period!= year
+            .timeline-item
+              .timeline-info
+                time.post-time(datetime=date_xml(article.date))= full_date(article.date,'Do, dddd')
+              .timeline-content
+                .post-content
+                  h3.timeline-title
+                    a(href=url_for(article.path))!= article.title
+                  if article.description
+                    p!= article.description
+                  else
+                    p!= article.excerpt
+          - })
+          //- include includes/pagination.pug
+        else
+          p None.
+      br
+    include includes/pagination.pug

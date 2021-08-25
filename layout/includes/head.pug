@@ -20,8 +20,8 @@ link(rel='stylesheet', href='/font-awesome/css/all.min.css')
         link(rel='stylesheet', href='/css/archive/archive-comment.css')
     else
         link(rel='stylesheet', href='/css/archive/archive-normal.css')
-//- - if (is_tag())
-//-     link(rel='stylesheet', href='/css/tags.css')
+- if (is_tag() || is_category())
+    link(rel='stylesheet', href='/css/category.css')
 - if (is_page())
     if page.title === 'links'
         link(rel='stylesheet', href='/css/links.css')

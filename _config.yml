@@ -60,7 +60,7 @@ themeColor:
 archiveStyle:
   style: comment-shape # comment-shape, normal
   type: center # basic, split, center
-  color: 
+  # color: 
 
 # categories & tags
 tagsPage:

@@ -15,11 +15,18 @@ else if $type == "split"
   font-size: 16px
 .timeline 
   width: 100%
-.period
+.period 
+  padding: 40px 0
+  text-align: center;
+  font-size: 30px;
+  color: $minorColor;
+  a
     text-align: center;
     font-size: 30px;
-    padding: 40px 0
     color: $minorColor;
+    text-decoration: none
+    &:hover
+      color: white
 
 .timeline-item
   border-left: 3px solid $minorColor
@@ -184,3 +191,5 @@ else if $type == "split"
         border-width: 30px 45px; 
         border-color: transparent transparent transparent $minorColor
         border-style: solid
+      :after
+        content: none !important
