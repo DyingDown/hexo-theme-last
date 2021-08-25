@@ -2,34 +2,39 @@
 #home-cover
   if theme.carousel != undefined && theme.carousel.on
     //- outer container of carousel
-    .carousel-container
-      //- put post list
-      ul.postList
-        //- each post in carouselPosts
-        for post in site.posts.data
-          if post.isCarousel != undefined && post.isCarousel && post.postImage != undefined && post.postImage
-            li.postCarousel(style="background-image:url(" + post.postImage + ")")
-              if theme.carousel.blur.on
-                div.blur(style="background-image:url(" + post.postImage + ")")
-              if theme.carousel.mask.on
-                div.shadowBox
-              .carouselContent
-                h2!= post.title
-                p.carouselText
-                  != post.description || post.excerpt
-                br
-                br
-                a(href= url_for(post.path)).readMore!= "Read More"
-      //- previous next arrow
-      if theme.carousel.prevNext
-        i.fa.fa-chevron-left
-        i.fa.fa-chevron-right
-      //- nav button
-      if theme.carousel.indicators.on
-        .navDots
+    - var carouselPosts = 0
+    for post in site.posts.data
+      if post.isCarousel != undefined && post.isCarousel && post.postImage != undefined && post.postImage
+        - carouselPosts += 1
+    if carouselPosts
+      .carousel-container
+        //- put post list
+        ul.postList
+          //- each post in carouselPosts
           for post in site.posts.data
             if post.isCarousel != undefined && post.isCarousel && post.postImage != undefined && post.postImage
-              a.navDot(href="javascript:;")= ""
+              li.postCarousel(style="background-image:url(" + post.postImage + ")")
+                if theme.carousel.blur.on
+                  div.blur(style="background-image:url(" + post.postImage + ")")
+                if theme.carousel.mask.on
+                  div.shadowBox
+                .carouselContent
+                  h2!= post.title
+                  p.carouselText
+                    != post.description || post.excerpt
+                  br
+                  br
+                  a(href= url_for(post.path)).readMore!= "Read More"
+        //- previous next arrow
+        if theme.carousel.prevNext
+          i.fa.fa-chevron-left
+          i.fa.fa-chevron-right
+        //- nav button
+        if theme.carousel.indicators.on
+          .navDots
+            for post in site.posts.data
+              if post.isCarousel != undefined && post.isCarousel && post.postImage != undefined && post.postImage
+                a.navDot(href="javascript:;")= ""
       
 #recent-post-content
   if page.posts.length > 0

@@ -19,16 +19,18 @@ block content
                 i.fa.fa-calendar
               time.words(datetime=date_xml(page.date))= date(page.date)
           #post-information
-            a.category-post
-              span.post-title-icons
-                i.fa.fa-book
-              each category, index in page.categories.data
-                  span.words(href=url_for(category.path)) #{category.name}
-            a.post-tag
-              span.post-title-icons
-                i.fa.fa-tag
-              each tag, index in page.tags.data
-                  span.words(href=url_for(tag.path)) #{tag.name}  
+            if page.categories.data.length
+              a.category-post
+                span.post-title-icons
+                  i.fa.fa-book
+                each category, index in page.categories.data
+                    span.words(href=url_for(category.path)) #{category.name}
+            if page.tags.data.length
+              a.post-tag
+                span.post-title-icons
+                  i.fa.fa-tag
+                each tag, index in page.tags.data
+                    span.words(href=url_for(tag.path)) #{tag.name}  
             if theme.wordCount != undefined && theme.wordCount
               span.post-title-icons  
                 i.fa.fa-clock

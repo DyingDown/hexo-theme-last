@@ -131,7 +131,7 @@ postStyle:
   contentStyle: github # music microsoft github
   color: "default" # "default" or "#xxxxxx" or "color name"
   # Hex or color name 16进制的颜色或者颜色名字
-wordCount: true
+wordCount: false
   
 # donate function 打赏功能
 donate:
