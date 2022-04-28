@@ -1,0 +1,26 @@
+if(is_post())
+    .side-user
+        ul.top-bar
+            li.me!= "ABOUT"
+            if theme.donate != undefined && theme.donate.on
+                li.mid!= "|"
+                li.link!= "DONATE"
+        #author-info.clearfix
+            if theme.donate != undefined && theme.donate.on
+                img.qrButton(src="/img/qrcode_icon.png")
+            .au-info
+                img.avatar(src=theme.avatar)
+                #side-author!= config.author
+                #author-description!= theme.aboutme
+            if theme.donate.on
+                #payment-code
+                    .qr-description!= theme.donate.description
+                    - var qrUrl = "/img/wechat.jpg"
+                    - if (theme.donate.wechat == false) 
+                       - qrUrl = "/img/alipay.jpg"
+                    img.pay-code(src=qrUrl)
+                    .payButtons
+                        if theme.donate.wechat
+                            .wechat!= "Wechat"
+                        if theme.donate.alipay
+                            .alipay!= "Alipay"

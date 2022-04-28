@@ -1,0 +1,79 @@
+@import "themes/variable.styl"
+
+#category-block
+    width: auto
+    margin: 20px 23%
+    padding: 20px 0
+    h1
+        color: white;
+        font-size: 23px
+        display block
+        margin: 20px
+        font-weight: bold
+    .category-item
+        padding: 0 20px
+        line-height: 30px
+        font-size: 18px
+        a
+            text-decoration: none
+            color: $minorColor
+        .period
+            float: left
+            border-bottom: $minorColor solid 1px
+            &:hover
+                border-bottom: white solid 1px
+                a 
+                    color: white
+        .content
+            margin-left: 70px
+            border-left: dashed gray 1px
+            padding-left: 30px
+            position: relative
+            time
+                color: white
+                margin: 0 10px
+                font-size: 15px
+            .title
+                &:hover
+                    text-decoration: underline  
+            .tags
+                padding: 0 10px 15px 10px
+                span
+                    color: white;
+                    font-size: 20px
+                .words
+                    background-color: white
+                    color: black
+                    padding: 0 6px
+                    border-radius: 20px
+                    font-size: 15px
+                    margin: 0 5px
+                .fa-paperclip,
+                .fa-tag
+                    color: white
+                    margin: 0 10px
+            .one-line  
+                overflow:hidden;
+                text-overflow:ellipsis;
+                display:-webkit-box;
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp:1
+                color: $minorColor
+        .content:before
+            content: " "
+            width: 8px
+            height: 8px
+            display block
+            position: absolute
+            left: -4.5px
+            top : 50% - 15px
+            border-radius: 20px
+            background-color: gray
+
+@media screen and (max-width 830px)
+    #category-block
+        margin: 20px 5%
+@media screen and (max-width 500px)
+    #category-block
+        margin: 20px 0
+        

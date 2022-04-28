@@ -1,0 +1,51 @@
+-
+  var options = {
+    prev_text: '<i class="fas fa-angle-left"></i>',
+    next_text: '<i class="fas fa-angle-right"></i>',
+    mid_size: 1,
+    escape: false
+  }
+nav#pagination
+  if(!is_post())
+    div.pagination
+      !=paginator(options)
+  else if (theme.postPagePaginationStyle == "picture")
+    if(page.prev)
+      .prev-post.pull-left()
+        a(href=url_for(page.prev.path))
+          .background( style="background-image:url(" + page.prev.postImage + ")")
+            span.label#label-l!= "PREVIOUS POST"
+          #left!= page.prev.title
+    if(page.next)
+      .next-post.pull-right
+        a(href=url_for(page.next.path))
+          .background( style="background-image:url(" + page.next.postImage + ")")
+            span.label#label-r!= "NEXT POST"
+          #right!= page.next.title
+  else if (theme.postPagePaginationStyle == "card")
+    if(page.prev)
+      .prev-post.pull-left
+        a#prev(href=url_for(page.prev.path))
+          .img_fit.imgL
+            img(src=page.prev.postImage)
+          .info.il
+            div.label#label-l!= "PREVIOUS POST"
+            div=page.prev.title
+    if(page.next)
+      .next-post.pull-right
+        a#next(href=url_for(page.next.path))
+          .img_fit.imgR
+            img(src=page.next.postImage alt="this")
+          .info.ir
+            div.label#label-r!= "NEXT POST"
+            div=page.next.title 
+  else
+    if(page.prev)
+      .prev-post.pull-left
+        a(href=url_for(page.prev.path))
+          span=page.prev.title
+    if(page.next)
+      .next-post.pull-right
+        a(href=url_for(page.next.path))
+          span=page.next.title 
+

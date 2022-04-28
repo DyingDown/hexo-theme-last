@@ -1,0 +1,29 @@
+extends includes/layout.pug
+
+block content
+  #category-block
+    h1= 'Category:' + " " + page.category
+    - var year
+    - page.posts.each(function(article){
+      .category-item
+        - var tempYear = date(article.date, 'YYYY')
+        if tempYear !== year
+          - year = tempYear
+          span.period
+            - var urlOfMon = '/archives/' + year
+            a(href=url_for(urlOfMon))!= year
+        .content
+          .one-line
+            time(datetime=date_xml(article.date))= full_date(article.date,'MM-DD')
+            a.title(href=url_for(article.path))= article.title
+          .tags
+            i.fas.fa-tag
+            each tag, index in article.tags.data
+                a.words(href=url_for(tag.path)) #{tag.name} 
+    - })
+    //- - page.posts.each(function(article){
+    //-   .category-item
+    //-     a(href=url_for(article.path))= article.title
+    //-     time(datetime=date_xml(article.date))= date(article.date)
+    //- - })
+  include includes/pagination.pug

@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "fontawesome";
+    src: url("z/webfonts/fa-solid-900.eot");
+    src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), 
+         url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), 
+         url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), 
+         url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg")
+}
+$isCustomize = hexo-config("themeColor.on") || false
+
+$bg = #202020
+$minorColor = #d31b29
+
+$headerBg = #191919
+$headerSubBg = #333333
+$headerCt = #ffffff // content
+$headerHv = $minorColor //#ff0000 hover
+
+$homeTm = #737373
+$homeMainTx = #ffffff
+$homeCt = #bfbfbf
+$homeRowMaxItem = 6
+
+$postBg = #ffffff
+$sInfoTp = #808080
+$sInfoBg = #d3d3d3
+$sInfoTx = #666666
+if $isCustomize
+    $defaultMainColor = hexo-config("themeColor.mainColorSeries") || 'black'
+    $defaultMinorColor = hexo-config("themeColor.minorColorSeries") || 'red'
+    // if $defaultMainColor == 'black'
+@font-face {
+    font-family: "fontawesome";
+    src: url("/font-awesome/webfonts/fa-solid-900.eot");
+    src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), 
+         url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), 
+         url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), 
+         url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg")
+}

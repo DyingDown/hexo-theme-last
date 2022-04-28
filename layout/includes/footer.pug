@@ -1,0 +1,28 @@
+#bottom-outer
+    #bottom-inner
+        each media, index in theme.contacts
+            //- social icons that display in the bottoms
+            #incons
+                -
+                    let url_icon = media.split("||");
+                    var url = url_icon[0];
+                    var icon = url_icon[1];
+                - var ico = '<i class="' + icon + '"></i>'
+                a(href=url title=index).icon!= ico
+        #author
+            a#theme_name(href="https://github.com/DyingDown/hexo-theme-last")!= "Last"
+            span= " made with "
+            span#heart ❤️
+            span= " by "
+            a#theme_author(href='http://dyingdown.github.io')= "o_oyao"
+            br
+            span= '©' + config.author + ' ' + theme.since + '-' + date(new Date(), 'YYYY')
+        br
+        script(async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js")
+        if theme.visits.on === true
+            span#busuanzi_container_site_pv.visits
+                - var user = '<i class="fa fa-user"></i>'
+                - var eye = '<i class="fa fa-fw fa-eye"></i>'
+                - var total_visits = '<span id="busuanzi_value_site_uv"></span>'
+                - var total_reads = '<span id="busuanzi_value_page_pv"></spsan>'
+                .visits!= user + ' ' + total_visits + ' ' + ' | ' + eye + ' ' + total_reads
