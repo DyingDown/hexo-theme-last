@@ -1,0 +1,202 @@
+$color1 = convert(hexo-config("postStyle.color")) || #549E39
+if($color1 == 'default')
+    $color1 = #549E39
+$color2 = rgb(red($color1)*0.488, green($color1)*0.494, blue($color1)*0.491) //#294E1C 41,78,28
+$color3 = rgba(red($color1)*1.55, green($color1)*1.3, blue($color1)*1.9, 0.3)//218,239,211
+$color4 = rgb(red($color1)*0.738, green($color1)*0.747, blue($color1)*0.737) //62,118,42
+
+/* 一级标题 */
+#post-content h1 
+    color: $color1
+    line-height: 30px
+
+/* 二级标题 */
+#post-content h2 
+    background-color: $color1
+    color: white
+    font-weight: normal !important
+    padding: 8px  
+
+/* 三级标题 */
+#post-content h3 
+    padding: 8px  
+    background-color: $color3
+    color: black
+    font-weight: normal !important
+
+#post-content h4
+    color: $color2
+    padding-top: 8px
+    border-top: solid 2px $color1
+
+#post-content h5
+    color: $color4
+    padding-top: 8px
+    border-top: dotted $color1 2px
+#post-content h6
+    color: $color4
+    padding-bottom: 8px
+    border-bottom: $color1 solid 2px
+
+/* 无序列表整体样式
+* list-style-type: square|circle|disc;
+*/
+#post-content ul li
+  font-size: 15px;
+  color: #595959;
+  list-style-type: none ;
+  margin-left: 20px
+  position relative
+#post-content ul li:before
+  content: " " // \f8d9
+  background-color: $color4
+  width: 12px;
+  height: 12px;
+  border-radius: 20px
+  top 6px;
+  left -20px;
+  position: absolute
+
+#post-content ul li li:before
+  content: "" // \f8d9
+  background: none;
+  width: 6px;
+  height: 6px;
+  border: solid 3px $color4;
+  border-radius: 20px
+  top 6px;
+  left -20px;
+  position: absolute
+#post-content ul li  li li:before
+  content: "" // \f8d9
+  background: none;
+  width: 6px;
+  height: 6px;
+  border: solid 3px $color4;
+  border-radius: 0px
+  top 6px;
+  left -20px;
+  position: absolute
+/* 有序列表整体样式
+* list-style-type: upper-roman|lower-greek|lower-alpha;
+*/
+#post-content ol
+  counter-reset: li
+#post-content ol li
+  font-size: 15px;
+  color: #595959;
+  position relative
+  margin-left: 23px
+#post-content ol li::before
+  content: counter(li)
+  counter-increment: li 1
+  color: white
+  position absolute
+  top: 3.5px
+  left: -25px
+  width: 17px;
+  height: 17px;
+  text-align: center
+  line-height: 16px
+  background: $color4
+  border-radius: 20px
+  font-size: 14px
+
+
+/* 引用
+* 左边缘颜色 border-left-color:black;
+* 背景色 background:gray;
+*/
+#post-content blockquote::before
+    content: "❝";
+    color: rgba($color1, .5);
+    font-size: 34px;
+    line-height: 34px;
+    font-weight: 700;
+
+#post-content blockquote 
+    border solid 1px $color1
+    padding: 10px 10px 10px 20px;
+    margin: 20px 0
+    border-radius: 6px;
+    font-size: 0.9em;
+    line-height: 1.55em;
+    box-sizing: inherit;
+    overflow: auto
+
+#post-content blockquote::after
+    content: "❞";
+    float: right;
+    color: rgba($color1, .5);
+
+/* 链接
+*/
+#post-content a 
+    text-decoration: underline
+    text-decoration-color: $color1
+    text-decoration-thickness: 2px
+    color: $color1
+
+
+/* 加粗 */
+#post-content strong
+    font-weight: bold
+    color: $color1
+#post-content strong::after 
+    content: '」'
+#post-content strong::before
+  content: '「';
+
+/* 斜体 */
+#post-content em
+    color: $color1
+    font-weight: bold
+
+/* 加粗斜体 */
+#post-content em strong
+    color: $color1
+
+/* 删除线 */
+#post-content del
+    color: $color1
+
+/* 分隔线
+* 粗细、样式和颜色
+*/
+#post-content hr
+    border: none;
+    border-top: 6px dotted $color1
+    height: 0
+
+/* 图片
+* 宽度 width:80%;
+* 居中 margin:0 auto;
+* 居左 margin:0 0;
+*/
+#post-content img
+    display: block;
+    margin: 20px auto;
+    object-fit: contain;
+
+/* 行内代码 */
+#post-content p code,
+#post-content li code
+    background-color: $color1
+    padding: 0 3px
+    border-radius: 5px
+    margin: 0 2px
+    color: white
+
+/*
+* 表格内的单元格
+*/
+#post-content table tr th,
+#post-content table tr td 
+    border: $color1 solid 1px
+#post-content table tr th
+    background-color: $color1
+    color: white
+
+#post-content table tr:nth-child(odd)
+    background-color: $color3
+

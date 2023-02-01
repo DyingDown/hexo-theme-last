@@ -1,0 +1,24 @@
+extends includes/layout.pug
+
+block content
+  #category-block
+    h1= 'TAG:' + " " + page.tag
+    - var year
+    - page.posts.each(function(article){
+      .category-item
+        - var tempYear = date(article.date, 'YYYY')
+        if tempYear !== year
+          - year = tempYear
+          span.period
+            - var urlOfMon = '/archives/'+ year
+            a(href=url_for(urlOfMon))!= year
+        .content
+          .one-line
+            time(datetime=date_xml(article.date))= full_date(article.date,'MM-DD')
+            a.title(href=url_for(article.path))= article.title
+          .tags
+            i.fas.fa-paperclip
+            each category, index in article.categories.data
+                a.words(href=url_for(category.path)) #{category.name} 
+    - })
+  include includes/pagination.pug

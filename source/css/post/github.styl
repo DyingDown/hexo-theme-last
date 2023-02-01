@@ -1,0 +1,191 @@
+@import "../themes/variable.styl"
+#post-content h1
+    padding-bottom .3em
+    font-size 2.25em
+    line-height 1.2
+    border-bottom 1px solid #eee
+#post-content h2
+    padding-bottom .3em
+    font-size 1.75em
+    line-height 1.225
+    border-bottom 1px solid #eee
+
+#post-content h3
+    font-size 1.5em
+    line-height 1.43
+
+#post-content h4
+    font-size 1.25em
+
+#post-content h5
+    font-size 1em
+
+#post-content h6
+   font-size 1em
+    color #777
+#post-content p,
+#post-content blockquote,
+#post-content table
+    margin 1rem 0
+li>ol,
+li>ul
+    margin 0 0
+
+#post-content hr
+    height 2px
+    padding 0
+    margin 16px 0
+    background-color #e7e7e7
+    border 0 none
+    overflow hidden
+    box-sizing content-box
+#post-content blockquote
+    display: block; 
+    font-size: 0.9em; 
+    overflow: auto;  
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    padding-left: 20px; 
+    padding-right: 10px; 
+    margin-bottom: 20px; 
+    margin-top: 20px; 
+    font-style: normal; 
+    border-left: none; 
+    padding: 10px; 
+    position: relative; 
+    line-height: 1.8; 
+    border-radius: 0px 0px 10px 10px; 
+    color: #FEEEED; 
+    background: #000; 
+    box-shadow: #84A1A8 0px 10px 15px;
+#post-content blockquote p
+    display inline;
+#post-content blockquote::before
+    content: "👣"
+    color: #FFF
+    line-height: 1em;
+    font-weight: 700;
+    font-size: 30px
+#post-content blockquote::after
+    content: "”"
+    float: right; 
+    display: inline; 
+    color: #FFF; 
+    font-size: 3em; 
+    line-height: 1em; 
+    font-weight: 500;
+
+#post-content table tr th,
+#post-content table tr td 
+    padding: 10px 13px !important
+    font-size: 14px;
+    color: #595959;
+    border: solid #DFE2E5  1px
+
+#post-content table tr th
+    font-weight: bold
+    background: #F8F8F8;
+
+#post-content table tr:nth-child(2n)
+    background: #F8F8F8;
+
+p
+    line-height: 25px
+#post-content img
+    max-width 100%
+#post-content p
+    font-size: 16px;
+
+#post-content ul li
+  font-size: 15px;
+  color: #595959;
+  list-style-type: none ;
+  margin-left: 20px
+  position relative
+#post-content ul li:before
+    content: "" // \f8d9
+    background: none;
+    width: 7px;
+    height: 7px;
+    border: solid 3px $minorColor;
+    border-radius: 20px
+    top 6px;
+    left -20px;
+    position: absolute
+#post-content ul li li:before
+    content: "" // \f8d9
+    background: none;
+    width: 7px;
+    height: 7px;
+    border: solid 3px $minorColor;
+    border-radius: 0px
+    top 6px;
+    left -20px;
+    position: absolute
+#post-content ul li  li li:before
+    content: " " // \f8d9
+    background-color: $minorColor
+    width: 12px;
+    height: 12px;
+    border-radius: 20px
+    top 6px;
+    left -20px;
+    border none
+    position: absolute
+/* 有序列表整体样式
+* list-style-type: upper-roman|lower-greek|lower-alpha;
+*/
+#post-content ol
+  counter-reset: li
+#post-content ol li
+  font-size: 15px;
+  color: #595959;
+  position relative
+  margin-left: 23px
+#post-content ol li::before
+  content: counter(li)
+  counter-increment: li 1
+  color: white
+  position absolute
+  top: 3.5px
+  left: -25px
+  width: 17px;
+  height: 17px;
+  text-align: center
+  line-height: 16px
+  background: $minorColor
+  border-radius: 20px
+  border: 1px solid $minorColor
+  font-size: 14px
+#post-content a
+    color: $minorColor
+/* 加粗 */
+#post-content strong
+    font-weight: bold
+    color: $minorColor
+#post-content strong::after 
+    content: '」'
+#post-content strong::before
+  content: '「';
+
+/* 斜体 */
+#post-content em
+    color: $minorColor
+    font-weight: bold
+
+/* 加粗斜体 */
+#post-content em strong
+    color: $minorColor
+
+/* 删除线 */
+#post-content del
+    color: $minorColor
+
+/* 行内代码 */
+#post-content p code,
+#post-content li code
+    background-color: $minorColor
+    padding: 0 3px
+    border-radius: 5px
+    margin: 0 2px
+    color: white

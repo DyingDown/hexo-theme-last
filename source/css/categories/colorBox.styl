@@ -1,0 +1,203 @@
+$on-laptop : 1000px
+$on-palm: 600px
+#container
+  width: 95%
+  margin: 6em auto 0em
+  height: auto
+
+// .box
+//   width 24%
+//   @media screen and (max-width:1000px)
+//     width 33.33%
+//   @media screen and (max-width:800px)
+//     width 50%
+//   @media screen and (max-width:600px)
+//     width 100%
+// #grid[data-columns]::before{
+//   // content:'4 .column.size-1of4';
+  
+// }
+// @media screen and (max-width:1000px){
+  // #grid[data-columns]::before{
+  //   content:'3 .column.size-1of3'
+  // }
+//   .box
+//     width 33.33%
+// }
+// @media screen and (max-width:600px){
+  // #grid[data-columns]::before{
+  //   content:'1 .column.size-1of1'
+  // }
+//   .box
+//     width 100%
+// }
+[data-columns]::before
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    font-size: 1px;
+
+.cols
+  float left
+  -moz-column-count: 4
+  -moz-column-gap: 0%
+  -moz-column-width: calc((100% - 40px) / 4)
+  -webkit-column-count: 4
+  -webkit-column-gap: 0%
+  -webkit-column-width: calc((100% - 40px) / 4)
+  column-count: 4
+  column-gap: 0%
+  column-width: calc((100% - 40px) / 4)
+  break-inside: avoid
+  margin-bottom: 20px
+  @media(max-width: 1500px){
+    -moz-column-count: 3
+    -moz-column-gap: 0%
+    -moz-column-width: calc((100% - 30px) / 3)
+    -webkit-column-count: 3
+    -webkit-column-gap: 0%
+    -webkit-column-width: calc((100% - 30px) / 3)
+    column-count: 3
+    column-gap: 0%
+    column-width: calc((100% - 30px) / 3)        
+  }
+  // @media(max-width: 800px) {
+  //   -moz-column-count: 2
+  //   -moz-column-gap: 0%
+  //   -moz-column-width: 50%
+  //   -webkit-column-count: 2
+  //   -webkit-column-gap: 0%
+  //   -webkit-column-width: 50%
+  //   column-count: 2
+  //   column-gap: 0%
+  //   column-width: calc((100% - 30px) / 3)  
+  // }
+  @media(max-width: 1000px) {
+    -moz-column-count: 1
+    -moz-column-gap: 0%
+    -moz-column-width: 100%
+    -webkit-column-count: 1
+    -webkit-column-gap: 0%
+    -webkit-column-width: 100%
+    column-count: 1
+    column-gap: 0%
+    column-width: 100%
+    // min-width colum 100%
+  }
+
+/* Again, you’re free to use and define the classes: */
+.column
+  float: left
+
+/* These are the classes that are going to be applied: */
+
+// .size-1of4
+//   width: 25%
+
+.box
+  float left
+  break-inside: avoid
+  // display flex
+  // align-items: flex-start
+  margin: 0 5px 15px 5px
+  display: inline-block
+  border-radius: 4px
+  box-shadow: 2px 2px 4px #aaa
+  -webkit-box-shadow: 2px 2px 4px #aaa 
+  -moz-box-shadow: 2px 2px 4px #aaa 
+  color: rgba(255, 255, 255, 0.72)
+  &:hover
+    box-shadow: 3px 3px 6px #aaa
+    -webkit-box-shadow: 3px 3px 6px #aaa
+    -webkit-box-shadow: 3px 3px 6px #aaa
+
+.feat-image
+   border-radius: 4px 4px 0 0 
+   width: 100%
+
+.container
+  padding: 15px
+  h3
+    font-size: 18px
+    margin-bottom: 10px
+         
+.container a
+    color: #eee
+    text-decoration: none
+.grid-item img
+    width: 100%
+    border-radius: 4px 4px 0 0
+    border:none
+.action
+    margin-top: 15px
+    padding-top: 15px
+    border-top: 1px solid #ddd
+.action .fa
+    float: right
+    opacity: 0.9
+    color: #eee
+    &:hover
+        opacity: 0.8
+
+.social-full h3, 
+.social-full fa 
+  display: inline-block
+
+// .social-full {
+//     padding: 10px 0
+//     font-size: 1.2em
+// }
+// .social-full .fa{
+//         color: $brand-color
+//     &:hover {
+//         color: $highlight-color
+//     }
+// }
+
+.content {
+  padding: 2em
+}
+
+// // Table
+// table {
+//   margin: 15px 0
+//   border-collapse: collapse
+//   width: 100%
+//   padding: 0 }
+//   table tr {
+//     border-top: 1px solid $grey-color
+//     background-color: white
+//     margin: 0
+//     padding: 0 }
+//     table tr:nth-child(2n) {
+//       background-color: #f8f8f8 }
+//     table tr th {
+//       font-weight: bold
+//       border: 1px solid $grey-color
+//       text-align: left
+//       margin: 0
+//       padding: 6px 13px }
+//     table tr td {
+//       border: 1px solid $grey-color
+//       text-align: left
+//       margin: 0
+//       padding: 6px 13px }
+//     table tr th :first-child, table tr td :first-child {
+//       margin: 0 }
+//     table tr th :last-child, table tr td :last-child {
+//       margin: 0 }
+
+// // Add class="video" to any video you insert to make it responsive
+
+// .video {
+//     width: 100%
+//     height: 360px
+//     @include media-query($on-laptop) {
+//         height: 300px
+//     }
+//     @include media-query($on-palm) {
+//         height: 180px
+//     }
+
+body
+    background-color: white !important

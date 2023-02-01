@@ -1,0 +1,15 @@
+if(is_post())
+
+    if theme.toc != undefined && theme.toc.on && toc(page.content)
+        #toc-outer
+            #sidebar-toc
+                #catalog
+                    span!= "Catalog"
+                    if theme.percent
+                        span#percent
+                #tocs
+                    //- != toc(page.content, {max_depth: toc.max_depth, list_number: theme.toc.list_number})
+                //- div(data-toc="#toc")
+            //- script.
+            //-     new TocHelper().reload();
+    

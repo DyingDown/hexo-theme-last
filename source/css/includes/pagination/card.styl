@@ -1,0 +1,76 @@
+@import "../../themes/variable.styl"
+#mid-col #pagination
+    width: auto
+    display flex
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    flex 1
+    height: 150px
+    .prev-post,
+    .next-post
+        width: 100% 
+        margin: 0 5px 0
+    .img_fit
+        width: 120px
+        height: 120px
+        display block
+        margin: 15px
+        border: solid lightgray 1px
+        border-radius: 80px
+        background-color: gray
+        img
+            object-fit: cover
+            width: 100%
+            height: 100%
+            border-radius: 80px
+    .imgL
+        float: right
+    .imgR
+        float: left
+    a
+        display: block
+        width: 100%
+        height: 150px
+        position relative
+        text-decoration: none
+        color: black
+        border solid 1px lightgray
+        border-radius: 5px
+        &:hover
+            background-color:rgba($minorColor, 0.1)
+            border-color: $minorColor
+            img
+                transform: rotate(360deg)
+    .info
+        height: 150px
+        padding: 0 20px
+        :nth-child(2)
+            margin-top: 10px
+            display block
+            -webkit-line-clamp: 2; /* 设置超出多少行隐藏 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis
+            /* 设置 display 为 -webkit-box 或者 -webkit-inline-box 时为隐藏状态 */
+            display: -webkit-box;
+            word-break: break-word
+            line-height: 20px
+    .ir
+        padding-left: 150px
+        text-align: right
+    .il
+        padding-right: 150px
+        text-align: left
+    .label
+        line-height: 20px
+        padding: 35px 0 10px 0
+        border-bottom: dashed 3px lightgray
+        color: gray
+
+@media(max-width 700px)
+    #mid-col #pagination
+        flex-direction: column
+        justify-content: space-between;
+        height: 300px
+        
+        

@@ -1,0 +1,48 @@
+//- link(rel='stylesheet', href='/css/themes/variable.css')
+link(rel='stylesheet', href='/css/reset.css')
+link(rel='stylesheet', href='/css/includes/header.css')
+link(rel='stylesheet', href='/css/includes/footer.css')
+link(rel='stylesheet', href='/css/includes/pagination.css')
+link(rel='stylesheet', href='/css/last.css')
+link(rel='stylesheet', href='/font-awesome/css/all.min.css')
+
+- if (is_home())
+    link(rel='stylesheet', href='/css/recent-posts.css')
+- if (is_post())
+    link(rel='stylesheet', href='/css/post.css')
+    link(rel='stylesheet', href='/css/third-party/share.min.css')
+    link(rel='stylesheet', href='/css/article/simple.css')
+    link(rel='stylesheet', href='/css/includes/code/highlights/sakura.css')
+    link(rel='stylesheet', href='/css/includes/side-user.css')
+    link(rel='stylesheet', href='/css/includes/toc.css')
+- if (is_archive())
+    if theme.archiveStyle.style != undefined && theme.archiveStyle.style == 'comment-shape'
+        link(rel='stylesheet', href='/css/archive/archive-comment.css')
+    else
+        link(rel='stylesheet', href='/css/archive/archive-normal.css')
+- if (is_tag() || is_category())
+    link(rel='stylesheet', href='/css/category.css')
+- if (is_page())
+    if page.title === 'links'
+        link(rel='stylesheet', href='/css/links.css')
+    if page.title === 'tags'
+        link(rel='stylesheet', href='/css/tags.css')
+
+
+if theme.stylesheets !== undefined && theme.stylesheets.length > 0
+    //- stylesheets list from _config.yml
+    each url in theme.stylesheets
+        //- if theme.jsDeliver.on
+        //-     url = theme.jsDelivr.preURL + theme.jsDelivr.repoName + url 
+        link(rel='stylesheet', href=url)
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+
+script.
+    var isHome = false;
+    var isCenter = false;
+if is_home()
+    script.
+        var isHome = true;
+if theme.carousel.indicators.position == 'center'
+    script.
+        var isCenter = true;

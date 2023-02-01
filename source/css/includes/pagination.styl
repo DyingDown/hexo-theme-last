@@ -1,0 +1,45 @@
+@import "../themes/variable.styl"
+
+$themeName = hexo-config("postPagePaginationStyle") || "normal"
+
+@import 'pagination/' + $themeName + '.styl'
+
+$isNumberBg = hexo-config("paginationNumberBackground") || false
+$numBgOp = 0
+$numColor = white
+$numSize = 15px
+
+if $isNumberBg == true
+    $numBgOp = 1
+    $numColor = black
+    $numSize = 13px
+
+nav#pagination
+    display: block
+    clear: both
+    width: auto
+    margin: 10px auto
+    text-align: center
+    .page-number , 
+    .prev, 
+    .next,
+    .space
+        font-size: $numSize
+        display: inline-block
+        background: rgba(255,255, 255, $numBgOp)
+        color: $numColor
+        width 30px
+        height 28px
+        line-height: 28px
+        margin: 0 5px
+        text-decoration: none
+        border-radius: 2px
+        font-family: Helvetica
+        text-align: center
+        font-weight: bold
+    .current
+        background-color: rgba($minorColor, $numBgOp) 
+        color white
+    .page-number:not(.current):hover
+        color: $minorColor
+    // .extend .prev

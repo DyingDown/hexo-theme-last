@@ -1,0 +1,60 @@
+#mid-col #pagination
+    width: auto
+    display flex
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex 1
+    // padding: 0 20px
+    .prev-post,
+    .next-post
+        padding: 10px 20px
+        // width: 50%;
+        display: flex
+        flex-direction:row;
+        position relative
+        align-items: center
+        a
+            text-decoration: none
+            margin: 0 10px
+        &:hover
+            background-color: #eee
+            color: black
+            a
+                color black
+    .prev-post
+        justify-content: flex-start
+    .prev-post:before
+        content: "\f104"
+        font-family: "fontawesome"
+        display: block
+        float left
+        vertical-align: middle
+        font-size: larger
+        position: absolute
+        top: 0
+        left 5px
+        height 100%
+        display:flex;
+        flex-direction:row;
+        align-items: center;
+        justify-content: center;
+        color: gray
+    .next-post
+        justify-content: flex-end
+    .next-post:after
+        content: "\f105"
+        font-family: "fontawesome"
+        display: block
+        float right
+        vertical-align: middle
+        font-size: larger
+        position: absolute
+        top: 0
+        right 5px
+        height 100%
+        width: auto
+        display:flex;
+        flex-direction:row;
+        align-items: center;
+        justify-content: center;
+        color: gray

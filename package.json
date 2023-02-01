@@ -1,0 +1,9 @@
+{
+  "name": "last",
+  "version": "0.1.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "hexo-wordcount": "^6.0.1"
+  }
+}
