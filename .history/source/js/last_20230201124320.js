@@ -25,7 +25,11 @@ function insertAfter(newElement, targetElement) { // newElement是要追加的�
 };
 
 // if (isHome == false) {
+<<<<<<< HEAD
+//     menuOuter.style.background_opacity = 1;
+=======
 //     menuOuter.style.backgroundColor = "#ffffff";
+>>>>>>> 8eab29468077d601733a3c1acd322e3a0a7485a0
 // }
 
 
@@ -58,11 +62,19 @@ menuIcon.onclick = function() {
 
 window.addEventListener("scroll", function() {
     // if (isHome) {
+<<<<<<< HEAD
+        if (this.window.scrollY > 0) {
+            modifyClass(menuOuter, "newMenuOuterColor", 1);
+        } else {
+            modifyClass(menuOuter, "newMenuOuterColor", 0);
+        }
+=======
     if (this.window.scrollY > 0) {
         modifyClass(menuOuter, "newMenuOuterColor", 1);
     } else {
         modifyClass(menuOuter, "newMenuOuterColor", 0);
     }
+>>>>>>> 8eab29468077d601733a3c1acd322e3a0a7485a0
     // }
     /******** fix toc *******/
     let s = document.body.scrollTop || document.documentElement.scrollTop;

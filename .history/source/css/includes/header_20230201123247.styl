@@ -1,7 +1,6 @@
 @import "../themes/variable.styl"
 
 .this-is-post-page
-.this-is-home-page
     display: none
 
 $sideW = 80vw
@@ -21,7 +20,7 @@ $sideW = 80vw
     width: calc(100vw - 40px);
     display flex;
     height: 75px;
-    background-color: $headerBg;
+    background-color: transparent;
     padding: 0 20px 
     align-items: center
     color: $headerCt
@@ -33,18 +32,14 @@ $sideW = 80vw
     -webkit-box-shadow: 1px 0 5px rgb(175 175 175);
     box-shadow: 1px 0 5px rgb(175 175 175);
     color: $headerPostCt
-    background-color: $headerPostBg
-.this-is-home-page + #menu-outer
-    background-color: transparent
-    
 #menu-outer.sticky
     background-color: transparent;
 .newMenuOuter
     left: $sideW;
 .newMenuOuterColor
     background-color: $headerBg !important;
-.this-is-post-page + .newMenuOuterColor
-    background-color: $headerPostBg !important
+.this-is-post-page + #menu-outer .newMenuOuterColor
+    background-color: $headerPostBg
 /*********** left nav icon  ***********/
 .menu .menu-icon
     width: 30px;
