@@ -8,6 +8,8 @@ meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-sc
             input#local-search-input(tpye="text" placeholder="Type to search")
             span.search-icon
                 i.fa.fa-search
+    if (is_post()) 
+        .this-is-post-page
     .menu
         //- the button of hidden menu for phone
         ul.menu-icon

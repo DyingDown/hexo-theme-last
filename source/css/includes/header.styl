@@ -1,5 +1,9 @@
 @import "../themes/variable.styl"
 
+.this-is-post-page
+    $is-post = 1;
+    display: none
+
 $sideW = 80vw
 #menu-outer a
     text-decoration: none;
@@ -17,7 +21,9 @@ $sideW = 80vw
     background-color: transparent;
     padding: 0 20px 
     align-items: center
-    color $headerCt
+    color: calc(
+        $headerCt * $is-post + $headerPostCt * $is-post
+    ) 
     justify-content space-between
     transition: 0.3s
     z-index: 10
