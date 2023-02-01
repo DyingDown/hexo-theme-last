@@ -52,7 +52,7 @@ $sideW = 80vw
     // reset origin point of transform
     transform-origin: left center
 .this-is-post-page + #menu-outer .menu .menu-icon li
-    background-color: $minorColor
+    background-color: $headerMinor
 .menu .menu-icon li:nth-child(1)
     top: 26px;
 .menu .menu-icon li:nth-child(2)
@@ -73,7 +73,7 @@ $sideW = 80vw
 .menu #nav
     position fixed;
     top: 0px
-    background-color: $headerBg
+    background-color: green //$headerBg
     left: "calc(%s - %s)"%(0vw $sideW);
     width: $sideW;
     bottom: 0
@@ -82,9 +82,6 @@ $sideW = 80vw
     overflow-x: hidden;
     transition: 0.3s
     padding: 35px 0px
-.this-is-post-page + #menu-outer .menu #nav
-    background-color: $headerPostBg
-    // border-right: solid 1px lightgray
 .menu-avatar
     border-radius: 1000px;
     width: 40%;
