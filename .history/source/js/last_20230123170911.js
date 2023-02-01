@@ -25,7 +25,7 @@ function insertAfter(newElement, targetElement) { // newElement是要追加的�
 };
 
 if (isHome == false) {
-    menuOuter.style.backgroundColor = "#ffffff";
+    menuOuter.style.backgroundColor = "#191919";
 }
 
 

@@ -1,15 +1,13 @@
 @import "../themes/variable.styl"
 
 .this-is-post-page
+    $is-post = 1;
     display: none
 
 $sideW = 80vw
 #menu-outer a
     text-decoration: none;
     color: $headerCt
-.this-is-post-page + #menu-outer a
-    color: $headerPostCt
-    
 #menu-outer a:hover
     color: $headerHv
 
@@ -23,15 +21,12 @@ $sideW = 80vw
     background-color: transparent;
     padding: 0 20px 
     align-items: center
-    color: $headerCt
+    color: calc(
+        $headerCt * $is-post + $headerPostCt * $is-post
+    ) 
     justify-content space-between
     transition: 0.3s
     z-index: 10
-    border: solid lightgray 0px;
-.this-is-post-page + #menu-outer
-    -webkit-box-shadow: 1px 0 5px rgb(175 175 175);
-    box-shadow: 1px 0 5px rgb(175 175 175);
-    color: $headerPostCt
 #menu-outer.sticky
     background-color: transparent;
 .newMenuOuter
@@ -71,7 +66,7 @@ $sideW = 80vw
 .menu #nav
     position fixed;
     top: 0px
-    background-color: green //$headerBg
+    background-color: $headerBg
     left: "calc(%s - %s)"%(0vw $sideW);
     width: $sideW;
     bottom: 0
@@ -92,7 +87,7 @@ $sideW = 80vw
 
 .menu #nav li a
     line-height: 45px
-    font-size: 16px
+    font-size: 20px
 
 // new nav
 .newNav
@@ -132,8 +127,6 @@ $sideW = 80vw
     align-items: center;
     transition: 0.4s;
     text-decoration: none;
-.this-is-post-page + #menu-outer .search-icon 
-    color: $headerHv
 
 #menu-outer .search:hover #local-search-input 
     width: 120px;
@@ -198,49 +191,25 @@ $sideW = 80vw
         .submenu-items
             display none;
             position: absolute
-            top: 66px;
-            left: -20%
+            top: 75px;
+            left: -30%
             background-color: $headerSubBg;
             padding: 5px 15px;
             border-radius: 10px;
             -webkit-animation fadeInUp .3s .1s ease both;
             -moz-animation fadeInUp .3s .1s ease both
-            z-index: 2
-        .this-is-post-page + #menu-outer .submenu-items
-            background-color: $headerPostBg
-            border: solid lightgray 1px
-            -webkit-box-shadow: 1px 0 5px rgb(175 175 175);
-            box-shadow: 1px 0 5px rgb(175 175 175);
-
         .submenu-items::before
             content: ""
             position absolute
             width: 0
             height: 0
-            border: 15px solid transparent
+            border: 20px solid transparent
             border-bottom-color: $headerSubBg
             left: 0
             right: 0
-            top: -28px
+            top: -38px
             margin: auto
             z-index 100
-        .this-is-post-page +#menu-outer .submenu-items::before
-            border-bottom-color: $headerPostBg
-            z-index: 0
-        .this-is-post-page +#menu-outer .submenu-items::after
-            content: ""
-            position absolute
-            width: 0
-            height: 0
-            border: 15px solid transparent
-            border-bottom-color: lightgray
-            left: 0
-            right: 0
-            top: -29px
-            margin: auto
-            z-index -10
-            transform-style: preserve-3d;
-            transform:translateZ(-10px);
         .subitem-name
             padding: 0 !important
             white-space: nowrap
