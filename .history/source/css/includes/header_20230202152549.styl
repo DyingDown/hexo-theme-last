@@ -158,10 +158,12 @@ $sideW = 80vw
     width: 120px;
     padding: 0 6px;
 
-.search:hover > .search 
+.search:hover > .search, 
+.search:focus > .search 
     width: 180px;
 
-.search:hover > .search-icon
+.search:hover > .search-icon,
+.search:focus > .search-icon 
     background: none;
     color: $headerHv;
     font-size: 16px;
@@ -170,8 +172,6 @@ $sideW = 80vw
 .search:has(#local-search-input:focus)
     border: solid $headerHv 1.5px !important;
     font-size: 20px;
-    .search-icon
-        font-size: 16px
 
 
 /************ for other media **************/

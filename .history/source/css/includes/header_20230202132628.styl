@@ -134,8 +134,7 @@ $sideW = 80vw
     width: 0
     // float: left
     padding: 0
-.this-is-post-page + #menu-outer .search #local-search-input
-    color: $headerPostCt
+
 .search-icon 
     color: $headerCt;
     float: right;
@@ -152,26 +151,21 @@ $sideW = 80vw
 .this-is-post-page + #menu-outer .search-icon 
     color: $headerHv
 
-#menu-outer .search:hover #local-search-input,
-#menu-outer .search:active #local-search-input,
-#menu-outer .search #local-search-input:focus
+#menu-outer .search:hover #local-search-input 
     width: 120px;
     padding: 0 6px;
 
 .search:hover > .search 
     width: 180px;
 
-.search:hover > .search-icon
+.search:hover > .search-icon 
     background: none;
     color: $headerHv;
     font-size: 16px;
 
-.search:hover,
-.search:has(#local-search-input:focus)
+.search:hover
     border: solid $headerHv 1.5px !important;
     font-size: 20px;
-    .search-icon
-        font-size: 16px
 
 
 /************ for other media **************/

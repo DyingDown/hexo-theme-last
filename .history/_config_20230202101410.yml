@@ -8,7 +8,7 @@ menu:
     path: /
     ico: home
   Category:
-    path: 
+    path: /categories
     ico: list
     submenu: 
       Creativiy:
