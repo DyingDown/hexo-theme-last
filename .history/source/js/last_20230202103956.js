@@ -79,25 +79,13 @@ window.addEventListener("scroll", function() {
 });
 
 /****** go to top button ******/
-var backToTopButton = document.getElementById("back-to-top")
-var toCommentButton = document.getElementById("go-to-comment")
-backToTopButton.addEventListener("click", () => {
-    document.body.scrollIntoView({
+const goToTop = (dom) => {
+    dom.scrollIntoView({
         behavior: "smooth",
     });
-})
+};
 
-var commentBox = document.getElementById("vcomment")
-var menuA = document.getElementById("menu-outer")
-toCommentButton.addEventListener("click", () => {
-    var height = 0;
-    t = commentBox;
-    do {
-        height += t.offsetTop;
-        t = t.offsetParent;
-    }while(t != document.body)
-    window.scrollTo({
-        top: height - 80,
-        behavior: "smooth",
-    })
-})
+var backToTopButton = document.getElementById("back-to-top")
+backToTopButton.addEventListener("click", goToTop)
+
+var toCommentButton = document.getElementById("vcomment")

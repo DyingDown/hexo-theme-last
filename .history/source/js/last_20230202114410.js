@@ -97,7 +97,7 @@ toCommentButton.addEventListener("click", () => {
         t = t.offsetParent;
     }while(t != document.body)
     window.scrollTo({
-        top: height - 80,
+        top: height + 70,
         behavior: "smooth",
     })
 })

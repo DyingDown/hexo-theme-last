@@ -214,6 +214,17 @@ since: 2019
 # Visite count
 visits:
   on: true
+
+# Back to Top button and go to comment button
+SideButtons:
+  Top:
+    on: true
+    color: "#e37a90" # "#e37a90" hex color
+  Comment:
+    on: true
+    color: "#33a6dc" # "#33a6dc" hex color
+
+    
 # Latex 
 # MathJax Support
 mathjax:

@@ -90,14 +90,15 @@ backToTopButton.addEventListener("click", () => {
 var commentBox = document.getElementById("vcomment")
 var menuA = document.getElementById("menu-outer")
 toCommentButton.addEventListener("click", () => {
-    var height = 0;
+    var height = menuA.offsetTop;
     t = commentBox;
     do {
         height += t.offsetTop;
-        t = t.offsetParent;
-    }while(t != document.body)
-    window.scrollTo({
-        top: height - 80,
+        t = t.offsetTop;
+    }while(t != Element.body)
+    height += menuA.offsetTop
+    commentBox.scrollIntoView({
+        top: height + menuA.offsetHeight,
         behavior: "smooth",
     })
 })
