@@ -1,0 +1,32 @@
+$top-color = convert(hexo-config("SideButtons.Top.color")) || #e37a90
+$comment-color = convert(hexo-config("SideButtons.Comment.color")) || #33a6dc
+
+#back-to-top
+    position: fixed
+    right: -19px
+    bottom: 45px
+    background-color: $comment-color; // rgb(113, 210, 242)// rgb(170, 217, 277)//#4e9400
+    padding: 10px 15px
+    transform: rotate(-90deg)
+    color: white
+    &:hover
+        right: -13px
+
+#go-to-comment
+    diplay none
+#vcomment ~ #go-to-comment
+    position: fixed
+    right: -46px
+    bottom: 140px
+    padding: 10px 15px
+    font-size: 18px
+    color: white
+    background-color: $top-color;  //pink
+    transform: rotate(-90deg)
+    &:hover
+        right: -40px
+
+@media only screen
+    @media (max-width: 900px)
+        #go-to-comment
+            display: none

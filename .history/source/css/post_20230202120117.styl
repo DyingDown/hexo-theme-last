@@ -1,0 +1,290 @@
+@import "themes/variable.styl"
+
+@font-face {
+    font-family: "fontawesome";
+    src: url("/font-awesome/webfonts/fa-solid-900.eot");
+    src: url("/font-awesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), 
+         url("/font-awesome/webfonts/fa-solid-900.woff") format("woff"), 
+         url("/font-awesome/webfonts/fa-solid-900.ttf") format("truetype"), 
+         url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg")
+}
+$postStyle = hexo-config("postStyle.contentStyle") || 'github'
+$tocPos = hexo-config("postStyle.authorInfoPosition") || 'right'
+$isShare = hexo-config("Share.on") || false
+$tocOd = 3
+$midOd = 2
+$shareOd = 1
+
+@import 'post/' + $postStyle + '.styl'
+@import "themes/variable.styl"
+
+if $isShare == true
+    if $tocPos == 'left'
+        $tocOd = 1
+        $shareOd = 3
+else 
+    if $tocPos == 'left'
+        $midOd = 2
+        $tocOd = 1
+
+body
+    background-color: $postBg !important
+
+#content-outer
+    width: 100vw;    
+#post-outer
+    margin-top: 75px;
+    display flex
+    padding: 40px 5% 0;
+    // width: 100%;
+#mid-col
+    order: $midOd
+    margin: 0 20px;
+    flex: auto
+    width: 0
+#post
+    -webkit-box-shadow 1px 0 5px rgba(100,100,100,.4)//rgba(0,0,0,.4)
+    box-shadow 1px 0 5px rgba(100,100,100,.4) // rgba(0,0,0,.4)
+#toc-col
+    order: $tocOd
+    flex: 0 0 300px;
+#share-col
+    order: $shareOd
+    flex: 0 0 50px;
+    z-index 2
+#shareButtons
+    padding-top: 100px;
+    position: fixed
+    width: 50px;
+.newShare
+    width: 100% !important
+    position static !important
+    padding-top: 0px !important;
+    margin-left: 40px;
+.newShare .social-share .social-share-icon
+    width: 30px
+    height: 30px
+    font-size: auto !important
+    line-height: 30px;
+
+@media only screen
+    @media (max-width: 900px)
+        #toc-col
+            display: none;
+        #mid-col
+            margin: 0 5px;
+        #post-outer
+            padding: 5px
+        #post
+            -webkit-box-shadow none
+            box-shadow none
+        #post-content 
+            padding: 0 20px 20px !important
+        #firstline .date
+            display block;
+        .fdate
+            display: none
+        .ribbon
+            display none
+// post title
+#titles
+    padding-left: 20px;
+    border-left: solid 0.3125rem #000;
+    padding-bottom: 25px;
+    position relative
+#titles h1
+    padding-top: 0.9375rem;
+    border-bottom: 0px;
+    margin-bottom: 0.8rem;
+    font-weight: 900;
+    // margin-block-start: 0em !important;
+    font-size: 2em
+    z-index -1
+#first-line
+    display flex;
+    justify-content: space-between
+    align-items: center
+// post information
+
+.ribbon
+    position absolute
+    right -5px 
+    top -5px
+    z-index 1
+    overflow hidden
+    width 75px 
+    height 75px
+    text-align right
+    .ri 
+        font-size rem(12px) // 12px
+        font-weight bold
+        color #FFF
+        text-transform uppercase
+        text-align center
+        line-height 20px
+        transform rotate(45deg)
+        -webkit-transform rotate(45deg)
+        width 100px
+        display block
+        background $minorColor
+        position absolute
+        top 19px 
+        right: -21px
+        &:before
+            content ""
+            position absolute
+            left 0px
+            top 100%
+            z-index -1
+            border-left 3px solid $minorColor
+            border-right 3px solid transparent
+            border-bottom 3px solid transparent
+            border-top 3px solid $minorColor
+        &:after 
+            content ""
+            position absolute 
+            right 0px 
+            top 100%
+            z-index -1
+            border-left 3px solid transparent
+            border-right 3px solid $minorColor
+            border-bottom 3px solid transparent
+            border-top 3px solid $minorColor
+.date
+    min-width: 130px
+    margin-right: 20px
+    display inline-block
+.category-post,
+.post-tag
+    &:hover
+        color $post-tag-hover-text-color
+.words
+    margin-left: 0.5rem
+    line-height: 24px;
+    text-decoration: none
+    font-size: 0.9375rem
+    &:link
+        color black
+.post-title-icons
+    margin-left 0.5rem
+//warning 
+.date-warning
+    padding: 15px 15px 15px 38px;
+    margin: 20px 0;
+    background-color: #eef7fa;
+    border-left: 3px solid;
+    border-left-color: #428bca;
+    border-radius: 3px;
+    position: relative;
+.date-warning:before
+    content: "\f05a";
+    color: #428bca;
+    font-family: 'fontawesome';
+    // font-size: larger;
+    // margin-right: 10px;
+    // display: block
+    // float left
+    // vertical-align: middle
+    display: block
+    float left
+    vertical-align: middle
+    font-size: larger
+    position: absolute
+    top: 0
+    left 10px
+    height 100%
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+.date-warning strong
+    color: inherit !important
+.date-warning strong:before,
+.date-warning strong:after
+    content: '' !important
+
+// post content
+#post-content 
+    padding: 20px 40px 40px 40px 
+    margin-bottom: 40px    
+#post img 
+    max-width: 100%
+    margin: 0 auto
+    display block
+#post figure,
+#post table,
+    width: 100%
+    overflow-x: scroll
+#post table:not(figure table)
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+#post .highlight
+    width: 100%
+    overflow: scroll
+#post-content h1
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    z-index -1 !important
+#post-content  h2
+    line-height: 1.225
+    // display block
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    position relative
+    font-size: 20px;
+    z-index -1 !important
+#post-content h3
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+#post-content  h4
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+#post-content  h5
+    display: block;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+#post-content  h6
+    display: block;
+    font-size: 0.67em;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+#post-content li
+    line-height: 25px
+#post-content table tr th,
+#post-content table tr td 
+    text-align: center
+    padding: 5px 8px
+// bottom
+#bottom-inner
+    border-color: #ddd
+
+#content-outer:target{
+    padding-top:44px;
+}
