@@ -8,7 +8,7 @@ menu:
     path: /
     ico: home
   Category:
-    path: /categories
+    path: "#"
     ico: list
     submenu: 
       Memory:
@@ -27,7 +27,7 @@ menu:
         path: /categories/Learn-Words
         ico: language
   About:
-    path: /
+    path: "#"
     ico: lightbulb
     submenu:
       Me:
@@ -40,7 +40,7 @@ menu:
     path: /archives
     ico: archive
   Lab:
-    path: /
+    path: "#"
     ico: cog
     submenu:
       Project:
