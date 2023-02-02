@@ -107,7 +107,7 @@ clampLines: 8 # any number
 # home page patination style: true with background, false not
 paginationNumberBackground: true # false
 # style of post page pagination 
-postPagePaginationStyle: card # normal  picture  card
+postPagePaginationStyle: picture # normal  picture  card
 
 
 # Share function 分享功能
