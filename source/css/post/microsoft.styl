@@ -38,15 +38,18 @@ $color4 = rgb(red($color1)*0.738, green($color1)*0.747, blue($color1)*0.737) //6
     padding-bottom: 8px
     border-bottom: $color1 solid 2px
 
+#post-content p
+    line-height: 30px
 /* 无序列表整体样式
 * list-style-type: square|circle|disc;
 */
 #post-content ul li
-  font-size: 15px;
+  font-size: 16px;
   color: #595959;
   list-style-type: none ;
   margin-left: 20px
   position relative
+  line-height: 30px
 #post-content ul li:before
   content: " " // \f8d9
   background-color: $color4
@@ -181,11 +184,12 @@ $color4 = rgb(red($color1)*0.738, green($color1)*0.747, blue($color1)*0.737) //6
 /* 行内代码 */
 #post-content p code,
 #post-content li code
-    background-color: $color1
+    background-color: rgba($color1, 0.1) //$color1
     padding: 0 3px
     border-radius: 5px
     margin: 0 2px
-    color: white
+    color: black
+    border: solid $color1 1px
 
 /*
 * 表格内的单元格

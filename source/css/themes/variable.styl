@@ -7,9 +7,13 @@
          url("/font-awesome/webfonts/fa-solid-900.svg#micon") format("svg")
 }
 $isCustomize = hexo-config("themeColor.on") || false
+if $isCustomize
+    $defaultMainColor = hexo-config("themeColor.mainColorSeries") || 'black'
+    $defaultMinorColor = hexo-config("themeColor.minorColorSeries") || '#d31b29'
+    // if $defaultMainColor == 'black'
 
 $bg = #202020
-$minorColor = #d31b29
+$minorColor = convert($defaultMinorColor)
 
 $headerBg = #191919
 $headerSubBg = #333333
@@ -29,10 +33,6 @@ $postBg = #ffffff
 $sInfoTp = #808080
 $sInfoBg = #d3d3d3
 $sInfoTx = #666666
-if $isCustomize
-    $defaultMainColor = hexo-config("themeColor.mainColorSeries") || 'black'
-    $defaultMinorColor = hexo-config("themeColor.minorColorSeries") || 'red'
-    // if $defaultMainColor == 'black'
 @font-face {
     font-family: "fontawesome";
     src: url("/font-awesome/webfonts/fa-solid-900.eot");

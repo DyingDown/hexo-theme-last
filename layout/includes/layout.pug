@@ -23,8 +23,10 @@ html(lang=config.language)
           block content
     include footer.pug
     script(src="/js/third-party/tools.js")
-    - if (theme.carousel.on && is_home())
+    if (theme.carousel.on && is_home())
       script(src="/js/carousel.js")
+    if theme.search.on 
+      script(src="/js/third-party/local-search.js")
     if theme.scripts !== undefined && theme.scripts.length > 0
       //- scripts list from config.yml
       each url in theme.scripts

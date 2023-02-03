@@ -101,3 +101,16 @@ toCommentButton.addEventListener("click", () => {
         behavior: "smooth",
     })
 })
+
+
+/********* search *********/
+searchInput = document.getElementById("local-search-input")
+// searchInput.on
+searchInput.onclick   = function(){ 
+    getSearchFile(); 
+    this.onclick = null;
+}
+// searchInput.onkeydown = function(){ 
+//     if(event.keyCode == 13) 
+//         return false;
+// }
