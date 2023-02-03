@@ -65,7 +65,7 @@ aboutme: "&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piec
 themeColor:
   on: true
   mainColorSeries: black # white
-  minorColorSeries: "purple" #"#d31b29"
+  minorColorSeries: "#d31b29"
   customize: 
     on: true
     mainColor: "#fff"
