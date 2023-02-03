@@ -1,4 +1,6 @@
 @import "../themes/variable.styl"
+#post-content 
+    color: #323232
 #post-content h1
     padding-bottom .3em
     font-size 2.25em
@@ -184,8 +186,10 @@ p
 /* 行内代码 */
 #post-content p code,
 #post-content li code
-    background-color: $minorColor
+    background-color: rgb(245, 245, 245)//rgba($minorColor, 0.8)
     padding: 0 3px
     border-radius: 5px
+    border: rgb(214, 213, 213) solid 1px
     margin: 0 2px
-    color: white
+    color: black
+    // background-color: hsl(248, 100%, 68%)

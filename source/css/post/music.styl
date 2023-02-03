@@ -1,6 +1,9 @@
+@import "../themes/variable.styl"
 $color1 = convert(hexo-config("postStyle.color")) || #40B8FA // 64,184,250
 if($color1 == 'default')
     $color1 = #40B8FA
+else if($color1 == 'theme')
+    $color1 = $minorColor
 $color2 = rgba(red($color1) * 1.162, green($color1) * 1.04, blue($color1) * 0.996, .65)
 $color3 = rgb(red($color1) * 0.9219, green($color1) * 0.924, blue($color1)) // #3BAAFA
 $color4 = rgb(red($color1) * 0.828, green($color1) * 0.804, blue($color1) * 0.988) // #3594F7
@@ -30,7 +33,7 @@ color:#2b2b2b;
   background-size: 20px 20px;
   background-position: center center;
 #post-content
-  line-height: 1.25;
+  line-height: 1.75;
   color: #2b2b2b;
   // font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;
   letter-spacing: 2px;

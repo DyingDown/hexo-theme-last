@@ -1,0 +1,36 @@
+@import "../themes/variable.styl";
+
+.local-search-result-cls
+    display: none;
+    background-color: $bg
+    width: 300px;
+    height: auto
+    position: absolute
+    right: 0px
+    top: 40px
+    border: solid lightgray 1px
+    padding: 5px 15px
+    max-height: 400px
+    overflow-y: auto
+    border-radius: 10px
+.this-is-post-page +#menu-outer .local-search-result-cls
+    background-color: $headerPostBg
+
+.local-search-empty
+    font-size: 16px
+
+.search-result-list
+    font-size: 16px
+    // max-width: 250px
+    li
+        &:not(:last-child)
+            border-bottom: solid 1px lightgray
+        padding: 5px
+        a
+            font-weight: bold
+            display: block
+            margin: 10px 0
+        p
+            margin: 10px 0
+            .search-keyword
+                color: $minorColor

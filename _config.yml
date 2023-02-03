@@ -65,11 +65,11 @@ aboutme: "&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piec
 themeColor:
   on: true
   mainColorSeries: black # white
-  minorColorSeries: red
+  minorColorSeries: "darkblue" # "#d31b29"
   customize: 
     on: true
     mainColor: "#fff"
-    minorColor: "#f00"
+    minorColor: "#d31b29"
 
 archiveStyle:
   style: comment-shape # comment-shape, normal
@@ -114,6 +114,7 @@ carousel:
 # Search Function
 search:
   on: true
+  placeholder: "Type to search"
 
 # Home page
 # the number of lines show of each post's description
@@ -143,7 +144,9 @@ postStyle:
   # also the catalog's positon 同样也是目录的位置
   authorInfoPosition: right # right, left
   contentStyle: github # music microsoft github
-  color: "default" # "default" or "#xxxxxx" or "color name"
+  color: "theme" # "theme" or "default" or "#xxxxxx" or "color name"
+  # "theme" means follow the theme color
+  # "default" means default suitable color
   # Hex or color name 16进制的颜色或者颜色名字
 wordCount: false
   
