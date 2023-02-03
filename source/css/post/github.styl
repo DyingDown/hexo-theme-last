@@ -1,4 +1,9 @@
 @import "../themes/variable.styl"
+
+$color1 = convert(hexo-config("postStyle.color")) || $minorColor
+if($color1 == 'default') || ($color1 == 'theme')
+    $color1 = $minorColor
+
 #post-content 
     color: #323232
 #post-content h1
@@ -109,7 +114,7 @@ p
     background: none;
     width: 7px;
     height: 7px;
-    border: solid 3px $minorColor;
+    border: solid 3px $color1;
     border-radius: 20px
     top 6px;
     left -20px;
@@ -119,14 +124,14 @@ p
     background: none;
     width: 7px;
     height: 7px;
-    border: solid 3px $minorColor;
+    border: solid 3px $color1;
     border-radius: 0px
     top 6px;
     left -20px;
     position: absolute
 #post-content ul li  li li:before
     content: " " // \f8d9
-    background-color: $minorColor
+    background-color: $color1
     width: 12px;
     height: 12px;
     border-radius: 20px
@@ -155,16 +160,16 @@ p
   height: 17px;
   text-align: center
   line-height: 16px
-  background: $minorColor
+  background: $color1
   border-radius: 20px
-  border: 1px solid $minorColor
+  border: 1px solid $color1
   font-size: 14px
 #post-content a
-    color: $minorColor
+    color: $color1
 /* 加粗 */
 #post-content strong
     font-weight: bold
-    color: $minorColor
+    color: $color1
 #post-content strong::after 
     content: '」'
 #post-content strong::before
@@ -172,21 +177,21 @@ p
 
 /* 斜体 */
 #post-content em
-    color: $minorColor
+    color: $color1
     font-weight: bold
 
 /* 加粗斜体 */
 #post-content em strong
-    color: $minorColor
+    color: $color1
 
 /* 删除线 */
 #post-content del
-    color: $minorColor
+    color: $color1
 
 /* 行内代码 */
 #post-content p code,
 #post-content li code
-    background-color: rgb(245, 245, 245)//rgba($minorColor, 0.8)
+    background-color: rgb(245, 245, 245)//rgba($color1, 0.8)
     padding: 0 3px
     border-radius: 5px
     border: rgb(214, 213, 213) solid 1px
