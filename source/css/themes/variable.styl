@@ -8,12 +8,12 @@
 }
 $isCustomize = hexo-config("themeColor.on") || false
 if $isCustomize
-    $defaultMainColor = hexo-config("themeColor.mainColorSeries") || 'black'
-    $defaultMinorColor = hexo-config("themeColor.minorColorSeries") || '#d31b29'
+    $defaultMainColor = convert(hexo-config("themeColor.mainColorSeries")) || 'black'
+    $defaultMinorColor = convert(hexo-config("themeColor.minorColorSeries")) || '#d31b29'
     // if $defaultMainColor == 'black'
 
 $bg = #202020
-$minorColor = convert($defaultMinorColor)
+$minorColor = $defaultMinorColor
 
 $headerBg = #191919
 $headerSubBg = #333333

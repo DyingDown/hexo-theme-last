@@ -1,0 +1,8 @@
+// Mixins, used on or off of the page
+mixin svg(svg_url, svg_id)
+  if svg_id
+    svg()&attributes(attributes)
+      use(xlink:href= svg_url + '#' + svg_id)
+  else
+    svg()&attributes(attributes)
+      use(xlink:href= svg_url)

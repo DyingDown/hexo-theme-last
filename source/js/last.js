@@ -106,7 +106,7 @@ toCommentButton.addEventListener("click", () => {
 /********* search *********/
 searchInput = document.getElementById("local-search-input")
 // searchInput.on
-searchInput.onclick   = function(){ 
+searchInput.onclick = function(){ 
     getSearchFile(); 
     this.onclick = null;
 }
