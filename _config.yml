@@ -94,7 +94,7 @@ carousel:
     opacity: 0.5 # float number 0 - 1 eg. 0.55
   blur:
     on: true
-    px: 5
+    px: 8
   textColor: "#fff" # Hex or color name 16进制的颜色或者颜色名字
 
 # Search Function
@@ -219,6 +219,11 @@ SideButtons:
     on: true
     color: "#33a6dc" # "#33a6dc" hex color
 
+# Scroll bar style
+ScrollBar:
+  style: "bicolor" # "bicolor", "simple"
+  color: "theme" # "default" "theme" "#459798"
+  
     
 # Latex 
 # MathJax Support
