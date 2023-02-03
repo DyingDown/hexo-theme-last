@@ -221,9 +221,12 @@ SideButtons:
 
 # Scroll bar style
 ScrollBar:
-  style: "bicolor" # "bicolor", "simple"
+  style: "bicolor" # "bicolor", "simple", "fancy"
   color: "theme" # "default" "theme" "#459798"
   radius: 10 # 0~xxx px, 
+  fancy:
+    color1: "skyblue"
+    color2: "purple"
   
     
 # Latex 
