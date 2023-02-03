@@ -5,6 +5,11 @@
     -webkit-box-shadow 1px 0 5px rgba(100,100,100,.4)
     box-shadow 1px 0 5px rgba(100,100,100,.4) //rgba(0,0,0,.4)
     margin-bottom: 20px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 
 .side-user .top-bar
     display flex
@@ -21,6 +26,8 @@
     width: 70px;
     height: 70px;
     z-index 2
+    path
+        fill: $minorColor
 .avatar
     width 50%
     margin: 25px 25% 15px;

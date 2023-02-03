@@ -51,7 +51,7 @@ aboutme: "&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piec
 themeColor:
   on: true
   mainColorSeries: black # white
-  minorColorSeries: "darkblue" # "#d31b29"
+  minorColorSeries: "rgb(98,185,0)" # "#d31b29"
   customize: 
     on: true
     mainColor: "#fff"
@@ -98,9 +98,15 @@ carousel:
   textColor: "#fff" # Hex or color name 16进制的颜色或者颜色名字
 
 # Search Function
+# need to install hexo-generator-search and have the setting in root _config.yml file like this
+# search:
+#   path: search.xml
+#   field: all
+#   content: true
 search:
   on: true
   placeholder: "Type to search"
+  emptyHolder: "(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" # not apply
 
 # Home page
 # the number of lines show of each post's description
@@ -108,7 +114,7 @@ clampLines: 8 # any number
 # home page patination style: true with background, false not
 paginationNumberBackground: true # false
 # style of post page pagination 
-postPagePaginationStyle: picture # normal  picture  card
+postPagePaginationStyle: card # normal  picture  card
 
 
 # Share function 分享功能
@@ -237,3 +243,4 @@ scripts:
 - /js/last.js
 - /js/third-party/social-share.js
 - /js/third-party/qrcode.js
+- /js/third-party/tools.js

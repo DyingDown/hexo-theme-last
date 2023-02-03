@@ -42,12 +42,14 @@ modifyClass(firstPBt, "newPayBt", 1);
 
 qrButton.onclick = function() {
     if (isQB) {
-        qrButton.src = "/img/person.png";
+        // qrButton.src = "/img/person.svg";
+        changeToPerson(qrButton)
         isQB = false;
         auInfo.style.display = "none";
         payDiv.style.display = "block";
     } else {
-        qrButton.src = "/img/qrcode_icon.png";
+        // qrButton.src = "/img/qrcode_icon.svg";
+        changeToQrcode(qrButton)
         isQB = true;
         auInfo.style.display = "block";
         payDiv.style.display = "none";
