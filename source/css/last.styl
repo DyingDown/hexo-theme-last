@@ -8,8 +8,9 @@ if $scroll-bar-color == "default"
 else if $scroll-bar-color == "theme"
     $scroll-bar-color = $minorColor
 
-$scroll-bar-style = hexo-config("ScrollBar.style") || "bicolor"
+$scroll-bar-radius = hexo-config("ScrollBar.radius") || 10
 
+$scroll-bar-style = hexo-config("ScrollBar.style") || "bicolor"
 @import 'includes/scroll-bar/' + $scroll-bar-style + '.styl'
 
 html 
