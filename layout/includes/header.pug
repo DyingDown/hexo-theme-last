@@ -8,7 +8,8 @@ if (is_home())
     .site-name
         if theme.logo.on
             a(href="") 
-                img(src=theme.logo.url)
+                //- img(src=theme.logo.url)
+                include ../third-party/o_oyao.pug
         else 
             a= config.author
     div.search

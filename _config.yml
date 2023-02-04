@@ -61,7 +61,7 @@ avatar: https://s1.ax1x.com/2020/04/17/JEjcB8.png
 # Site logo, if true, it replace the place of site name 
 # by using image or svg 
 logo: 
-  on: false
+  on: true
   url: /img/o_oyao.svg
 
 #是否开启“关于我”
