@@ -10,7 +10,8 @@
                 - var ico = '<i class="' + icon + '"></i>'
                 a(href=url title=index).icon!= ico
         #author
-            a#theme_name(href="https://github.com/DyingDown/hexo-theme-last")!= "Last"
+            a#theme_name(href="https://github.com/DyingDown/hexo-theme-last")
+                include ../third-party/theme-icon.pug
             span= " made with "
             span#heart ❤️
             span= " by "
