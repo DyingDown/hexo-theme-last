@@ -6,7 +6,11 @@ if (is_home())
 #menu-outer
     //- site name
     .site-name
-        a= config.author
+        if theme.logo.on
+            a(href="") 
+                img(src=theme.logo.url)
+        else 
+            a= config.author
     div.search
         if theme.search.on
             input#local-search-input(tpye="text" placeholder=theme.search.placeholder)
