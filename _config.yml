@@ -24,7 +24,7 @@ menu:
         path: /categories/Essay
         ico: feather
       English:
-        path: /categories/Learn-Words
+        path: /categories/expn
         ico: language
   About:
     path: "#"
