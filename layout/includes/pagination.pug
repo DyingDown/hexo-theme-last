@@ -26,7 +26,7 @@ nav#pagination
     if(page.prev)
       .prev-post.pull-left
         a#prev(href=url_for(page.prev.path))
-          .img_fit.imgL
+          .img_fit.imgL(style="background-color:#"+ page.prev.color)
             img(src=page.prev.postImage)
           .info.il
             div.label#label-l!= "PREVIOUS POST"
@@ -34,7 +34,7 @@ nav#pagination
     if(page.next)
       .next-post.pull-right
         a#next(href=url_for(page.next.path))
-          .img_fit.imgR
+          .img_fit.imgR(style="background-color:#"+ page.next.color)
             img(src=page.next.postImage)
           .info.ir
             div.label#label-r!= "NEXT POST"
