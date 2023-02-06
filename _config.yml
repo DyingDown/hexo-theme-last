@@ -215,6 +215,9 @@ since: 2019
 visits:
   on: true
 
+# show total post number at page bottom
+totalPost: true 
+
 # Back to Top button and go to comment button
 SideButtons:
   Top:
