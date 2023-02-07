@@ -92,7 +92,7 @@ if (backToTopButton != null) {
 
 var commentBox = document.getElementById("vcomment")
 var menuA = document.getElementById("menu-outer")
-if (commentBox != null && menuA != null) {
+if (toCommentButton != null && commentBox != null && menuA != null) {
     toCommentButton.addEventListener("click", () => {
         var height = 0;
         t = commentBox;

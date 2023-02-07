@@ -113,7 +113,7 @@ carousel:
     opacity: 0.5 # float number 0 - 1 eg. 0.55
   blur:
     on: true
-    px: 8
+    px: 10
   textColor: "#fff" # Hex or color name 16进制的颜色或者颜色名字
 
 # Search Function
@@ -159,7 +159,7 @@ postStyle:
   # "theme" means follow the theme color
   # "default" means default suitable color
   # Hex or color name 16进制的颜色或者颜色名字
-wordCount: false
+wordCount: true
   
 # donate function 打赏功能
 donate:
