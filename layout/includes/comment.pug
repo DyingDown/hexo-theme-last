@@ -9,8 +9,10 @@
 //-     include third-party/comment/valine.pug
 if theme.valine.on
   #vcomment()
-  script(src='https://cdn1.lncld.net/static/js/3.0.4/av-min.js')
-  script(src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+  //- script(src='https://cdn1.lncld.net/static/js/3.0.4/av-min.js')
+  //- script(src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+  //- script(src='https://unpkg.com/valine/dist/Valine.min.js')
+  script(src='https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine.min.js')
   script.
     var notify = '#{ theme.valine.notify }' == true ? true : false;
     var verify = '#{ theme.valine.verify }' == true ? true : false;
@@ -29,7 +31,8 @@ if theme.valine.on
       avatar:'#{theme.valine.avatar}',
       guest_info:guest_info,
       pageSize:'#{theme.valine.pageSize}',
-      lang: '#{theme.valine.lang}'
+      lang: '#{theme.valine.lang}',
+      serverURLs: '#{theme.valine.serverURLs}',
     })
 
         

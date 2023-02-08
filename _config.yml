@@ -161,11 +161,12 @@ valine:
   appKey: nTzjKIWYitgRpJ4AyX6i3Wyy # App Key
   verify: true # 验证码
   notify: true # 评论回复邮箱提醒
-  avatar: mp # 匿名者头像选项
+  avatar: 'mp' # 匿名者头像选项 https://valine.js.org/avatar.html
   placeholder: Leave your email address so you can get reply from me!
-  lang: zh-cn
+  lang: en
   guest_info: nick,mail,link
   pageSize: 10
+  serverURLs: https://l3oy62wr.api.lncldglobal.com
 
 # Content may be out of date reminder 文章内容可能过期提醒
 # Or you can use it in your md file 
