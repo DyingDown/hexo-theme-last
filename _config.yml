@@ -140,7 +140,7 @@ toc:
 postStyle:
   # also the catalog's positon 同样也是目录的位置
   authorInfoPosition: right # right, left
-  contentStyle: github # music microsoft github
+  contentStyle: music # music microsoft github
   color: "theme" # "theme" or "default" or "#xxxxxx" or "color name"
   # "theme" means follow the theme color
   # "default" means default suitable color
