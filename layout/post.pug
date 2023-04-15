@@ -54,6 +54,8 @@ block content
                 strong!= diffDays
                 span!= notes[1]
             != page.content
+          include includes/copyright.pug
+                  
       include includes/pagination.pug
       include includes/comment.pug
       include includes/locate-button.pug

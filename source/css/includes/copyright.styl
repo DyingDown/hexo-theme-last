@@ -1,0 +1,26 @@
+$postStyle = hexo-config("postStyle.contentStyle") || 'github'
+@import '../post/colors.styl'
+
+
+#copyright
+    width: 100%
+    padding-top: 30px
+    #simpleCopyright
+        text-align: center
+        #license
+            letter-spacing: 2px
+            border-bottom: 1px solid $color1;
+            i
+                line-height: 25px
+    #fullCopyright
+        line-height: 1.75
+        letter-spacing: 1.5px
+        border: #e5e5e5 solid 1px
+        background-image: url("/img/lemon.png")
+        background-size: 120px
+        background-repeat: no-repeat
+        background-position: calc(100% + 30px) -30px
+        padding: 20px
+        .copyright-key
+            font-weight: bold
+    

@@ -30,7 +30,7 @@ if (is_home())
             div.menu-items
                 each label, index in theme.menu
                     li.item-name
-                        a.name-a(href=url_for(label.path))!='<i class="fas fa-' + label.ico + '"></i> ' + index
+                        a.name-a(href=url_for(label.path))!='<i class="fas fa-' + label.ico + '"></i> ' + (__(`header.${index}`) == "header."+index ? index : __(`header.${index}`))
                         if label.submenu
                             ul.submenu-items
                                 each sublabel, subindex in label.submenu

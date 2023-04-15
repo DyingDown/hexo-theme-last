@@ -1,0 +1,19 @@
+if theme.copyright.on === true 
+    div#copyright 
+        if theme.copyright.simple
+            #simpleCopyright
+                a#license(href=theme.copyright.url)
+                i(class="fa-brands fa-creative-commons") #{theme.copyright.fullName}
+        else 
+            #fullCopyright 
+                #postAuthor 
+                    span.copyright-key!= __("copyright.author") 
+                    !=  ": " +  config.author
+                #postLink
+                    span.copyright-key!=  __("copyright.link") 
+                    !=  ": " 
+                    a(href=(url_for(page.path)))!= `${config.url}${url_for(page.path)}`
+                #postLicense
+                    span.copyright-key!= __("copyright.license")
+                    != ": " + _p('copyright.content', theme.copyright.url, theme.copyright.license ) 
+
