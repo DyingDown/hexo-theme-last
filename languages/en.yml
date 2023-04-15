@@ -18,6 +18,6 @@ sideUser:
 
 copyright:
   author: Author
-  link: Like
+  link: Link
   license: License
   content: All articles in this blog are licensed under <a href="%s">%s</a> unless stating additionally.
