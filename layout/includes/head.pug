@@ -38,6 +38,9 @@ link(rel='stylesheet', href='/font-awesome/css/all.min.css')
         link(rel='stylesheet', href='/css/novel.css')
     if page.title === 'project'
         link(rel='stylesheet', href='/css/projects.css')
+    if page.title === "charts"
+        script(src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js")
+        script(src="/js/chart.js")
 
 
 if theme.stylesheets !== undefined && theme.stylesheets.length > 0
