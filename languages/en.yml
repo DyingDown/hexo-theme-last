@@ -1,0 +1,23 @@
+toc: Catalog
+
+header:
+  Home: Home
+  Category: Category
+  Archives: Archives
+  Tag: Tag
+  Friends: Friends
+  About: About
+  Lab: Lab
+  Project: Project
+
+sideUser:
+  donate: DONATE
+  about: ABOUT
+  wechat: Wechat
+  alipay: Alipay
+
+copyright:
+  author: Author
+  link: Like
+  license: License
+  content: All articles in this blog are licensed under <a href="%s">%s</a> unless stating additionally.

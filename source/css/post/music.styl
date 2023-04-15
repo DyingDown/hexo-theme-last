@@ -1,13 +1,5 @@
-@import "../themes/variable.styl"
-$color1 = convert(hexo-config("postStyle.color")) || #40B8FA // 64,184,250
-if($color1 == 'default')
-    $color1 = #40B8FA
-else if($color1 == 'theme')
-    $color1 = $minorColor
-$color2 = rgba(red($color1) * 1.162, green($color1) * 1.04, blue($color1) * 0.996, .65)
-$color3 = rgb(red($color1) * 0.9219, green($color1) * 0.924, blue($color1)) // #3BAAFA
-$color4 = rgb(red($color1) * 0.828, green($color1) * 0.804, blue($color1) * 0.988) // #3594F7
-$color5 = rgba($color3, .1) // -RGBA(59, 170, 250, .1)
+@import "colors.styl"
+
 
 @font-face {
     font-family: "Headings";
@@ -78,7 +70,7 @@ color:#2b2b2b;
   display: flex;
   color: $color1;
   font-size: 20px;
-  margin-left: 40px;
+  // margin-left: 40px;
 
 /* 二级标题前缀 */
 #post-content h2:before   
@@ -132,7 +124,7 @@ color:#2b2b2b;
   position absolute
   left: 0
   right: 0
-  bottom: -10px
+  bottom: 0px
   border-bottom: 2px solid $color2;
   color: #2b2b2b;
 

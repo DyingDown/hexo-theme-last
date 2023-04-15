@@ -1,11 +1,5 @@
-$color1 = convert(hexo-config("postStyle.color")) || #549E39
-if($color1 == 'default')
-    $color1 = #549E39
-else if($color1 == 'theme')
-    $color1 = $minorColor
-$color2 = rgb(red($color1)*0.488, green($color1)*0.494, blue($color1)*0.491) //#294E1C 41,78,28
-$color3 = rgba(red($color1)*1.55, green($color1)*1.3, blue($color1)*1.9, 0.3)//218,239,211
-$color4 = rgb(red($color1)*0.738, green($color1)*0.747, blue($color1)*0.737) //62,118,42
+@import "colors.styl"
+
 
 /* 一级标题 */
 #post-content h1 
@@ -138,7 +132,7 @@ $color4 = rgb(red($color1)*0.738, green($color1)*0.747, blue($color1)*0.737) //6
 */
 #post-content a 
     text-decoration: underline
-    text-decoration-color: $color1
+    text-decoration-color: $color5
     text-decoration-thickness: 2px
     color: $color1
 
