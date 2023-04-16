@@ -52,7 +52,7 @@
               if post.postImage
                 img.cover(src=post.postImage,onerror="this.src='img/pic_load_fail.png'",  alt="cover")
               else
-                img.cover(src="https://s1.ax1x.com/2020/04/25/J6iz9K.jpg" ,onerror="this.src='img/pic_load_fail.png'", alt="Default cover")
+                img.cover(src=theme.PostDefaultImage ,onerror="this.src='img/pic_load_fail.png'", alt="Default cover")
           .content-tags
             if post.date
               time.time(datetime=date_xml(post.date))= full_date(post.date,'MMMM Do YYYY')
