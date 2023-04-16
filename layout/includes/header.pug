@@ -12,8 +12,8 @@ if (is_home())
         else 
             a= config.author
     div.search
-        if theme.search.on
-            input#local-search-input(tpye="text" placeholder=theme.search.placeholder)
+        if theme.localSearch.on
+            input#local-search-input(tpye="text" placeholder=theme.localSearch.placeholder)
             span.search-icon
                 i.fa.fa-search
             div#local-search-result.local-search-result-cls

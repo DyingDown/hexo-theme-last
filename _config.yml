@@ -39,7 +39,7 @@ menu:
     ico: link
 
 # Avatar 头像
-avatar: https://s1.ax1x.com/2020/04/17/JEjcB8.png
+avatar: https://s1.ax1x.com/2020/04/17/JEjcB8.png #https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304150220218.png
 # Site logo, if true, it replace the place of site name 
 # by using image or svg 
 logo: 
@@ -73,6 +73,7 @@ tagsPage:
 homeCover:
   fixed: true
   url: ss
+
 # Carousel: Scroll and loop articles 轮播图:滚动循环播放文章。
 # add "isCarousel: true" to each post's information to enable carousel of the post
 # 给post顶部添加 “isCarousel: true” 来使文章在轮播图中显示
@@ -104,16 +105,21 @@ carousel:
 #   path: search.xml
 #   field: all
 #   content: true
-search:
+localSearch:
   on: true
   placeholder: "Type to search"
-  emptyHolder: "(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" # not apply
+  # emptyHolder: "(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" # not apply
 
-# Home page
+##### Home page
 # the number of lines show of each post's description
 clampLines: 8 # any number
+
+# max articles shown in each row
+homeRowMaxItem: 6 ## 3-6
+
 # home page patination style: true with background, false not
 paginationNumberBackground: true # false
+
 # style of post page pagination 
 postPagePaginationStyle: card # normal  picture  card
 
@@ -137,7 +143,7 @@ postStyle:
   # also the catalog's positon 同样也是目录的位置
   authorInfoPosition: right # right, left
   contentStyle: github # music microsoft github
-  color: "theme" # "theme" or "default" or "#xxxxxx" or "color name"
+  color: "default" # "theme" or "default" or "#xxxxxx" or "color name"
   # "theme" means follow the theme color
   # "default" means default suitable color
   # Hex or color name 16进制的颜色或者颜色名字
@@ -172,6 +178,11 @@ valine:
   guest_info: nick,mail,link
   pageSize: 10
   serverURLs: https://l3oy62wr.api.lncldglobal.com
+
+##### Post settings
+
+# Default post cover image 默认的文章封面
+PostDefaultImage: https://s1.ax1x.com/2020/04/25/J6iz9K.jpg
 
 # Content may be out of date reminder 文章内容可能过期提醒
 # Or you can use it in your md file 
@@ -218,6 +229,7 @@ contacts:
 since: 2019
 
 # Visite count
+# https://busuanzi.ibruce.info/
 visits:
   on: true
 
@@ -230,15 +242,15 @@ SideButtons:
     on: true
     color: "#e37a90" # "#e37a90" hex color
   Comment:
-    on: true
+    on: true # if comment function is not on, then this button won't show
     color: "#33a6dc" # "#33a6dc" hex color
 
 # Scroll bar style
 ScrollBar:
-  style: "bicolor" # "bicolor", "simple", "fancy"
+  style: "gradient" # "bicolor", "simple", "gradient"
   color: "theme" # "default" "theme" "#459798"
   radius: 10 # 0~xxx px, 
-  fancy:
+  gradient:
     color1: "skyblue"
     color2: "purple"
   
