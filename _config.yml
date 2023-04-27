@@ -142,15 +142,15 @@ toc:
 postStyle:
   # also the catalog's positon 同样也是目录的位置
   authorInfoPosition: right # right, left
-  contentStyle: github # music microsoft github
-  color: "default" # "theme" or "default" or "#xxxxxx" or "color name"
+  contentStyle: music # music microsoft github
+  color: "theme" # "theme" or "default" or "#xxxxxx" or "color name"
   # "theme" means follow the theme color
   # "default" means default suitable color
   # Hex or color name 16进制的颜色或者颜色名字
 
 copyright:
   on: true
-  simple: false
+  simple: true
   license: "CC BY-NC-SA 4.0"
   fullName: "Attribution-NonCommercial-ShareAlike 4.0 International"
   url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -247,7 +247,7 @@ SideButtons:
 
 # Scroll bar style
 ScrollBar:
-  style: "gradient" # "bicolor", "simple", "gradient"
+  style: "bicolor" # "bicolor", "simple", "gradient"
   color: "theme" # "default" "theme" "#459798"
   radius: 10 # 0~xxx px, 
   gradient:
