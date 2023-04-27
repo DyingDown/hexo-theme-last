@@ -30,7 +30,7 @@ menu:
         path: /about
         ico: heart
       Theme:
-        path: https://hexo-theme-last.github.io/theme-last-guide/site/
+        path: /theme-last-guide/site/
         ico: puzzle-piece
   Archives:
     path: /archives
@@ -273,7 +273,7 @@ SideButtons:
 
 # Scroll bar style
 ScrollBar:
-  style: "gradient" # "bicolor", "simple", "gradient"
+  style: "bicolor" # "bicolor", "simple", "gradient"
   color: "theme" # "default" "theme" "#459798"
   radius: 10 # 0~xxx px, 
   gradient:
