@@ -2,5 +2,6 @@
     "markdown-pdf.includeDefaultStyles": false,
     "markdown-pdf.styles": [
         "\\\\github.css"
-    ]
+    ],
+    "compile-hero.disable-compile-files-on-did-save-code": false
 }

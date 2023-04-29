@@ -6,6 +6,8 @@ link(rel='stylesheet', href='/css/includes/locate-button.css')
 link(rel='stylesheet', href='/css/includes/pagination.css')
 link(rel='stylesheet', href='/css/last.css')
 link(rel='stylesheet', href='/font-awesome/css/all.min.css')
+link(rel='stylesheet', href='/css/includes/alert/alert.css')
+
 
 - if (is_home())
     link(rel='stylesheet', href='/css/recent-posts.css')
@@ -13,7 +15,7 @@ link(rel='stylesheet', href='/font-awesome/css/all.min.css')
     link(rel='stylesheet', href='/css/post.css')
     link(rel='stylesheet', href='/css/third-party/share.min.css')
     link(rel='stylesheet', href='/css/article/simple.css')
-    link(rel='stylesheet', href='/css/includes/code/highlights/sakura.css')
+    //- link(rel='stylesheet', href='/css/includes/code/highlights/sakura.css')
     link(rel='stylesheet', href='/css/includes/side-user.css')
     link(rel='stylesheet', href='/css/includes/toc.css')
     link(rel='stylesheet', href='/css/includes/copyright.css')
@@ -30,6 +32,7 @@ link(rel='stylesheet', href='/font-awesome/css/all.min.css')
     if page.title === 'tags'
         link(rel='stylesheet', href='/css/tags.css')
 
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
 
 if theme.stylesheets !== undefined && theme.stylesheets.length > 0
     //- stylesheets list from _config.yml

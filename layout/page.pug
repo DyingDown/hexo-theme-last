@@ -38,4 +38,10 @@ block content
                       .site-description!= item.description
         include includes/comment.pug
         include includes/locate-button.pug
+  if page.title === 'art'
+    .test-bttns(style="margin-top: 500px")
+      button#test-info INFO 
+      button#test-error ERROR 
+      button#test-success SUCCESS 
+      button#test-warning WARNING
   #paginator!= paginator()
