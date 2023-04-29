@@ -113,15 +113,40 @@ tocbot.init({
 var codes = document.getElementsByClassName("highlight");
 // console.log(codes)
 for (var i = 0; i < codes.length; i++) {
-    AddLanguageName(codes[i]);
+    AddLanguageName(codes[i], i);
 }
 
-function AddLanguageName(pre) {
+function AddLanguageName(pre, index) {
     var language = pre.className.split(" ")[1].toUpperCase();
-    var code = pre.children[0].children[0].children[0].children[1];
     if (language == 'HLJS') language = 'TEXT'
     if (language == 'JS') language = 'JavaScript'
     if (language == 'MD') language = 'MarkDown'
     if (language == 'PY') language = 'PYTHON'
-    code.setAttribute("language", language)
+
+    // set code blocks class to help do copy
+    var code = pre.children[0].children[0].children[0].children[1];
+    code.setAttribute("class", "codeblock-content")
+    code.setAttribute("id", "codeblock-"+ index.toString())
+
+    // add header to the codeblock
+    var preHeader = document.createElement("div")
+    preHeader.setAttribute("class", "code-block-header")
+    var langName = document.createElement("span")
+    langName.setAttribute("class", "code-lang")
+    langName.innerHTML = language;
+    
+    // add copy icon 
+    var copyButton = document.createElement("span")
+    var copyIcon = document.createElement("i");
+    copyIcon.className = "fa-solid fa-copy";
+    copyButton.appendChild(copyIcon);
+    copyButton.setAttribute("class", "code-copy-button")
+    copyButton.setAttribute("data-index", index)
+    // copyIcon.addEventListener('click', copyContents);
+
+    preHeader.appendChild(langName);
+    preHeader.appendChild(copyButton);
+
+    pre.parentNode.insertBefore(preHeader, pre)
 }
+

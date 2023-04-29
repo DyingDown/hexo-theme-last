@@ -1,0 +1,91 @@
+/*** I learnt from this https://learnku.com/f2e/t/29779 *******/
+@import "../../themes/variable.styl"
+@import "animation.styl"
+
+$colorBg = hexo-config("alertStyle.colorBackground") || false
+$alertPos = hexo-config("alertStyle.position") || "center"
+/* message.css */
+
+
+#message-alert
+    z-index 100
+    position: fixed;
+    max-width: 70% 
+    top: 75px;
+    /* 采用flex弹性布局，让容器内部的所有消息可以水平居中，还能任意的调整宽度 */
+    display flex
+    flex-direction: column
+    margin: auto
+    .alert-icon
+        margin-right 10px
+    .message
+        color: white
+        background: $bg;
+        margin: 10px 0;
+        padding: 12px 15px;
+        height: auto;
+        box-shadow: 0 0 5px 0 #aeaeae;
+        font-size: 16px;
+        border-radius: 3px;
+
+        /* 让消息内部的三个元素（图标、文本、关闭按钮）可以垂直水平居中 */
+        display: flex;
+        align-items: center;
+        transition: height 0.2s ease-in-out, margin 0.2s ease-in-out;
+        .text
+            padding: 0  5px;
+    if ($colorBg == true)
+        .warning-message
+            background-color: #ffb74d !important
+        .success-message
+            background-color: #4caf50 !important
+        .error-message
+            background-color #f44336 !important
+        .info-message
+            background-color: #428bca !important
+    else 
+        .warning-message
+            color: #ffb74d
+        .success-message
+            color: #4caf50
+        .error-message
+            color #f44336
+        .info-message
+            color: #428bca
+        .close-icon
+            color: gray
+
+if ($alertPos == "center")
+    #message-alert
+        left: 0;
+        right: 0;
+        align-items: center;
+        .message.message-move-in
+            animation: message-move-in-center 0.3s ease-in-out;
+        .message.message-move-out
+            animation: message-move-out-center 0.3s ease-in-out;
+            /* 让动画结束后保持结束状态 */
+            animation-fill-mode: forwards;
+else if($alertPos == "right")
+    #message-alert
+        right: 20px
+        align-items: flex-end
+        .message.message-move-in
+            animation: message-move-in-right 0.3s ease-in-out;
+        .message.message-move-out
+            animation: message-move-out-right 0.3s ease-in-out;
+            /* 让动画结束后保持结束状态 */
+            animation-fill-mode: forwards;
+else if($alertPos == "left") 
+    #message-alert
+        left: 20px
+        align-items: flex-start
+        .message.message-move-in
+            animation: message-move-in-left 0.3s ease-in-out;
+        .message.message-move-out
+            animation: message-move-out-left 0.3s ease-in-out;
+            /* 让动画结束后保持结束状态 */
+            animation-fill-mode: forwards;
+
+
+

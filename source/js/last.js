@@ -119,3 +119,40 @@ searchInput.onclick = function(){
 //     if(event.keyCode == 13) 
 //         return false;
 // }
+
+/********** alert message ********/
+const message = new Message();
+
+document.getElementById('test-info').addEventListener('click', () => {
+    message.show({
+        type: 'info',
+        text: '此路是我开，此树是我开，要想从此过，拿出买路钱！',
+        duration: 0,
+        isClose: true
+    });
+});
+
+document.getElementById('test-warning').addEventListener('click', () => {
+    message.show({
+        type: 'warning',
+        text: '借贷有风险，不还钱小心被打！',
+        duration: 2000,
+        isClose: true
+    });
+});
+document.getElementById('test-error').addEventListener('click', () => {
+    message.show({
+        type: 'error',
+        text: '您的余额不够，请速速去借钱！',
+        duration: 5000,
+        isClose: true
+    });
+});
+document.getElementById('test-success').addEventListener('click', () => {
+    message.show({
+        type: 'success',
+        text: '您已交钱，放您通行！但是，这个钱只是通行费用，如果你要想从这个路过去，必须乘坐我们专用的交通工具。车子本身不收钱，但是发动它需要付钱，发动一次付款100元哦~',
+        duration: 5000,
+        isClose: true
+    });
+});

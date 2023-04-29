@@ -1,0 +1,8 @@
+$codeStyle = hexo-config("postStyle.codeStyle.style") || "mac"
+
+$codeColorSet = hexo-config("postStyle.codeStyle.colorSet") || "sakura"
+
+$isLightStyle = hexo-config("postStyle.codeStyle.light") || false
+
+@import 'style/' + $codeStyle + '.styl'
+@import "highlights/" + $codeColorSet + ".styl"

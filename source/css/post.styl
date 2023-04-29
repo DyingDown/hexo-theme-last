@@ -15,6 +15,7 @@ $tocOd = 3
 $midOd = 2
 $shareOd = 1
 
+@import "/includes/code/params.styl"
 @import 'post/' + $postStyle + '.styl'
 @import "themes/variable.styl"
 
@@ -206,12 +207,12 @@ body
 // post content
 #post-content 
     padding: 20px 40px 40px 40px 
-    margin-bottom: 40px    
+    margin-bottom: 40px  
 #post img 
     max-width: 100%
     margin: 20px auto
     display block
-#post figure,
+#post figure:not(.highlight),
 #post table,
     width: 100%
     overflow-x: scroll
@@ -222,8 +223,8 @@ body
     margin: 0 auto;
     overflow-x: auto;
 #post .highlight
-    width: 100%
-    overflow: scroll
+    max-width: 100%
+    overflow-x: auto
     margin-bottom: 30px
 #post-content h1
     margin-block-start: 0.67em;
@@ -315,3 +316,6 @@ figure::-webkit-scrollbar-track {
     // box-shadow: inset 0 0 6px #aaa;
     border-radius: 10px;
 }
+
+#message-alert .message
+    background: $postBg
