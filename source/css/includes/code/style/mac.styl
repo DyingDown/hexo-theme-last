@@ -1,10 +1,11 @@
 .code-block-header
     margin-top: 12px
     text-align: center
-    background: #23272c;
+    background: $codeHeadBg;
     position relative
     border-radius: 10px 10px 0 0
-    color:#fff;
+    color: $codeHeadTxColor;
+    z-index 2
     .code-lang
         content: attr(class);
         height:38px;
@@ -14,7 +15,7 @@
         font-weight:bold;
         // z-index:1;
         pointer-events:none
-    .code-copy-button
+    .codeblock-buttons
         diplay: inline
         float: right
         i 
@@ -38,7 +39,7 @@
 
 figure table 
     border-collapse:collapse; 
-    background: #1d1f21 ;
+    background: $codeBg ;
     overflow-x: scroll
     width: 100%
 
@@ -48,9 +49,9 @@ figure table
     line-height:1.6;
     margin-bottom:1.6em;
     text-shadow:none;
-    color:#000;
-    box-shadow:0 10px 30px 0 rgba(0,0,0,.4)
-    background-color: #1d1f21
+    color: $codeHeadTxColor;
+    box-shadow:0 10px 30px 0 rgba(0,0,0,$codeShadow)
+    background-color: $codeBg
     
     display:block;
     // padding:.5em;
@@ -58,7 +59,7 @@ figure table
     border-radius:0 0 10px 10px
     pre 
         // width 100%
-        color:#fff;
+        color:$codeTxColor;
         word-break:break-word;
         // font-family:'Source Code Pro',monospace,Helvetica,Tahoma,Arial,STXihei,"STHeiti Light","Microsoft YaHei",sans-serif !important;
         padding:2px;
@@ -68,8 +69,6 @@ figure table
         // cursor:url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/texto.cur),auto
         font-family: "consolas" !important;
         text-align: left
-
-// .highlight:before
 
 
 .highlight td.gutter 
@@ -86,7 +85,7 @@ figure table
     width:30px
     pre
         text-align:right
-        color:#888f96 !important;
+        color: $numberColor !important;
 
 
 .highlight td
@@ -102,38 +101,23 @@ figure table
     background-color:rgba(255,255,255,.1)
 
 
-.code-block-fullscreen {
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    min-width:100%;
-    z-index:9999999;
-    margin:0;
-    animation:elastic 1s
-}
 
-.code-block-fullscreen {
+
+// .code-block-fullscreen table {
+//     --widthA:100%;
+//     --widthB:calc(var(--widthA) - 30px);
+//     height:var(--widthB);
+//     min-height:99%;
+//     overflow-y:hidden;
+//     overflow-x:auto;
+//     height:auto
+// }
+
+.code-head-fullscreen
     position:fixed;
     top:0;
     left:0;
-    width:100%;
-    height:100%;
-    min-width:100%;
-    z-index:9999999;
-    margin:0;
-    animation:elastic 1s
-}
-.code-block-fullscreen code {
-    --widthA:100%;
-    --widthB:calc(var(--widthA) - 30px);
-    height:var(--widthB);
-    min-height:99%;
-    overflow-y:hidden;
-    overflow-x:auto;
-    height:auto
-}
-.code-block-fullscreen-html-scroll {
-    overflow:hidden
-}
+    height: 38px
+    z-index 99
+    margin: 0
+    width: 100%

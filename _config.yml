@@ -153,10 +153,10 @@ postStyle:
   # Hex or color name 16进制的颜色或者颜色名字
   ## style of code block
   codeStyle:
-    style: mac # mac, mac-light, tab, tab-light,
-    colorSet: sakura #
+    style: mac # mac, tab
+    colorSet: sakura-light # sakura, sakura-light
     # dark style or light style. This is only applied to styles not colorSet
-    light: true # false  
+    light: true # false, true
 
 copyright:
   on: true

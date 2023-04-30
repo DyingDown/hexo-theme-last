@@ -135,18 +135,42 @@ function AddLanguageName(pre, index) {
     langName.setAttribute("class", "code-lang")
     langName.innerHTML = language;
     
+    var codeblockButtons = document.createElement("span")
+    codeblockButtons.className = "codeblock-buttons"
+    codeblockButtons.innerHTML = `
+        <span class="code-copy-button" data-index="${index}">
+            <i class="fa-solid fa-copy"></i>
+        </span>
+    `
     // add copy icon 
-    var copyButton = document.createElement("span")
-    var copyIcon = document.createElement("i");
-    copyIcon.className = "fa-solid fa-copy";
-    copyButton.appendChild(copyIcon);
-    copyButton.setAttribute("class", "code-copy-button")
-    copyButton.setAttribute("data-index", index)
-    // copyIcon.addEventListener('click', copyContents);
+    var fullscreenBtn = document.createElement("span")
+    fullscreenBtn.setAttribute("class", "code-copy-button")
+    fullscreenBtn.innerHTML = '<i class="fa-solid fa-expand"></i>'
+    // var expandIcon = document.createElement("i");
+    // expandIcon.className = "fa-solid fa-copy";
+    // fullscreenBtn.appendChild(expandIcon);
+    // fullscreenBtn.setAttribute("data-index", index)
+    // expandIcon.addEventListener('click', copyContents);
 
+    codeblockButtons.appendChild(fullscreenBtn)
     preHeader.appendChild(langName);
-    preHeader.appendChild(copyButton);
+    preHeader.appendChild(codeblockButtons);
 
     pre.parentNode.insertBefore(preHeader, pre)
+    setCodeFullScreen(preHeader, pre, fullscreenBtn)
 }
 
+
+function setCodeFullScreen(preHead, codeblock, btn) {
+    btn.addEventListener('click', function() {
+        if (codeblock.classList.contains('code-block-fullscreen')) {
+          codeblock.classList.remove('code-block-fullscreen');
+          preHead.classList.remove('code-head-fullscreen')
+          document.documentElement.classList.remove('code-block-fullscreen-html-scroll');
+        } else {
+          codeblock.classList.add('code-block-fullscreen');
+          preHead.classList.add('code-head-fullscreen')
+          document.documentElement.classList.add('code-block-fullscreen-html-scroll');
+        }
+    });
+}

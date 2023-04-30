@@ -2,6 +2,7 @@ $top-color = convert(hexo-config("SideButtons.Top.color")) || #e37a90
 $comment-color = convert(hexo-config("SideButtons.Comment.color")) || #33a6dc
 
 #back-to-top
+    z-index 15
     position: fixed
     right: -19px
     bottom: 45px
@@ -16,6 +17,7 @@ $comment-color = convert(hexo-config("SideButtons.Comment.color")) || #33a6dc
 #go-to-comment
     display: none
 #vcomment ~ #go-to-comment
+    z-index 15
     position: fixed
     right: -46px
     bottom: 140px
