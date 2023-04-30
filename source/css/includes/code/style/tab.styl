@@ -1,0 +1,55 @@
+ .code-block-header
+    color: #cccccc
+    .code-lang
+        background-color: $codeHeadBg;
+        box-shadow: inset 2px 3px 1px 0px $innerShadowColor, 0 -2px 2px rgba(90,90,90,$codeShadow);
+        border: 1px solid $borderColor;
+        padding: 4px 14px 5px;
+        border-radius: 8px 8px 0 0;
+        border-bottom: none;
+        margin-right: 10px;
+        color: $codeHeadTxColor
+    i 
+        padding: 12px 15px 0 0
+
+.highlight
+    box-shadow: inset 2px -3px 1px 1px $innerShadowColor, 0 0 15px rgba(0,0,0,$codeShadow);
+    border: 1px solid $borderColor;
+    background: $codeBg
+    border-radius: 0 8px 8px 8px
+    table
+        border: none
+        margin 10px 0 !important
+        td
+            border: none !important
+    td.gutter 
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -khtml-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;
+        // font-family:'Source Code Pro',monospace,Helvetica,Tahoma,Arial,STXihei,"STHeiti Light","Microsoft YaHei",sans-serif;
+        vertical-align:top;
+        // position:absolute;
+        left:0;
+        width:30px
+        pre
+            text-align:right
+            color:#888f96 !important;
+    pre 
+        font-family: "consolas" !important;
+        text-align: left
+        color: $codeTxColor
+
+.code-head-fullscreen
+    position:fixed;
+    top:0;
+    left:0;
+    height: 38px
+    z-index 99
+    margin: 0
+    width: 100%
+    background-color: white
+    .code-lang
+        padding: 10px 5px
