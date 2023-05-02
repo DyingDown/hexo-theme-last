@@ -1,0 +1,248 @@
+@import "colors.styl"
+@font-face {
+  font-family: "Cantarell";
+  src: url('lapis/Cantarell-Regular.ttf');
+}
+
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url('lapis/JetBrainsMono-Regular.ttf');
+}
+
+@font-face {
+  font-family: "SourceHanSerifCN";
+  src: url('lapis/SourceHanSerifCN-Regular.otf');
+}
+
+@font-face {
+  font-family: "SourceHanSerifCN";
+  src: url('lapis/SourceHanSerifCN-Bold.otf');
+  font-weight: bold;
+}
+
+#post-content {
+    max-width: 950px;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    word-spacing: 0px;
+    letter-spacing: 0px;
+    word-break: break-word;
+    word-wrap: break-word;
+    text-align: left;
+    
+    /* font-family: 'Cantarell','Source Han Serif CN','JetBrains Mono'; */
+    font-family: 'Cantarell','SourceHanSerifCN','JetBrainsMono';
+    margin-bottom: 20rem;
+}
+
+#post-content strong {
+  color $color1;
+}
+
+#post-content a {
+  text-decoration: none;
+  word-wrap: break-word;
+  color: $color1;
+  border-bottom: 1px solid $color1;
+  margin: 2px;
+}
+
+#post-content p, 
+#post-content blockquote p {
+  font-size: 1.1rem;
+  padding-top: .2rem;
+  padding-bottom: .2rem;
+  margin: 0;
+  line-height: 1.8rem;
+  color: rgb(58, 71, 73);
+}
+
+#post-content h1,
+#post-content h2,
+#post-content h3,
+#post-content h4,
+#post-content h5,
+#post-content h6 {
+//   font-family: 'SourceHanSerifCN';
+  margin: 1em 0 1em;
+  padding: 0px;
+  color: $color1;
+}
+
+#post-content h1 {
+  text-align: center;
+}
+
+#post-content h2 {
+ display: inline-block;
+ font-weight: bold;
+ background: $color1;
+ color: #ffffff;
+ padding: 1px 15px 1px;
+ border-radius: 4px;
+ margin-right: 3px;
+}
+
+#post-content h1 { font-size: 2rem; }
+#post-content h2 { font-size: 1.5rem; }
+#post-content h3 { font-size: 1.4rem; }
+#post-content h4 { font-size: 1.2rem; }
+#post-content h5 { font-size: 1.1rem; }
+#post-content h6 { font-size: 1.1rem; }
+
+#post-content  li::marker {
+  font-weight: bold;
+  color: $color2;
+}
+
+
+#post-content ul li,
+#post-content ol li {
+  margin: 0.4rem 0;
+}
+
+#post-content ul,
+#post-content ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 20px;
+}
+
+#post-content ul li:not(:has(input[type="checkbox"])) {
+  list-style-type: disc;
+}
+
+#post-content ul ul li {
+  list-style-type: square;
+}
+
+#post-content ol li{
+  list-style-type: decimal;
+}
+#post-content li section {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 1.7rem;
+  text-align: justify; 
+  font-weight: 500;
+}
+
+#post-content  em {
+  padding: 0 3px 0 0;
+}
+
+#post-content blockquote {
+  display: block;
+  font-size: .9em;
+  overflow: auto;
+  border-left: 3px solid $color1;
+  padding: 15px 30px 15px 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: $color3
+}
+
+/*
+ * Inline code
+ */
+#post-content p code,
+/*
+ * This is a theme get from typora Lapis
+ * url: https://theme.typora.io/theme/Lapis/
+ * Github: https://github.com/YiNNx/typora-theme-lapis
+ */
+#post-content li code {
+  color: $color1;
+  font-size: 1rem;
+  word-wrap: break-word;
+  padding: 2px 4px 2px;
+  border-radius: 3px;
+  margin: 2px;
+  background-color:  $color3;
+
+//   font-family: 'JetBrainsMono';
+  word-break: break-all;
+}
+
+#post-content img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  filter: drop-shadow(#d2dff4 0px 0px 8px);
+  border-radius: 1rem;
+}
+
+#post-content table {
+  white-space: nowrap;
+  display: table;
+  text-align: left;
+  display: block;
+  overflow-x: auto;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  font-size: 1em;
+  margin: 0px 0px 20px;
+  width: 100%;
+}
+#post-content tbody {
+  border: 0;
+}
+#post-content table tr {
+  border: 0;
+}
+#post-content table tr:nth-child(2n) {
+  background-color: #F8F8F8;
+}
+#post-content table tr th,
+#post-content table tr th, #post-content table tr td {
+  font-size: 1rem;
+  border: 1px solid #d9dfe4;
+  padding: 5px 20px;
+  text-align: left;
+}
+#post-content table tr th {
+    // min-width: 5rem;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: $color1;
+}
+
+#post-content hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 2px solid #eef2f5;
+  border-radius: 2px;
+}
+
+#post-content input[type=checkbox] {
+  width: 0;
+}
+
+li input::before {
+  content: "";
+  display: inline-block;
+  width: 1.0125rem;
+  height: 1.0125rem;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid $color2;
+  border-radius: 1.2rem;
+  background-color: #fdfdfd;
+  margin-left: -1rem;
+  margin-right: 0.1rem;
+  margin-top: -.1rem;
+}
+
+
+li input:checked::before {
+  content: '✓';
+  font-weight: bold;
+  -webkit-text-stroke: 1px $color1;
+  color: $color1;
+  background-color: white;
+  font-size: 0.75rem;
+  line-height: 0.8rem;
+}

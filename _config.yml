@@ -39,7 +39,7 @@ menu:
     ico: link
 
 # Avatar 头像
-avatar: https://s1.ax1x.com/2020/04/17/JEjcB8.png #https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304150220218.png
+avatar: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304301831010.jpeg #https://s1.ax1x.com/2020/04/17/JEjcB8.png #https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304150220218.png
 # Site logo, if true, it replace the place of site name 
 # by using image or svg 
 logo: 
@@ -146,14 +146,14 @@ toc:
 postStyle:
   ## also the catalog's positon 同样也是目录的位置
   authorInfoPosition: right # right, left
-  contentStyle: music # music microsoft github
+  contentStyle: latis # music microsoft github latis
   color: "theme" # "theme" or "default" or "#xxxxxx" or "color name"
   # "theme" means follow the theme color
   # "default" means default suitable color
   # Hex or color name 16进制的颜色或者颜色名字
   ## style of code block
   codeStyle:
-    style: mac # mac, tab
+    style: tab # mac, tab
     colorSet: sakura-light # sakura, sakura-light
     # dark style or light style. This is only applied to styles not colorSet
     light: true # false, true
