@@ -180,9 +180,9 @@ postStyle:
   ## style of code block
   codeStyle:
     style: mac # mac, tab
-    colorSet: sakura-light # sakura, sakura-light
+    colorSet: sakura # sakura, sakura-light
     # dark style or light style. This is only applied to styles not colorSet
-    light: true # false, true
+    light: false # false, true
 
 copyright:
   on: true
