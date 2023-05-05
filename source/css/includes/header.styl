@@ -1,15 +1,12 @@
 @import "../themes/variable.styl"
 @import "search.styl"
 
-.this-is-post-page
-.this-is-home-page
-    display: none
 
 $sideW = 80vw
 #menu-outer a
     text-decoration: none;
     color: $headerCt
-.this-is-post-page + #menu-outer a
+body.post > #menu-outer a
     color: $headerPostCt
     
 #menu-outer a:hover
@@ -30,12 +27,13 @@ $sideW = 80vw
     transition: 0.3s
     z-index: 10
     border: solid lightgray 0px;
-.this-is-post-page + #menu-outer
+
+body.post > #menu-outer
     -webkit-box-shadow: 1px 0 5px rgb(175 175 175);
     box-shadow: 1px 0 5px rgb(175 175 175);
     color: $headerPostCt
     background-color: $headerPostBg
-.this-is-home-page + #menu-outer
+body.home > #menu-outer
     background-color: transparent
     
 #menu-outer.sticky
@@ -44,7 +42,7 @@ $sideW = 80vw
     left: $sideW;
 .newMenuOuterColor
     background-color: $headerBg !important;
-.this-is-post-page + .newMenuOuterColor
+body.post > .newMenuOuterColor
     background-color: $headerPostBg !important
 /*********** left nav icon  ***********/
 .menu .menu-icon
@@ -59,7 +57,7 @@ $sideW = 80vw
     transition: 0.5s
     // reset origin point of transform
     transform-origin: left center
-.this-is-post-page + #menu-outer .menu .menu-icon li
+body.post > #menu-outer .menu .menu-icon li
     background-color: $minorColor
 .menu .menu-icon li:nth-child(1)
     top: 26px;
@@ -90,7 +88,7 @@ $sideW = 80vw
     overflow-x: hidden;
     transition: 0.3s
     padding: 35px 0px
-.this-is-post-page + #menu-outer .menu #nav
+body.post > #menu-outer .menu #nav
     background-color: $headerPostBg
     // border-right: solid 1px lightgray
 .menu-avatar
@@ -108,7 +106,7 @@ $sideW = 80vw
     line-height: 45px
     font-size: 20px
 
-.this-is-post-page + #menu-outer .menu #nav li a 
+body.post #menu-outer .menu #nav li a 
     font-size: 16px
 
 // new nav
@@ -140,7 +138,7 @@ $sideW = 80vw
     width: 0
     // float: left
     padding: 0
-.this-is-post-page + #menu-outer .search #local-search-input
+body.post #menu-outer .search #local-search-input
     color: $headerPostCt
 .search-icon 
     color: $headerCt;
@@ -155,7 +153,7 @@ $sideW = 80vw
     align-items: center;
     transition: 0.4s;
     text-decoration: none;
-.this-is-post-page + #menu-outer .search-icon 
+body.post > #menu-outer .search-icon 
     color: $headerHv
 
 #menu-outer .search:hover #local-search-input,
@@ -238,7 +236,7 @@ $sideW = 80vw
             -webkit-animation fadeInUp .3s .1s ease both;
             -moz-animation fadeInUp .3s .1s ease both
             z-index: 2
-        .this-is-post-page + #menu-outer .submenu-items
+        body.post > #menu-outer .submenu-items
             background-color: $headerPostBg
             border: solid lightgray 1px
             -webkit-box-shadow: 1px 0 5px rgb(175 175 175);
@@ -256,10 +254,10 @@ $sideW = 80vw
             top: -28px
             margin: auto
             z-index 100
-        .this-is-post-page +#menu-outer .submenu-items::before
+        body.post > #menu-outer .submenu-items::before
             border-bottom-color: $headerPostBg
             z-index: 0
-        .this-is-post-page +#menu-outer .submenu-items::after
+        body.post > #menu-outer .submenu-items::after
             content: ""
             position absolute
             width: 0

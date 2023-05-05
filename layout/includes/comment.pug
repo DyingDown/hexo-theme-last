@@ -12,7 +12,11 @@ if theme.valine.on
   //- script(src='https://cdn1.lncld.net/static/js/3.0.4/av-min.js')
   //- script(src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
   //- script(src='https://unpkg.com/valine/dist/Valine.min.js')
-  script(src='https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine.min.js')
+  if theme.valine.fancyStyle.on
+    script(src='https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine-modify.js')
+  else 
+    script(src='https://cdn.jsdelivr.net/gh/DyingDown/cdn@main/valine/dist/Valine.min.js')
+  //- script(src='/js/third-party/valine-modify.js')
   script.
     var notify = '#{ theme.valine.notify }' == true ? true : false;
     var verify = '#{ theme.valine.verify }' == true ? true : false;

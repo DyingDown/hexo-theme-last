@@ -8,6 +8,9 @@ link(rel='stylesheet', href='/css/last.css')
 link(rel='stylesheet', href='/font-awesome/css/all.min.css')
 link(rel='stylesheet', href='/css/includes/alert/alert.css')
 
+if theme.valine.on && theme.valine.fancyStyle.on 
+    link(rel='stylesheet', href='/css/third-party/valine.css')
+
 
 - if (is_home())
     link(rel='stylesheet', href='/css/recent-posts.css')

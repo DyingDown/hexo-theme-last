@@ -146,7 +146,7 @@ toc:
 postStyle:
   ## also the catalog's positon 同样也是目录的位置
   authorInfoPosition: right # right, left
-  contentStyle: latis # music microsoft github latis
+  contentStyle: music # music microsoft github latis gitbook
   color: "theme" # "theme" or "default" or "#xxxxxx" or "color name"
   # "theme" means follow the theme color
   # "default" means default suitable color
@@ -188,6 +188,10 @@ valine:
   guest_info: nick,mail,link
   pageSize: 10
   serverURLs: https://l3oy62wr.api.lncldglobal.com
+  fancyStyle:
+    on: true
+    light: "#252c74" # colors in post page
+    dark: "#ffdd40"  # colors in other dark page
 
 ##### Post settings
 
