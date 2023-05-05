@@ -1,10 +1,12 @@
 
 - var pageTitle = page.title || config.subtitle || ''
+- var pageType = "home"
 - if (is_archive()) pageTitle = 'Archives'
 - if (is_tag()) pageTitle = 'Tag: ' + page.tag
 - if (is_category()) pageTitle = 'Category: ' + page.category
 - if (is_month()) pageTitle += ': ' + page.month + '/' + page.year
 - if (is_year()) pageTitle += ': ' + page.year
+- if (is_post()) pageType = "post"
 - pageTitle += ' [ ' + config.title + ' ]'
 
 doctype html
@@ -13,7 +15,7 @@ html(lang=config.language)
     meta(charset='UTF-8')
     title= pageTitle
     include ./head.pug
-  body
+  body(class = pageType)
     include svg.pug
     include header.pug
     //- include alert.pug

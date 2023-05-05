@@ -126,7 +126,7 @@ function AddLanguageName(pre, index) {
     // set code blocks class to help do copy
     var code = pre.children[0].children[0].children[0].children[1];
     code.setAttribute("class", "codeblock-content")
-    code.setAttribute("id", "codeblock-"+ index.toString())
+    code.setAttribute("id", "codeblock-" + index.toString())
 
     // add header to the codeblock
     var preHeader = document.createElement("div")
@@ -134,7 +134,7 @@ function AddLanguageName(pre, index) {
     var langName = document.createElement("span")
     langName.setAttribute("class", "code-lang")
     langName.innerHTML = language;
-    
+
     var codeblockButtons = document.createElement("span")
     codeblockButtons.className = "codeblock-buttons"
     codeblockButtons.innerHTML = `
@@ -142,15 +142,15 @@ function AddLanguageName(pre, index) {
             <i class="fa-solid fa-copy"></i>
         </span>
     `
-    // add copy icon 
+        // add copy icon 
     var fullscreenBtn = document.createElement("span")
     fullscreenBtn.setAttribute("class", "code-copy-button")
     fullscreenBtn.innerHTML = '<i class="fa-solid fa-expand"></i>'
-    // var expandIcon = document.createElement("i");
-    // expandIcon.className = "fa-solid fa-copy";
-    // fullscreenBtn.appendChild(expandIcon);
-    // fullscreenBtn.setAttribute("data-index", index)
-    // expandIcon.addEventListener('click', copyContents);
+        // var expandIcon = document.createElement("i");
+        // expandIcon.className = "fa-solid fa-copy";
+        // fullscreenBtn.appendChild(expandIcon);
+        // fullscreenBtn.setAttribute("data-index", index)
+        // expandIcon.addEventListener('click', copyContents);
 
     codeblockButtons.appendChild(fullscreenBtn)
     preHeader.appendChild(langName);
@@ -164,13 +164,24 @@ function AddLanguageName(pre, index) {
 function setCodeFullScreen(preHead, codeblock, btn) {
     btn.addEventListener('click', function() {
         if (codeblock.classList.contains('code-block-fullscreen')) {
-          codeblock.classList.remove('code-block-fullscreen');
-          preHead.classList.remove('code-head-fullscreen')
-          document.documentElement.classList.remove('code-block-fullscreen-html-scroll');
+            codeblock.classList.remove('code-block-fullscreen');
+            preHead.classList.remove('code-head-fullscreen')
+            document.documentElement.classList.remove('code-block-fullscreen-html-scroll');
         } else {
-          codeblock.classList.add('code-block-fullscreen');
-          preHead.classList.add('code-head-fullscreen')
-          document.documentElement.classList.add('code-block-fullscreen-html-scroll');
+            codeblock.classList.add('code-block-fullscreen');
+            preHead.classList.add('code-head-fullscreen')
+            document.documentElement.classList.add('code-block-fullscreen-html-scroll');
         }
     });
 }
+
+window.onload = function() {
+    const vquoteElements = document.querySelectorAll('.vquote');
+    console.log(vquoteElements)
+    vquoteElements.forEach(vquoteElement => {
+        console.log(vquoteElement)
+        const parentElement = vquoteElement.parentElement;
+        parentElement.parentElement.insertBefore(vquoteElement, parentElement.nextSibling);
+    });
+    console.log(569);
+};

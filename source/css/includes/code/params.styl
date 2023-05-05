@@ -30,13 +30,16 @@ else if $codeStyle == "tab"
         $codeHeadTxColor = gray
         $codeTxColor = black
         $borderColor = #eeeeee
-        $innerShadowColor = #fafafa
+        $innerShadowColor = #fbfbfb
         $codeShadow = 0.1
 
 
 @import 'style/' + $codeStyle + '.styl'
 @import "highlights/" + $codeColorSet + ".styl"
 
+.code-block-header
+    user-select: none
+    
 .code-block-fullscreen {
     position:fixed;
     top:38px;

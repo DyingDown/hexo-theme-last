@@ -53,7 +53,7 @@ menu:
     ico: link
 
 # Avatar 头像
-avatar: https://s1.ax1x.com/2020/04/17/JEjcB8.png #https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304150220218.png
+avatar: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304301831010.jpeg #https://s1.ax1x.com/2020/04/17/JEjcB8.png #https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304150220218.png
 # Site logo, if true, it replace the place of site name 
 # by using image or svg 
 logo: 
@@ -214,6 +214,10 @@ valine:
   guest_info: nick,mail,link
   pageSize: 10
   serverURLs: https://l3oy62wr.api.lncldglobal.com
+  fancyStyle:
+    on: true
+    light: "#252c74" # colors in post page
+    dark: "#ffdd40"  # colors in other dark page
 
 ##### Post settings
 

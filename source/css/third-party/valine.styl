@@ -1,0 +1,150 @@
+@import "../themes/variable.styl"
+
+$mainDarkColor = convert(hexo-config("valine.fancyStyle.dark")) || #ffdd40;
+$mainLightColor = convert(hexo-config("valine.fancyStyle.light")) || darkblue;
+:root {
+    --yellow: $mainDarkColor;
+    --dark: $bg;
+    --deg: -86deg;
+    --trans: all 0.4s ease 0s;
+    --textcolor: black
+}
+
+body.post
+    --dark: $postBg
+    --yellow: $mainLightColor
+    --textcolor: white
+
+
+.vcard
+    margin: 1.5em 0 0.5em;
+    padding: 0.73em 0.73em 2.5em 0.73em;
+    list-style: none;
+    transform: scale(0.85);
+    transition: var(--trans);
+    // &:hover 
+    //     transform: scale(0.9);
+    //     transition: var(--trans);
+    //     filter: drop-shadow(0px 20px 10px #0008);
+    &:has(.vcard)
+        background: var(--yellow) !important
+    &:has(.vquote) .vquote:has(.vcard)
+        background-color: var(--dark);
+        padding: 8px 0
+        margin-top: 30px
+        background: var(--dark)
+        border: none  !important
+    .avatar-img
+        width: 13vmin;
+        height: 13vmin;
+        float: left;
+        margin-right: 1.25em;
+        background: linear-gradient( var(--deg), var(--dark) 0 70%, var(--yellow) 0% 100% );
+        transform: rotate(-4deg);
+        transition: var(--trans);
+        border-radius: 0.25em;
+        overflow: hidden;
+        margin-left: -3em;
+        padding: 0.5em;
+        img 
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 0.25em !important;
+            // filter: grayscale(1);
+            background: var(--dark);
+            border: none !important
+    .vhead
+        .vnick
+            background: linear-gradient(182deg, #fff0 60%, var(--dark) 0 100%);
+            display: inline !important;
+            transform: rotate(-2deg);
+            position: absolute !important;
+            margin: 0;
+            margin-top: -1.8em !important;
+            left: 9vmin;
+            padding: 0.5em 0.75em;
+            color: var(--yellow);
+            border-radius: 0.25em;
+            font-size: 1.35em !important;
+            transform-origin: left bottom;
+            line-height: 10px !important
+            &:hover
+                color: var(--yellow) !important
+    .vmeta
+        position: static !important
+        .vtime
+            display: block !important
+            position: absolute;
+            top: -1.5em;
+            background: var(--yellow);
+            right: 4em;
+            transform: rotate(3deg);
+            padding: 0.35em 0.75em 0.5em;
+            border-radius: 0.25em;
+            color: var(--dark) !important;
+            font-weight: bold;
+            z-index 2
+        .vat
+            display: inline-block
+            position: absolute
+            // float none !important
+            bottom: 1em
+            right: 4em
+            left: inherit
+            padding: 5px 10px
+            border-radius: 5px
+            background-color: var(--dark) !important
+            color: var(--yellow) !important
+            // font-size: 0 !important
+    .vcontent
+        padding: 0 2em 0 0;
+        margin-bottom: 1em;
+        font-size: 16px;
+        font-family: Lato, Arial, Helvetica, sans-serif
+        p
+            color: var(--textcolor) !important
+        .at
+            padding: 2px 8px
+            border-radius: 5px
+            background-color: var(--dark) !important
+            color: var(--yellow) !important
+    &:has(.vwrap)
+        background: var(--yellow) !important
+
+.vcard:nth-of-type(odd):not(:has(.vcard)),
+.vcard > .vcard.vcard:nth-of-type(odd)
+    background: linear-gradient( 83deg, var(--yellow) 0 97%, #fff0 calc(97% + 1px) 100% );
+
+.vcard:nth-of-type(even):not(:has(.vcard)),
+.vcard > .vcard:nth-of-type(even)
+    text-align: right;
+    background: linear-gradient( -83deg, var(--yellow) 0 97%, #fff0 calc(97% + 1px) 100% );
+    .avatar-img
+        --deg: 86deg;
+        float: right;
+        margin-left: 2em;
+        margin-right: -3em;
+        transform: rotate(4deg);
+    .vhead
+        .vnick
+            left: inherit;
+            right: 9vmin;
+            transform: rotate(2deg);
+            transform-origin: right bottom;
+            background: linear-gradient(-182deg, #fff0 60%, var(--dark) 0 100%);
+    .vmeta
+        .vtime
+            right: inherit;
+            left: 4em;
+            transform: rotate(-3deg);
+        .vat
+            left: 4em
+            right: inherit
+            // float: left
+    .vcontent
+        padding: 0 0 0 2em;
+
+
+
+.v[data-class=v] .vcards .vcard .vhead 
+    line-height: 0.8 !important
