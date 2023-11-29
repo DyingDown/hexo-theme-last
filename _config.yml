@@ -255,11 +255,9 @@ SideButtons:
   Top:
     on: true
     color: "#e37a90" # "#e37a90" hex color
-    text: "TOP"
   Comment:
     on: true # if comment function is not on, then this button won't show
     color: "#33a6dc" # "#33a6dc" hex color
-    text: "COMMENT"
 
 # Scroll bar style
 ScrollBar:
