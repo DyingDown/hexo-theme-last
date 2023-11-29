@@ -1,5 +1,6 @@
 if !(is_home())
-    if theme.SideButtons.Top.on 
-        buttom#back-to-top TOP 
-    if theme.SideButtons.Comment.on && theme.valine.on
-        buttom#go-to-comment Comment
+    #sideButtons
+        if theme.SideButtons.Top.on 
+            div#back-to-top!= __("sideButtons.backToTop")
+        if theme.SideButtons.Comment.on && theme.valine.on
+            div#go-to-comment!= __("sideButtons.toComment")
