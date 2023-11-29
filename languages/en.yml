@@ -21,3 +21,7 @@ copyright:
   link: Link
   license: License
   content: All articles in this blog are licensed under <a href="%s">%s</a> unless stating additionally.
+
+sideButtons:
+  backToTop: TOP
+  toComment: COMMENT
