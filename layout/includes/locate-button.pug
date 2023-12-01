@@ -1,6 +1,14 @@
 if !(is_home())
     #sideButtons
         if theme.SideButtons.Top.on 
-            div#back-to-top!= __("sideButtons.backToTop")
+            div#back-to-top
+                if theme.SideButtons.style == "icon" || theme.SideButtons.style == "both"
+                    i.fas.fa-up
+                if theme.SideButtons.style == "word" || theme.SideButtons.style == "both"
+                    span!= __("sideButtons.backToTop")
         if theme.SideButtons.Comment.on && theme.valine.on
-            div#go-to-comment!= __("sideButtons.toComment")
+            div#go-to-comment
+                if theme.SideButtons.style == "icon" || theme.SideButtons.style == "both"
+                    i.fas.fa-comment
+                if theme.SideButtons.style == "word" || theme.SideButtons.style == "both"
+                    span!= __("sideButtons.toComment")
