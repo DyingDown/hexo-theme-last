@@ -278,6 +278,7 @@ totalPost: true
 
 # Back to Top button and go to comment button
 SideButtons:
+  style: "both" # "icon", word", "both"
   Top:
     on: true
     color: "#e37a90" # "#e37a90" hex color
