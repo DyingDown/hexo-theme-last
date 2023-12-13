@@ -1,19 +1,39 @@
-# 预览
+# My Hexo Theme - Last
 
-[https://dyingdown.github.io](https://dyingdown.github.io])
+Welcome to My Hexo Theme Last! This theme is designed to be sleek, customizable, and packed with features.
 
-> #### Notes
->
-> **This theme is not done yet. Most functions and pictures functions are not complete.** And it's not flexible yet.
->
-> However, if you want to use it, you can download and install it.
+For detailed instructions on how to install and configure this theme, please refer to our [documentation](https://hexo-theme-last.github.io/theme-last-guide/site/).
 
-# 主题介绍
+## Preview
 
-该主题是一款集成了很多我个人喜欢的元素并且搭配组合出来的，其中有一部分来自别的博客的创意，当然有一部分是我自己的创意。
+- [https://dyingdown.github.io](https://dyingdown.github.io])
+- [Demo](https://hexo-theme-last.github.io)
 
-改主题既可以简洁也可以多彩，有丰富的配置选项来自定义博客。
+## Features
 
-## 主题配置
+- **High Customization**: Tailor the theme to your liking with a range of customization options, allowing you to achieve anything from a sleek and minimal appearance to a more intricate design.
 
-[主题使用文档](https://hexo-theme-last.github.io/theme-last-guide/site/)
+- **Modern Browser Compatibility**: Please note that this theme does not support older versions of Internet Explorer. I recommend using modern browsers for the best experience.
+
+- **Responsive Design**: The theme is fully responsive, ensuring an optimal viewing experience across various devices, from desktops to smartphones.
+
+- **Dynamic Language Support**: Easily provide translations for fixed elements such as headers and buttons. The theme supports dynamic language changes for a seamless, multilingual user experience.
+
+## Quick Start
+
+To use this theme in your Hexo blog, follow these steps:
+
+1. Clone this repository to your Hexo blog's `themes` directory.
+2. Set the `theme` configuration in your Hexo site `_config.yml` to `my-awesome-theme`.
+
+```yaml
+# Hexo site _config.yml
+theme: hexo-theme-last
+```
+
+## Theme Configuration
+
+[Theme Documentation](https://hexo-theme-last.github.io/theme-last-guide/site/)
+
+## License
+This theme is licensed under the MIT License. See the LICENSE.md file for details.
