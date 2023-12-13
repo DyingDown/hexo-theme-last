@@ -197,8 +197,20 @@ wordCount: true
 # donate function 打赏功能
 donate:
   on: true # false
-  wechat: true # false
-  alipay: true # false
+  methods:
+    - name: wechat
+      enabled: true
+      description: WeChat
+      qrCode: /image/wechat.jpg
+    - name: alipay
+      enabled: true
+      description: Alipay
+      qrCode: /image/alipay.jpg
+    - name: zelle
+      enabled: true
+      description: Zelle
+      qrCode: /img/zelle.jpg
+  defaultMethod: wechat
   description: Like my post?
 
 # Comment function 评论功能
@@ -244,26 +256,28 @@ contacts:
   # 知乎: " || fab fa-fw fa-zhihu"
   # 微博: " ||fab fa-fw fa-weibo"
   Wechat: " ||fab fa-fw fa-weixin"
-  Twitter: " ||fab fa-fw fa-twitter"
+  X-Twitter: " ||fab fa-fw fa-twitter"
   Telegram: " ||fab fa-fw fa-telegram-plane"
   # Stack-overflow: " ||fab fa-fw fa-stack-overflow"
   # Skype: " ||fab fa-fw fa-skype"
   QQ: " ||fab fa-fw fa-qq"
   # Pinterest: " ||fab fa-fw fa-pinterest-p"
-  Linkedin: " ||fab fa-fw fa-linkedin-in"
+  Linkedin: " https://www.linkedin.com/in/yaogu0304/ ||fab fa-fw fa-linkedin-in"
   GitHub: " https://github.com/DyingDown ||fab fa-fw fa-github"
   Facebook: " ||fab fa-fw fa-facebook-f"
   # Codepen: " ||fab fa-fw fa-codepen"
   # Google: "  ||fab fa-fw fa-google"
   # Alipay: " ||fab fa-fw fa-alipay"  
-  Instagram: " ||fab fa-fw fa-instagram"
-  Quora: " ||fab fa-fw fa-quora"
+  Instagram: " https://www.instagram.com/o_oyao0304/ ||fab fa-fw fa-instagram"
+  # Quora: " ||fab fa-fw fa-quora"
   # Spotify: " ||fab fa-fw fa-spotify"
   # YouTube: " ||fab fa-fw fa-youtube"
   # Discord: " ||fab fa-fw fa-discord"
   # 人人: " ||fab fa-fw fa-renren"
   # Reddit: " ||fab fa-fw fa-reddit"
   # Snapchat: " ||fa fa-fw fa-snapchat-ghost"
+  TikTok: " ||fa-brands fa-tiktok"
+  # Whatsapp: "||fa-brands fa-whatsapp"
 
 # Year of site creation 网站成立年份
 since: 2019
