@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if(payBt.id == "zelle") {
                 qrCodeUrl += "zelle.jpg";
             }
-            console.log(qrCodeUrl);
+            
             payImg.src = qrCodeUrl;
         }
     });
