@@ -24,7 +24,7 @@ For detailed instructions on how to install and configure this theme, please ref
 To use this theme in your Hexo blog, follow these steps:
 
 1. Clone this repository to your Hexo blog's `themes` directory.
-2. Set the `theme` configuration in your Hexo site `_config.yml` to `my-awesome-theme`.
+2. Set the `theme` configuration in your Hexo site `_config.yml` to `hexo-theme-last`.
 
 ```yaml
 # Hexo site _config.yml
