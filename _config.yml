@@ -171,8 +171,20 @@ wordCount: false
 # donate function 打赏功能
 donate:
   on: true # false
-  wechat: true # false
-  alipay: true # false
+  methods:
+    - name: wechat
+      enabled: false 
+      description: WeChat
+      qrCode: /img/wechat.jpg
+    - name: alipay
+      enabled: true
+      description: Alipay
+      qrCode: /img/alipay.jpg
+    - name: zelle
+      enabled: true
+      description: Zelle®
+      qrCode: /img/zelle.jpg
+  defaultMethod: zelle
   description: Like my post?
 
 # Comment function 评论功能
@@ -214,30 +226,37 @@ Warning:
 # add any other icons using the format 用这种格式可以添加别的图标
 contacts:
   E-mail: " mailto:o_oyao@outlook.com || fas fa-fw fa-envelope"
-  # Tencent-Weibo: " || fab fa-fw fa-tencent-weibo"
-  # 知乎: " || fab fa-fw fa-zhihu"
-  # 微博: " ||fab fa-fw fa-weibo"
-  Wechat: " ||fab fa-fw fa-weixin"
-  Twitter: " ||fab fa-fw fa-twitter"
-  Telegram: " ||fab fa-fw fa-telegram-plane"
-  # Stack-overflow: " ||fab fa-fw fa-stack-overflow"
-  # Skype: " ||fab fa-fw fa-skype"
-  QQ: " ||fab fa-fw fa-qq"
-  # Pinterest: " ||fab fa-fw fa-pinterest-p"
-  Linkedin: " ||fab fa-fw fa-linkedin-in"
-  GitHub: " https://github.com/DyingDown ||fab fa-fw fa-github"
-  Facebook: " ||fab fa-fw fa-facebook-f"
-  # Codepen: " ||fab fa-fw fa-codepen"
-  # Google: "  ||fab fa-fw fa-google"
-  # Alipay: " ||fab fa-fw fa-alipay"  
-  Instagram: " ||fab fa-fw fa-instagram"
-  Quora: " ||fab fa-fw fa-quora"
-  # Spotify: " ||fab fa-fw fa-spotify"
-  # YouTube: " ||fab fa-fw fa-youtube"
-  # Discord: " ||fab fa-fw fa-discord"
-  # 人人: " ||fab fa-fw fa-renren"
-  # Reddit: " ||fab fa-fw fa-reddit"
-  # Snapchat: " ||fa fa-fw fa-snapchat-ghost"
+  # Tencent-Weibo: " || fa-brands fa-tencent-weibo"
+  # 知乎: " || fa-brands fa-zhihu"
+  # 微博: " ||fa-brands fa-weibo"
+  Wechat: " ||fa-brands fa-weixin"
+  X-Twitter: " ||fa-brands fa-twitter"
+  # Telegram: " ||fa-brands fa-telegram-plane"
+  # Stack-overflow: " ||fa-brands fa-stack-overflow"
+  # Skype: " ||fa-brands fa-skype"
+  QQ: " ||fa-brands fa-qq"
+  Pinterest: " ||fa-brands fa-pinterest-p"
+  Linkedin: " ||fa-brands fa-linkedin-in"
+  GitHub: " https://github.com/DyingDown ||fa-brands fa-github"
+  Facebook: " ||fa-brands fa-facebook-f"
+  # Google: "  ||fa-brands fa-google"
+  # Alipay: " ||fa-brands fa-alipay"  
+  Instagram: " ||fa-brands fa-instagram"
+  # Quora: " ||fa-brands fa-quora"
+  # Spotify: " ||fa-brands fa-spotify"
+  # YouTube: " ||fa-brands fa-youtube"
+  # Discord: " ||fa-brands fa-discord"
+  # 人人: " ||fa-brands fa-renren"
+  # Reddit: " ||fab fa-fw fa-reddit-alien"
+  # Snapchat: " ||fa-brands fa-snapchat-ghost"
+  TikTok: " ||fa-brands fa-tiktok"
+  # Whatsapp: "||fa-brands fa-whatsapp"
+  # Codepen: "||fa-brands fa-codepen"
+  # Meetup: "||fa-brands fa-meetup"
+  # Twitch: "||fa-brands fa-twitch"
+  # Steam: "||fa-brands fa-steam"
+  # Gitlab: "||fa-brands fa-gitlab"
+  
 
 # Year of site creation 网站成立年份
 since: 2019

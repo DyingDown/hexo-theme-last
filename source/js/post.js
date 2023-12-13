@@ -33,12 +33,8 @@ var qrButton = document.getElementsByClassName("qrButton")[0];
 var auInfo = document.getElementsByClassName("au-info")[0];
 
 var payImg = document.getElementsByClassName("pay-code")[0];
-var wechatBt = document.getElementsByClassName("wechat")[0];
-var alipayBt = document.getElementsByClassName("alipay")[0];
-var firstPBt = document.getElementsByClassName("payButtons")[0].firstChild;
 var payDiv = document.getElementById("payment-code");
 var isQB = true;
-modifyClass(firstPBt, "newPayBt", 1);
 
 qrButton.onclick = function() {
     if (isQB) {
@@ -56,16 +52,33 @@ qrButton.onclick = function() {
     }
 }
 
-wechatBt.onclick = function() {
-    modifyClass(alipayBt, "newPayBt", 0);
-    modifyClass(wechatBt, "newPayBt", 1);
-    payImg.src = "/img/wechat.jpg";
-}
-alipayBt.onclick = function() {
-    modifyClass(alipayBt, "newPayBt", 1);
-    modifyClass(wechatBt, "newPayBt", 0);
-    payImg.src = "/img/alipay.jpg";
-}
+// click button to change qr code img
+document.addEventListener('DOMContentLoaded', function() {
+    let paymentButtons = document.getElementsByClassName("paymentButtons");
+    [...paymentButtons].forEach(function(payBt) {
+        payBt.onclick = function() {
+            [...paymentButtons].forEach(function(otherBt) {
+                modifyClass(otherBt, "selected", 0);
+            });
+            // console.log(payBt.innerHTML)
+            modifyClass(payBt, "selected", 1);
+            let qrCodeUrl = "/img/";
+            if(payBt.id == "alipay") {
+                qrCodeUrl += "alipay.jpg";
+            }
+            
+            if(payBt.id == "wechat") {
+                qrCodeUrl += "wechat.jpg";
+            }
+            if(payBt.id == "zelle") {
+                qrCodeUrl += "zelle.jpg";
+            }
+            console.log(qrCodeUrl);
+            payImg.src = qrCodeUrl;
+        }
+    });
+  });
+
 
 /*********** toc ***********/
 
