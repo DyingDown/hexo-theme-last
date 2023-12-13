@@ -13,8 +13,6 @@ toc: 目录
 sideUser:
   donate: 打赏
   about: 简介
-  wechat: 微信
-  alipay: 支付宝
 
 copyright:
   author: 作者
@@ -25,3 +23,7 @@ copyright:
 sideButtons:
   backToTop: 顶部
   toComment: 评论
+
+clipboard:
+  success: 复制成功！
+  error: 复制失败，请重新尝试！

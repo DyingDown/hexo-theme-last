@@ -69,19 +69,19 @@
 .payButtons
     display flex
     justify-content: space-around
-    font-size: 20px
-    margin-bottom: 25px
-
-.wechat,
-.alipay
-    border-radius:6px
-    color $minorColor;
-    border solid 1px $minorColor
-    cursor pointer
-    padding: 5px 10px;
-.newPayBt
-    background-color: $minorColor
-    color: white ;
+    margin: 0 25px 25px
+    button
+        border-radius:6px
+        color $minorColor;
+        border solid 1px $minorColor
+        cursor pointer
+        padding: 5px 10px;
+        font-size: 15px
+        background-color transparent
+        padding: 5px 12px
+    button.selected
+        background-color: $minorColor
+        color: white ;
 
 .clearfix::after
     /* add content */

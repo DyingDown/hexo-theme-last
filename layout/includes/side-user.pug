@@ -35,9 +35,8 @@ if(is_post())
                     - var qrUrl = "/img/wechat.jpg"
                     - if (theme.donate.wechat == false) 
                        - qrUrl = "/img/alipay.jpg"
-                    img.pay-code(src=qrUrl)
+                    img.pay-code(src=theme.donate.methods.find(method => method.name === theme.donate.defaultMethod).qrCode, alt="Default QR Code")
                     .payButtons
-                        if theme.donate.wechat
-                            .wechat!= __("sideUser.wechat")
-                        if theme.donate.alipay
-                            .alipay!= __("sideUser.alipay")
+                        each method in theme.donate.methods
+                            if method.enabled == true
+                                button(id=method.name, class=('paymentButtons ' + (method.name === theme.donate.defaultMethod ? 'selected' : '')))!= method.description
