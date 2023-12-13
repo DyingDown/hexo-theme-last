@@ -31,6 +31,16 @@ menu:
   Tag:
     path: /tags
     ico: tag
+  About:
+    path: "#"
+    ico: lightbulb
+    submenu:
+      Me:
+        path: /about
+        ico: heart
+      Theme:
+        path: /theme-last-guide/site/
+        ico: puzzle-piece
   Last:
     path: /theme-last-guide/site
     ico: puzzle-piece
