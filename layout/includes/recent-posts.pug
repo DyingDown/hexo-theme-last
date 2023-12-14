@@ -24,7 +24,7 @@
                     != post.description || post.excerpt
                   br
                   br
-                  a(href= url_for(post.path)).readMore!= "Read More"
+                  a(href= url_for(post.path)).readMore!= __("readmore")
         //- previous next arrow
         if theme.carousel.prevNext
           i.fa.fa-chevron-left

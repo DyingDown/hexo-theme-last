@@ -1,0 +1,47 @@
+header:
+  Home: Accueil
+  Category: Catégorie
+  Archives: Archives
+  Tag: Balise
+  Friends: Amis
+  About: À propos
+  Lab: Laboratoire
+  Project: Projet
+  Theme: Thème
+  Me: Auteur
+  Memory: Mémoire
+
+toc: Table des matières
+
+sideUser:
+  donate: Faire un don
+  about: À propos
+
+copyright:
+  author: Auteur
+  link: Lien
+  license: Déclaration de droits d'auteur
+  content: Tous les articles de ce blog, sauf mention contraire, sont sous licence <a href="%s">%s</a>. Veuillez indiquer le lien d'origine lors de la reproduction !
+
+sideButtons:
+  backToTop: Haut de page
+  toComment: Commentaires
+
+localSearch:
+  placeholder: Saisissez pour rechercher
+  empty: (っ╥╯﹏╰╥c) Désolé, aucun résultat trouvé pour ce mot. Veuillez essayer un autre mot.
+  firstSearch: Première recherche, chargement du fichier d'index en cours... Veuillez patienter.
+
+origin: Original
+
+category:
+  categories: Catégories
+  category: Catégorie
+  tags: Balises
+  tag: Balise
+
+readmore: Lire la suite
+
+copy:
+  success: Copie réussie !
+  error: Échec de la copie. Veuillez réessayer !

@@ -2,7 +2,7 @@ extends includes/layout.pug
 
 block content
   #category-block
-    h1= 'Category:' + " " + page.category
+    h1!= __("category.category") + ':' + " " + page.category
     - var year
     - page.posts.each(function(article){
       .category-item

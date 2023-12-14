@@ -7,6 +7,9 @@ header:
   About: 关于
   Lab: 实验室
   Project: 项目
+  Theme: 主题
+  Me: 博主
+  Memory: 回忆
 
 toc: 目录
 
@@ -24,6 +27,21 @@ sideButtons:
   backToTop: 顶部
   toComment: 评论
 
-clipboard:
+localSearch:
+  placeholder: 键入搜索
+  empty: (っ╥╯﹏╰╥c) 很抱歉没有查到这个词，请换一个词查询
+  firstSearch: 第一次搜索，正在加载 index 文件... 请稍等
+
+origin: 原创
+
+category:
+  categories: 分类
+  category: 分类
+  tags: 标签
+  tag: 标签
+
+readmore: 阅读更多
+
+copy:
   success: 复制成功！
   error: 复制失败，请重新尝试！

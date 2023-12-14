@@ -117,8 +117,6 @@ carousel:
 #   content: true
 localSearch:
   on: true
-  placeholder: "Type to search"
-  # emptyHolder: "(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" # not apply
 
 ##### Home page
 # the number of lines show of each post's description

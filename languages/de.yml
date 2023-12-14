@@ -1,0 +1,47 @@
+header:
+  Home: Startseite
+  Category: Kategorie
+  Archives: Archiv
+  Tag: Etikett
+  Friends: Freunde
+  About: Über
+  Lab: Labor
+  Project: Projekt
+  Theme: Thema
+  Me: Ich
+  Memory: Erinnerung
+
+toc: Inhaltsverzeichnis
+
+sideUser:
+  donate: Spenden
+  about: Über mich
+
+copyright:
+  author: Autor
+  link: Link
+  license: Lizenz
+  content: Alle Inhalte dieses Blogs, sofern nicht anders angegeben, stehen unter der <a href="%s">%s</a> Lizenz. Bitte geben Sie den Original-Link an, wenn Sie Inhalte wiederverwenden!
+
+sideButtons:
+  backToTop: Nach oben
+  toComment: Kommentar
+
+localSearch:
+  placeholder: Suche eingeben
+  empty: (っ╥╯﹏╰╥c) Es tut uns leid, dieses Wort konnte nicht gefunden werden. Bitte versuchen Sie es mit einem anderen Wort.
+  firstSearch: Erste Suche, index Datei wird geladen... Bitte warten Sie einen Moment.
+
+origin: Original
+
+category:
+  categories: Kategorien
+  category: Kategorie
+  tags: Tags
+  tag: Tag
+
+readmore: Weiterlesen
+
+copy:
+  success: Erfolgreich kopiert!
+  error: Kopieren fehlgeschlagen. Bitte versuchen Sie es erneut!

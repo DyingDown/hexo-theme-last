@@ -1,0 +1,47 @@
+header:
+  Home: 主頁
+  Category: 分類
+  Archives: 檔案庫
+  Tag: 標籤
+  Friends: 友鏈
+  About: 關於
+  Lab: 實驗室
+  Project: 專案
+  Theme: 主題
+  Me: 博主
+  Memory: 記憶
+
+toc: 目錄
+
+sideUser:
+  donate: 打賞
+  about: 簡介
+
+copyright:
+  author: 作者
+  link: 鏈接
+  license: 版權聲明
+  content: 本博客所有文章除特別聲明外，均採用 <a href="%s">%s</a> 許可協議。轉載請註明原鏈接！
+
+sideButtons:
+  backToTop: 頂部
+  toComment: 評論
+
+localSearch:
+  placeholder: 鍵入搜索
+  empty: (っ╥╯﹏╰╥c) 很抱歉沒有查到這個詞，請換一個詞查詢
+  firstSearch: 第一次搜索，正在加載 index 文件... 請稍等
+
+origin: 原創
+
+category:
+  categories: 分類
+  category: 分類
+  tags: 標籤
+  tag: 標籤
+
+readmore: 閱讀更多
+
+copy:
+  success: 複製成功！
+  error: 複製失敗，請重新嘗試！
