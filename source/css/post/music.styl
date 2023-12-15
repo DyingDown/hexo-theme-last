@@ -166,7 +166,7 @@ color:#2b2b2b;
   list-style-type: none ;
   margin-left: 20px
   position relative
-#post-content ul li:before
+#post-content ul li:not(:has(input[type="checkbox"])):before
   content: "" // \f8d9
   background: rgba($color1, .5);
   width: 12px;
@@ -212,15 +212,44 @@ color:#2b2b2b;
   color: $color1
   position absolute
   top: 3.5px
-  left: -25px
-  width: 15px;
-  height: 15px;
+  left: -24px
+  width: 17px;
+  height: 17px;
   text-align: center
   line-height: 16px
-  border: 2px solid rgba($color1, .5)
+  border: 1px solid rgba($color1, .5)
   background: rgba($color1, 0.1)
   border-radius: 20px
   letter-spacing: -2px !important
+  font-size 14px
+  font-family "sans serif"
+
+
+/* checkbox 样式 */
+#post-content 
+  input[type=checkbox]
+    width: 0;
+    margin-left 0
+    padding-left: 0
+
+  li > input:checked:before,
+  li > input[checked]:before,
+  input[type="checkbox"]:checked:before
+    content: '';
+    background-color: white;
+    background: url('/img/checked.svg') no-repeat center, $color2;
+    
+  li input::before
+    content: "";
+    display: inline-block;
+    width: 1.0125rem;
+    height: 1.0125rem;
+    border: 1px solid $color2;
+    border-radius: 0.2rem;
+    background-color: #fdfdfd;
+    margin-left: -1rem;
+    margin-right: 0.1rem;
+    margin-top: -.1rem;
 
 
 /* 引用
@@ -250,6 +279,16 @@ color:#2b2b2b;
     background: rgba($color1, 0.1);
 
 
+#post-content blockquote 
+    footer
+        display block
+        width: calc(100% - 40px)
+        margin-top 8px
+        text-align right
+        word-break break-all
+        &:before
+            content: "——"
+            
 #post-content blockquote p
   color: #595959;
 
@@ -328,7 +367,8 @@ color:#2b2b2b;
 
 /* 行内代码 */
 #post-content p code,
-#post-content li code {
+#post-content li code,
+#post-content table code {
   color: $color4;
   background: $color5;
   padding:0 2px;

@@ -6,7 +6,8 @@
     border-radius: 10px 10px 0 0
     color: $codeHeadTxColor;
     z-index 2
-    .code-lang
+    .code-lang,
+    .code-info
         content: attr(class);
         height:38px;
         line-height:38px;
@@ -16,6 +17,14 @@
         // z-index:1;
         pointer-events:none
         letter-spacing: 0px
+    .code-info
+        &:before
+            content: " | "
+            color: $codeHeadTxColor
+    .code-lang
+        margin-left: 70px
+    a
+        border-bottom 0px !important
     .codeblock-buttons
         diplay: inline
         float: right
@@ -70,6 +79,16 @@ figure table
         // cursor:url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/texto.cur),auto
         font-family: "consolas" !important;
         text-align: left
+        color: $numberColor !important;
+        .line
+            display inline-block
+            width: 100%
+            &:hover
+                background-color:rgba(200,200,200,.1)
+        .marked
+            background-color:rgba(200,200,200,.1)
+            
+        
 
 
 .highlight td.gutter 
@@ -86,22 +105,16 @@ figure table
     width:30px
     pre
         text-align:right
-        color: $numberColor !important;
 
 
 .highlight td
     padding 0px
+    
 .highlight table tr td:last-child
     width: 100%
 .highlight table td,
 .highlight table th
     border none !important
-
-
-.highlight .code .line:hover 
-    background-color:rgba(255,255,255,.1)
-
-
 
 
 // .code-block-fullscreen table {

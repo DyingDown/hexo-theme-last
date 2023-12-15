@@ -284,8 +284,57 @@ body
     line-height: 25px
 #post-content table tr th,
 #post-content table tr td 
-    text-align: center
+    // text-align: center
     padding: 5px 15px
+    &[align="left"]
+        text-align: left;
+
+    &[align="center"] 
+        text-align: center;
+
+    &[align="right"] 
+        text-align: right;
+    &:not([align])
+        /* 默认样式，根据需要设置 */
+        text-align: left;
+
+
+#post-content kbd
+  background-color: hsl(0deg, 0%, 99%);
+  border-radius: 3px;
+  border: 1px solid hsl(0deg, 0%, 80%);
+  box-shadow 1px 1px 1px black
+  padding: 0.5px 7px;
+  font-weight: bold;
+
+#post-content dt
+    padding: 5px;
+    font-weight: bold;
+    &:after 
+        content: ":";
+#post-content dt + dd
+    text-indent 40px
+
+#post-content 
+    sup
+        font-size smaller
+        vertical-align super
+    sub
+        font-size smaller
+        vertical-align sub
+    cite
+        font-style italic
+    .video-container
+        position: relative;
+        width: 100%; /* 设置宽度为父元素的一半 */
+        padding-bottom: 56.25%; /* 16:9 比例的视频高度占容器宽度的百分比 */
+        margin: 0 auto; /* 水平居中 */
+        iframe
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
 
 // bottom
 #bottom-inner

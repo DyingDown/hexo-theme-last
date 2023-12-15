@@ -15,7 +15,7 @@ block content
         .content
           .one-line
             time(datetime=date_xml(article.date))= full_date(article.date,'MM-DD')
-            a.title(href=url_for(article.path))= article.title
+            a.title(href=url_for(article.path))!= article.title == "" ? "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" : article.title
           .tags
             i.fas.fa-paperclip
             each category, index in article.categories.data

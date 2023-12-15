@@ -43,6 +43,8 @@ else if $type == "split"
     .post-content 
       p
         word-break: break-word
+        a
+          color: white
       h3 
         a
           font-size: 22px;
@@ -51,6 +53,9 @@ else if $type == "split"
           line-height: 25px
           display block
           margin: 10px 0
+        &:hover
+          text-decoration underline
+          color: $minorColor
 .timeline-item:nth-of-type(2n) .timeline-info .post-time:after,
 .timeline-item:nth-of-type(2n+1) .timeline-info .post-time:after
   content: " ";
@@ -96,6 +101,8 @@ else if $type == "split"
           a
             font-size: 25px;
             color: white
+            &:hover
+              text-decoration underline
 
 
   .timeline-item:nth-of-type(2n) ,
