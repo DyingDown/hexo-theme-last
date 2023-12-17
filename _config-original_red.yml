@@ -53,7 +53,7 @@ menu:
     ico: link
 
 # Avatar 头像
-avatar: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202312171335784.jpeg #https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304150220218.png
+avatar: https://s1.ax1x.com/2020/04/17/JEjcB8.png #https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304150220218.png
 # Site logo, if true, it replace the place of site name 
 # by using image or svg 
 logo: 
@@ -66,7 +66,7 @@ aboutme: "&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piec
 themeColor:
   on: true
   mainColorSeries: black # white
-  minorColorSeries: "#4870ac"
+  minorColorSeries: "#d31b29"
   customize: 
     on: true
     mainColor: "#fff"
@@ -172,7 +172,7 @@ toc:
 postStyle:
   ## also the catalog's positon 同样也是目录的位置
   authorInfoPosition: right # right, left
-  contentStyle: latis # music microsoft github latis
+  contentStyle: github # music microsoft github
   color: "theme" # "theme" or "default" or "#xxxxxx" or "color name"
   # "theme" means follow the theme color
   # "default" means default suitable color
@@ -240,7 +240,7 @@ PostDefaultImage: https://s1.ax1x.com/2020/04/25/J6iz9K.jpg
 # Or you can use it in your md file 
 # Warning: true  # write this in your md file
 Warning:
-  on: true # if is true, every article have this note 如果选择true，所有的文章都带有提示信息
+  on: false # if is true, every article have this note 如果选择true，所有的文章都带有提示信息
   Days: 5 # Day,  after these days, your post will show out of date content
   Content: "This article was written {} days ago. The content of the article may be out of date."
 
