@@ -12,6 +12,8 @@ $carouselBlur = hexo-config("carousel.blur.px") || 5
 
 $lineClamp = hexo-config("clampLines") || 9
 
+$frostedGlass = hexo-config("carousel.blur.frostedGlassCard") || false
+
 if $carouselMask == true
     $MaskColor = convert(hexo-config("carousel.mask.color")) || #000
     $MaskColorO = hexo-config("carousel.mask.opacity") || 0.5
@@ -99,7 +101,10 @@ else if $carouselIndicatorsPos == 'right'
     background-position: center center
     background-repeat: no-repeat
     background-size: cover;
-    filter: blur(unit($carouselBlur, px))
+    
+if $frostedGlass == false
+    .blur
+        filter: blur(unit($carouselBlur, px))
 // arrow prev next
 .fa-chevron-left,
 .fa-chevron-right
@@ -122,6 +127,17 @@ else if $carouselIndicatorsPos == 'right'
     // vertical-align: middle
     z-index: 5
     color: $carouselTextColor
+
+if $frostedGlass == true
+    .carouselContent
+        padding: 150px 40px
+        border-radius 15px
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(unit($carouselBlur, px));
+        border: 2px solid rgba(220, 220, 220, 0.1);
+        box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+    
 .carouselContent h2
     font-size: 40px;
     line-height: 60px;
@@ -151,6 +167,10 @@ else if $carouselIndicatorsPos == 'right'
         .carouselContent h2
             font-size: 35px;
             line-height: 40px;
+        
+        if $frostedGlass == true
+            .carouselContent
+                padding: 40px
 
 /******* articles **********/
 .recent-post-item

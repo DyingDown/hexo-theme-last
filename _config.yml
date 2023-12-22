@@ -22,25 +22,22 @@ menu:
       Economy:
         path: /
         ico: yen-sign
-      Mathmatics:
-        path: /
-        ico: credit-card
   Archives:
     path: /archives
     ico: archive
   Tag:
     path: /tags
     ico: tag
-  About:
-    path: "#"
-    ico: lightbulb
-    submenu:
-      Me:
-        path: /about
-        ico: heart
-      Theme:
-        path: /theme-last-guide/site/
-        ico: puzzle-piece
+  # About:
+  #   path: "#"
+  #   ico: lightbulb
+  #   submenu:
+  #     Me:
+  #       path: /about
+  #       ico: heart
+  #     Theme:
+  #       path: /theme-last-guide/site/
+  #       ico: puzzle-piece
   Last:
     path: /theme-last-guide/site
     ico: puzzle-piece
@@ -62,7 +59,7 @@ aboutme: "&nbsp;&nbsp;The Jigsaw puzzle is incomplete with even one missing piec
 themeColor:
   on: true
   mainColorSeries: black # white
-  minorColorSeries: "rgb(98,185,0)" # "#d31b29"
+  minorColorSeries: "rgb(98,185,0)" # "#d31b29" rgb(98,185,0)
   customize: 
     on: true
     mainColor: "#fff"
@@ -106,7 +103,8 @@ carousel:
     opacity: 0.5 # float number 0 - 1 eg. 0.55
   blur:
     on: true
-    px: 8
+    px: 20
+    frostedGlassCard: true
   textColor: "#fff" # Hex or color name 16进制的颜色或者颜色名字
 
 # Search Function
@@ -154,7 +152,7 @@ toc:
 postStyle:
   ## also the catalog's positon 同样也是目录的位置
   authorInfoPosition: right # right, left
-  contentStyle: lapis # music microsoft github lapis gitbook(support not well)
+  contentStyle: music # music microsoft github lapis gitbook(support not well)
   color: "theme" # "theme" or "default" or "#xxxxxx" or "color name"
   # "theme" means follow the theme color
   # "default" means default suitable color
