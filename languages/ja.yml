@@ -1,0 +1,47 @@
+header:
+  Home: ホーム
+  Category: カテゴリ
+  Archives: アーカイブ
+  Tag: タグ
+  Friends: フレンド
+  About: 約
+  Lab: ラボ
+  Project: プロジェクト
+  Theme: テーマ
+  Me: 主催者
+  Memory: 思い出
+
+toc: 目次
+
+sideUser:
+  donate: 寄付
+  about: 簡介
+
+copyright:
+  author: 著者
+  link: リンク
+  license: 著作権の声明
+  content: すべての記事は特に記載されていない限り、<a href="%s">%s</a> ライセンスに従っています。転載する際は、元のリンクを明記してください。
+
+sideButtons:
+  backToTop: トップ
+  toComment: コメント
+
+localSearch:
+  placeholder: 検索する
+  empty: (っ╥╯﹏╰╥c) 申し訳ありませんが、この言葉は見つかりませんでした。別の言葉で検索してください。
+  firstSearch: 初めての検索、index ファイルを読み込んでいます... しばらくお待ちください
+
+origin: オリジナル
+
+category:
+  categories: カテゴリ
+  category: カテゴリ
+  tags: タグ
+  tag: タグ
+
+readmore: 続きを読む
+
+copy:
+  success: コピー成功！
+  error: コピーに失敗しました。もう一度お試しください。

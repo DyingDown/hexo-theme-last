@@ -9,6 +9,9 @@ header:
   About: About
   Lab: Lab
   Project: Project
+  Theme: Theme
+  Me: Me
+  Memory: Memory
 
 sideUser:
   donate: DONATE
@@ -23,3 +26,18 @@ copyright:
 sideButtons:
   backToTop: TOP
   toComment: COMMENT
+
+localSearch:
+  placeholder: Type to search
+  empty: (っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word
+  first: First Search, loading index file... please wait
+
+origin: ORIGIN
+
+category:
+  categories: Categories
+  category: Category
+  tags: Tags
+  tag: TAG
+
+readmore: Read More

@@ -25,7 +25,7 @@ block content
               .timeline-content
                 .post-content
                   h3.timeline-title
-                    a(href=url_for(article.path))!= article.title
+                    a(href=url_for(article.path))!= article.title == "" ? "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" : article.title
                   if article.description
                     p!= article.description
                   else

@@ -1,27 +1,34 @@
+/*
+https://github.com/YiNNx/typora-theme-lapis
+
+This is a very good looking theme from typora
+
+*/
+
 @import "colors.styl"
-@font-face {
-  font-family: "Cantarell";
-  src: url('lapis/Cantarell-Regular.ttf');
-}
+// @font-face {
+//   font-family: "Cantarell";
+//   src: url('lapis/Cantarell-Regular.ttf');
+// }
 
-@font-face {
-  font-family: "JetBrainsMono";
-  src: url('lapis/JetBrainsMono-Regular.ttf');
-}
+// @font-face {
+//   font-family: "JetBrainsMono";
+//   src: url('lapis/JetBrainsMono-Regular.ttf');
+// }
 
-@font-face {
-  font-family: "SourceHanSerifCN";
-  src: url('lapis/SourceHanSerifCN-Regular.otf');
-}
+// @font-face {
+//   font-family: "SourceHanSerifCN";
+//   src: url('lapis/SourceHanSerifCN-Regular.otf');
+// }
 
-@font-face {
-  font-family: "SourceHanSerifCN";
-  src: url('lapis/SourceHanSerifCN-Bold.otf');
-  font-weight: bold;
-}
+// @font-face {
+//   font-family: "SourceHanSerifCN";
+//   src: url('lapis/SourceHanSerifCN-Bold.otf');
+//   font-weight: bold;
+// }
 
 #post-content {
-    max-width: 950px;
+    // max-width: 950px;
     font-size: 1rem;
     color: var(--text-color);
     line-height: 1.6;
@@ -57,6 +64,14 @@
   line-height: 1.8rem;
   color: rgb(58, 71, 73);
 }
+#post-content blockquote 
+    footer
+        display block
+        margin-top 8px
+        text-align right
+        word-break break-all
+        &:before
+            content: "——"
 
 #post-content h1,
 #post-content h2,
@@ -74,15 +89,17 @@
   text-align: center;
 }
 
-#post-content h2 {
- display: inline-block;
- font-weight: bold;
- background: $color1;
- color: #ffffff;
- padding: 1px 15px 1px;
- border-radius: 4px;
- margin-right: 3px;
-}
+#post-content h2 
+  display: inline-block;
+  font-weight: bold;
+  background: $color1;
+  color: #ffffff;
+  padding: 1px 15px 1px;
+  border-radius: 4px;
+  margin-right: 3px;
+h2::after
+  width: 100%;
+
 
 #post-content h1 { font-size: 2rem; }
 #post-content h2 { font-size: 1.5rem; }
@@ -130,6 +147,7 @@
 
 #post-content  em {
   padding: 0 3px 0 0;
+  font-style italic
 }
 
 #post-content blockquote {
@@ -217,32 +235,28 @@
   border-radius: 2px;
 }
 
-#post-content input[type=checkbox] {
-  width: 0;
-}
+/* checkbox 样式 */
+#post-content 
+  input[type=checkbox]
+    width: 0;
+    margin-left 0
+    padding-left: 0
 
-#post-content li input::before {
-  content: "";
-  display: inline-block;
-  width: 1.0125rem;
-  height: 1.0125rem;
-  vertical-align: middle;
-  text-align: center;
-  border: 1px solid $color2;
-  border-radius: 1.2rem;
-  background-color: #fdfdfd;
-  margin-left: -1rem;
-  margin-right: 0.1rem;
-  margin-top: -.1rem;
-}
-
-
-li input:checked::before {
-  content: '✓';
-  font-weight: bold;
-  -webkit-text-stroke: 1px $color1;
-  color: $color1;
-  background-color: white;
-  font-size: 0.75rem;
-  line-height: 0.8rem;
-}
+  li > input:checked:before,
+  li > input[checked]:before,
+  input[type="checkbox"]:checked:before
+    content: '';
+    background-color: white;
+    background: url('/img/checked.svg') no-repeat center, $color2;
+    
+  li input::before
+    content: "";
+    display: inline-block;
+    width: 1.0125rem;
+    height: 1.0125rem;
+    border: 1px solid $color2;
+    border-radius: 0.2rem;
+    background-color: #fdfdfd;
+    margin-left: -1rem;
+    margin-right: 0.1rem;
+    margin-top: -.1rem;

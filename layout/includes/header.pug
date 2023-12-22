@@ -10,10 +10,10 @@ meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-sc
             a= config.author
     div.search
         if theme.localSearch.on
-            input#local-search-input(tpye="text" placeholder=theme.localSearch.placeholder)
+            input#local-search-input(tpye="text" placeholder=__(`localSearch.placeholder`))
             span.search-icon
                 i.fa.fa-search
-            div#local-search-result.local-search-result-cls
+            div#local-search-result.local-search-result-cls(data-empty=__("localSearch.empty") data-first=__("localSearch.first"))
     .menu
         //- the button of hidden menu for phone
         ul.menu-icon
@@ -30,4 +30,4 @@ meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-sc
                             ul.submenu-items
                                 each sublabel, subindex in label.submenu
                                     li.subitem-name
-                                        a(href=url_for(sublabel.path))!= '<i class="fas fa-' + sublabel.ico + '"></i> ' + subindex
+                                        a(href=url_for(sublabel.path))!= '<i class="fas fa-' + sublabel.ico + '"></i> ' + (__(`header.${subindex}`) == "header."+subindex ? subindex : __(`header.${subindex}`))

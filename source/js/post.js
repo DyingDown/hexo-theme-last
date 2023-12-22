@@ -136,11 +136,20 @@ function AddLanguageName(pre, index) {
     if (language == 'MD') language = 'MarkDown'
     if (language == 'PY') language = 'PYTHON'
 
+    // if codeblock has a <figcaption></figcaption>
+    var Figcaption = pre.querySelector('figcaption');
+    console.log(Figcaption);
+    if(Figcaption != null) {
+        // pre.parentNode.insertBefore(Figcaption, pre);
+        pre.removeChild(Figcaption);
+    }
+
     // set code blocks class to help do copy
     var code = pre.children[0].children[0].children[0].children[1];
     code.setAttribute("class", "codeblock-content")
     code.setAttribute("id", "codeblock-" + index.toString())
 
+    
     // add header to the codeblock
     var preHeader = document.createElement("div")
     preHeader.setAttribute("class", "code-block-header")
@@ -167,6 +176,12 @@ function AddLanguageName(pre, index) {
 
     codeblockButtons.appendChild(fullscreenBtn)
     preHeader.appendChild(langName);
+    if(Figcaption) {
+        while (Figcaption.firstChild) {
+            Figcaption.firstChild.setAttribute("class", "code-info")
+            preHeader.appendChild(Figcaption.firstChild);
+        }
+    }
     preHeader.appendChild(codeblockButtons);
 
     pre.parentNode.insertBefore(preHeader, pre)

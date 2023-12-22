@@ -11,9 +11,9 @@ block content
       #post
         #titles
           span.ribbon
-            span.ri Origin
+            span.ri!= __("origin")
           #first-line
-            h1= page.title
+            h1!= page.title == "" ? "&nbsp" : page.title
             .date
               span.post-title-icons
                 i.fa.fa-calendar

@@ -9,14 +9,14 @@ block content
       - var categoriesList = list_categories({ show_count: theme.tagsPage.category.show_count })
       - var tagsList = list_tags({ show_count: theme.tagsPage.tag.show_count })
       #categories
-        h1 Categories
+        h1!= __("category.categories")
         if categoriesList
           != list_categories({show_count: theme.tagsPage.category.show_count, style: span, depth: 1})
         else
           p None.
       br
       #tags
-        h1 Tags
+        h1!= __("category.tags")
         if tagsList
           != tagsList
         else

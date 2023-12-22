@@ -35,7 +35,9 @@
     border-bottom: $color1 solid 2px
 
 #post-content p
-    line-height: 30px
+    line-height: 28px
+    margin: 10px 0
+    
 /* 无序列表整体样式
 * list-style-type: square|circle|disc;
 */
@@ -46,13 +48,13 @@
   margin-left: 20px
   position relative
   line-height: 30px
-#post-content ul li:before
+#post-content ul li:not(:has(input[type="checkbox"])):before
   content: " " // \f8d9
   background-color: $color4
   width: 12px;
   height: 12px;
   border-radius: 20px
-  top 6px;
+  top 9px;
   left -20px;
   position: absolute
 
@@ -73,7 +75,7 @@
   height: 6px;
   border: solid 3px $color4;
   border-radius: 0px
-  top 6px;
+  top 9px;
   left -20px;
   position: absolute
 /* 有序列表整体样式
@@ -86,7 +88,7 @@
   color: #595959;
   position relative
   margin-left: 23px
-#post-content ol li::before
+#post-content ol>li::before
   content: counter(li)
   counter-increment: li 1
   color: white
@@ -100,6 +102,33 @@
   background: $color4
   border-radius: 20px
   font-size: 14px
+
+
+/* checkbox 样式 */
+#post-content 
+  input[type=checkbox]
+    width: 0;
+    margin-left 0
+    padding-left: 0
+
+  li > input:checked:before,
+  li > input[checked]:before,
+  input[type="checkbox"]:checked:before
+    content: '';
+    background-color: white;
+    background: url('/img/checked.svg') no-repeat center, $color4; 
+  
+  li input::before
+    content: "";
+    display: inline-block;
+    width: 1.0125rem;
+    height: 1.0125rem;
+    border: 1.5px solid $color4;
+    border-radius: 2.2rem;
+    background-color: #fdfdfd;
+    margin-left: -1rem;
+    margin-right: 0.1rem;
+    margin-top: -.1rem;
 
 
 /* 引用
@@ -127,6 +156,18 @@
     content: "❞";
     float: right;
     color: rgba($color1, .5);
+
+#post-content blockquote 
+    p
+        text-indent 30px
+    footer
+        display block
+        width: calc(100% - 40px)
+        margin-top 8px
+        text-align right
+        word-break break-all
+        &:before
+            content: "——"
 
 /* 链接
 */
@@ -164,7 +205,7 @@
 */
 #post-content hr
     border: none;
-    border-top: 6px dotted $color1
+    border-top: 3px dotted $color1
     height: 0
 
 /* 图片
@@ -179,13 +220,15 @@
 
 /* 行内代码 */
 #post-content p code,
-#post-content li code
+#post-content li code,
+#post-content table code 
     background-color: rgba($color1, 0.1) //$color1
     padding: 0 3px
     border-radius: 5px
     margin: 0 2px
     color: black
     border: solid $color1 1px
+    line-height 25px
 
 /*
 * 表格内的单元格

@@ -1,0 +1,43 @@
+toc: Catálogo
+
+header:
+  Home: Inicio
+  Category: Categoría
+  Archives: Archivos
+  Tag: Etiqueta
+  Friends: Amigos
+  About: Acerca de
+  Lab: Laboratorio
+  Project: Proyecto
+  Theme: Tema
+  Me: Yo
+  Memory: Memoria
+
+sideUser:
+  donate: DONAR
+  about: ACERCA DE
+
+copyright:
+  author: Autor
+  link: Enlace
+  license: Licencia
+  content: Todos los artículos de este blog están bajo licencia <a href="%s">%s</a> a menos que se indique lo contrario.
+
+sideButtons:
+  backToTop: ARRIBA
+  toComment: COMENTARIO
+
+localSearch:
+  placeholder: Escriba para buscar
+  empty: (っ╥╯﹏╰╥c) Lo siento, no puedo encontrar la palabra, por favor, pruebe con otra palabra
+  first: Primera búsqueda, cargando el archivo de índice... por favor, espere
+
+origin: ORIGEN
+
+category:
+  categories: Categorías
+  category: Categoría
+  tags: Etiquetas
+  tag: ETIQUETA
+
+readmore: Leer más

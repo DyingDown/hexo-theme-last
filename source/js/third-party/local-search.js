@@ -23,7 +23,9 @@ var searchFunc = function(path, search_id, content_id) {
     var BTN = "<i id='local-search-close'>×</i>";
     var $input = document.getElementById(search_id);
     var $resultContent = document.getElementById(content_id);
-    $resultContent.innerHTML = "<ul><span class='local-search-empty'>First Search, loading index file... please wait<span></ul>";
+    var $emptySearch = $resultContent.getAttribute("data-empty");
+    var $firstSearch = $resultContent.getAttribute("data-first");
+    $resultContent.innerHTML = "<ul><span class='local-search-empty'>" + $firstSearch + "<span></ul>";
     $.ajax({
         // 0x01. load xml file
         url: path,
@@ -119,7 +121,7 @@ var searchFunc = function(path, search_id, content_id) {
                 });
                 str += "</ul>";
                 if (str.indexOf('<li>') === -1) {
-                    return $resultContent.innerHTML = "<ul><span class='local-search-empty'>(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word<span></ul>";
+                    return $resultContent.innerHTML = "<ul><span class='local-search-empty'>" + $emptySearch + "<span></ul>";
                 }
                 $resultContent.innerHTML = str;
             });

@@ -61,8 +61,18 @@ li>ul
     color: #FEEEED; 
     background: #000; 
     box-shadow: #84A1A8 0px 10px 15px;
-#post-content blockquote p
-    display inline;
+#post-content blockquote 
+    p
+        display inline;
+    footer
+        display block
+        width: calc(100% - 60px)
+        margin-top 8px
+        text-align right
+        word-break break-all
+        &:before
+            content: "——"
+
 #post-content blockquote::before
     content: "👣"
     color: #FFF
@@ -72,7 +82,7 @@ li>ul
 #post-content blockquote::after
     content: "”"
     float: right; 
-    display: inline; 
+    display: block; 
     color: #FFF; 
     font-size: 3em; 
     line-height: 1em; 
@@ -105,7 +115,7 @@ p
   list-style-type: none ;
   margin-left: 20px
   position relative
-#post-content ul li:before
+#post-content ul li:not(:has(input[type="checkbox"])):before
     content: "" // \f8d9
     background: none;
     width: 7px;
@@ -162,6 +172,33 @@ p
   border-radius: 20px
   border: 1px solid $color1
   font-size: 14px
+
+/* checkbox 样式 */
+#post-content 
+  input[type=checkbox]
+    width: 0;
+    margin-left 0
+    padding-left: 0
+
+  li > input:checked:before,
+  li > input[checked]:before,
+  input[type="checkbox"]:checked:before
+    content: '';
+    background-color: white;
+    background: url('/img/checked.svg') no-repeat center, $color2;
+    
+  li input::before
+    content: "";
+    display: inline-block;
+    width: 1.0125rem;
+    height: 1.0125rem;
+    border: 1px solid $color2;
+    border-radius: 0.2rem;
+    background-color: #fdfdfd;
+    margin-left: -1rem;
+    margin-right: 0.1rem;
+    margin-top: -.1rem;
+    
 #post-content a
     color: $color1
 /* 加粗 */
@@ -188,7 +225,8 @@ p
 
 /* 行内代码 */
 #post-content p code,
-#post-content li code
+#post-content li code,
+#post-content table code 
     background-color: rgb(245, 245, 245)//rgba($color1, 0.8)
     padding: 0 3px
     border-radius: 5px

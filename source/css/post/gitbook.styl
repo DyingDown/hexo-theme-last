@@ -210,6 +210,15 @@ blockquote h6 {
     margin: 0.5rem 0rem 0.5rem 0rem;
 }
 
+#post-content blockquote 
+    footer
+        display block
+        margin-top 8px
+        text-align right
+        word-break break-all
+        &:before
+            content: "——"
+
 #post-content ul li:not(:has(input[type="checkbox"])) {
   list-style-type: disc;
 }
@@ -222,12 +231,12 @@ blockquote h6 {
   list-style-type: decimal;
 }
 
-li > ol,
-li > ul {
+#post-content li > ol,
+#post-content li > ul {
     margin: 0 0;
 }
 
-hr {
+#post-content hr {
     height: 1px;
     padding: 0;
     margin: 16px 0;
@@ -237,13 +246,21 @@ hr {
     box-sizing: content-box;
 }
 
-li p.first {
+
+#post-content li p.first {
     display: inline-block;
 }
 
-ul,
-ol {
-    padding-left: 30px;
+#post-content ul li,
+#post-content ol li {
+  margin: 0.4rem 0;
+}
+
+#post-content ul,
+#post-content ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 20px;
 }
 
 ul:first-child,
@@ -267,8 +284,7 @@ ol:last-child {
 
 // /*BLOCKQUOTE*/
 
-blockquote {
-    width: 100%;
+#post-content blockquote {
     background-color: var(--boxes);
     border-left: 4px solid var(--primary-color);
     border-radius: 0.3rem;
@@ -276,7 +292,7 @@ blockquote {
     border-right: 4px solid var(--boxes); /* removes arc with tiny blue color from top-right and bottom-right corner */
 }
 
-blockquote blockquote {
+#post-content blockquote blockquote {
     padding-right: 0;
 }
 
@@ -348,16 +364,21 @@ blockquote blockquote {
 
 // /*CHECKBOXES*/
 
+
+#post-content input[type=checkbox] {
+  width: 0;
+}
 #post-content li > input:before,
 #post-content input[type="checkbox"]:before {
     border-radius: 0.2rem;
     margin-top: -0.08rem;
-    margin-left: -0.08rem;
+    margin-left: -1rem;
+    margin-right: 0.1rem;
     width: 1rem;
     height: 1rem;
     background-color: var(--borders);
     content: " ";
-    display: block;
+    display: inline-block;
     transition-duration: 0.3s;
     transition-property: background-color;
 }

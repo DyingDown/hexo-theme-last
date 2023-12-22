@@ -53,7 +53,7 @@ menu:
     ico: link
 
 # Avatar 头像
-avatar: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202312171335784.jpeg #https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304150220218.png
+avatar: https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202312171357016.jpeg #https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202312171335784.jpeg #https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202304150220218.png
 # Site logo, if true, it replace the place of site name 
 # by using image or svg 
 logo: 
@@ -110,7 +110,7 @@ carousel:
     opacity: 0.5 # float number 0 - 1 eg. 0.55
   blur:
     on: true
-    px: 10
+    px: 4
   textColor: "#fff" # Hex or color name 16进制的颜色或者颜色名字
 
 # Search Function
@@ -121,8 +121,6 @@ carousel:
 #   content: true
 localSearch:
   on: true
-  placeholder: "Type to search"
-  # emptyHolder: "(っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word" # not apply
 
 algolia:
   appId: "HZ8RKPY89N"
@@ -172,7 +170,7 @@ toc:
 postStyle:
   ## also the catalog's positon 同样也是目录的位置
   authorInfoPosition: right # right, left
-  contentStyle: latis # music microsoft github latis
+  contentStyle: lapis # music microsoft github lapis gitbook(support not well)
   color: "theme" # "theme" or "default" or "#xxxxxx" or "color name"
   # "theme" means follow the theme color
   # "default" means default suitable color
@@ -240,8 +238,8 @@ PostDefaultImage: https://s1.ax1x.com/2020/04/25/J6iz9K.jpg
 # Or you can use it in your md file 
 # Warning: true  # write this in your md file
 Warning:
-  on: true # if is true, every article have this note 如果选择true，所有的文章都带有提示信息
-  Days: 5 # Day,  after these days, your post will show out of date content
+  on: false # if is true, every article have this note 如果选择true，所有的文章都带有提示信息
+  Days: 30 # Day,  after these days, your post will show out of date content
   Content: "This article was written {} days ago. The content of the article may be out of date."
 
 ######### footer social icons
