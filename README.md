@@ -2,7 +2,7 @@
 
 Welcome to My Hexo Theme Last! This theme is designed to be sleek, customizable, and packed with features.
 
-For detailed instructions on how to install and configure this theme, please refer to our [documentation](https://hexo-theme-last.github.io/theme-last-guide/site/).
+For detailed instructions on how to install and configure this theme, please refer to our [documentation](https://dyingdown.github.io/theme-last-guide/site/).
 
 ## Preview
 
