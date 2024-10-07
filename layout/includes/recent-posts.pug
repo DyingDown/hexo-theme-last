@@ -11,7 +11,7 @@
         //- put post list
         ul.postList
           //- each post in carouselPosts
-          for post in site.posts.data
+          for post in site.posts.sort('date', -1).toArray()
             if post.isCarousel != undefined && post.isCarousel && post.postImage != undefined && post.postImage
               li.postCarousel(style="background-image:url(" + post.postImage + ")")
                 if theme.carousel.blur.on
