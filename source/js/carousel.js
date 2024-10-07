@@ -117,5 +117,5 @@ function autoCarousel() {
         move(postList, "left", -widthOfCarousel * currentPictureIndex, 80, function() {
             setDotStyle();
         });
-    }, 3000);
+    }, 6500);
 }
