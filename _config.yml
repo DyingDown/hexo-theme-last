@@ -3,7 +3,7 @@ menu:
   Home: 
     path: /
     ico: home
-  Lab:
+  Categories:
     path: 
     ico: list
     submenu: 
@@ -28,18 +28,18 @@ menu:
   Tag:
     path: /tags
     ico: tag
-  About:
-    path: "#"
-    ico: lightbulb
-    submenu:
-      Me:
-        path: /about
-        ico: heart
-      Theme:
-        path: /theme-last-guide/site/
-        ico: puzzle-piece
+  # About:
+  #   path: "#"
+  #   ico: lightbulb
+  #   submenu:
+  #     Me:
+  #       path: /about
+  #       ico: heart
+  #     Theme:
+  #       path: /theme-last-guide/site/
+  #       ico: puzzle-piece
   Last:
-    path: /theme-last-guide/site
+    path: https://dyingdown.github.io/theme-last-guide/site
     ico: puzzle-piece
   Friends:
     path: /links
