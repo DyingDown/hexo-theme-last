@@ -3,17 +3,17 @@ menu:
   Home: 
     path: /
     ico: home
-  Category:
+  Lab:
     path: 
     ico: list
     submenu: 
       Creativiy:
         path: /categories/life
         ico: lightbulb
-      Art:
+      This is a long name:
         path: /art
         ico: palette
-      Math:
+      ThisIsALongName:
         path: /
         ico: chart-bar
       Physisc:
@@ -28,16 +28,16 @@ menu:
   Tag:
     path: /tags
     ico: tag
-  # About:
-  #   path: "#"
-  #   ico: lightbulb
-  #   submenu:
-  #     Me:
-  #       path: /about
-  #       ico: heart
-  #     Theme:
-  #       path: /theme-last-guide/site/
-  #       ico: puzzle-piece
+  About:
+    path: "#"
+    ico: lightbulb
+    submenu:
+      Me:
+        path: /about
+        ico: heart
+      Theme:
+        path: /theme-last-guide/site/
+        ico: puzzle-piece
   Last:
     path: /theme-last-guide/site
     ico: puzzle-piece

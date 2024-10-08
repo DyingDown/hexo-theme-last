@@ -228,18 +228,20 @@ body.post > #menu-outer .search-icon
         .menu #nav
             overflow: visible
         .menu #nav .menu-items .item-name:hover > .submenu-items
-            display block;
+            display inline-block;
         .submenu-items
-            display none;
             position: absolute
+            display none;
+            left: 50%
             top: 66px;
-            left: 0
             background-color: $headerSubBg;
             padding: 5px 15px;
             border-radius: 10px;
             -webkit-animation fadeInUp .3s .1s ease both;
             -moz-animation fadeInUp .3s .1s ease both
+            animation fadeInUp .3s .1s ease both
             z-index: 2   
+            white-space: nowrap
             .subitem-name
                 width 100% !important
                 padding: 10px 0 !important
@@ -293,17 +295,24 @@ body.post > #menu-outer .search-icon
         @-webkit-keyframes fadeInUp 
             0%
                 opacity:0;
-                -webkit-transform:translateY(10px)
+                -webkit-transform:translateY(10px) translateX(-50%)
             100%
                 opacity:1;
-                -webkit-transform:translateY(0)
+                -webkit-transform:translateY(0) translateX(-50%)
         @-moz-keyframes fadeInUp 
             0%
                 opacity:0;
-                -moz-transform:translateY(10px)
+                -moz-transform:translateY(10px) translateX(-50%)
             100% 
                 opacity:1;
-                -moz-transform:translateY(0)
+                -moz-transform:translateY(0) translateX(-50%)
+        @keyframes fadeInUp 
+            0% 
+                opacity: 0;
+                transform: translateY(10px) translateX(-50%);
+            100% 
+                opacity: 1;
+                transform: translateY(0) translateX(-50%);
         
         /********* menu underline style ************/
         .menu #nav .menu-items .item-name 
