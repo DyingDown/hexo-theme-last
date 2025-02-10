@@ -19,9 +19,9 @@ menu:
       Physisc:
         path: /
         ico: atom
-      Economy:
-        path: /
-        ico: yen-sign
+      Gallery:
+        path: /categories/gallery
+        ico: album
   Archives:
     path: /archives
     ico: archive
@@ -289,7 +289,7 @@ SideButtons:
 ScrollBar:
   style: "bicolor" # "bicolor", "simple", "gradient"
   color: "theme" # "default" "theme" "#459798"
-  radius: 10 # 0~xxx px, 
+  shape: "round" # "square", "round"
   gradient:
     color1: "skyblue"
     color2: "purple"
