@@ -10,6 +10,11 @@ else if $scroll-bar-color == "theme"
 
 $scroll-bar-shape = hexo-config("ScrollBar.shape") || "round"
 
+if $scroll-bar-shape == "square"
+    $scroll-bar-radius = 0px
+else
+    $scroll-bar-radius = 10px
+
 $scroll-bar-style = hexo-config("ScrollBar.style") || "bicolor"
 @import 'includes/scroll-bar/' + $scroll-bar-style + '.styl'
 
