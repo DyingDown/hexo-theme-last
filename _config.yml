@@ -7,8 +7,8 @@ menu:
     path: "#"
     ico: list
     submenu: 
-      Memory:
-        path: /categories/memory
+      Gallery:
+        path: /categories/Gallery
         ico: camera
       OJ Prob:
         path: /categories/ACM
@@ -308,7 +308,7 @@ SideButtons:
 ScrollBar:
   style: "bicolor" # "bicolor", "simple", "gradient"
   color: "theme" # "default" "theme" "#459798"
-  radius: 10 # 0~xxx px, 
+  shape: "round" # "square", "round"
   gradient:
     color1: "skyblue"
     color2: "purple"
