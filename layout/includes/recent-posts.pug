@@ -37,9 +37,9 @@
                 a.navDot(href="javascript:;")= ""
       
 #recent-post-content
-  if page.posts.length > 0
+  if site.filtered_posts.length > 0
     #recent-posts
-      each post in page.posts.sort('date', -1).limit(24).toArray()
+      each post in site.filtered_posts.sort('date', -1).limit(24).toArray()
         .recent-post-item
           if post.categories.data.length == 0
             span.category &nbsp;

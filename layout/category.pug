@@ -1,7 +1,26 @@
 extends includes/layout.pug
 
 block content
-  if page.category == "ACM"
+  if page.category == 'Gallery'
+    #container.clearfix
+      div(id="grid" data-columns class="cols")
+        - page.posts.each(function(article){
+          - var bg = "background-color:#" + article.color
+          .box(style=bg)
+            if article.cover
+              img.feat-image(src=article.cover)
+            .container
+              h3!= article.title
+              if article.description
+                p!= article.description
+              else
+                p!= article.excerpt
+              .action
+                != full_date(article.date,'MMMM Do YYYY')
+                a(href=url_for(article.path))
+                  i.fa.fa-arrow-right
+        - })
+  else if page.category == "ACM"
     //- link(rel="stylesheet" href="../source/css/colorBox.styl")
     #home.post(role="main")
       #grid.row.flex-grid
