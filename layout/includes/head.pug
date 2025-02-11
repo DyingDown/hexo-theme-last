@@ -28,7 +28,10 @@ if theme.valine.on && theme.valine.fancyStyle.on
     else
         link(rel='stylesheet', href='/css/archive/archive-normal.css')
 - if (is_tag() || is_category())
-    link(rel='stylesheet', href='/css/category.css')
+    if page.category === "Gallery"
+        link(rel='stylesheet', href='/css/categories/colorBox.css')
+    else
+        link(rel='stylesheet', href='/css/category.css')
 - if (is_page())
     if page.title === 'links'
         link(rel='stylesheet', href='/css/links.css')

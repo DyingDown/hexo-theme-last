@@ -2,49 +2,49 @@ extends includes/layout.pug
 
 block content
   
-  if page.category == 'gallery'
-    //- if page.gallery
-    //-   #gallery-overview#container.clearfix
-    //-     div(id="grid" data-columns class="cols")
-    //-       - page.posts.each(function(article){
-    //-         - var bg = "background-color:#" + article.color
-    //-         .box(style=bg)
-    //-           if article.postImage
-    //-             img.feat-image(src=article.postImage)
-    //-           .container
-    //-             h3!= article.title
-    //-             if article.description
-    //-               p!= article.description
-    //-             else
-    //-               p!= article.excerpt
-    //-             .action
-    //-               != full_date(article.date,'MMMM Do YYYY')
-    //-               a(href=url_for(article.path))
-    //-                 i.fa.fa-arrow-right
-    //-       - })
-  #category-block
-    h1!= __("category.category") + ':' + " " + page.category
-    - var year
-    - page.posts.each(function(article){
-      .category-item
-        - var tempYear = date(article.date, 'YYYY')
-        if tempYear !== year
-          - year = tempYear
-          span.period
-            - var urlOfMon = '/archives/' + year
-            a(href=url_for(urlOfMon))!= year
-        .content
-          .one-line
-            time(datetime=date_xml(article.date))= full_date(article.date,'MM-DD')
-            a.title(href=url_for(article.path))!= article.title == "" ? "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" : article.title
-          .tags
-            i.fas.fa-tag
-            each tag, index in article.tags.data
-                a.words(href=url_for(tag.path)) #{tag.name} 
-    - })
-    //- - page.posts.each(function(article){
-    //-   .category-item
-    //-     a(href=url_for(article.path))= article.title
-    //-     time(datetime=date_xml(article.date))= date(article.date)
-    //- - })
+  if page.category == 'Gallery'
+    #container.clearfix
+      div(id="grid" data-columns class="cols")
+        - page.posts.each(function(article){
+          - var bg = "background-color:#" + article.color
+          .box(style=bg)
+            if article.cover
+              img.feat-image(src=article.cover)
+            .container
+              h3!= article.title
+              if article.description
+                p!= article.description
+              else
+                p!= article.excerpt
+              .action
+                != full_date(article.date,'MMMM Do YYYY')
+                a(href=url_for(article.path))
+                  i.fa.fa-arrow-right
+        - })
+  else 
+    #category-block
+      h1!= __("category.category") + ':' + " " + page.category
+      - var year
+      - page.posts.each(function(article){
+        .category-item
+          - var tempYear = date(article.date, 'YYYY')
+          if tempYear !== year
+            - year = tempYear
+            span.period
+              - var urlOfMon = '/archives/' + year
+              a(href=url_for(urlOfMon))!= year
+          .content
+            .one-line
+              time(datetime=date_xml(article.date))= full_date(article.date,'MM-DD')
+              a.title(href=url_for(article.path))!= article.title == "" ? "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" : article.title
+            .tags
+              i.fas.fa-tag
+              each tag, index in article.tags.data
+                  a.words(href=url_for(tag.path)) #{tag.name} 
+      - })
+      //- - page.posts.each(function(article){
+      //-   .category-item
+      //-     a(href=url_for(article.path))= article.title
+      //-     time(datetime=date_xml(article.date))= date(article.date)
+      //- - })
   include includes/pagination.pug

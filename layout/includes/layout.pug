@@ -7,6 +7,7 @@
 - if (is_month()) pageTitle += ': ' + page.month + '/' + page.year
 - if (is_year()) pageTitle += ': ' + page.year
 - if (is_post()) pageType = "post"
+- if ((is_tag() || is_category()) && (page.category === 'Gallery')) pageType = "post"
 - pageTitle += ' [ ' + config.title + ' ]'
 
 doctype html

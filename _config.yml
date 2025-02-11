@@ -20,7 +20,7 @@ menu:
         path: /
         ico: atom
       Gallery:
-        path: /categories/gallery
+        path: /categories/Gallery
         ico: album
   Archives:
     path: /archives
