@@ -3,6 +3,7 @@ toc: Catalog
 header:
   Home: Home
   Category: Category
+  Categories: Categories
   Archives: Archives
   Tag: Tag
   Friends: Friends
@@ -12,6 +13,7 @@ header:
   Theme: Theme
   Me: Me
   Memory: Memory
+  Gallery: Gallery
 
 sideUser:
   donate: DONATE
@@ -41,3 +43,7 @@ category:
   tag: TAG
 
 readmore: Read More
+
+copy:
+  success: Copy successful!
+  error: Copy failed, please try again!

@@ -10,7 +10,7 @@ var copyCode = new ClipboardJS('.code-copy-button', {
 copyCode.on("success", function(e) {
     message.show({
         type: "success",
-        text: "复制成功！",
+        text: i18n.copy.success,
         isClose: false
     })
 })
@@ -18,7 +18,7 @@ copyCode.on("success", function(e) {
 copyCode.on("error", function(e) {
     message.show({
         type: "error",
-        text: "复制失败，请重新尝试！",
+        text: i18n.copy.error,
         isClose: false
     })
 })

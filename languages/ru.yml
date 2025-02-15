@@ -1,6 +1,7 @@
 header:
   Home: Главная
   Category: Категория
+  Categories: Категории
   Archives: Архив
   Tag: Тег
   Friends: Друзья
@@ -10,6 +11,7 @@ header:
   Theme: Тема
   Me: Владелец блога
   Memory: Воспоминания
+  Gallery: Галерея
 
 toc: Содержание
 

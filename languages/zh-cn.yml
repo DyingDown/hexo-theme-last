@@ -1,6 +1,7 @@
 header:
   Home: 主页
   Category: 分类
+  Categories: 分类
   Archives: 归档
   Tag: 标签
   Friends: 友链
@@ -10,6 +11,7 @@ header:
   Theme: 主题
   Me: 博主
   Memory: 回忆
+  Gallery: 图集
 
 toc: 目录
 

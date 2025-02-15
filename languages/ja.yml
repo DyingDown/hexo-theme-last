@@ -1,6 +1,7 @@
 header:
   Home: ホーム
   Category: カテゴリ
+  Categories: カテゴリ
   Archives: アーカイブ
   Tag: タグ
   Friends: フレンド
@@ -10,6 +11,7 @@ header:
   Theme: テーマ
   Me: 主催者
   Memory: 思い出
+  Gallery: ギャラリー
 
 toc: 目次
 
