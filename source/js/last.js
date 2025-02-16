@@ -78,6 +78,29 @@ window.addEventListener("scroll", function() {
 
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault(); // 阻止默认锚点跳转行为
+
+            let targetId = this.getAttribute("href").substring(1); // 获取目标 ID
+            let targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                let headerOffset = document.getElementById("menu-outer").offsetHeight; // 获取 header 高度
+                let elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                let offsetPosition = elementPosition - headerOffset - 10; // 额外留点空隙
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth" // 平滑滚动
+                });
+            }
+        });
+    });
+});
+
+
 /****** go to top button ******/
 var backToTopButton = document.getElementById("back-to-top")
 var toCommentButton = document.getElementById("go-to-comment")
