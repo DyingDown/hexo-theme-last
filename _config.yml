@@ -103,7 +103,7 @@ carousel:
     opacity: 0.5 # float number 0 - 1 eg. 0.55
   blur:
     on: true
-    px: 20
+    px: 35
     frostedGlassCard: true
   textColor: "#fff" # Hex or color name 16进制的颜色或者颜色名字
 

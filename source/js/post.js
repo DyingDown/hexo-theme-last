@@ -112,6 +112,8 @@ uniqId();
 /********* initialize a toc  **********/
 // using tocbot API
 tocbot.init({
+    headingsOffset: 80,
+    scrollSmoothOffset: -80,
     // Where to render the table of contents.
     tocSelector: '#tocs', // 放置目录的容器
     // Where to grab the headings to build the table of contents.
