@@ -1,3 +1,7 @@
+import { initImageViewer } from "./third-party/view-image.js";
+
+initImageViewer("#post-content img");
+
 /********** set share function position  ***********/
 var share = document.getElementById("share-col");
 var shareIn = document.getElementById("shareButtons")

@@ -37,5 +37,5 @@ html(lang=config.language)
       each url in theme.scripts
         script(src=url)
     - if (is_post())
-      script(src="/js/post.js")
+      script(src="/js/post.js" type="module")
     <script src="https://use.typekit.net/bkt6ydm.js"></script>
