@@ -1,6 +1,7 @@
 header:
   Home: 主頁
   Category: 分類
+  Categories: 分類
   Archives: 檔案庫
   Tag: 標籤
   Friends: 友鏈
@@ -10,6 +11,7 @@ header:
   Theme: 主題
   Me: 博主
   Memory: 記憶
+  Gallery: 圖集
 
 toc: 目錄
 

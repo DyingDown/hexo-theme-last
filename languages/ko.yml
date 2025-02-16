@@ -3,6 +3,7 @@ toc: 목차
 header:
   Home: 홈
   Category: 카테고리
+  Categories: 카테고리
   Archives: 아카이브
   Tag: 태그
   Friends: 친구들
@@ -12,6 +13,7 @@ header:
   Theme: 테마
   Me: 블로거
   Memory: 기억
+  Gallery: 갤러리
 
 sideUser:
   donate: 기부

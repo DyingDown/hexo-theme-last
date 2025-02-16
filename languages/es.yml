@@ -3,6 +3,7 @@ toc: Catálogo
 header:
   Home: Inicio
   Category: Categoría
+  Categories: Categorías
   Archives: Archivos
   Tag: Etiqueta
   Friends: Amigos
@@ -12,6 +13,7 @@ header:
   Theme: Tema
   Me: Yo
   Memory: Memoria
+  Gallery: Galería
 
 sideUser:
   donate: DONAR
@@ -41,3 +43,7 @@ category:
   tag: ETIQUETA
 
 readmore: Leer más
+
+copy:
+  success: ¡Copia exitosa!
+  error: Error al copiar, por favor intente de nuevo.

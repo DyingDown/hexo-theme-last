@@ -51,17 +51,26 @@ if theme.valine.on && theme.valine.fancyStyle.on
 
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
 
+
 if theme.stylesheets !== undefined && theme.stylesheets.length > 0
     //- stylesheets list from _config.yml
     each url in theme.stylesheets
         //- if theme.jsDeliver.on
         //-     url = theme.jsDelivr.preURL + theme.jsDelivr.repoName + url 
         link(rel='stylesheet', href=url)
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+//- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script>
 script(src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js")
 script.
     var isHome = false;
     var isCenter = false;
+    var i18n = {
+        copy: {
+            success: !{JSON.stringify(__("copy.success"))},
+            error: !{JSON.stringify(__("copy.error"))}
+        }
+    };
+    
 if is_home()
     script.
         var isHome = true;
