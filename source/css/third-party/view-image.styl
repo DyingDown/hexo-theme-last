@@ -13,14 +13,21 @@
 }
 
 /* 图片样式，最大 90% 窗口大小 */
-.image-modal img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-}
+.image-modal img
+    max-width 90%
+    max-height 90%
+    object-fit contain
+
+    @media (max-width: 768px) // 适配移动端
+        max-width none
+        max-height none
+        width: 100vw;
+        height: 100vh;
+        object-fit: contain;
+
 
 /* 关闭按钮 */
-.close-btn, .prev-btn, .next-btn {
+.close-btn, .prev-btn, .next-btn 
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -31,8 +38,22 @@
     cursor: pointer;
     padding: 10px;
     user-select: none;
-}
 
-.close-btn { top: 50px; right: 50px; font-size: 40px; }
-.prev-btn { left: 20px; font-size: 40px; }
-.next-btn { right: 20px; font-size: 40px; }
+
+.close-btn 
+    top: 50px; 
+    right: 50px; 
+    font-size: 40px;
+    @media (max-width: 768px)
+        font-size: 30px 
+        right: 40px
+.prev-btn 
+    left: 20px; 
+    font-size: 40px; 
+    @media (max-width: 768px)
+        opacity: 0.6
+.next-btn  
+    right: 20px; 
+    font-size: 40px; 
+    @media (max-width: 768px)
+        opacity: 0.6
