@@ -38,5 +38,23 @@ if theme.valine.on
       lang: '#{theme.valine.lang}',
       serverURLs: '#{theme.valine.serverURLs}',
     })
+else if theme.gitalk.on
+  #gitalk-container
+  link(rel='stylesheet', href='https://unpkg.com/gitalk/dist/gitalk.css')
+  //- script(src='https://unpkg.com/gitalk/dist/gitalk.min.js')
+  script(src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js")
 
-        
+  script.
+    var gitalk = new Gitalk({
+      clientID: '#{theme.gitalk.client_id}',
+      clientSecret: '#{theme.gitalk.client_secret}',
+      repo: '#{theme.gitalk.repo}',
+      owner: '#{theme.gitalk.owner}',
+      admin: ['#{theme.gitalk.admin}'],
+      id: location.pathname, // Ensure uniqueness for each post
+      distractionFreeMode: "#{theme.gitalk.distraction_free_mode}",  // Optional
+      theme: '#{theme.gitalk.theme}'
+    });
+
+    gitalk.render('gitalk-container');
+    

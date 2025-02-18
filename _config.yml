@@ -207,9 +207,24 @@ valine:
   pageSize: 10
   serverURLs: https://l3oy62wr.api.lncldglobal.com
   fancyStyle:
-    on: true
+    on: false
     light: "#252c74" # colors in post page
     dark: "#ffdd40"  # colors in other dark page
+
+gitalk:
+  on: false # 需要关闭其他评论功能来使其生效 other comment has to be turned off to effect this
+  client_id: Ov23liCiDunMkoSbyNmw
+  client_secret: 045e62bb97d239de9fe1ae62a46e66a6c4e39c5f
+  repo: dyingdown.github.io
+  owner: Dyingdown
+  admin: ['Dyingdown, hexo-theme-last']
+  # More optional settings
+  language: en
+  per_page: 10
+  theme: dark
+  distraction_free_mode: false
+  placeholder: "Leave a comment..."
+
 
 ##### Post settings
 
