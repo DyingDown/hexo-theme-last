@@ -17,7 +17,7 @@ const pagination = require('hexo-pagination');
 
 hexo.extend.generator.register('index', function(locals) {
   const perPage = hexo.config.index_generator.per_page || 20;
-  const filteredPosts = locals.posts.filter(post => {
+  const filteredPosts = locals.posts.sort('date', -1).filter(post => {
     return !post.categories.some(cat => ['Gallery', 'ACM'].includes(cat.name));
   });
 
