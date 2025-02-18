@@ -176,7 +176,7 @@ if $frostedGlass == true
 /******* articles **********/
 .recent-post-item
     float left
-    height 29px * $lineClamp + 430px
+    height 29px * $lineClamp + 460px
     color  $homeCt
     flex: 1 0 18.75em
     margin: 0 0 1.875rem 
@@ -191,7 +191,7 @@ if $frostedGlass == true
     // Note 1: This complex calc right here is what makes the leftover box items
     // have the same width than their siblings.
     for $n in 2..$homeRowMaxItem 
-        $resolution = "calc((2 * %s) + (%s * %s))"%(0.625em $n 18.75em)
+        $resolution = "calc((2 * %s) + (%s * %s))"%(0.625em $n 15.75em)
         @media(min-width: $resolution)
             max-width: "calc(%s/%s - %s*2)"%(100% $n 0.9375em)
     // Note 2: This sets the maximum number of box items per row.
