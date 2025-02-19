@@ -78,14 +78,14 @@ tagsPage:
     show_count: false # false
 
 homeCover:
-  fixed: true
-  url: ss
+  fixed: false
+  url: ""
 
 # Carousel: Scroll and loop articles 轮播图:滚动循环播放文章。
 # add "isCarousel: true" to each post's information to enable carousel of the post
 # 给post顶部添加 “isCarousel: true” 来使文章在轮播图中显示
 carousel:
-  on: true # false
+  on: false # false
   prevNext: true
   indicators: # the indicator dots under the pictures 图片下面的点指示器
     on: true

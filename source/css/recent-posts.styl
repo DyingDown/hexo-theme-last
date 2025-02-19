@@ -14,6 +14,9 @@ $lineClamp = hexo-config("clampLines") || 9
 
 $frostedGlass = hexo-config("carousel.blur.frostedGlassCard") || false
 
+$homeCover = hexo-config("homeCover.url") || url('/img/home_cover.jpg') // url('https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202501180039206.png')
+$homeCoverFix = hexo-config("homeCover.fixed") || true
+
 if $carouselMask == true
     $MaskColor = convert(hexo-config("carousel.mask.color")) || #000
     $MaskColorO = hexo-config("carousel.mask.opacity") || 0.5
@@ -38,11 +41,12 @@ else if $carouselIndicatorsPos == 'right'
 #home-cover
     width 100%
     height 100vh
-    background: url("https://s1.ax1x.com/2020/04/17/JV919e.jpg") center center no-repeat // (https://s1.ax1x.com/2020/04/17/JV919e.jpg
-    background-attachment: fixed
+    background: $homeCover center center no-repeat // (https://s1.ax1x.com/2020/04/17/JV919e.jpg
     background-size: cover;  
     position: relative 
     overflow hidden;
+    if $homeCoverFix == true
+        background-attachment: fixed
 
 /********** carcousel **********/
 .postCarousel
