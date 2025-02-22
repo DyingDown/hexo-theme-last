@@ -8,6 +8,9 @@ For detailed instructions on how to install and configure this theme, please ref
 
 - [https://dyingdown.github.io](https://dyingdown.github.io])
 - [Demo](https://hexo-theme-last.github.io)
+- [Slyiva][https://sylvia417.github.io/] 
+
+(You can create an issue to request adding your blog here if you're using my theme.)
 
 ## Features
 
@@ -29,6 +32,12 @@ To use this theme in your Hexo blog, follow these steps:
 ```yaml
 # Hexo site _config.yml
 theme: hexo-theme-last
+```
+
+3. install required pakcages
+
+```bash
+npm install hexo-renderer-stylus hexo-renderer-pug
 ```
 
 ## Theme Configuration
