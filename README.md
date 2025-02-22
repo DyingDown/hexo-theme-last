@@ -8,7 +8,7 @@ For detailed instructions on how to install and configure this theme, please ref
 
 - [https://dyingdown.github.io](https://dyingdown.github.io])
 - [Demo](https://hexo-theme-last.github.io)
-- [Slyiva][https://sylvia417.github.io/] 
+- [Slyiva](https://sylvia417.github.io/])
 
 (You can create an issue to request adding your blog here if you're using my theme.)
 
