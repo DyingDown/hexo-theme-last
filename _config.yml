@@ -85,8 +85,8 @@ tagsPage:
     show_count: false # false
 
 homeCover:
-  fixed: true
-  url: ss
+  fixed: false
+  url: ""
 
 # Carousel: Scroll and loop articles 轮播图:滚动循环播放文章。
 # add "isCarousel: true" to each post's information to enable carousel of the post
