@@ -16,12 +16,11 @@ body.post > #menu-outer a
     width: calc(100vw - 40px);
     display flex;
     height: 75px;
-    background-color: $headerBg;
+    background-color: rgba($headerBg, 0);
     padding: 0 20px 
     align-items: center
     color: $headerCt
     justify-content space-between
-    transition: 0.3s
     z-index: 10
     border: solid lightgray 0px;
     .name-a
@@ -36,12 +35,12 @@ body.post > #menu-outer
 body.home > #menu-outer
     background-color: transparent
     
-#menu-outer.sticky
-    background-color: transparent;
+// #menu-outer.sticky
+//     background-color: transparent;
 .newMenuOuter
     left: $sideW;
-.newMenuOuterColor
-    background-color: $headerBg !important;
+// .newMenuOuterColor
+//     background-color: $headerBg !important;
 body.post > .newMenuOuterColor
     background-color: $headerPostBg !important
 /*********** left nav icon  ***********/
