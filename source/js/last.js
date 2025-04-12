@@ -24,9 +24,48 @@ function insertAfter(newElement, targetElement) { // newElement是要追加的�
     };
 };
 
-// if (isHome == false) {
-//     menuOuter.style.backgroundColor = "#ffffff";
-// }
+
+/******* drawer header close and open function *********/
+menuIcon.onclick = function() {
+    var first = this.childNodes[0];
+    var second = this.childNodes[1];
+    var third = this.childNodes[2];
+    var nav = document.getElementById("nav");
+    if (menuClickFlag == 0) {
+        modifyClass(second, "newSecondLine", 1);
+        modifyClass(first, "newFirstLine", 1);
+        modifyClass(third, "newThirdLine", 1);
+        modifyClass(nav, "newNav", 1);
+        modifyClass(menuOuter, "newMenuOuter", 1);
+        menuClickFlag = 1;
+    } else {
+        modifyClass(second, "newSecondLine", 0);
+        modifyClass(first, "newFirstLine", 0);
+        modifyClass(third, "newThirdLine", 0);
+        modifyClass(nav, "newNav", 0);
+        menuClickFlag = 0;
+        modifyClass(menuOuter, "newMenuOuter", 0);
+    }
+
+}
+
+/******** change header transparency when scroll ********/
+window.addEventListener("scroll", function() {
+    if (isHome) {
+        const scrollTop = window.scrollY; // 当前滚动高度
+        const maxScroll = 400; // 滚动达到 300px 时完全不透明
+        const headerOpacity = Math.min(scrollTop / maxScroll, 1); // 控制透明度范围从 0 到 1
+        
+        // 获取当前背景色
+        const currentBgColor = window.getComputedStyle(menuOuter).backgroundColor;
+        // 如果当前背景色是 rgba 或 rgb 形式
+        if (currentBgColor.startsWith('rgb')) {
+            const rgbValues = currentBgColor.match(/\d+/g); // 获取rgb中的数值数组
+            // 设置新的背景色
+            menuOuter.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, ${headerOpacity})`;
+        }
+    }
+});
 
 
 /****** go to top button ******/
