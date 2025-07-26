@@ -1,5 +1,7 @@
 # My Hexo Theme - Last
 
+![](https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202507261809162.png)
+
 Welcome to My Hexo Theme Last! This theme is designed to be sleek, customizable, and packed with features.
 
 For detailed instructions on how to install and configure this theme, please refer to our [documentation](https://dyingdown.github.io/theme-last-guide/site/).
