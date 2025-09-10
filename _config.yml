@@ -131,7 +131,7 @@ search:
   # - lunr: Advanced search with better performance and Chinese/Japanese/Korean support (recommended)
   # - algolia: Cloud search service (requires account setup)
   # - google: Google Custom Search (requires setup)
-  engine: algolia
+  engine: lunr
   
   # Local search settings (when engine is 'local')
   local:
