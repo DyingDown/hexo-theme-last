@@ -1,38 +1,5 @@
-$codeStyle = hexo-config("postStyle.codeStyle.style") || "mac"
-
-$codeColorSet = hexo-config("postStyle.codeStyle.colorSet") || "sakura"
-
-$isLightStyle = hexo-config("postStyle.codeStyle.light") || false
-
-$codeHeadBg = #23272c
-$codeBg = #1d1f21
-$codeHeadTxColor = #ffffff
-$codeShadow = 0.4
-$codeTxColor = #fff
-$borderColor = #0b0c0a
-$innerShadowColor = #3c3d39
-$numberColor = #888f96
-if $isLightStyle == true && $codeStyle == "mac"
-    $codeHeadBg = #f7f7f7
-    $codeBg = #ffffff
-    $codeHeadTxColor = gray
-    $codeShadow = 0.2
-    $codeTxColor = black
-    $numberColor = lightgray
-else if $codeStyle == "tab"
-    if $isLightStyle == false
-        $codeHeadBg = #1E1F1A
-        $codeBg = #1E1F1A
-        $codeHeadTxColor = #fff
-    else 
-        $codeHeadBg = #fff
-        $codeBg = #fff
-        $codeHeadTxColor = gray
-        $codeTxColor = black
-        $borderColor = #eeeeee
-        $innerShadowColor = #fbfbfb
-        $codeShadow = 0.1
-
+// Import variables from main variable file
+@import "../../themes/variable.styl"
 
 @import 'style/' + $codeStyle + '.styl'
 @import "highlights/" + $codeColorSet + ".styl"
