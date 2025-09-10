@@ -1,6 +1,6 @@
 # My Hexo Theme - Last
 
-![](https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202507261809162.png)
+![](https://cdn.jsdelivr.net/gh/DyingDown/img-host-repo/202507281059652.png)
 
 Welcome to My Hexo Theme Last! This theme is designed to be sleek, customizable, and packed with features.
 
