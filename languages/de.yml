@@ -33,6 +33,7 @@ localSearch:
   placeholder: Suche eingeben
   empty: (っ╥╯﹏╰╥c) Es tut uns leid, dieses Wort konnte nicht gefunden werden. Bitte versuchen Sie es mit einem anderen Wort.
   firstSearch: Erste Suche, index Datei wird geladen... Bitte warten Sie einen Moment.
+  error: Suchfunktion vorübergehend nicht verfügbar, bitte versuchen Sie es später erneut
 
 origin: Original
 

@@ -100,10 +100,47 @@ if (toCommentButton != null && commentBox != null && menuA != null) {
 
 /********* search *********/
 searchInput = document.getElementById("local-search-input")
-// searchInput.on
-searchInput.onclick = function(){ 
-    getSearchFile(); 
-    this.onclick = null;
+if (searchInput) {
+    // Skip if multi-search is already initialized (avoid conflicts)
+    if (window.searchManager || window.searchInitialized) {
+        console.log('Search already initialized by multi-search engine, skipping last.js search handler');
+    } else {
+        // Check search engine type from config
+        const searchConfig = window.themeConfig?.search;
+        
+        if (searchConfig && searchConfig.enable) {
+            const engine = searchConfig.engine || 'lunr';
+            
+            if (engine === 'lunr' && typeof initLunrSearch === 'function') {
+                // Use Lunr.js search (fastest)
+                searchInput.onclick = function() {
+                    window.lunrSearchInstance = initLunrSearch(searchConfig.lunr || {});
+                    console.log('Lunr.js search activated');
+                    this.onclick = null;
+                };
+            } else if (typeof initMultiSearch === 'function') {
+                // Use multi-search system
+                searchInput.onclick = function() {
+                    if (!window.searchManager) {
+                        window.searchManager = initMultiSearch();
+                    }
+                    this.onclick = null;
+                };
+            } else {
+                // Fallback to original search
+                searchInput.onclick = function(){ 
+                    getSearchFile(); 
+                    this.onclick = null;
+                };
+            }
+        } else {
+            // Legacy compatibility
+            searchInput.onclick = function(){ 
+                getSearchFile(); 
+                this.onclick = null;
+            };
+        }
+    }
 }
 // searchInput.onkeydown = function(){ 
 //     if(event.keyCode == 13) 
@@ -113,36 +150,51 @@ searchInput.onclick = function(){
 /********** alert message ********/
 const message = new Message();
 
-document.getElementById('test-info').addEventListener('click', () => {
-    message.show({
-        type: 'info',
-        text: '此路是我开，此树是我开，要想从此过，拿出买路钱！',
-        duration: 0,
-        isClose: true
+// Add safe event listeners with null checks
+const testInfo = document.getElementById('test-info');
+if (testInfo) {
+    testInfo.addEventListener('click', () => {
+        message.show({
+            type: 'info',
+            text: '此路是我开，此树是我开，要想从此过，拿出买路钱！',
+            duration: 0,
+            isClose: true
+        });
     });
-});
+}
 
-document.getElementById('test-warning').addEventListener('click', () => {
-    message.show({
-        type: 'warning',
-        text: '借贷有风险，不还钱小心被打！',
-        duration: 2000,
-        isClose: true
+const testWarning = document.getElementById('test-warning');
+if (testWarning) {
+    testWarning.addEventListener('click', () => {
+        message.show({
+            type: 'warning',
+            text: '借贷有风险，不还钱小心被打！',
+            duration: 2000,
+            isClose: true
+        });
     });
-});
-document.getElementById('test-error').addEventListener('click', () => {
-    message.show({
-        type: 'error',
-        text: '您的余额不够，请速速去借钱！',
-        duration: 5000,
-        isClose: true
+}
+
+const testError = document.getElementById('test-error');
+if (testError) {
+    testError.addEventListener('click', () => {
+        message.show({
+            type: 'error',
+            text: '您的余额不够，请速速去借钱！',
+            duration: 5000,
+            isClose: true
+        });
     });
-});
-document.getElementById('test-success').addEventListener('click', () => {
-    message.show({
-        type: 'success',
-        text: '您已交钱，放您通行！但是，这个钱只是通行费用，如果你要想从这个路过去，必须乘坐我们专用的交通工具。车子本身不收钱，但是发动它需要付钱，发动一次付款100元哦~',
-        duration: 5000,
-        isClose: true
+}
+
+const testSuccess = document.getElementById('test-success');
+if (testSuccess) {
+    testSuccess.addEventListener('click', () => {
+        message.show({
+            type: 'success',
+            text: '您已交钱，放您通行！但是，这个钱只是通行费用，如果你要想从这个路过去，必须乘坐我们专用的交通工具。车子本身不收钱，但是发动它需要付钱，发动一次付款100元哦~',
+            duration: 5000,
+            isClose: true
+        });
     });
-});
+}

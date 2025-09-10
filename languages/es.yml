@@ -32,7 +32,8 @@ sideButtons:
 localSearch:
   placeholder: Escriba para buscar
   empty: (っ╥╯﹏╰╥c) Lo siento, no puedo encontrar la palabra, por favor, pruebe con otra palabra
-  first: Primera búsqueda, cargando el archivo de índice... por favor, espere
+  firstSearch: Primera búsqueda, cargando el archivo de índice... por favor, espere
+  error: Función de búsqueda temporalmente no disponible, inténtelo de nuevo más tarde
 
 origin: ORIGEN
 

@@ -33,6 +33,7 @@ localSearch:
   placeholder: Saisissez pour rechercher
   empty: (っ╥╯﹏╰╥c) Désolé, aucun résultat trouvé pour ce mot. Veuillez essayer un autre mot.
   firstSearch: Première recherche, chargement du fichier d'index en cours... Veuillez patienter.
+  error: Fonction de recherche temporairement indisponible, veuillez réessayer plus tard
 
 origin: Original
 

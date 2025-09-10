@@ -33,6 +33,7 @@ localSearch:
   placeholder: 鍵入搜索
   empty: (っ╥╯﹏╰╥c) 很抱歉沒有查到這個詞，請換一個詞查詢
   firstSearch: 第一次搜索，正在加載 index 文件... 請稍等
+  error: 搜索功能暫時不可用，請稍後再試
 
 origin: 原創
 

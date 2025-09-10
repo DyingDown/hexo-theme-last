@@ -107,12 +107,75 @@ carousel:
     frostedGlassCard: true
   textColor: "#fff" # Hex or color name 16进制的颜色或者颜色名字
 
-# Search Function
-# need to install hexo-generator-search and have the setting in root _config.yml file like this
-# search:
-#   path: search.xml
-#   field: all
-#   content: true
+# ========================================
+# Search Configuration
+# ========================================
+# PREREQUISITE: Install hexo-generator-search plugin first:
+#   npm install hexo-generator-search --save
+# 
+# Then add to your site's _config.yml (NOT theme config):
+#   search:
+#     path: search.json    # for lunr engine (recommended)
+#     # OR
+#     path: search.xml     # for local engine
+#     field: post          # search scope: post, page, all
+#     content: true        # include post content in search
+#     format: html         # strip or html (recommended: html for better highlighting)
+
+search:
+  # Enable search functionality
+  enable: true
+  
+  # Search engine type: local, lunr, algolia, google
+  # - local: Simple client-side search (lightweight)
+  # - lunr: Advanced search with better performance and Chinese/Japanese/Korean support (recommended)
+  # - algolia: Cloud search service (requires account setup)
+  # - google: Google Custom Search (requires setup)
+  engine: algolia
+  
+  # Local search settings (when engine is 'local')
+  local:
+    # Search file path - must match your site's _config.yml search.path
+    path: search.xml
+    
+  # Lunr.js search settings (when engine is 'lunr') - RECOMMENDED
+  # Provides 10-50x better performance than local search with CJK language support
+  lunr:
+    # Search file path - must match your site's _config.yml search.path
+    # JSON format is recommended for better performance
+    path: search.json
+    # Maximum search results to display
+    maxResults: 30
+    # Minimum query length (1 allows single character search, good for Chinese/Japanese)
+    minQueryLength: 1
+    # Search delay in milliseconds (reduces server load)
+    debounceTime: 300
+    
+  # Algolia search settings (when engine is 'algolia')
+  # Requires account setup at https://www.algolia.com/
+  # Configure Algolia settings in your site's root _config.yml, not here!
+    # Example (add this to your site root _config.yml, NOT here!):
+    # algolia:
+    #   appId: "YOUR_APP_ID"   # required, Algolia Application ID
+    #   apiKey: "YOUR_API_KEY"         # required, Algolia Search-Only API Key
+    #   adminApiKey: "YOUR_ADMIN_API_KEY" # required, Algolia Admin API Key
+    #   indexName: "YOUR_INDEX_NAME"   # required, Algolia Index Name
+    #   chunkSize: 5000                 # optional, batch size for indexing
+    #   fields:                         # optional, fields to index
+    #     - content:strip:truncate,0,500
+    #     - excerpt:strip
+    #     - tags
+    #     - title
+    #     - path
+  algolia:
+    # Algolia settings should be configured in site root _config.yml, not here!
+      
+  # Google Custom Search (when engine is 'google')
+  # Requires setup at https://cse.google.com/
+  google:
+    cx: # Your Google Custom Search Engine ID
+
+# Legacy compatibility (deprecated, use search.local instead)
 localSearch:
   on: true
 

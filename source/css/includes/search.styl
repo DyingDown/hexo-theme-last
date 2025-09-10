@@ -46,13 +46,222 @@ body.post > #menu-outer .local-search-result-cls
     li
         &:not(:last-child)
             border-bottom: solid 1px lightgray
-        padding: 5px
-        a
+        padding: 8px 5px
+        line-height: 1.4
+        
+        // Local search styles
+        a:not(.search-result-title)
             font-weight: bold
             display: block
             margin: 10px 0
-        p
+        p:not(.search-result-excerpt)
             margin: 10px 0
             .search-keyword
                 color: $minorColor
                 font-weight: bold
+
+// Algolia search result styles - more like traditional search results
+.search-result-title
+    font-weight: bold !important
+    font-size 16px !important
+    color: $headerCt !important
+    text-decoration: underline !important
+    display: block !important
+    margin-bottom: 4px !important
+    
+    &:hover
+        text-decoration: underline !important
+
+// 为post页面调整搜索结果标题颜色
+body.post .search-result-title
+    color: $headerPostCt !important
+
+// 为非post页面保持原来的白色
+body:not(.post) .search-result-title
+    color: $headerCt !important
+
+body.post .local-search-empty
+    color: $headerPostCt !important
+
+body:not(.post) .local-search-empty
+    color: $headerCt !important
+
+.search-result-meta
+    font-size: 12px
+    color: #666 !important
+    margin-bottom: 4px
+    
+.search-result-date
+    color: #666
+
+.search-result-excerpt
+    font-size: 14px !important
+    line-height: 1.4 !important
+    color: #4d5156 !important
+    margin: 4px 0 8px 0 !important
+    
+    // Highlighted search terms in excerpt
+    mark
+        background-color: $minorColor !important
+        color: white !important
+        padding: 1px 2px !important
+        border-radius: 2px !important
+        font-weight: bold !important
+
+.search-result-tags
+    margin: 6px 0 0 0
+    
+    .search-tag
+        display: inline-block
+        background-color: #f1f3f4
+        color: #5f6368
+        padding: 4px 8px
+        margin-right: 6px
+        border-radius: 12px
+        font-size: 12px
+
+// 为不同页面调整标签颜色
+// body.post .search-result-tags .search-tag
+//     background-color: #e8f0fe
+//     color: #1a73e8
+//     border: 1px solid #4285f4
+
+body:not(.post) .search-result-tags .search-tag
+    background-color: #f1f3f4
+    color: #5f6368
+
+// Algolia highlighting fallback
+.ais-Highlight-highlighted
+    background-color: $minorColor !important
+    color: white !important
+    padding: 1px 3px !important
+    border-radius: 2px !important
+    font-weight: bold !important
+
+.ais-Snippet-highlighted
+    background-color: $minorColor !important
+    color: white !important
+    padding: 1px 3px !important
+    border-radius: 2px !important
+    font-weight: bold !important
+
+// Search stats (if enabled)
+#search-stats
+    font-size: 12px
+    color: #666
+    margin: 5px 0
+    text-align: center
+
+// Algolia search results - one article per line
+.ais-Hits-list
+    list-style: none !important
+    padding: 0 !important
+    margin: 0 !important
+    width: 100% !important
+// .ais-Hits ais-Hits--empty
+//     color: 
+
+// Algolia search items - 统一样式定义
+.ais-Hits-item, 
+.algolia-search-item,
+.ais-InfiniteHits-item, 
+.ais-InfiniteResults-item, 
+.ais-Results-item 
+    display: block !important
+    width: 100% !important
+    padding: 12px 8px !important
+    margin: 0 !important
+    border-bottom: 1px solid #e0e0e0 !important
+    border-top: none !important
+    border-left: none !important
+    border-right: none !important
+    box-shadow: none !important
+    background-color: transparent !important
+    background: transparent !important
+    
+    // 强制覆盖hover样式 - 使用更高优先级
+    &:hover,
+    &:focus,
+    &:active
+        background-color: transparent !important
+        background: transparent !important
+        box-shadow: none !important
+    
+    &:last-child
+        border-bottom: none !important
+.algolia-result-title
+    display: block !important
+    font-size: 16px !important
+    font-weight: 600 !important
+    color: $headerCt !important
+    text-decoration: none !important
+    margin-bottom: 4px !important
+    line-height: 1.3 !important
+    
+    &:hover
+        text-decoration: underline !important
+
+// 为post页面调整Algolia搜索结果标题颜色
+body.post .algolia-result-title
+    color: $headerPostCt !important
+
+// 为非post页面保持原来的白色
+body:not(.post) .algolia-result-title
+    color: $headerCt !important
+
+.algolia-result-meta
+    font-size: 12px !important
+    color: #666 !important
+    margin-bottom: 6px !important
+    
+.algolia-result-excerpt
+    font-size: 14px !important
+    line-height: 1.4 !important
+    color: $homeCt !important
+    margin: 0 0 8px 0 !important
+    display: block !important
+    width: 100% !important
+    
+    // Highlighted search terms in excerpt  
+    mark, .ais-Snippet-highlighted
+        background-color: $minorColor !important
+        color: white !important
+        padding: 1px 3px !important
+        border-radius: 2px !important
+        font-weight: bold !important
+
+// Override any conflicting styles
+.local-search-result-cls .algolia-search-result-list
+    width: 100% !important
+    max-width: none !important
+    
+    li.algolia-search-item
+        display: block !important
+        float: none !important
+        width: 100% !important
+        clear: both !important
+
+// 最终覆盖 - 使用最高优先级覆盖Algolia的所有可能样式
+.ais-Hits-item,
+.ais-Hits-item:hover,
+.ais-Hits-item:focus,
+.ais-Hits-item:active,
+.algolia-search-item,
+.algolia-search-item:hover,
+.algolia-search-item:focus,
+.algolia-search-item:active,
+.ais-InfiniteHits-item,
+.ais-InfiniteHits-item:hover,
+.ais-InfiniteResults-item,
+.ais-InfiniteResults-item:hover,
+.ais-Results-item,
+.ais-Results-item:hover
+    background-color: transparent !important
+    background: transparent !important
+    background-image: none !important
+    box-shadow: none !important
+    
+// 针对可能的内联样式覆盖
+[style*="background"] .ais-Hits-item,
+[style*="background"] .algolia-search-item
+    background: transparent !important

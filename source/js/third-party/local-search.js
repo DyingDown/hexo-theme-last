@@ -20,9 +20,22 @@
 var searchFunc = function(path, search_id, content_id) {
     // 0x00. environment initialization
     'use strict';
+    
+    // Check if jQuery is available
+    if (typeof $ === 'undefined' || typeof jQuery === 'undefined') {
+        console.error('jQuery is not loaded, search function cannot work');
+        return;
+    }
+    
     var BTN = "<i id='local-search-close'>×</i>";
     var $input = document.getElementById(search_id);
     var $resultContent = document.getElementById(content_id);
+    
+    if (!$input || !$resultContent) {
+        console.error('Search elements not found');
+        return;
+    }
+    
     var $emptySearch = $resultContent.getAttribute("data-empty");
     var $firstSearch = $resultContent.getAttribute("data-first");
     $resultContent.innerHTML = "<ul><span class='local-search-empty'>" + $firstSearch + "<span></ul>";
@@ -134,6 +147,16 @@ var searchFunc = function(path, search_id, content_id) {
 }
 
 var getSearchFile = function() {
-    var path = "/search.xml";
-    searchFunc(path, 'local-search-input', 'local-search-result');
+    // Wait for jQuery to be available
+    function initSearchWhenReady() {
+        if (typeof $ !== 'undefined' && typeof jQuery !== 'undefined') {
+            var path = "/search.xml";
+            searchFunc(path, 'local-search-input', 'local-search-result');
+        } else {
+            console.log('Waiting for jQuery to load...');
+            setTimeout(initSearchWhenReady, 100);
+        }
+    }
+    
+    initSearchWhenReady();
 }
