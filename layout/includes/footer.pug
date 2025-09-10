@@ -19,7 +19,8 @@
             br
             span= '©' + config.author + ' ' + theme.since + '-' + date(new Date(), 'YYYY')
         br
-        script(async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js")
+        //- Busuanzi with fallback CDN
+        script(async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/bchiang7/busuanzi@gh-pages/bsz.pure.mini.js'")
         //- if theme.totalPost === true 
         //-     div!= '<i class="fa-solid fa-pen-line"></i> ' + site.posts.length
         //-     br
@@ -28,6 +29,6 @@
                 - var user = '<i class="fa fa-user"></i>'
                 - var eye = '<i class="fa fa-fw fa-eye"></i>'
                 - var total_visits = '<span id="busuanzi_value_site_uv"></span>'
-                - var total_reads = '<span id="busuanzi_value_page_pv"></spsan>'
+                - var total_reads = '<span id="busuanzi_value_page_pv"></span>'
                 .visits!= user + ' ' + total_visits + ' ' + ' | ' + eye + ' ' + total_reads
 

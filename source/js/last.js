@@ -100,10 +100,47 @@ if (toCommentButton != null && commentBox != null && menuA != null) {
 
 /********* search *********/
 searchInput = document.getElementById("local-search-input")
-// searchInput.on
-searchInput.onclick = function(){ 
-    getSearchFile(); 
-    this.onclick = null;
+if (searchInput) {
+    // Skip if multi-search is already initialized (avoid conflicts)
+    if (window.searchManager || window.searchInitialized) {
+        console.log('Search already initialized by multi-search engine, skipping last.js search handler');
+    } else {
+        // Check search engine type from config
+        const searchConfig = window.themeConfig?.search;
+        
+        if (searchConfig && searchConfig.enable) {
+            const engine = searchConfig.engine || 'lunr';
+            
+            if (engine === 'lunr' && typeof initLunrSearch === 'function') {
+                // Use Lunr.js search (fastest)
+                searchInput.onclick = function() {
+                    window.lunrSearchInstance = initLunrSearch(searchConfig.lunr || {});
+                    console.log('Lunr.js search activated');
+                    this.onclick = null;
+                };
+            } else if (typeof initMultiSearch === 'function') {
+                // Use multi-search system
+                searchInput.onclick = function() {
+                    if (!window.searchManager) {
+                        window.searchManager = initMultiSearch();
+                    }
+                    this.onclick = null;
+                };
+            } else {
+                // Fallback to original search
+                searchInput.onclick = function(){ 
+                    getSearchFile(); 
+                    this.onclick = null;
+                };
+            }
+        } else {
+            // Legacy compatibility
+            searchInput.onclick = function(){ 
+                getSearchFile(); 
+                this.onclick = null;
+            };
+        }
+    }
 }
 // searchInput.onkeydown = function(){ 
 //     if(event.keyCode == 13) 

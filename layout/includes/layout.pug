@@ -30,7 +30,15 @@ html(lang=config.language)
     script(src="/js/third-party/tools.js")
     if (theme.carousel.on && is_home())
       script(src="/js/carousel.js")
-    if theme.localSearch.on 
+    //- Multi-search support
+    if theme.search && theme.search.enable
+      script(src="/js/third-party/multi-search.js")
+      if theme.search.engine === 'lunr'
+        script(src="/js/third-party/lunr-search.js")
+      else if theme.search.engine === 'local' || !theme.search.engine
+        script(src="/js/third-party/local-search.js")
+    else if theme.localSearch.on
+      //- Legacy compatibility
       script(src="/js/third-party/local-search.js")
     if theme.scripts !== undefined && theme.scripts.length > 0
       //- scripts list from config.yml

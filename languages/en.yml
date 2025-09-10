@@ -32,7 +32,8 @@ sideButtons:
 localSearch:
   placeholder: Type to search
   empty: (っ╥╯﹏╰╥c) Sorry I can't find the word, please try another word
-  first: First Search, loading index file... please wait
+  firstSearch: First Search, loading index file... please wait
+  error: Search temporarily unavailable, please try again later
 
 origin: ORIGIN
 

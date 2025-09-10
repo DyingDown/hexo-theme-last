@@ -1,121 +1,266 @@
-var carouselList = document.getElementsByClassName("postCarousel");
-var postList = document.getElementsByClassName("postList")[0];
-// add the first pic to the end
-var firstP = carouselList[0].cloneNode(true);
-postList.appendChild(firstP);
-
-postList.style.width = 100 * carouselList.length + "vw";
-var currentPictureIndex = 0;
-var allDots = document.getElementsByClassName("navDot");
-var preIndex = allDots.length - 1;
-var widthOfCarousel = postList.clientWidth / carouselList.length;
-var container = document.getElementsByClassName("carousel-container")[0];
-var prevPic = container.getElementsByClassName("fa-chevron-left")[0];
-var nextPic = container.getElementsByClassName("fa-chevron-right")[0];
-var carouselContent = document.getElementsByClassName("carouselContent");
-
-// make the dot be in the center
-if (isCenter) {
-    var Dots = document.getElementsByClassName("navDots")[0];
-    var centerDot = (window.innerWidth - Dots.offsetWidth) / 2;
-    Dots.style.left = centerDot + "px";
-}
-
-
-window.onresize = function() {
-    postList.style.width = 100 * carouselList.length + "vw";
-    widthOfCarousel = postList.clientWidth / carouselList.length;
-    if (isCenter) {
-        centerDot = (window.innerWidth - Dots.offsetWidth) / 2;
-        Dots.style.left = centerDot + "px";
+// Carousel state management
+var CarouselManager = {
+    carouselList: null,
+    postList: null,
+    currentPictureIndex: 0,
+    preIndex: 0,
+    allDots: null,
+    widthOfCarousel: 0,
+    container: null,
+    prevPic: null,
+    nextPic: null,
+    timer: null,
+    isTransitioning: false,
+    
+    init: function() {
+        this.carouselList = document.getElementsByClassName("postCarousel");
+        this.postList = document.getElementsByClassName("postList")[0];
+        
+        if (!this.carouselList.length || !this.postList) {
+            console.warn('Carousel elements not found');
+            return false;
+        }
+        
+        // add the first pic to the end for seamless loop
+        var firstP = this.carouselList[0].cloneNode(true);
+        this.postList.appendChild(firstP);
+        
+        this.allDots = document.getElementsByClassName("navDot");
+        this.container = document.getElementsByClassName("carousel-container")[0];
+        this.prevPic = this.container.getElementsByClassName("fa-chevron-left")[0];
+        this.nextPic = this.container.getElementsByClassName("fa-chevron-right")[0];
+        
+        this.updateDimensions();
+        this.preIndex = this.allDots.length - 1;
+        
+        return true;
+    },
+    
+    updateDimensions: function() {
+        if (!this.postList || !this.carouselList.length) return;
+        
+        this.postList.style.width = 100 * this.carouselList.length + "vw";
+        this.widthOfCarousel = this.postList.clientWidth / this.carouselList.length;
+        
+        // Recalculate position after resize
+        this.postList.style.left = -this.widthOfCarousel * this.currentPictureIndex + "px";
     }
+};
 
-}
+// Initialize carousel
+if (!CarouselManager.init()) {
+    // Exit if initialization failed
+    console.warn('Carousel initialization failed');
+} else {
+    var carouselList = CarouselManager.carouselList;
+    var postList = CarouselManager.postList;
+    var currentPictureIndex = CarouselManager.currentPictureIndex;
+    var allDots = CarouselManager.allDots;
+    var preIndex = CarouselManager.preIndex;
+    var widthOfCarousel = CarouselManager.widthOfCarousel;
+    var container = CarouselManager.container;
+    var prevPic = CarouselManager.prevPic;
+    var nextPic = CarouselManager.nextPic;
+    var carouselContent = document.getElementsByClassName("carouselContent");
 
-// add and class to make the current dot able to modify by css
-function setDotClass() {
-    if (allDots[preIndex].classList.contains("currentDot"))
-        allDots[preIndex].classList.remove("currentDot");
-    allDots[currentPictureIndex].classList.add("currentDot");
-}
-// set the first dot to the currentDot
-setDotClass();
-// set onclick function for all navigation dots
-for (var i = 0; i < allDots.length; i++) {
-    // add index function for each dot
-    allDots[i].num = i;
-    // add function for each dot
-    allDots[i].onclick = function() {
-        // close auto change timer
-        clearInterval(timer);
+    // Center dots if needed
+    function centerDots() {
+        if (typeof isCenter !== 'undefined' && isCenter) {
+            var Dots = document.getElementsByClassName("navDots")[0];
+            if (Dots) {
+                var centerDot = (window.innerWidth - Dots.offsetWidth) / 2;
+                Dots.style.left = centerDot + "px";
+            }
+        }
+    }
+    
+    centerDots();
 
-        // revise the index of current picture
-        preIndex = currentPictureIndex;
-        currentPictureIndex = this.num;
-        // change pictures
-        setDotStyle();
-        move(postList, "left", -widthOfCarousel * currentPictureIndex, 80, function() {
+    // Improved resize handling with debouncing
+    var resizeTimeout;
+    window.onresize = function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            // Stop current animations
+            clearInterval(CarouselManager.timer);
+            CarouselManager.isTransitioning = false;
+            
+            // Update dimensions
+            CarouselManager.updateDimensions();
+            widthOfCarousel = CarouselManager.widthOfCarousel;
+            
+            // Center dots
+            centerDots();
+            
+            // Ensure correct dot state
+            setDotClass();
+            
+            // Restart auto carousel
             autoCarousel();
-        });
+        }, 150); // Debounce resize events
     };
 }
 
-// next pic
-nextPic.onclick = function() {
-    clearInterval(timer);
-    preIndex = currentPictureIndex;
-    currentPictureIndex++;
-    currentPictureIndex %= carouselList.length;
-    setDotStyle();
-    move(postList, "left", -widthOfCarousel * currentPictureIndex, 80, function() {
-        autoCarousel();
-    });
-}
-
-// previous pic
-prevPic.onclick = function() {
-    if (currentPictureIndex != 0) {
-        clearInterval(timer);
-        preIndex = currentPictureIndex;
-        currentPictureIndex--;
-        currentPictureIndex %= carouselList.length;
-        setDotStyle();
-        move(postList, "left", -widthOfCarousel * currentPictureIndex, 80, function() {
-            autoCarousel();
-        });
+    // Improved dot class management
+    function setDotClass() {
+        // Clear all dots first to prevent multiple active states
+        for (var i = 0; i < allDots.length; i++) {
+            allDots[i].classList.remove("currentDot");
+        }
+        
+        // Ensure currentPictureIndex is within valid range
+        var dotIndex = CarouselManager.currentPictureIndex;
+        if (dotIndex >= allDots.length) {
+            dotIndex = 0;
+        }
+        
+        // Set current dot
+        if (allDots[dotIndex]) {
+            allDots[dotIndex].classList.add("currentDot");
+        }
+        
+        // Update global index
+        currentPictureIndex = CarouselManager.currentPictureIndex;
     }
-}
-
-// automatically change pictures
-autoCarousel();
-// creat a method to set style of dots
-function setDotStyle() {
-    // if is the last picture
-    if (currentPictureIndex >= carouselList.length - 1) {
-        // set index to 0
-        currentPictureIndex = 0;
-        // the last and the first pic are the same
-        // so set css to quickly change position
-        // because they are the same, we won't see the change process
-        postList.style.left = 0;
-
-    }
-    // traverse all dots and set color
-    for (var i = 0; i < allDots.length; i++) {
-        allDots[i].style.backgroundColor = "";
-    }
+    // set the first dot to the currentDot
     setDotClass();
-}
-var timer; // auto change timer
-// auto change pictures in carousel function
-function autoCarousel() {
-    // start a timer
-    timer = setInterval(function() {
-        preIndex = currentPictureIndex;
-        currentPictureIndex++;
-        currentPictureIndex %= carouselList.length;
+    
+    // set onclick function for all navigation dots
+    for (var i = 0; i < allDots.length; i++) {
+        // add index function for each dot
+        allDots[i].num = i;
+        // add function for each dot
+        allDots[i].onclick = function() {
+            // Prevent multiple clicks during transition
+            if (CarouselManager.isTransitioning) return;
+            
+            // close auto change timer
+            clearInterval(CarouselManager.timer);
+            CarouselManager.isTransitioning = true;
+
+            // revise the index of current picture
+            CarouselManager.preIndex = CarouselManager.currentPictureIndex;
+            CarouselManager.currentPictureIndex = this.num;
+            
+            // Update global variables
+            preIndex = CarouselManager.preIndex;
+            currentPictureIndex = CarouselManager.currentPictureIndex;
+            
+            // change pictures
+            setDotClass();
+            move(postList, "left", -widthOfCarousel * currentPictureIndex, 80, function() {
+                CarouselManager.isTransitioning = false;
+                autoCarousel();
+            });
+        };
+    }
+
+    // next pic
+    nextPic.onclick = function() {
+        if (CarouselManager.isTransitioning) return;
+        
+        clearInterval(CarouselManager.timer);
+        CarouselManager.isTransitioning = true;
+        
+        CarouselManager.preIndex = CarouselManager.currentPictureIndex;
+        CarouselManager.currentPictureIndex++;
+        CarouselManager.currentPictureIndex %= carouselList.length;
+        
+        // Update global variables
+        preIndex = CarouselManager.preIndex;
+        currentPictureIndex = CarouselManager.currentPictureIndex;
+        
+        setDotClass();
         move(postList, "left", -widthOfCarousel * currentPictureIndex, 80, function() {
             setDotStyle();
+            CarouselManager.isTransitioning = false;
+            autoCarousel();
         });
-    }, 6500);
-}
+    };
+
+    // previous pic
+    prevPic.onclick = function() {
+        if (CarouselManager.isTransitioning || CarouselManager.currentPictureIndex === 0) return;
+        
+        clearInterval(CarouselManager.timer);
+        CarouselManager.isTransitioning = true;
+        
+        CarouselManager.preIndex = CarouselManager.currentPictureIndex;
+        CarouselManager.currentPictureIndex--;
+        if (CarouselManager.currentPictureIndex < 0) {
+            CarouselManager.currentPictureIndex = carouselList.length - 1;
+        }
+        
+        // Update global variables
+        preIndex = CarouselManager.preIndex;
+        currentPictureIndex = CarouselManager.currentPictureIndex;
+        
+        setDotClass();
+        move(postList, "left", -widthOfCarousel * currentPictureIndex, 80, function() {
+            CarouselManager.isTransitioning = false;
+            autoCarousel();
+        });
+    };
+
+    // creat a method to set style of dots
+    function setDotStyle() {
+        // if is the last picture (seamless loop handling)
+        if (CarouselManager.currentPictureIndex >= carouselList.length - 1) {
+            // set index to 0 for dot display
+            CarouselManager.currentPictureIndex = 0;
+            currentPictureIndex = 0;
+            // the last and the first pic are the same
+            // so set css to quickly change position
+            // because they are the same, we won't see the change process
+            postList.style.left = 0;
+        }
+        
+        // Clear all dot background colors
+        for (var i = 0; i < allDots.length; i++) {
+            allDots[i].style.backgroundColor = "";
+        }
+        
+        // Update dot class
+        setDotClass();
+    }
+
+    // auto change pictures in carousel function
+    function autoCarousel() {
+        // Clear existing timer
+        clearInterval(CarouselManager.timer);
+        
+        // start a timer
+        CarouselManager.timer = setInterval(function() {
+            // Don't auto-advance during manual transitions
+            if (CarouselManager.isTransitioning) return;
+            
+            CarouselManager.preIndex = CarouselManager.currentPictureIndex;
+            CarouselManager.currentPictureIndex++;
+            CarouselManager.currentPictureIndex %= carouselList.length;
+            
+            // Update global variables
+            preIndex = CarouselManager.preIndex;
+            currentPictureIndex = CarouselManager.currentPictureIndex;
+            
+            move(postList, "left", -widthOfCarousel * currentPictureIndex, 80, function() {
+                setDotStyle();
+            });
+        }, 6500);
+    }
+
+    // automatically change pictures
+    autoCarousel();
+    
+    // Handle page visibility changes to prevent issues when switching tabs
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            clearInterval(CarouselManager.timer);
+        } else {
+            // Restart carousel when page becomes visible
+            setTimeout(function() {
+                if (!CarouselManager.isTransitioning) {
+                    autoCarousel();
+                }
+            }, 500);
+        }
+    });

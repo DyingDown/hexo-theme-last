@@ -33,6 +33,7 @@ localSearch:
   placeholder: 键入搜索
   empty: (っ╥╯﹏╰╥c) 很抱歉没有查到这个词，请换一个词查询
   firstSearch: 第一次搜索，正在加载 index 文件... 请稍等
+  error: 搜索功能暂时不可用，请稍后再试
 
 origin: 原创
 
