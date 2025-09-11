@@ -35,6 +35,9 @@ localSearch:
   firstSearch: 初めての検索、index ファイルを読み込んでいます... しばらくお待ちください
   error: 検索機能は一時的にご利用いただけません。しばらくしてからもう一度お試しください
 
+tagSearch:
+  placeholder: タグを検索...
+
 origin: オリジナル
 
 category:

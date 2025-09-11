@@ -37,6 +37,8 @@ if theme.valine.on && theme.valine.fancyStyle.on
         link(rel='stylesheet', href='/css/links.css')
     if page.title === 'tags'
         link(rel='stylesheet', href='/css/tags.css')
+        if theme.tagsPage.tag.alphabet_index
+            script(src='/js/tags.js' defer)
 
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
 

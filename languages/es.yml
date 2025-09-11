@@ -35,6 +35,9 @@ localSearch:
   firstSearch: Primera búsqueda, cargando el archivo de índice... por favor, espere
   error: Función de búsqueda temporalmente no disponible, inténtelo de nuevo más tarde
 
+tagSearch:
+  placeholder: Buscar etiquetas...
+
 origin: ORIGEN
 
 category:

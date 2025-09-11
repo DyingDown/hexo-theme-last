@@ -35,6 +35,9 @@ localSearch:
   firstSearch: First Search, loading index file... please wait
   error: Search temporarily unavailable, please try again later
 
+tagSearch:
+  placeholder: Search tags...
+
 origin: ORIGIN
 
 category:

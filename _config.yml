@@ -76,6 +76,10 @@ tagsPage:
     show_count: true # false
   tag:
     show_count: false # false
+    # Enable alphabet index for tags page (字母索引功能)
+    # When enabled: tags are grouped by first letter with search and navigation
+    # When disabled: traditional tag cloud layout
+    alphabet_index: true # true to enable, false to use traditional layout
 
 homeCover:
   fixed: false

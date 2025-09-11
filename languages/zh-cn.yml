@@ -35,6 +35,9 @@ localSearch:
   firstSearch: 第一次搜索，正在加载 index 文件... 请稍等
   error: 搜索功能暂时不可用，请稍后再试
 
+tagSearch:
+  placeholder: 搜索标签...
+
 origin: 原创
 
 category:

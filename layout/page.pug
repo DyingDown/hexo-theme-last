@@ -17,8 +17,45 @@ block content
       br
       #tags
         h1!= __("category.tags")
-        if tagsList
-          != tagsList
+        if site.tags.length
+          // 检查是否启用字母索引功能
+          if theme.tagsPage.tag.alphabet_index
+            // 字母索引模式
+            .alphabet-nav
+              - var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('')
+              each letter in alphabet
+                a.alphabet-link(href=`#letter-${letter}` data-letter=letter)= letter
+            
+            // 标签搜索框
+            .tag-search-container
+              input#tag-search.tag-search-input(type="text" placeholder=__("tagSearch.placeholder"))
+              i.fa.fa-search.search-icon
+            
+            // 按字母分组的标签
+            .tags-by-alphabet
+              - var tagsByLetter = {}
+              - site.tags.each(function(tag) {
+              -   var firstLetter = tag.name.charAt(0).toUpperCase()
+              -   if (!/[A-Z]/.test(firstLetter)) firstLetter = '#'
+              -   if (!tagsByLetter[firstLetter]) tagsByLetter[firstLetter] = []
+              -   tagsByLetter[firstLetter].push(tag)
+              - })
+              
+              each letter in alphabet
+                if tagsByLetter[letter]
+                  .letter-group
+                    h2.letter-header(id=`letter-${letter}`)= letter
+                    .tags-container
+                      each tag in tagsByLetter[letter]
+                        .tag-item(data-tag-name=tag.name.toLowerCase())
+                          a.tag-link(href=url_for(tag.path))
+                            span.tag-name= tag.name
+                            if theme.tagsPage.tag.show_count
+                              span.tag-count= tag.posts.length
+          else
+            // 传统标签云模式
+            .traditional-tags
+              != tagsList
         else
           p None.
       br

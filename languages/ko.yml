@@ -35,6 +35,9 @@ localSearch:
   firstSearch: 첫 검색, 색인 파일을로드하는 중입니다... 잠시 기다려주세요.
   error: 검색 기능을 일시적으로 사용할 수 없습니다. 나중에 다시 시도해주세요
 
+tagSearch:
+  placeholder: 태그 검색...
+
 origin: 오리지널
 
 category:
