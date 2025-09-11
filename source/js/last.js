@@ -51,18 +51,36 @@ menuIcon.onclick = function() {
 
 /******** change header transparency when scroll ********/
 window.addEventListener("scroll", function() {
-    if (isHome) {
-        const scrollTop = window.scrollY; // 当前滚动高度
-        const maxScroll = 400; // 滚动达到 300px 时完全不透明
-        const headerOpacity = Math.min(scrollTop / maxScroll, 1); // 控制透明度范围从 0 到 1
-        
-        // 获取当前背景色
+    // 确保menuOuter存在
+    if (!menuOuter) return;
+    
+    const scrollTop = window.scrollY; // 当前滚动高度
+    const maxScroll = 400; // 滚动达到 400px 时完全不透明
+    
+    // 检查页面类型
+    const isPostPage = document.body.classList.contains('post');
+    const isHomePage = document.body.classList.contains('home');
+    
+    if (isPostPage) {
+        // Post页面：保持原有的固定背景和阴影
+        return;
+    } else if (isHomePage) {
+        // Home页面：透明度渐变效果
+        const headerOpacity = Math.min(scrollTop / maxScroll, 1);
         const currentBgColor = window.getComputedStyle(menuOuter).backgroundColor;
-        // 如果当前背景色是 rgba 或 rgb 形式
+        
         if (currentBgColor.startsWith('rgb')) {
-            const rgbValues = currentBgColor.match(/\d+/g); // 获取rgb中的数值数组
-            // 设置新的背景色
+            const rgbValues = currentBgColor.match(/\d+/g);
             menuOuter.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, ${headerOpacity})`;
+        }
+    } else {
+        // 其他页面（tags、categories、archive等）：固定背景色，滚动时添加阴影
+        if (scrollTop > 50) {
+            // 滚动超过50px时添加阴影
+            menuOuter.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+        } else {
+            // 回到顶部时移除阴影
+            menuOuter.style.boxShadow = 'none';
         }
     }
 });
