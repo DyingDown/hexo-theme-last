@@ -35,6 +35,9 @@ localSearch:
   firstSearch: Erste Suche, index Datei wird geladen... Bitte warten Sie einen Moment.
   error: Suchfunktion vorübergehend nicht verfügbar, bitte versuchen Sie es später erneut
 
+tagSearch:
+  placeholder: Tags suchen...
+
 origin: Original
 
 category:
