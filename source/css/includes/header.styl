@@ -36,6 +36,11 @@ body.post > #menu-outer
 body.home > #menu-outer
     background-color: transparent
     
+// 为其他页面（tags、categories等）设置固定背景色，初始无阴影
+body:not(.home):not(.post) > #menu-outer
+    background-color: $bg
+    transition: box-shadow 0.3s ease
+    
 // #menu-outer.sticky
 //     background-color: transparent;
 .newMenuOuter

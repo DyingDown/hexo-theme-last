@@ -1,6 +1,8 @@
 
 - var pageTitle = page.title || config.subtitle || ''
-- var pageType = "home"
+- var pageType = "other"
+- if (is_home()) pageType = "home"
+- if (is_post()) pageType = "post"
 - if (is_archive()) pageTitle = 'Archives'
 - if (is_tag()) pageTitle = 'Tag: ' + page.tag
 - if (is_category()) pageTitle = 'Category: ' + page.category
