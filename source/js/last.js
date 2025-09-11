@@ -65,13 +65,17 @@ window.addEventListener("scroll", function() {
         // Post页面：保持原有的固定背景和阴影
         return;
     } else if (isHomePage) {
-        // Home页面：透明度渐变效果
+        // Home页面：透明度渐变效果 + 阴影效果
         const headerOpacity = Math.min(scrollTop / maxScroll, 1);
-        const currentBgColor = window.getComputedStyle(menuOuter).backgroundColor;
         
-        if (currentBgColor.startsWith('rgb')) {
-            const rgbValues = currentBgColor.match(/\d+/g);
-            menuOuter.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, ${headerOpacity})`;
+        // 设置背景色渐变（目标颜色为 $bg = #202020，即 rgb(32, 32, 32)）
+        menuOuter.style.backgroundColor = `rgba(32, 32, 32, ${headerOpacity})`;
+        
+        // 添加阴影效果
+        if (scrollTop > 50) {
+            menuOuter.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+        } else {
+            menuOuter.style.boxShadow = 'none';
         }
     } else {
         // 其他页面（tags、categories、archive等）：固定背景色，滚动时添加阴影
