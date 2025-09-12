@@ -52,18 +52,49 @@ h1
     z-index: 100
     background: rgba(0, 0, 0, 0.9)
     backdrop-filter: blur(10px)
-    padding: 10px 0
+    padding: 10px
     margin: 20px 0
     border-radius: 8px
     text-align: center
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3)
     
+    // 两行导航容器：韩文字母在上，英文字母在下
+    .alphabet-rows
+        display: flex
+        flex-direction: column
+        gap: 6px
+    
+    .alphabet-row
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        gap: 2px
+        
+        // 英文字母行样式（上行）
+        &.english-row
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+            padding-bottom: 6px
+            margin-bottom: 0
+        
+        // 韩文字母行样式（下行）
+        &.korean-row
+            padding-top: 6px
+    
+    // 单行导航（当只有英文或其他语言时）
+    .single-row
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        gap: 2px
+    
     .alphabet-link
         display: inline-block
-        width: 32px
+        min-width: 28px
         height: 32px
         line-height: 32px
-        margin: 2px
+        padding: 0 4px
         text-align: center
         color: #ccc
         text-decoration: none
@@ -240,11 +271,11 @@ mark
         top: 60px
         
         .alphabet-link
-            width: 28px
+            min-width: 24px
             height: 28px
             line-height: 28px
             font-size: 12px
-            margin: 1px
+            padding: 0 2px
             
     .tags-container
         grid-template-columns: 1fr
