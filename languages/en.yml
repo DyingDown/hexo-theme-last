@@ -37,6 +37,7 @@ localSearch:
 
 tagSearch:
   placeholder: Search tags...
+  info: Multi-language alphabet indexing supported
 
 origin: ORIGIN
 

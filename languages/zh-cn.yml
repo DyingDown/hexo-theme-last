@@ -37,6 +37,7 @@ localSearch:
 
 tagSearch:
   placeholder: 搜索标签...
+  info: 支持多语言字母索引
 
 origin: 原创
 

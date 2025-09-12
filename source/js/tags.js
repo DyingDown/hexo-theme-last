@@ -1,8 +1,15 @@
 /**
- * Tags Page Interactive Features
+ * Tags Page Interactive Features with Multi-language Support
  * - Alphabet navigation with smooth scrolling
  * - Tag search with real-time filtering
  * - Active letter highlighting
+ * - Multi-language romanization using external libraries
+ * 
+ * Required libraries for multi-language support:
+ * - Chinese: pinyin (npm: pinyin)
+ * - Japanese: wanakana (npm: wanakana)
+ * - Korean: hangul-romanization (npm: hangul-romanization)
+ * - Russian: cyrillic-to-translit-js (npm: cyrillic-to-translit-js)
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,14 +22,314 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
-    console.log('Alphabet index mode - initializing enhanced features');
+    console.log('Alphabet index mode - initializing enhanced features with multi-language support');
     
     // Initialize features
     initAlphabetNavigation();
     initTagSearch();
     initScrollSpy();
-    initAlphabetState(); // 初始化字母导航状态
+    initAlphabetState();
+    initMultiLanguageSupport(); // 新增：多语言支持初始化
 });
+
+// 多语言支持初始化
+function initMultiLanguageSupport() {
+    // 检测语言并重新分组标签
+    const currentLang = document.documentElement.lang || 'en';
+    console.log('Detected language:', currentLang);
+    
+    // 调试：输出主题配置
+    console.log('Theme config:', window.themeConfig);
+    
+    // 检查加载的库
+    console.log('Available libraries:');
+    console.log('- pinyin (local):', typeof window.pinyin !== 'undefined' && window.pinyin.pinyin ? '✓' : '✗');
+    console.log('- WanaKana (local):', typeof window.wanakana !== 'undefined' ? '✓' : '✗');
+    console.log('- Korean Utils (local):', typeof window.HangulInitials !== 'undefined' ? '✓' : '✗');
+    console.log('- Cyrillic Translit:', typeof window.CyrillicToTranslit !== 'undefined' ? '✓' : '✗');
+    
+    // 如果有相应的转换库，重新分组标签
+    reorganizeTagsByLanguage(currentLang);
+}
+
+// 根据语言重新组织标签
+function reorganizeTagsByLanguage(lang) {
+    const tagItems = document.querySelectorAll('.tag-item');
+    
+    // 构建动态字母表
+    let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    
+    // 检查是否启用韩语支持
+    const koreanEnabled = window.themeConfig && 
+                         window.themeConfig.tagsPage && 
+                         window.themeConfig.tagsPage.tag &&
+                         window.themeConfig.tagsPage.tag.korean && 
+                         window.themeConfig.tagsPage.tag.korean.enabled;
+    
+    if (koreanEnabled && typeof window.HangulInitials !== 'undefined') {
+        // 添加韩语字母到字母表中
+        const koreanLetters = window.HangulInitials.KOREAN_ALPHABET;
+        alphabet = alphabet.concat(koreanLetters);
+        console.log('Korean support enabled, expanded alphabet:', alphabet);
+    }
+    
+    // 添加 # 到末尾
+    alphabet.push('#');
+    
+    const newTagsByLetter = {};
+    
+    // 初始化字母分组
+    alphabet.forEach(letter => {
+        newTagsByLetter[letter] = [];
+    });
+    
+    // 重新分组所有标签
+    tagItems.forEach(item => {
+        const originalName = item.getAttribute('data-original-name') || item.getAttribute('data-tag-name');
+        console.log('Processing tag:', originalName);
+        const romanizedLetter = getRomanizedFirstLetter(originalName);
+        console.log('Tag', originalName, 'assigned to letter:', romanizedLetter);
+        
+        if (newTagsByLetter[romanizedLetter]) {
+            newTagsByLetter[romanizedLetter].push(item);
+        } else {
+            newTagsByLetter['#'].push(item);
+        }
+    });
+    
+    // 重新构建DOM结构
+    rebuildAlphabetGroups(newTagsByLetter);
+}
+
+// 获取转换后的首字母
+function getRomanizedFirstLetter(text, lang) {
+    if (!text) return '#';
+    
+    const firstChar = text.charAt(0);
+    
+    // 如果已经是英文字母，直接返回
+    if (/[A-Z]/i.test(firstChar)) {
+        return firstChar.toUpperCase();
+    }
+    
+    // 检测字符的语言并使用相应的转换库
+    if (isChinese(firstChar)) {
+        console.log('Detected Chinese character:', firstChar);
+        return getRomanizedChinese(text);
+    } else if (isJapanese(firstChar)) {
+        console.log('Detected Japanese character:', firstChar);
+        return getRomanizedJapanese(text);
+    } else if (isKorean(firstChar)) {
+        console.log('Detected Korean character:', firstChar);
+        return getRomanizedKorean(text);
+    } else if (isCyrillic(firstChar)) {
+        console.log('Detected Cyrillic character:', firstChar);
+        return getRomanizedRussian(text);
+    } else {
+        // 西欧语言或其他
+        return getRomanizedDefault(firstChar);
+    }
+}
+
+// 检测是否为中文字符
+function isChinese(char) {
+    const code = char.charCodeAt(0);
+    return (code >= 0x4e00 && code <= 0x9fff) || // CJK统一汉字
+           (code >= 0x3400 && code <= 0x4dbf) || // CJK扩展A
+           (code >= 0x20000 && code <= 0x2a6df); // CJK扩展B
+}
+
+// 检测是否为日文字符
+function isJapanese(char) {
+    const code = char.charCodeAt(0);
+    return (code >= 0x3040 && code <= 0x309f) || // 平假名
+           (code >= 0x30a0 && code <= 0x30ff) || // 片假名
+           (code >= 0xff65 && code <= 0xff9f);   // 半角片假名
+}
+
+// 检测是否为韩文字符
+function isKorean(char) {
+    const code = char.charCodeAt(0);
+    return (code >= 0xac00 && code <= 0xd7af) || // 韩文音节
+           (code >= 0x1100 && code <= 0x11ff) || // 韩文字母
+           (code >= 0x3130 && code <= 0x318f);   // 韩文兼容字母
+}
+
+// 检测是否为西里尔字符（俄文等）
+function isCyrillic(char) {
+    const code = char.charCodeAt(0);
+    return (code >= 0x0400 && code <= 0x04ff) || // 西里尔字母
+           (code >= 0x0500 && code <= 0x052f);   // 西里尔字母补充
+}
+
+// 中文转拼音首字母
+function getRomanizedChinese(text) {
+    console.log('Trying to convert Chinese:', text.charAt(0));
+    
+    if (typeof window.pinyin !== 'undefined' && window.pinyin.pinyin) {
+        try {
+            // 先尝试标准API
+            const result = window.pinyin.pinyin(text.charAt(0), { style: window.pinyin.pinyin.STYLE_FIRST_LETTER });
+            console.log('Pinyin result (STYLE_FIRST_LETTER):', result);
+            if (result && result.length > 0 && result[0].length > 0) {
+                const letter = result[0][0].toUpperCase();
+                console.log('Chinese', text.charAt(0), '→', letter);
+                return letter;
+            }
+        } catch (e) {
+            console.warn('pinyin conversion failed:', e);
+        }
+        
+        // 尝试简化API
+        try {
+            const result = window.pinyin.pinyin(text.charAt(0));
+            console.log('Pinyin result (default):', result);
+            if (result && result.length > 0) {
+                const letter = result[0].charAt(0).toUpperCase();
+                console.log('Chinese', text.charAt(0), '→', letter, '(default API)');
+                return letter;
+            }
+        } catch (e2) {
+            console.warn('pinyin conversion failed (alternative API):', e2);
+        }
+        
+        // 尝试直接调用
+        try {
+            const result = window.pinyin(text.charAt(0));
+            console.log('Pinyin result (direct call):', result);
+            if (result && result.length > 0) {
+                const letter = result[0].charAt(0).toUpperCase();
+                console.log('Chinese', text.charAt(0), '→', letter, '(direct call)');
+                return letter;
+            }
+        } catch (e3) {
+            console.warn('pinyin conversion failed (direct call):', e3);
+        }
+    } else {
+        console.warn('Pinyin library not available');
+    }
+    
+    console.log('Chinese conversion failed, returning #');
+    return '#';
+}
+
+// 日文转罗马字首字母
+function getRomanizedJapanese(text) {
+    if (typeof window.wanakana !== 'undefined' && window.wanakana) {
+        try {
+            const romaji = window.wanakana.toRomaji(text.charAt(0));
+            return romaji.charAt(0).toUpperCase();
+        } catch (e) {
+            console.warn('WanaKana conversion failed:', e);
+        }
+    }
+    return '#';
+}
+
+// 韩文转初声字母
+function getRomanizedKorean(text) {
+    // 检查是否启用韩语支持
+    const koreanEnabled = window.themeConfig && 
+                         window.themeConfig.tagsPage && 
+                         window.themeConfig.tagsPage.tag &&
+                         window.themeConfig.tagsPage.tag.korean && 
+                         window.themeConfig.tagsPage.tag.korean.enabled;
+    
+    if (!koreanEnabled) {
+        console.log('Korean support disabled, returning #');
+        return '#';
+    }
+    
+    if (typeof window.HangulInitials !== 'undefined') {
+        try {
+            // 使用新的函数直接返回韩文初声字母
+            const letter = window.HangulInitials.getChoseongLetter(text.charAt(0));
+            if (letter) {
+                console.log('Korean character', text.charAt(0), '→', letter);
+                return letter; // 现在返回韩文初声字母，如 'ㄱ', 'ㄴ' 等
+            }
+        } catch (e) {
+            console.warn('Korean conversion failed:', e);
+        }
+    } else {
+        console.warn('Korean utils library not available');
+    }
+    return '#';
+}
+
+// 俄文转拉丁字母
+function getRomanizedRussian(text) {
+    if (typeof window.CyrillicToTranslit !== 'undefined') {
+        try {
+            const translit = new window.CyrillicToTranslit();
+            const result = translit.transform(text.charAt(0));
+            return result.charAt(0).toUpperCase();
+        } catch (e) {
+            console.warn('Cyrillic transliteration failed:', e);
+        }
+    }
+    return '#';
+}
+
+// 西欧语言 - 移除重音符号
+function getRomanizedDefault(char) {
+    // 移除重音符号的映射
+    const accentMap = {
+        'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A', 'Ä': 'A', 'Å': 'A',
+        'È': 'E', 'É': 'E', 'Ê': 'E', 'Ë': 'E',
+        'Ì': 'I', 'Í': 'I', 'Î': 'I', 'Ï': 'I',
+        'Ò': 'O', 'Ó': 'O', 'Ô': 'O', 'Õ': 'O', 'Ö': 'O', 'Ø': 'O',
+        'Ù': 'U', 'Ú': 'U', 'Û': 'U', 'Ü': 'U',
+        'Ñ': 'N', 'Ç': 'C', 'Ÿ': 'Y',
+        'à': 'A', 'á': 'A', 'â': 'A', 'ã': 'A', 'ä': 'A', 'å': 'A',
+        'è': 'E', 'é': 'E', 'ê': 'E', 'ë': 'E',
+        'ì': 'I', 'í': 'I', 'î': 'I', 'ï': 'I',
+        'ò': 'O', 'ó': 'O', 'ô': 'O', 'õ': 'O', 'ö': 'O', 'ø': 'O',
+        'ù': 'U', 'ú': 'U', 'û': 'U', 'ü': 'U',
+        'ñ': 'N', 'ç': 'C', 'ÿ': 'Y'
+    };
+    
+    return (accentMap[char] || char).toUpperCase();
+}
+
+// 重新构建字母分组
+function rebuildAlphabetGroups(tagsByLetter) {
+    const tagsContainer = document.querySelector('.tags-by-alphabet');
+    if (!tagsContainer) return;
+    
+    // 清空现有内容
+    tagsContainer.innerHTML = '';
+    
+    // 重新创建字母分组
+    Object.keys(tagsByLetter).forEach(letter => {
+        const tags = tagsByLetter[letter];
+        if (tags.length > 0) {
+            // 创建字母分组
+            const letterGroup = document.createElement('div');
+            letterGroup.className = 'letter-group';
+            
+            const letterHeader = document.createElement('h2');
+            letterHeader.className = 'letter-header';
+            letterHeader.id = `letter-${letter}`;
+            letterHeader.textContent = letter;
+            
+            const tagsGroup = document.createElement('div');
+            tagsGroup.className = 'tags-container';
+            
+            // 添加标签到分组
+            tags.forEach(tagItem => {
+                tagsGroup.appendChild(tagItem.cloneNode(true));
+            });
+            
+            letterGroup.appendChild(letterHeader);
+            letterGroup.appendChild(tagsGroup);
+            tagsContainer.appendChild(letterGroup);
+        }
+    });
+    
+    // 重新初始化字母状态
+    initAlphabetState();
+}
 
 // 字母导航功能
 function initAlphabetNavigation() {

@@ -38,6 +38,15 @@ if theme.valine.on && theme.valine.fancyStyle.on
     if page.title === 'tags'
         link(rel='stylesheet', href='/css/tags.css')
         if theme.tagsPage.tag.alphabet_index
+            // Multi-language romanization libraries for alphabet indexing
+            // Chinese pinyin support - using local pinyin library
+            script(src='/js/third-party/pinyin.js')
+            // Japanese romaji support - using local WanaKana library
+            script(src='/js/third-party/wanakana.min.js')
+            // Korean initial consonant support - using local korean-utils library
+            script(src='/js/third-party/korean-utils.js')
+            // Russian transliteration support
+            script(src='https://cdn.jsdelivr.net/npm/cyrillic-to-translit-js@1.2.1/CyrillicToTranslit.js' onerror="console.warn('Cyrillic translit library failed to load from CDN')")
             script(src='/js/tags.js' defer)
 
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
@@ -67,6 +76,7 @@ script.
     // Search configuration
     window.themeConfig = {
         search: !{JSON.stringify(theme.search || {enable: false})},
+        tagsPage: !{JSON.stringify(theme.tagsPage || {})},
         i18n: {
             localSearch: {
                 placeholder: !{JSON.stringify(__("localSearch.placeholder"))},

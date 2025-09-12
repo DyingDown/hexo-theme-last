@@ -78,8 +78,31 @@ tagsPage:
     show_count: false # false
     # Enable alphabet index for tags page (字母索引功能)
     # When enabled: tags are grouped by first letter with search and navigation
-    # When disabled: traditional tag cloud layout
-    alphabet_index: false # true to enable, false to use traditional layout
+    # 
+    # Multi-language Support via Romanization Libraries:
+    # - Chinese: Install 'pinyin' library (npm install pinyin)
+    # - Japanese: Install 'wanakana' library (npm install wanakana)
+    # - Korean: Install 'hangul-romanization' library 
+    # - Russian: Install 'cyrillic-to-translit-js' library
+    # - Western languages with accents are handled automatically
+    # 
+    # 多语言支持说明：
+    # 系统会将所有语言转换为英文字母进行索引，需要安装对应的转换库：
+    # - 中文：安装 'pinyin' 库将汉字转为拼音首字母
+    # - 日文：安装 'wanakana' 库将假名转为罗马字
+    # - 韩文：安装 'hangul-romanization' 库
+    # - 俄文：安装 'cyrillic-to-translit-js' 库
+    alphabet_index: true # true 
+    # Custom alphabet (optional) - leave empty to auto-detect by site language
+    # custom_alphabet: "ABCDEFGHIJKLMNOPQRSTUVWXYZ#" 
+    
+    # Korean language support settings
+    korean:
+      enabled: true # Enable Korean initial consonant grouping (韩语初声分组)
+      # When enabled: Korean characters are grouped by initial consonant (ㄱ→G, ㄴ→N, etc.)
+      # When disabled: All Korean characters go to '#' category
+      # 启用时：韩语字符按初声分组（ㄱ→G, ㄴ→N 等）
+      # 禁用时：所有韩语字符归入 '#' 分类 
 
 homeCover:
   fixed: false

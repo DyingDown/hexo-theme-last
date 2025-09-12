@@ -20,25 +20,80 @@ block content
         if site.tags.length
           // 检查是否启用字母索引功能
           if theme.tagsPage.tag.alphabet_index
-            // 字母索引模式
+            // 字母索引模式 - 使用转换库将所有语言转为英文字母索引
+            - 
+              // 构建字母表 - 根据配置决定是否包含韩语初声
+              var englishAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('')
+              var koreanInitials = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
+              
+              // 检查是否启用韩语支持
+              var koreanEnabled = theme.tagsPage && theme.tagsPage.tag && theme.tagsPage.tag.korean && theme.tagsPage.tag.korean.enabled
+              
+              // 根据配置构建完整字母表
+              var alphabet = []
+              if (koreanEnabled) {
+                alphabet = koreanInitials.concat(englishAlphabet)
+              } else {
+                alphabet = englishAlphabet
+              }
+              
+              // 字符转换函数 - 将不同语言转换为字母索引
+              function getLetterIndex(text) {
+                if (!text) return '#'
+                var firstChar = text.charAt(0).toUpperCase()
+                
+                // 检查是否为英文字母
+                if (/[A-Z]/.test(firstChar)) {
+                  return firstChar
+                }
+                
+                // 检查是否为韩文字符
+                var code = firstChar.charCodeAt(0)
+                if (code >= 0xAC00 && code <= 0xD7A3) {
+                  // 韩文字符 - 如果启用韩语支持，提取初声，否则归入 #
+                  if (koreanEnabled) {
+                    var BASE = 0xAC00
+                    var CHOSEONG = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ']
+                    var BLOCK = 588
+                    var codeIndex = code - BASE
+                    if (codeIndex >= 0 && codeIndex <= 11171) {
+                      return CHOSEONG[Math.floor(codeIndex / BLOCK)]
+                    }
+                  }
+                }
+                
+                // 其他字符归入 # 类别
+                return '#'
+              }
+            
             .alphabet-nav
-              - var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('')
-              each letter in alphabet
-                a.alphabet-link(href=`#letter-${letter}` data-letter=letter)= letter
+              if koreanEnabled
+                // 英文字母行（上面）
+                .english-alphabet-row
+                  each letter in englishAlphabet
+                    a.alphabet-link.english-letter(href=`#letter-${letter}` data-letter=letter)= letter
+                // 韩语初声字符行（下面）
+                .korean-alphabet-row
+                  each letter in koreanInitials
+                    a.alphabet-link.korean-letter(href=`#letter-${letter}` data-letter=letter)= letter
+              else
+                // 只显示英文字母
+                .english-alphabet-row
+                  each letter in englishAlphabet
+                    a.alphabet-link.english-letter(href=`#letter-${letter}` data-letter=letter)= letter
             
             // 标签搜索框
             .tag-search-container
               input#tag-search.tag-search-input(type="text" placeholder=__("tagSearch.placeholder"))
               i.fa.fa-search.search-icon
             
-            // 按字母分组的标签
+            // 按字母分组的标签 - 初始分组，客户端会重新分组
             .tags-by-alphabet
               - var tagsByLetter = {}
               - site.tags.each(function(tag) {
-              -   var firstLetter = tag.name.charAt(0).toUpperCase()
-              -   if (!/[A-Z]/.test(firstLetter)) firstLetter = '#'
-              -   if (!tagsByLetter[firstLetter]) tagsByLetter[firstLetter] = []
-              -   tagsByLetter[firstLetter].push(tag)
+              -   var letterIndex = getLetterIndex(tag.name)
+              -   if (!tagsByLetter[letterIndex]) tagsByLetter[letterIndex] = []
+              -   tagsByLetter[letterIndex].push(tag)
               - })
               
               each letter in alphabet
@@ -47,7 +102,7 @@ block content
                     h2.letter-header(id=`letter-${letter}`)= letter
                     .tags-container
                       each tag in tagsByLetter[letter]
-                        .tag-item(data-tag-name=tag.name.toLowerCase())
+                        .tag-item(data-tag-name=tag.name.toLowerCase() data-original-name=tag.name)
                           a.tag-link(href=url_for(tag.path))
                             span.tag-name= tag.name
                             if theme.tagsPage.tag.show_count
