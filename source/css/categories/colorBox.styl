@@ -38,25 +38,82 @@ $on-palm: 600px
     font-size: 1px;
 
 .cols
-  column-count: 4
-  column-gap: 15px
-  column-fill: balance
+  display: flex
+  flex-wrap: wrap
+  gap: 15px
   width: 100%
+  align-items: flex-start
+  
+  // 动态列宽计算
+  &[data-count="1"] {
+    .box { flex: 0 0 100%; max-width: 500px; margin: 0 auto; }
+  }
+  
+  &[data-count="2"] {
+    .box { flex: 0 0 calc(50% - 7.5px); }
+  }
+  
+  &[data-count="3"] {
+    .box { flex: 0 0 calc(33.333% - 10px); }
+  }
+  
+  &[data-count="4"], &:not([data-count]) {
+    .box { flex: 0 0 calc(25% - 11.25px); }
+  }
+  
+  // 5个或更多时使用瀑布流
+  &:not([data-count]), &[data-count]:not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) {
+    display: block
+    column-count: 4
+    column-gap: 15px
+    column-fill: balance
+    
+    .box {
+      flex: none
+      width: 100%
+      margin: 0 0 15px 0
+      display: inline-block
+      break-inside: avoid
+      page-break-inside: avoid
+    }
+  }
   
   @media(max-width: 1500px) {
-    column-count: 3
-    column-gap: 12px
+    gap: 12px
+    
+    &[data-count="4"], &:not([data-count]) {
+      .box { flex: 0 0 calc(33.333% - 8px); }
+    }
+    
+    &:not([data-count]), &[data-count]:not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) {
+      column-count: 3
+      column-gap: 12px
+    }
   }
   
   @media(max-width: 1000px) {
-    column-count: 2
-    column-gap: 15px
+    gap: 15px
+    
+    &[data-count="3"], &[data-count="4"], &:not([data-count]) {
+      .box { flex: 0 0 calc(50% - 7.5px); }
+    }
+    
+    &:not([data-count]), &[data-count]:not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) {
+      column-count: 2
+      column-gap: 15px
+    }
   }
   
   @media(max-width: 600px) {
-    column-count: 1
-    column-gap: 10px
+    gap: 10px
     padding: 0 10px
+    
+    .box { flex: 0 0 100% !important; }
+    
+    &:not([data-count]), &[data-count]:not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) {
+      column-count: 1
+      column-gap: 10px
+    }
   }
 
 /* Again, you’re free to use and define the classes: */
@@ -71,7 +128,7 @@ $on-palm: 600px
 .box
   width: 100%
   margin: 0 0 15px 0
-  display: inline-block
+  display: block
   border-radius: 4px
   box-shadow: 2px 2px 4px #aaa
   -webkit-box-shadow: 2px 2px 4px #aaa 
@@ -79,8 +136,6 @@ $on-palm: 600px
   color: rgba(255, 255, 255, 0.72)
   overflow: hidden
   transition: all 0.3s ease
-  break-inside: avoid
-  page-break-inside: avoid
   
   &:hover
     box-shadow: 3px 3px 6px #aaa
